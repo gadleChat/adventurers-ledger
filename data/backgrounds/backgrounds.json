@@ -1,0 +1,519 @@
+{
+  "_meta": {
+    "description": "Backgrounds. `examples` are suggestion chips for personality traits, ideals, bonds, and flaws, written from scratch for this project. Players can also write their own.",
+    "order": ["acolyte", "charlatan", "criminal", "entertainer", "folk_hero", "guild_artisan", "noble", "outlander", "sage", "soldier", "urchin", "hermit", "sailor"]
+  },
+  "items": [
+    {
+      "id": "acolyte",
+      "name": { "ko": "복사", "en": "Acolyte" },
+      "source": "SRD5.1",
+      "bg3": true,
+      "summary": { "ko": "신전에서 자라며 신을 섬기고 의식을 돌봐 온 이.", "en": "Raised in service to a temple, tending rites and prayers." },
+      "skills": ["insight", "religion"],
+      "tools": [],
+      "languages": { "choose": 2 },
+      "feature": {
+        "name": { "ko": "신앙인의 쉼터", "en": "Shelter of the Faithful" },
+        "desc": { "ko": "같은 신앙의 신전에서 공짜로 치료와 잠자리를 얻고, 사제들의 도움을 기대할 수 있다.", "en": "Temples of your faith offer you free healing and lodging, and their priests will support you." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "누구에게서든 신의 뜻의 흔적을 찾으려 한다.", "en": "I look for signs of the divine in everyone I meet." },
+          { "ko": "경전 구절을 대화마다 인용한다.", "en": "I quote scripture in almost every conversation." },
+          { "ko": "다른 신앙에도 너그럽고 호기심이 많다.", "en": "I'm tolerant of, and curious about, other faiths." },
+          { "ko": "세상 물정에 어두워 쉽게 남을 믿는다.", "en": "I've lived a sheltered life and trust people too easily." },
+          { "ko": "의식과 절차를 빠뜨리는 걸 견디지 못한다.", "en": "I can't stand it when rituals are skipped or done wrong." },
+          { "ko": "작은 일에도 감사 기도를 올린다.", "en": "I give thanks in prayer for even the smallest blessings." }
+        ],
+        "ideals": [
+          { "ko": "전통: 옛 가르침은 지켜져야 한다.", "en": "Tradition: the old ways must be preserved." },
+          { "ko": "자비: 상처 입은 이를 외면하지 않는다.", "en": "Charity: I never turn away someone in need." },
+          { "ko": "신앙: 신이 나를 이끌고 있다고 믿는다.", "en": "Faith: I trust my deity to guide my steps." },
+          { "ko": "변화: 낡은 교단은 바뀌어야 한다.", "en": "Change: the old order of my faith must be reformed." }
+        ],
+        "bonds": [
+          { "ko": "나를 길러준 신전을 위해서라면 목숨도 건다.", "en": "I would die to protect the temple that raised me." },
+          { "ko": "잃어버린 성물을 되찾아야 한다.", "en": "I must recover a holy relic that was lost." },
+          { "ko": "나를 거둔 스승에게 큰 빚을 졌다.", "en": "I owe everything to the priest who took me in." }
+        ],
+        "flaws": [
+          { "ko": "내 신앙과 다른 이들을 은근히 깔본다.", "en": "I quietly look down on those of other faiths." },
+          { "ko": "교단 상부의 말이라면 의심 없이 따른다.", "en": "I obey my superiors without question." },
+          { "ko": "한 번 마음에 들지 않으면 끝까지 고집을 부린다.", "en": "Once I've made up my mind, I won't budge." }
+        ]
+      }
+    },
+    {
+      "id": "charlatan",
+      "name": { "ko": "사기꾼", "en": "Charlatan" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "말솜씨와 가짜 신분으로 사람들을 속여 먹고산 협잡꾼.", "en": "A con artist who lived by smooth talk and false identities." },
+      "skills": ["deception", "sleight_of_hand"],
+      "tools": ["disguise_kit", "forgery_kit"],
+      "languages": { "choose": 0 },
+      "feature": {
+        "name": { "ko": "가짜 신분", "en": "False Identity" },
+        "desc": { "ko": "서류와 지인까지 갖춘 두 번째 신분이 있고, 본 적 있는 문서는 그럴듯하게 위조할 수 있다.", "en": "You have a second identity with papers and contacts, and can forge documents you've seen." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "누구와도 오랜 친구처럼 말을 튼다.", "en": "I talk to strangers like we're old friends." },
+          { "ko": "거짓말을 하도 해서 진실을 말할 때도 꾸며낸다.", "en": "I lie so often I embellish even the truth." },
+          { "ko": "위기 때마다 새로운 이름을 하나씩 지어낸다.", "en": "I make up a new name whenever things get tight." },
+          { "ko": "남의 말버릇을 흉내 내는 게 습관이다.", "en": "I can't help mimicking how other people talk." },
+          { "ko": "빈손으로는 절대 자리를 뜨지 않는다.", "en": "I never leave a room empty-handed." }
+        ],
+        "ideals": [
+          { "ko": "독립: 누구의 손에도 묶이지 않는다.", "en": "Independence: I answer to no one." },
+          { "ko": "공정: 부자만 털고 가난한 이는 건드리지 않는다.", "en": "Fairness: I only con those who can afford it." },
+          { "ko": "창의: 같은 수법은 두 번 쓰지 않는다.", "en": "Creativity: I never run the same con twice." },
+          { "ko": "탐욕: 결국 남는 건 돈뿐이다.", "en": "Greed: in the end, only the coin matters." }
+        ],
+        "bonds": [
+          { "ko": "내가 속여 망가뜨린 사람에게 갚을 빚이 있다.", "en": "I owe something to a person my con ruined." },
+          { "ko": "나를 배신한 옛 동업자를 찾고 있다.", "en": "I'm hunting the partner who sold me out." },
+          { "ko": "남몰래 고아원에 돈을 보낸다.", "en": "I secretly send money to an orphanage." }
+        ],
+        "flaws": [
+          { "ko": "예쁜 얼굴 앞에서는 판단력이 흐려진다.", "en": "A pretty face clouds my judgment." },
+          { "ko": "더 큰 판이 보이면 지금 일을 던져버린다.", "en": "I drop everything for a bigger score." },
+          { "ko": "진실을 말해야 할 때도 습관처럼 거짓말한다.", "en": "I lie out of habit, even when the truth would serve me better." }
+        ]
+      }
+    },
+    {
+      "id": "criminal",
+      "name": { "ko": "범죄자", "en": "Criminal" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "뒷골목 조직과 연줄을 둔 법 밖의 사람.", "en": "Someone who lived outside the law, with ties to the underworld." },
+      "skills": ["deception", "stealth"],
+      "tools": ["thieves_tools"],
+      "toolChoice": { "count": 1, "category": "gaming_set" },
+      "languages": { "choose": 0 },
+      "feature": {
+        "name": { "ko": "범죄 연줄", "en": "Criminal Contact" },
+        "desc": { "ko": "범죄 조직과 이어진 믿을 만한 연락책이 있어, 먼 곳에도 소식을 주고받을 수 있다.", "en": "You have a reliable contact in the criminal underworld who can pass messages for you." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "새 장소에 가면 출구부터 확인한다.", "en": "I always note the exits when I walk into a room." },
+          { "ko": "위기 앞에서도 놀랄 만큼 침착하다.", "en": "I stay calm no matter how bad things get." },
+          { "ko": "누구도 쉽게 믿지 않는다.", "en": "I don't trust anyone easily." },
+          { "ko": "손에 넣을 수 있는 건 일단 챙기고 본다.", "en": "If it isn't nailed down, it ends up in my pocket." },
+          { "ko": "무례한 자는 반드시 갚아준다.", "en": "I never let an insult go unpaid." }
+        ],
+        "ideals": [
+          { "ko": "의리: 동료를 절대 팔지 않는다.", "en": "Honor among thieves: I never sell out my crew." },
+          { "ko": "자유: 사슬과 법은 깨지라고 있는 것이다.", "en": "Freedom: chains and laws are meant to be broken." },
+          { "ko": "생존: 살아남는 게 먼저다.", "en": "Survival: staying alive comes first." },
+          { "ko": "속죄: 언젠가 내 죄를 씻고 싶다.", "en": "Redemption: someday I want to make up for what I've done." }
+        ],
+        "bonds": [
+          { "ko": "감옥에 있는 옛 동료를 꺼내야 한다.", "en": "I have to get my old partner out of prison." },
+          { "ko": "내 모든 걸 앗아간 조직 두목에게 복수할 것이다.", "en": "I'll get revenge on the boss who took everything from me." },
+          { "ko": "가족을 먹여 살리려고 이 일을 시작했다.", "en": "I got into this life to feed my family." }
+        ],
+        "flaws": [
+          { "ko": "보물이 보이면 위험도 잊는다.", "en": "When I see treasure, I forget about the danger." },
+          { "ko": "들키면 일단 도망치고 본다.", "en": "When I'm caught, my first instinct is to run." },
+          { "ko": "죄 없는 사람이 대신 벌받게 둔 적이 있다.", "en": "I once let an innocent take the blame for me." }
+        ]
+      }
+    },
+    {
+      "id": "entertainer",
+      "name": { "ko": "연예인", "en": "Entertainer" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "무대 위에서 관객을 사로잡으며 살아온 공연가.", "en": "A performer who has lived to captivate an audience." },
+      "skills": ["acrobatics", "performance"],
+      "tools": ["disguise_kit"],
+      "toolChoice": { "count": 1, "category": "musical_instrument" },
+      "languages": { "choose": 0 },
+      "feature": {
+        "name": { "ko": "대중의 인기", "en": "By Popular Demand" },
+        "desc": { "ko": "어느 마을에서든 공연을 하면 숙식을 얻고, 사람들이 알아보고 반겨준다.", "en": "You can always find a stage to perform for free food and lodging, and locals recognize you." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "어떤 상황이든 이야깃거리로 바꾼다.", "en": "I can turn any situation into a story." },
+          { "ko": "박수 소리를 들어야 살아 있다고 느낀다.", "en": "I only feel alive when I hear applause." },
+          { "ko": "기분이 좋으면 아무 데서나 노래를 부른다.", "en": "When I'm happy I sing, wherever I am." },
+          { "ko": "무대 밖에서는 의외로 수줍음을 탄다.", "en": "Off stage, I'm surprisingly shy." },
+          { "ko": "유행하는 옷과 소문을 모르면 불안하다.", "en": "I get anxious if I'm not up on the latest fashions and gossip." }
+        ],
+        "ideals": [
+          { "ko": "아름다움: 예술로 세상을 더 낫게 만든다.", "en": "Beauty: art makes the world better." },
+          { "ko": "명성: 내 이름이 노래로 남기를 바란다.", "en": "Fame: I want my name to live on in song." },
+          { "ko": "진실: 공연으로 권력자의 위선을 까발린다.", "en": "Truth: my performances expose the hypocrisy of the powerful." },
+          { "ko": "자유: 정해진 대본대로 살지 않는다.", "en": "Freedom: I won't live by anyone's script." }
+        ],
+        "bonds": [
+          { "ko": "나를 처음 무대에 세워준 극단을 잊지 못한다.", "en": "I'll never forget the troupe that first put me on stage." },
+          { "ko": "내 노래를 훔친 경쟁자를 넘어서고 싶다.", "en": "I want to outshine the rival who stole my song." },
+          { "ko": "아끼는 악기는 목숨처럼 지킨다.", "en": "I guard my favorite instrument with my life." }
+        ],
+        "flaws": [
+          { "ko": "주목받을 수 있다면 무슨 짓이든 한다.", "en": "I'll do anything to be the center of attention." },
+          { "ko": "비판을 들으면 몹시 상처받는다.", "en": "Criticism cuts me deeply." },
+          { "ko": "공연 뒤 술자리를 거절하지 못한다.", "en": "I can't say no to a drink after a show." }
+        ]
+      }
+    },
+    {
+      "id": "folk_hero",
+      "name": { "ko": "민중 영웅", "en": "Folk Hero" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "평범한 출신이지만 고향 사람들을 위해 맞서 싸워 이름을 얻은 이.", "en": "A commoner who became a local legend by standing up for their people." },
+      "skills": ["animal_handling", "survival"],
+      "tools": ["vehicles_land"],
+      "toolChoice": { "count": 1, "category": "artisan" },
+      "languages": { "choose": 0 },
+      "feature": {
+        "name": { "ko": "소박한 환대", "en": "Rustic Hospitality" },
+        "desc": { "ko": "평민들은 나를 숨겨주고 먹여주며, 내가 위험한 존재가 아니라면 기꺼이 돕는다.", "en": "Common folk will hide, feed, and shelter you, as long as you don't put them in danger." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "누구든 행동으로 판단하지, 말로 판단하지 않는다.", "en": "I judge people by their actions, not their words." },
+          { "ko": "약자를 괴롭히는 꼴을 그냥 넘기지 못한다.", "en": "I can't stand by while the weak are bullied." },
+          { "ko": "고집이 세고 한 번 정하면 끝까지 간다.", "en": "I'm stubborn and see things through." },
+          { "ko": "평범한 사람들의 말투와 농담이 편하다.", "en": "I'm most at home with plain folk and their jokes." },
+          { "ko": "칭찬을 들으면 어쩔 줄 몰라 한다.", "en": "I get flustered when people praise me." }
+        ],
+        "ideals": [
+          { "ko": "존중: 사람은 누구나 존엄하다.", "en": "Respect: every person deserves dignity." },
+          { "ko": "공정: 폭군은 끌어내려야 한다.", "en": "Fairness: tyrants must be brought down." },
+          { "ko": "운명: 나는 더 큰 일을 하려고 태어났다.", "en": "Destiny: I was meant for something greater." },
+          { "ko": "가족: 고향 사람들이 먼저다.", "en": "Home: my people come first." }
+        ],
+        "bonds": [
+          { "ko": "고향 마을을 지키는 게 내 삶의 이유다.", "en": "Protecting my home village is my reason for living." },
+          { "ko": "나를 영웅으로 만든 그날의 적이 아직 살아 있다.", "en": "The enemy I faced on the day I became a hero is still out there." },
+          { "ko": "평생 일하던 대장간의 망치를 늘 지니고 다닌다.", "en": "I still carry the hammer from the forge where I worked." }
+        ],
+        "flaws": [
+          { "ko": "내가 옳다고 믿으면 앞뒤 안 가리고 뛰어든다.", "en": "When I think I'm right, I charge in without thinking." },
+          { "ko": "귀족과 부자를 대놓고 무시한다.", "en": "I openly sneer at nobles and the rich." },
+          { "ko": "영웅이라는 이름이 부담스러워 몰래 도망치고 싶을 때가 있다.", "en": "Sometimes the weight of being a hero makes me want to run." }
+        ]
+      }
+    },
+    {
+      "id": "guild_artisan",
+      "name": { "ko": "길드 장인", "en": "Guild Artisan" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "장인 길드에 속해 기술을 익히고 장사를 해 온 이.", "en": "A member of a craft guild, skilled in a trade and in business." },
+      "skills": ["insight", "persuasion"],
+      "tools": [],
+      "toolChoice": { "count": 1, "category": "artisan" },
+      "languages": { "choose": 1 },
+      "feature": {
+        "name": { "ko": "길드 회원", "en": "Guild Membership" },
+        "desc": { "ko": "길드가 숙소와 법적 도움, 정치적 연줄을 제공한다. 대신 회비를 내야 한다.", "en": "Your guild offers lodging, legal help, and political connections, in return for dues." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "물건을 보면 일단 만듦새부터 따진다.", "en": "I judge everything by its craftsmanship." },
+          { "ko": "흥정 없이 물건을 사는 법이 없다.", "en": "I never buy anything without haggling." },
+          { "ko": "손이 쉬면 불안해서 뭐라도 만지작거린다.", "en": "My hands are never idle; I'm always tinkering." },
+          { "ko": "약속한 기한은 반드시 지킨다.", "en": "I always meet a deadline I've promised." },
+          { "ko": "내 작품을 칭찬하면 금세 친해진다.", "en": "Praise my work and you've made a friend." }
+        ],
+        "ideals": [
+          { "ko": "공동체: 길드는 서로를 지켜야 한다.", "en": "Community: guild members look out for each other." },
+          { "ko": "장인 정신: 최고의 작품을 남긴다.", "en": "Mastery: I want to create my masterpiece." },
+          { "ko": "부: 기술은 돈이 되어야 한다.", "en": "Wealth: skill should earn coin." },
+          { "ko": "자유: 길드의 낡은 규칙을 깨고 싶다.", "en": "Freedom: the guild's old rules should be broken." }
+        ],
+        "bonds": [
+          { "ko": "나를 가르친 스승의 공방을 다시 일으키고 싶다.", "en": "I want to restore my master's old workshop." },
+          { "ko": "내 설계를 훔친 자를 법정에 세울 것이다.", "en": "I'll see the one who stole my designs brought to justice." },
+          { "ko": "길드의 신뢰를 다시 얻어야 한다.", "en": "I need to win back my guild's trust." }
+        ],
+        "flaws": [
+          { "ko": "돈 되는 일이라면 원칙도 조금 굽힌다.", "en": "I'll bend my principles if the price is right." },
+          { "ko": "남의 작품을 보면 흠부터 찾는다.", "en": "I can't look at anyone else's work without finding flaws." },
+          { "ko": "길드 일이라면 친구도 저버린다.", "en": "I'd abandon a friend if the guild asked it." }
+        ]
+      }
+    },
+    {
+      "id": "noble",
+      "name": { "ko": "귀족", "en": "Noble" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "부와 지위, 가문의 이름을 짊어지고 자란 이.", "en": "Raised with wealth, privilege, and a family name to uphold." },
+      "skills": ["history", "persuasion"],
+      "tools": [],
+      "toolChoice": { "count": 1, "category": "gaming_set" },
+      "languages": { "choose": 1 },
+      "feature": {
+        "name": { "ko": "특권의 지위", "en": "Position of Privilege" },
+        "desc": { "ko": "상류 사회에서 환영받고, 평민들은 나를 어려워하며, 높은 이들과 쉽게 만날 수 있다.", "en": "You are welcome in high society, common folk defer to you, and you can secure audiences with the powerful." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "어디서든 예법을 갖춰 말한다.", "en": "I speak with formal courtesy wherever I am." },
+          { "ko": "더러운 곳을 견디기 힘들다.", "en": "I find it hard to bear filth and squalor." },
+          { "ko": "모두가 내 말을 따르는 게 당연하다고 여긴다.", "en": "I expect people to do what I say." },
+          { "ko": "평민의 삶에 서툴지만 진심으로 배우려 한다.", "en": "I'm clumsy at common life but genuinely trying to learn." },
+          { "ko": "가문의 이름에 먹칠하는 일은 참지 못한다.", "en": "I won't tolerate anything that shames my family name." }
+        ],
+        "ideals": [
+          { "ko": "책임: 높은 자리는 지켜야 할 이들이 있다는 뜻이다.", "en": "Responsibility: rank means people to protect." },
+          { "ko": "권력: 더 높은 자리를 원한다.", "en": "Power: I want to rise higher." },
+          { "ko": "가문: 혈통의 명예가 무엇보다 중요하다.", "en": "Family: the honor of my bloodline is everything." },
+          { "ko": "변화: 귀족 사회의 위선을 바꾸고 싶다.", "en": "Change: I want to reform the hypocrisy of the nobility." }
+        ],
+        "bonds": [
+          { "ko": "몰락한 가문을 다시 일으킬 것이다.", "en": "I will restore my family's fallen fortunes." },
+          { "ko": "정략혼을 피해 집을 나왔다.", "en": "I fled home to escape an arranged marriage." },
+          { "ko": "나를 아껴준 하인에게 큰 빚이 있다.", "en": "I owe a great debt to a servant who cared for me." }
+        ],
+        "flaws": [
+          { "ko": "남을 은근히 아래로 본다.", "en": "I secretly think I'm better than everyone." },
+          { "ko": "가문의 추문을 숨기고 있다.", "en": "I'm hiding a scandal that could ruin my family." },
+          { "ko": "모욕을 받으면 결투를 신청해야 직성이 풀린다.", "en": "An insult can only be answered with a duel." }
+        ]
+      }
+    },
+    {
+      "id": "outlander",
+      "name": { "ko": "이방인", "en": "Outlander" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "문명과 떨어진 황야에서 자라 자연에 익숙한 이.", "en": "Raised in the wilds, far from civilization." },
+      "skills": ["athletics", "survival"],
+      "tools": [],
+      "toolChoice": { "count": 1, "category": "musical_instrument" },
+      "languages": { "choose": 1 },
+      "feature": {
+        "name": { "ko": "방랑자", "en": "Wanderer" },
+        "desc": { "ko": "지형과 길을 잘 기억하고, 황야에서 일행이 먹을 것과 물을 구할 수 있다.", "en": "You remember maps and terrain well and can find food and water for your companions in the wild." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "도시의 소음과 사람 많은 곳이 불편하다.", "en": "Cities are too loud and crowded for me." },
+          { "ko": "말보다 행동이 빠르다.", "en": "I act before I talk." },
+          { "ko": "짐승 소리와 날씨 변화에 민감하다.", "en": "I notice animal calls and changes in the weather." },
+          { "ko": "모닥불 앞에서 옛 이야기를 늘어놓는다.", "en": "I tell old tales by the campfire." },
+          { "ko": "예의범절 따위는 잘 모른다.", "en": "I don't know much about manners." }
+        ],
+        "ideals": [
+          { "ko": "자연: 숲과 들은 지켜져야 한다.", "en": "Nature: the wild must be protected." },
+          { "ko": "강함: 강한 자가 살아남는다.", "en": "Might: the strong survive." },
+          { "ko": "부족: 나의 사람들을 위해 산다.", "en": "Tribe: I live for my people." },
+          { "ko": "발견: 아직 아무도 가보지 않은 곳을 보고 싶다.", "en": "Discovery: I want to see places no one has been." }
+        ],
+        "bonds": [
+          { "ko": "흩어진 부족을 다시 모으고 싶다.", "en": "I want to reunite my scattered tribe." },
+          { "ko": "고향 숲을 망친 자들을 용서하지 않는다.", "en": "I'll never forgive those who ruined my home forest." },
+          { "ko": "길을 잃었을 때 나를 구해준 짐승을 잊지 못한다.", "en": "I'll never forget the beast that saved me when I was lost." }
+        ],
+        "flaws": [
+          { "ko": "문명인들을 대놓고 무시한다.", "en": "I openly scorn civilized folk." },
+          { "ko": "술 앞에서는 절제를 모른다.", "en": "I don't know how to stop drinking." },
+          { "ko": "위협을 느끼면 일단 주먹부터 나간다.", "en": "When I feel threatened, I swing first." }
+        ]
+      }
+    },
+    {
+      "id": "sage",
+      "name": { "ko": "학자", "en": "Sage" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "책과 연구에 평생을 바친 학자.", "en": "A scholar who has spent years in study and research." },
+      "skills": ["arcana", "history"],
+      "tools": [],
+      "languages": { "choose": 2 },
+      "feature": {
+        "name": { "ko": "연구자", "en": "Researcher" },
+        "desc": { "ko": "모르는 지식이 있어도 어디서 찾을 수 있는지, 누구에게 물어야 하는지 안다.", "en": "When you don't know something, you know where or from whom to learn it." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "쉬운 말도 어렵게 늘어놓는다.", "en": "I use long words where short ones would do." },
+          { "ko": "모르는 게 있으면 잠을 못 잔다.", "en": "I can't sleep until I've figured something out." },
+          { "ko": "책을 함부로 다루는 사람을 보면 화가 난다.", "en": "Seeing someone mistreat a book makes me furious." },
+          { "ko": "생각에 빠지면 주변을 완전히 잊는다.", "en": "I get so lost in thought I forget where I am." },
+          { "ko": "모든 걸 기록해 둔다.", "en": "I write everything down." }
+        ],
+        "ideals": [
+          { "ko": "지식: 앎은 그 자체로 가치가 있다.", "en": "Knowledge: learning is valuable for its own sake." },
+          { "ko": "책임: 위험한 지식은 숨겨야 한다.", "en": "Responsibility: dangerous knowledge must be kept hidden." },
+          { "ko": "권력: 지식은 힘이다.", "en": "Power: knowledge is power." },
+          { "ko": "나눔: 배운 것은 모두와 나눠야 한다.", "en": "Sharing: what I learn belongs to everyone." }
+        ],
+        "bonds": [
+          { "ko": "평생을 건 연구를 끝내야 한다.", "en": "I must finish the research of a lifetime." },
+          { "ko": "불타버린 도서관의 지식을 되살리고 싶다.", "en": "I want to recover the knowledge lost when my library burned." },
+          { "ko": "스승이 남긴 수수께끼를 풀어야 한다.", "en": "I have to solve the riddle my mentor left behind." }
+        ],
+        "flaws": [
+          { "ko": "지식을 위해서라면 위험도 무릅쓴다.", "en": "I'll risk anything for knowledge." },
+          { "ko": "남들이 나보다 무식하다고 생각한다.", "en": "I assume everyone knows less than I do." },
+          { "ko": "책에서 본 것과 현실이 다르면 현실을 의심한다.", "en": "When reality disagrees with my books, I doubt reality." }
+        ]
+      }
+    },
+    {
+      "id": "soldier",
+      "name": { "ko": "군인", "en": "Soldier" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "군대나 용병단에서 싸우며 계급과 규율 속에 살아온 이.", "en": "Someone who served in an army or mercenary company." },
+      "skills": ["athletics", "intimidation"],
+      "tools": ["vehicles_land"],
+      "toolChoice": { "count": 1, "category": "gaming_set" },
+      "languages": { "choose": 0 },
+      "feature": {
+        "name": { "ko": "군 계급", "en": "Military Rank" },
+        "desc": { "ko": "옛 부대의 군인들은 아직 나의 계급을 존중하고, 군 시설을 이용할 수 있다.", "en": "Soldiers of your former army still respect your rank, and you can use military facilities." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "새벽같이 일어나 장비를 점검한다.", "en": "I'm up at dawn checking my gear." },
+          { "ko": "죽은 전우들 이야기를 자주 한다.", "en": "I often talk about comrades I've lost." },
+          { "ko": "명령 체계가 없으면 불안하다.", "en": "I'm uneasy without a clear chain of command." },
+          { "ko": "농담으로 긴장을 푼다.", "en": "I crack jokes to break the tension." },
+          { "ko": "큰 소리에 몸이 먼저 반응한다.", "en": "Loud noises make me reach for a weapon." }
+        ],
+        "ideals": [
+          { "ko": "의무: 맡은 임무는 끝까지 해낸다.", "en": "Duty: I finish the mission." },
+          { "ko": "전우애: 동료를 두고 가지 않는다.", "en": "Comradeship: no one gets left behind." },
+          { "ko": "질서: 규율이 무너지면 모두 죽는다.", "en": "Order: without discipline, everyone dies." },
+          { "ko": "평화: 다시는 전쟁이 없기를 바란다.", "en": "Peace: I fight so there won't be another war." }
+        ],
+        "bonds": [
+          { "ko": "전멸한 부대의 마지막 생존자다.", "en": "I'm the last survivor of my unit." },
+          { "ko": "나를 살린 상관에게 목숨을 빚졌다.", "en": "I owe my life to the officer who saved me." },
+          { "ko": "전쟁에서 지키지 못한 마을이 있다.", "en": "There's a village I failed to protect in the war." }
+        ],
+        "flaws": [
+          { "ko": "끔찍한 전투의 악몽에 시달린다.", "en": "I'm haunted by nightmares of a terrible battle." },
+          { "ko": "명령이라면 옳지 않아도 따른 적이 있다.", "en": "I've followed orders I knew were wrong." },
+          { "ko": "적군 출신은 누구든 믿지 않는다.", "en": "I don't trust anyone from the enemy's side." }
+        ]
+      }
+    },
+    {
+      "id": "urchin",
+      "name": { "ko": "부랑아", "en": "Urchin" },
+      "source": "PHB",
+      "bg3": true,
+      "summary": { "ko": "거리에서 홀로 자라며 살아남는 법을 익힌 이.", "en": "Grew up alone on the streets, learning to survive." },
+      "skills": ["sleight_of_hand", "stealth"],
+      "tools": ["disguise_kit", "thieves_tools"],
+      "languages": { "choose": 0 },
+      "feature": {
+        "name": { "ko": "도시의 비밀", "en": "City Secrets" },
+        "desc": { "ko": "도시의 뒷길과 지름길을 알아, 일행과 함께 남들보다 두 배 빨리 도시를 누빈다.", "en": "You know a city's back alleys and shortcuts, letting your group travel through it twice as fast." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "음식이 보이면 일단 챙겨둔다.", "en": "I hoard food whenever I can." },
+          { "ko": "잘 때도 한쪽 눈은 뜨고 있다.", "en": "I sleep with one eye open." },
+          { "ko": "처음 보는 사람은 일단 의심한다.", "en": "I'm suspicious of anyone I don't know." },
+          { "ko": "누가 친절하게 대하면 어색해한다.", "en": "Kindness makes me uncomfortable." },
+          { "ko": "작은 것에도 크게 기뻐한다.", "en": "Small things make me very happy." }
+        ],
+        "ideals": [
+          { "ko": "생존: 내일은 오늘 살아남아야 온다.", "en": "Survival: you only get tomorrow by surviving today." },
+          { "ko": "보호: 나 같은 아이들을 지키고 싶다.", "en": "Protection: I want to look after kids like me." },
+          { "ko": "독립: 누구에게도 기대지 않는다.", "en": "Independence: I rely on no one." },
+          { "ko": "복수: 나를 버린 세상에 갚아줄 것이다.", "en": "Revenge: the world that abandoned me will pay." }
+        ],
+        "bonds": [
+          { "ko": "함께 거리에서 자란 친구를 잃었다.", "en": "I lost a friend I grew up with on the streets." },
+          { "ko": "나를 거둬준 노인에게 은혜를 갚고 싶다.", "en": "I want to repay the old woman who took me in." },
+          { "ko": "부모가 누구인지 알아내고 싶다.", "en": "I want to find out who my parents were." }
+        ],
+        "flaws": [
+          { "ko": "위험해지면 혼자 도망칠 생각부터 한다.", "en": "When things go bad, my first thought is running." },
+          { "ko": "부자를 보면 털고 싶어진다.", "en": "I can't look at a rich person without wanting to rob them." },
+          { "ko": "누구에게도 마음을 쉽게 열지 않는다.", "en": "I never really let anyone in." }
+        ]
+      }
+    },
+    {
+      "id": "hermit",
+      "name": { "ko": "은둔자", "en": "Hermit" },
+      "source": "PHB",
+      "bg3": false,
+      "summary": { "ko": "세상과 떨어져 오랫동안 홀로 수행해 온 이.", "en": "Lived in seclusion for years, in contemplation or retreat." },
+      "skills": ["medicine", "religion"],
+      "tools": ["herbalism_kit"],
+      "languages": { "choose": 1 },
+      "feature": {
+        "name": { "ko": "깨달음", "en": "Discovery" },
+        "desc": { "ko": "은둔 중에 세상을 뒤흔들 만한 진실이나 비밀 하나를 깨달았다.", "en": "In your seclusion you discovered a unique and powerful truth or secret." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "오래 말을 안 해서 대화가 서툴다.", "en": "I've been alone so long I'm awkward in conversation." },
+          { "ko": "아무리 급해도 서두르지 않는다.", "en": "I never hurry, no matter what." },
+          { "ko": "작은 생명도 함부로 해치지 않는다.", "en": "I won't harm even the smallest creature." },
+          { "ko": "대답 대신 질문으로 돌려준다.", "en": "I answer questions with more questions." }
+        ],
+        "ideals": [
+          { "ko": "깨달음: 진리는 고요 속에 있다.", "en": "Enlightenment: truth is found in stillness." },
+          { "ko": "자유: 세상의 욕심에서 벗어나야 한다.", "en": "Freedom: one must be free of worldly greed." },
+          { "ko": "책임: 깨달은 것을 세상에 알려야 한다.", "en": "Responsibility: I must share what I've learned." }
+        ],
+        "bonds": [
+          { "ko": "은둔지에서 깨달은 비밀을 지켜야 한다.", "en": "I must protect the secret I discovered in my retreat." },
+          { "ko": "나를 세상에서 쫓아낸 일의 진실을 밝히고 싶다.", "en": "I want to uncover the truth behind my exile." },
+          { "ko": "은둔지에 두고 온 무언가가 있다.", "en": "I left something behind at my hermitage." }
+        ],
+        "flaws": [
+          { "ko": "남의 사정을 잘 헤아리지 못한다.", "en": "I'm bad at understanding other people's feelings." },
+          { "ko": "내가 깨달은 진리만이 옳다고 믿는다.", "en": "I believe only my truth is the right one." },
+          { "ko": "세상에 다시 섞이는 게 두렵다.", "en": "I'm afraid of rejoining the world." }
+        ]
+      }
+    },
+    {
+      "id": "sailor",
+      "name": { "ko": "선원", "en": "Sailor" },
+      "source": "PHB",
+      "bg3": false,
+      "summary": { "ko": "바다 위에서 거친 바람과 함께 살아온 뱃사람.", "en": "Spent years at sea on a sailing ship." },
+      "skills": ["athletics", "perception"],
+      "tools": ["navigators_tools", "vehicles_water"],
+      "languages": { "choose": 0 },
+      "feature": {
+        "name": { "ko": "뱃삯", "en": "Ship's Passage" },
+        "desc": { "ko": "배에서 일을 거들어주는 대가로 나와 일행이 공짜로 배를 탈 수 있다.", "en": "You can secure free passage on a ship for yourself and your companions in exchange for work." }
+      },
+      "examples": {
+        "traits": [
+          { "ko": "모든 일을 바다 이야기에 빗대어 말한다.", "en": "I compare everything to life at sea." },
+          { "ko": "육지에서는 걸음이 비틀거린다.", "en": "I walk unsteadily on dry land." },
+          { "ko": "욕설이 입에 붙어 있다.", "en": "I curse like a sailor, because I am one." },
+          { "ko": "폭풍 속에서도 노래를 부른다.", "en": "I sing even in the middle of a storm." }
+        ],
+        "ideals": [
+          { "ko": "동료: 한 배를 탄 이들은 가족이다.", "en": "Crew: everyone on the ship is family." },
+          { "ko": "자유: 바다처럼 매이지 않고 산다.", "en": "Freedom: I live unbound, like the sea." },
+          { "ko": "규율: 배는 선장의 말로 움직인다.", "en": "Discipline: a ship runs on the captain's word." }
+        ],
+        "bonds": [
+          { "ko": "가라앉은 내 첫 배를 잊지 못한다.", "en": "I'll never forget my first ship, which sank." },
+          { "ko": "항구마다 기다리는 사람이 있다.", "en": "There's someone waiting for me in every port." },
+          { "ko": "나를 바다에 버린 선장을 찾고 있다.", "en": "I'm hunting the captain who threw me overboard." }
+        ],
+        "flaws": [
+          { "ko": "항구에 내리면 번 돈을 하룻밤에 날린다.", "en": "I blow all my pay in one night ashore." },
+          { "ko": "명령을 들으면 반항심부터 생긴다.", "en": "Orders make me want to rebel." },
+          { "ko": "온갖 미신을 철석같이 믿는다.", "en": "I believe every sailor's superstition." }
+        ]
+      }
+    }
+  ]
+}

@@ -134,6 +134,7 @@ def main():
     class_count = check_classes(glossary, spells, errors, check_text)
     done, total = check_subclasses(spells, errors, check_text, check_effect)
     check_lists(errors, check_text)
+    bg_count, feat_count = check_backgrounds_and_feats(glossary, errors, check_text, check_effect)
     for path in sorted((DATA / "classes").glob("[!_]*.json")):
         for fid, feature in load(path).get("features", {}).items():
             check_choice(f"classes/{path.stem}/{fid}", feature.get("choice"), errors)
@@ -143,7 +144,57 @@ def main():
     if errors:
         print("\n".join(errors))
         sys.exit(1)
-    print(f"OK: {len(index)} races and {class_count} classes checked; subclass details {done}/{total}")
+    print(f"OK: {len(index)} races, {class_count} classes, {bg_count} backgrounds, {feat_count} feats; "
+          f"subclass details {done}/{total}")
+
+
+def check_backgrounds_and_feats(glossary, errors, check_text, check_effect):
+    skills = set(glossary["skills"])
+
+    backgrounds = load(DATA / "backgrounds" / "backgrounds.json")
+    ids = [b["id"] for b in backgrounds["items"]]
+    if len(ids) != len(set(ids)):
+        errors.append("backgrounds: duplicate ids")
+    if sorted(ids) != sorted(backgrounds["_meta"].get("order", [])):
+        errors.append("backgrounds: _meta.order does not match items")
+    for bg in backgrounds["items"]:
+        where = f"backgrounds/{bg['id']}"
+        for field in ("name", "summary"):
+            check_text(where, bg.get(field), field)
+        check_text(where, bg.get("feature", {}).get("name"), "feature.name")
+        check_text(where, bg.get("feature", {}).get("desc"), "feature.desc")
+        if len(bg.get("skills", [])) != 2:
+            errors.append(f"{where}: needs exactly two skills")
+        for skill in bg.get("skills", []):
+            if skill not in skills:
+                errors.append(f"{where}: unknown skill '{skill}'")
+        for key in ("traits", "ideals", "bonds", "flaws"):
+            entries = bg.get("examples", {}).get(key, [])
+            if len(entries) < 3:
+                errors.append(f"{where}: needs at least three {key} examples")
+            for i, entry in enumerate(entries):
+                check_text(f"{where}/{key}[{i}]", entry, key)
+
+    feats = load(DATA / "feats.json")["items"]
+    seen = set()
+    for feat in feats:
+        where = f"feats/{feat['id']}"
+        if feat["id"] in seen:
+            errors.append(f"{where}: duplicate id")
+        seen.add(feat["id"])
+        check_text(where, feat.get("name"), "name")
+        check_text(where, feat.get("desc"), "desc")
+        for ability in feat.get("abilityIncrease", {}).get("from", []):
+            if ability not in ABILITIES:
+                errors.append(f"{where}: unknown ability '{ability}'")
+        for ability in feat.get("requires", {}).get("ability", {}):
+            if ability not in ABILITIES:
+                errors.append(f"{where}: unknown ability '{ability}'")
+        for effect in feat.get("effects", []):
+            check_effect(where, effect)
+        check_choice(where, feat.get("choice"), errors)
+
+    return len(backgrounds["items"]), len(feats)
 
 
 CLASS_LISTS = {"barbarian", "bard", "cleric", "druid", "fighter", "monk",
