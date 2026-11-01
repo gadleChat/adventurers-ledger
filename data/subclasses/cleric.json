@@ -1,0 +1,246 @@
+{
+  "classId": "cleric",
+  "_note": "bonusSpells: domain spells, always prepared, keyed by the cleric level at which they are gained.",
+  "subclasses": {
+    "life": {
+      "bonusSpells": { "1": ["bless", "cure-wounds"], "3": ["lesser-restoration", "spiritual-weapon"], "5": ["beacon-of-hope", "revivify"], "7": ["death-ward", "guardian-of-faith"], "9": ["mass-cure-wounds", "raise-dead"] },
+      "levels": { "1": ["life_bonus_proficiency", "disciple_of_life"], "2": ["preserve_life"], "6": ["blessed_healer"], "8": ["divine_strike_life"], "17": ["supreme_healing"] },
+      "features": {
+        "life_bonus_proficiency": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiency" },
+          "desc": { "ko": "중갑에 숙련을 얻는다.", "en": "You gain proficiency with heavy armor." },
+          "effects": [{ "type": "armorProficiency", "armor": ["heavy"] }]
+        },
+        "disciple_of_life": {
+          "name": { "ko": "생명의 사도", "en": "Disciple of Life" },
+          "desc": { "ko": "치유 주문으로 회복시키는 양이 2 + 주문 레벨만큼 더 늘어난다.", "en": "Your healing spells restore an extra 2 + the spell's level hit points." }
+        },
+        "preserve_life": {
+          "name": { "ko": "신성 변환: 생명 보존", "en": "Channel Divinity: Preserve Life" },
+          "desc": { "ko": "클레릭 레벨의 다섯 배만큼 생명력을 주변 동료들에게 나눠 회복시킨다(각자 최대치의 절반까지).", "en": "Restore hit points equal to five times your cleric level, divided among nearby allies (up to half their maximum)." }
+        },
+        "blessed_healer": {
+          "name": { "ko": "축복받은 치유자", "en": "Blessed Healer" },
+          "desc": { "ko": "다른 이를 치유하는 주문을 쓰면 나도 2 + 주문 레벨만큼 회복한다.", "en": "When you heal another with a spell, you regain 2 + the spell's level hit points." }
+        },
+        "divine_strike_life": {
+          "name": { "ko": "신성한 일격", "en": "Divine Strike" },
+          "desc": { "ko": "턴마다 한 번 무기 명중에 광휘 피해 1d8을 더한다. 14레벨에 2d8.", "en": "Once per turn, add 1d8 radiant damage to a weapon hit; 2d8 at 14th level." }
+        },
+        "supreme_healing": {
+          "name": { "ko": "최상의 치유", "en": "Supreme Healing" },
+          "desc": { "ko": "치유 주사위를 굴리지 않고 최댓값을 쓴다.", "en": "Instead of rolling healing dice, you use the highest possible number." }
+        }
+      }
+    },
+    "knowledge": {
+      "bonusSpells": { "1": ["command", "identify"], "3": ["augury", "suggestion"], "5": ["nondetection", "speak-with-dead"], "7": ["arcane-eye", "confusion"], "9": ["legend-lore", "scrying"] },
+      "levels": { "1": ["blessings_of_knowledge"], "2": ["knowledge_of_the_ages"], "6": ["read_thoughts"], "8": ["potent_spellcasting"], "17": ["visions_of_the_past"] },
+      "features": {
+        "blessings_of_knowledge": {
+          "name": { "ko": "지식의 축복", "en": "Blessings of Knowledge" },
+          "desc": { "ko": "언어 두 개를 배우고, 비전학·역사·자연·종교 중 두 개에 숙련과 전문화를 얻는다.", "en": "Learn two languages and gain proficiency with expertise in two of Arcana, History, Nature, or Religion." },
+          "effects": [{ "type": "skillChoice", "count": 2, "from": ["arcana", "history", "nature", "religion"], "expertise": true }]
+        },
+        "knowledge_of_the_ages": {
+          "name": { "ko": "신성 변환: 세월의 지식", "en": "Channel Divinity: Knowledge of the Ages" },
+          "desc": { "ko": "10분 동안 원하는 기술이나 도구 하나에 숙련을 얻는다.", "en": "Gain proficiency with a skill or tool of your choice for 10 minutes." }
+        },
+        "read_thoughts": {
+          "name": { "ko": "신성 변환: 생각 읽기", "en": "Channel Divinity: Read Thoughts" },
+          "desc": { "ko": "대상 하나의 생각을 읽고, 원하면 그 대상에게 암시 주문을 내성 없이 건다.", "en": "Read a creature's thoughts, then optionally cast Suggestion on it with no save." }
+        },
+        "potent_spellcasting": {
+          "name": { "ko": "강력한 주문 시전", "en": "Potent Spellcasting" },
+          "desc": { "ko": "클레릭 소마법 피해에 지혜 수정치를 더한다.", "en": "Add your Wisdom modifier to the damage of your cleric cantrips." }
+        },
+        "visions_of_the_past": {
+          "name": { "ko": "과거의 환영", "en": "Visions of the Past" },
+          "desc": { "ko": "명상해서 물건이나 장소에 얽힌 과거의 장면을 본다.", "en": "Meditate to see visions of the past tied to an object or location." }
+        }
+      }
+    },
+    "light": {
+      "bonusSpells": { "1": ["burning-hands", "faerie-fire"], "3": ["flaming-sphere", "scorching-ray"], "5": ["daylight", "fireball"], "7": ["guardian-of-faith", "wall-of-fire"], "9": ["flame-strike", "scrying"] },
+      "levels": { "1": ["light_bonus_cantrip", "warding_flare"], "2": ["radiance_of_the_dawn"], "6": ["improved_flare"], "8": ["potent_spellcasting"], "17": ["corona_of_light"] },
+      "features": {
+        "light_bonus_cantrip": {
+          "name": { "ko": "추가 소마법", "en": "Bonus Cantrip" },
+          "desc": { "ko": "빛 소마법을 안다.", "en": "You know the Light cantrip." },
+          "effects": [{ "type": "cantrip", "spell": "light", "ability": "wis" }]
+        },
+        "warding_flare": {
+          "name": { "ko": "수호의 섬광", "en": "Warding Flare" },
+          "desc": { "ko": "공격받을 때 반응 행동으로 빛을 터뜨려 공격자에게 불리함을 준다. 지혜 수정치만큼 쓴다.", "en": "When attacked, use your reaction to flash light and give the attacker disadvantage. Uses equal your Wisdom modifier." }
+        },
+        "radiance_of_the_dawn": {
+          "name": { "ko": "신성 변환: 새벽의 광휘", "en": "Channel Divinity: Radiance of the Dawn" },
+          "desc": { "ko": "주변의 마법적 어둠을 걷어내고, 근처 적들에게 광휘 피해를 준다(건강 내성으로 절반).", "en": "Dispel magical darkness around you and deal radiant damage to nearby foes (Constitution save for half)." }
+        },
+        "improved_flare": {
+          "name": { "ko": "강화된 섬광", "en": "Improved Flare" },
+          "desc": { "ko": "수호의 섬광으로 동료를 노린 공격도 막을 수 있다.", "en": "You can use Warding Flare when an ally is attacked, too." }
+        },
+        "potent_spellcasting": {
+          "name": { "ko": "강력한 주문 시전", "en": "Potent Spellcasting" },
+          "desc": { "ko": "클레릭 소마법 피해에 지혜 수정치를 더한다.", "en": "Add your Wisdom modifier to the damage of your cleric cantrips." }
+        },
+        "corona_of_light": {
+          "name": { "ko": "빛의 왕관", "en": "Corona of Light" },
+          "desc": { "ko": "1분 동안 햇빛 같은 빛을 내뿜고, 그 안의 적은 화염·광휘 주문 내성에 불리하다.", "en": "Emit sunlight for a minute; foes in it have disadvantage on saves against fire and radiant spells." }
+        }
+      }
+    },
+    "nature": {
+      "bonusSpells": { "1": ["animal-friendship", "speak-with-animals"], "3": ["barkskin", "spike-growth"], "5": ["plant-growth", "wind-wall"], "7": ["dominate-beast", "grasping-vine"], "9": ["insect-plague", "tree-stride"] },
+      "levels": { "1": ["acolyte_of_nature", "nature_bonus_proficiency"], "2": ["charm_animals_and_plants"], "6": ["dampen_elements"], "8": ["divine_strike_nature"], "17": ["master_of_nature"] },
+      "features": {
+        "acolyte_of_nature": {
+          "name": { "ko": "자연의 수행자", "en": "Acolyte of Nature" },
+          "desc": { "ko": "드루이드 소마법 하나를 배우고, 동물 조련·자연·생존 중 하나에 숙련을 얻는다.", "en": "Learn one druid cantrip and gain proficiency in Animal Handling, Nature, or Survival." },
+          "effects": [{ "type": "cantripChoice", "count": 1, "list": "druid", "ability": "wis" }, { "type": "skillChoice", "count": 1, "from": ["animal_handling", "nature", "survival"] }]
+        },
+        "nature_bonus_proficiency": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiency" },
+          "desc": { "ko": "중갑에 숙련을 얻는다.", "en": "You gain proficiency with heavy armor." },
+          "effects": [{ "type": "armorProficiency", "armor": ["heavy"] }]
+        },
+        "charm_animals_and_plants": {
+          "name": { "ko": "신성 변환: 동식물 매혹", "en": "Channel Divinity: Charm Animals and Plants" },
+          "desc": { "ko": "주변의 짐승과 식물 존재를 1분 동안 매혹한다(지혜 내성).", "en": "Charm nearby beasts and plant creatures for a minute (Wisdom save)." }
+        },
+        "dampen_elements": {
+          "name": { "ko": "원소 완화", "en": "Dampen Elements" },
+          "desc": { "ko": "나나 근처 존재가 산성·냉기·화염·번개·천둥 피해를 입을 때 반응 행동으로 저항을 준다.", "en": "When you or a nearby creature takes acid, cold, fire, lightning, or thunder damage, use your reaction to grant resistance." }
+        },
+        "divine_strike_nature": {
+          "name": { "ko": "신성한 일격", "en": "Divine Strike" },
+          "desc": { "ko": "턴마다 한 번 무기 명중에 냉기·화염·번개 중 하나의 피해 1d8을 더한다. 14레벨에 2d8.", "en": "Once per turn, add 1d8 cold, fire, or lightning damage to a weapon hit; 2d8 at 14th level." }
+        },
+        "master_of_nature": {
+          "name": { "ko": "자연의 주인", "en": "Master of Nature" },
+          "desc": { "ko": "매혹한 짐승과 식물에게 추가 행동으로 명령을 내린다.", "en": "Command charmed beasts and plants as a bonus action." }
+        }
+      }
+    },
+    "tempest": {
+      "bonusSpells": { "1": ["fog-cloud", "thunderwave"], "3": ["gust-of-wind", "shatter"], "5": ["call-lightning", "sleet-storm"], "7": ["control-water", "ice-storm"], "9": ["destructive-wave", "insect-plague"] },
+      "levels": { "1": ["tempest_bonus_proficiencies", "wrath_of_the_storm"], "2": ["destructive_wrath"], "6": ["thunderbolt_strike"], "8": ["divine_strike_tempest"], "17": ["stormborn"] },
+      "features": {
+        "tempest_bonus_proficiencies": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiencies" },
+          "desc": { "ko": "군용 무기와 중갑에 숙련을 얻는다.", "en": "You gain proficiency with martial weapons and heavy armor." },
+          "effects": [{ "type": "weaponProficiency", "weapons": ["martial"] }, { "type": "armorProficiency", "armor": ["heavy"] }]
+        },
+        "wrath_of_the_storm": {
+          "name": { "ko": "폭풍의 분노", "en": "Wrath of the Storm" },
+          "desc": { "ko": "근처 존재에게 맞으면 반응 행동으로 번개나 천둥 피해 2d8을 돌려준다(민첩 내성으로 절반).", "en": "When a nearby creature hits you, use your reaction to deal 2d8 lightning or thunder damage (Dexterity save for half)." }
+        },
+        "destructive_wrath": {
+          "name": { "ko": "신성 변환: 파괴의 분노", "en": "Channel Divinity: Destructive Wrath" },
+          "desc": { "ko": "번개나 천둥 피해 주사위를 굴리는 대신 최댓값을 쓴다.", "en": "Deal maximum damage instead of rolling for lightning or thunder damage." }
+        },
+        "thunderbolt_strike": {
+          "name": { "ko": "벼락의 일격", "en": "Thunderbolt Strike" },
+          "desc": { "ko": "번개 피해를 주면 대형 이하 대상을 10피트 밀어낸다.", "en": "When you deal lightning damage to a Large or smaller creature, you can push it 10 feet." }
+        },
+        "divine_strike_tempest": {
+          "name": { "ko": "신성한 일격", "en": "Divine Strike" },
+          "desc": { "ko": "턴마다 한 번 무기 명중에 천둥 피해 1d8을 더한다. 14레벨에 2d8.", "en": "Once per turn, add 1d8 thunder damage to a weapon hit; 2d8 at 14th level." }
+        },
+        "stormborn": {
+          "name": { "ko": "폭풍의 아이", "en": "Stormborn" },
+          "desc": { "ko": "실내나 지하가 아니면 걷는 속도로 날 수 있다.", "en": "You have a flying speed equal to your walking speed when not underground or indoors." }
+        }
+      }
+    },
+    "trickery": {
+      "bonusSpells": { "1": ["charm-person", "disguise-self"], "3": ["mirror-image", "pass-without-trace"], "5": ["blink", "dispel-magic"], "7": ["dimension-door", "polymorph"], "9": ["dominate-person", "modify-memory"] },
+      "levels": { "1": ["blessing_of_the_trickster"], "2": ["invoke_duplicity"], "6": ["cloak_of_shadows"], "8": ["divine_strike_trickery"], "17": ["improved_duplicity"] },
+      "features": {
+        "blessing_of_the_trickster": {
+          "name": { "ko": "사기꾼의 축복", "en": "Blessing of the Trickster" },
+          "desc": { "ko": "다른 존재 하나에게 한 시간 동안 은신 판정 유리함을 준다.", "en": "Give another creature advantage on Stealth checks for an hour." }
+        },
+        "invoke_duplicity": {
+          "name": { "ko": "신성 변환: 분신 불러내기", "en": "Channel Divinity: Invoke Duplicity" },
+          "desc": { "ko": "환영 분신을 만들어 그 자리에서 주문을 쓸 수 있고, 분신 곁의 적을 공격할 때 유리하다.", "en": "Create an illusory double you can cast spells through; you have advantage on attacks against foes next to it." }
+        },
+        "cloak_of_shadows": {
+          "name": { "ko": "신성 변환: 그림자의 망토", "en": "Channel Divinity: Cloak of Shadows" },
+          "desc": { "ko": "다음 턴 끝까지 투명해진다.", "en": "Become invisible until the end of your next turn." }
+        },
+        "divine_strike_trickery": {
+          "name": { "ko": "신성한 일격", "en": "Divine Strike" },
+          "desc": { "ko": "턴마다 한 번 무기 명중에 독 피해 1d8을 더한다. 14레벨에 2d8.", "en": "Once per turn, add 1d8 poison damage to a weapon hit; 2d8 at 14th level." }
+        },
+        "improved_duplicity": {
+          "name": { "ko": "강화된 분신", "en": "Improved Duplicity" },
+          "desc": { "ko": "분신을 네 개까지 만든다.", "en": "You can create up to four duplicates." }
+        }
+      }
+    },
+    "war": {
+      "bonusSpells": { "1": ["divine-favor", "shield-of-faith"], "3": ["magic-weapon", "spiritual-weapon"], "5": ["crusaders-mantle", "spirit-guardians"], "7": ["freedom-of-movement", "stoneskin"], "9": ["flame-strike", "hold-monster"] },
+      "levels": { "1": ["war_bonus_proficiencies", "war_priest"], "2": ["guided_strike"], "6": ["war_gods_blessing"], "8": ["divine_strike_war"], "17": ["avatar_of_battle"] },
+      "features": {
+        "war_bonus_proficiencies": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiencies" },
+          "desc": { "ko": "군용 무기와 중갑에 숙련을 얻는다.", "en": "You gain proficiency with martial weapons and heavy armor." },
+          "effects": [{ "type": "weaponProficiency", "weapons": ["martial"] }, { "type": "armorProficiency", "armor": ["heavy"] }]
+        },
+        "war_priest": {
+          "name": { "ko": "전쟁 사제", "en": "War Priest" },
+          "desc": { "ko": "공격 행동 후 추가 행동으로 무기 공격을 한 번 더 한다. 지혜 수정치만큼 쓴다.", "en": "After taking the Attack action, make one weapon attack as a bonus action. Uses equal your Wisdom modifier." }
+        },
+        "guided_strike": {
+          "name": { "ko": "신성 변환: 인도된 일격", "en": "Channel Divinity: Guided Strike" },
+          "desc": { "ko": "명중 굴림에 +10을 더한다.", "en": "Gain a +10 bonus to an attack roll." }
+        },
+        "war_gods_blessing": {
+          "name": { "ko": "신성 변환: 전쟁신의 축복", "en": "Channel Divinity: War God's Blessing" },
+          "desc": { "ko": "근처 동료의 명중 굴림에 반응 행동으로 +10을 더해준다.", "en": "Use your reaction to give a nearby ally +10 to an attack roll." }
+        },
+        "divine_strike_war": {
+          "name": { "ko": "신성한 일격", "en": "Divine Strike" },
+          "desc": { "ko": "턴마다 한 번 무기 명중에 무기와 같은 유형의 피해 1d8을 더한다. 14레벨에 2d8.", "en": "Once per turn, add 1d8 damage of the weapon's type to a weapon hit; 2d8 at 14th level." }
+        },
+        "avatar_of_battle": {
+          "name": { "ko": "전쟁의 화신", "en": "Avatar of Battle" },
+          "desc": { "ko": "마법이 아닌 무기의 타격·관통·참격 피해에 저항한다.", "en": "You have resistance to bludgeoning, piercing, and slashing damage from nonmagical weapons." }
+        }
+      }
+    },
+    "death": {
+      "bonusSpells": { "1": ["false-life", "ray-of-sickness"], "3": ["blindness-deafness", "ray-of-enfeeblement"], "5": ["animate-dead", "vampiric-touch"], "7": ["blight", "death-ward"], "9": ["antilife-shell", "cloudkill"] },
+      "levels": { "1": ["death_bonus_proficiency", "reaper"], "2": ["touch_of_death"], "6": ["inescapable_destruction"], "8": ["divine_strike_death"], "17": ["improved_reaper"] },
+      "features": {
+        "death_bonus_proficiency": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiency" },
+          "desc": { "ko": "군용 무기에 숙련을 얻는다.", "en": "You gain proficiency with martial weapons." },
+          "effects": [{ "type": "weaponProficiency", "weapons": ["martial"] }]
+        },
+        "reaper": {
+          "name": { "ko": "사신", "en": "Reaper" },
+          "desc": { "ko": "사령술 소마법 하나를 배운다. 대상이 하나인 사령술 소마법은 가까이 붙은 두 대상에게 걸 수 있다.", "en": "Learn one necromancy cantrip. Single-target necromancy cantrips can target two creatures next to each other." }
+        },
+        "touch_of_death": {
+          "name": { "ko": "신성 변환: 죽음의 손길", "en": "Channel Divinity: Touch of Death" },
+          "desc": { "ko": "근접 명중에 사령 피해 5 + 클레릭 레벨의 두 배를 더한다.", "en": "Add necrotic damage equal to 5 + twice your cleric level to a melee hit." }
+        },
+        "inescapable_destruction": {
+          "name": { "ko": "피할 수 없는 파멸", "en": "Inescapable Destruction" },
+          "desc": { "ko": "내 주문과 신성 변환의 사령 피해는 저항을 무시한다.", "en": "Necrotic damage from your spells and Channel Divinity ignores resistance." }
+        },
+        "divine_strike_death": {
+          "name": { "ko": "신성한 일격", "en": "Divine Strike" },
+          "desc": { "ko": "턴마다 한 번 무기 명중에 사령 피해 1d8을 더한다. 14레벨에 2d8.", "en": "Once per turn, add 1d8 necrotic damage to a weapon hit; 2d8 at 14th level." }
+        },
+        "improved_reaper": {
+          "name": { "ko": "강화된 사신", "en": "Improved Reaper" },
+          "desc": { "ko": "대상이 하나인 1~5레벨 사령술 주문을 가까이 붙은 두 대상에게 건다.", "en": "Single-target necromancy spells of 1st to 5th level can target two creatures next to each other." }
+        }
+      }
+    }
+  }
+}

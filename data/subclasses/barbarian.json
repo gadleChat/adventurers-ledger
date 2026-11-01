@@ -1,0 +1,105 @@
+{
+  "classId": "barbarian",
+  "subclasses": {
+    "berserker": {
+      "levels": { "3": ["frenzy"], "6": ["mindless_rage"], "10": ["intimidating_presence"], "14": ["retaliation"] },
+      "features": {
+        "frenzy": {
+          "name": { "ko": "광란", "en": "Frenzy" },
+          "desc": { "ko": "분노할 때 광란에 빠지면, 분노 동안 매 턴 추가 행동으로 근접 무기 공격을 한 번 더 한다. 분노가 끝나면 탈진 1단계를 얻는다.", "en": "When you rage you can go into a frenzy, making an extra melee weapon attack as a bonus action each turn. When the rage ends you gain a level of exhaustion." }
+        },
+        "mindless_rage": {
+          "name": { "ko": "무심한 분노", "en": "Mindless Rage" },
+          "desc": { "ko": "분노 중에는 매혹이나 공포에 걸리지 않고, 걸려 있던 것도 멈춘다.", "en": "You can't be charmed or frightened while raging, and such effects are suspended." }
+        },
+        "intimidating_presence": {
+          "name": { "ko": "위협적인 존재감", "en": "Intimidating Presence" },
+          "desc": { "ko": "행동을 써서 대상 하나를 지혜 내성에 실패하면 공포에 빠뜨린다. 매 턴 행동으로 유지할 수 있다.", "en": "Use your action to frighten a creature that fails a Wisdom save, extending it with your action each turn." }
+        },
+        "retaliation": {
+          "name": { "ko": "보복", "en": "Retaliation" },
+          "desc": { "ko": "근처의 적에게 피해를 입으면 반응 행동으로 그 적에게 근접 공격을 한다.", "en": "When a nearby creature damages you, use your reaction to make a melee attack against it." }
+        }
+      }
+    },
+    "wildheart": {
+      "levels": { "3": ["spirit_seeker", "totem_spirit"], "6": ["aspect_of_the_beast"], "10": ["spirit_walker"], "14": ["totemic_attunement"] },
+      "features": {
+        "spirit_seeker": {
+          "name": { "ko": "정령 탐구자", "en": "Spirit Seeker" },
+          "desc": { "ko": "야수 감각과 동물과 대화를 의식으로 시전할 수 있다.", "en": "You can cast Beast Sense and Speak with Animals as rituals." }
+        },
+        "totem_spirit": {
+          "name": { "ko": "토템 정령", "en": "Totem Spirit" },
+          "desc": { "ko": "동물 정령 하나를 골라 분노 중에 그 힘을 받는다. 곰은 정신을 뺀 모든 피해에 저항, 독수리는 추가 행동 질주와 적의 기회 공격 불리, 엘크는 이동 속도 증가, 호랑이는 도약력, 늑대는 근처 아군의 공격 유리.", "en": "Choose an animal spirit for power while raging: Bear (resist all damage but psychic), Eagle (bonus-action Dash, foes have disadvantage on opportunity attacks), Elk (faster speed), Tiger (great leaps), or Wolf (allies get advantage against nearby foes)." },
+          "choice": { "key": "totemSpirit", "type": "list", "count": 1, "options": ["bear", "eagle", "elk", "tiger", "wolf"] }
+        },
+        "aspect_of_the_beast": {
+          "name": { "ko": "야수의 면모", "en": "Aspect of the Beast" },
+          "desc": { "ko": "동물 하나의 면모를 평소에도 지닌다. 곰은 짐 드는 힘, 독수리는 먼 시력, 엘크는 일행의 여행 속도, 호랑이는 추가 기술, 늑대는 추적 능력.", "en": "Gain a lasting animal aspect: Bear (carrying capacity), Eagle (keen sight), Elk (faster group travel), Tiger (extra skills), or Wolf (tracking)." },
+          "choice": { "key": "aspectOfTheBeast", "type": "list", "count": 1, "options": ["bear", "eagle", "elk", "tiger", "wolf"] }
+        },
+        "spirit_walker": {
+          "name": { "ko": "정령과 걷는 자", "en": "Spirit Walker" },
+          "desc": { "ko": "자연과의 교감을 의식으로 시전해 정령에게 길을 묻는다.", "en": "You can cast Commune with Nature as a ritual, consulting the spirits." }
+        },
+        "totemic_attunement": {
+          "name": { "ko": "토템 조율", "en": "Totemic Attunement" },
+          "desc": { "ko": "동물 하나를 골라 분노 중 더 큰 힘을 얻는다. 곰은 주변 적이 나만 노리게, 독수리는 짧게 비행, 엘크는 돌진해 넘어뜨리기, 호랑이는 돌진 후 추가 공격, 늑대는 공격으로 넘어뜨리기.", "en": "Choose an animal for greater power while raging: Bear (foes focus you), Eagle (brief flight), Elk (trample foes prone), Tiger (bonus attack after charging), or Wolf (knock foes prone with hits)." },
+          "choice": { "key": "totemicAttunement", "type": "list", "count": 1, "options": ["bear", "eagle", "elk", "tiger", "wolf"] }
+        }
+      }
+    },
+    "wild_magic": {
+      "levels": { "3": ["magic_awareness", "wild_surge"], "6": ["bolstering_magic"], "10": ["unstable_backlash"], "14": ["controlled_surge"] },
+      "features": {
+        "magic_awareness": {
+          "name": { "ko": "마법 감지", "en": "Magic Awareness" },
+          "desc": { "ko": "행동을 써서 주변의 주문과 마법 물건의 위치와 학파를 느낀다.", "en": "As an action, sense the location and school of nearby spells and magic items." }
+        },
+        "wild_surge": {
+          "name": { "ko": "야생 쇄도", "en": "Wild Surge" },
+          "desc": { "ko": "분노할 때마다 야생 마법 표를 굴려 무작위 마법 효과가 일어난다. 그림자 촉수, 순간이동, 빛나는 무기 같은 것들.", "en": "Each time you rage, roll on the Wild Magic table for a random magical effect, like shadowy tendrils, teleportation, or a glowing weapon." }
+        },
+        "bolstering_magic": {
+          "name": { "ko": "북돋는 마법", "en": "Bolstering Magic" },
+          "desc": { "ko": "동료를 만져 명중·판정에 1d3을 더해주거나, 낮은 레벨 주문 슬롯 하나를 되찾게 한다.", "en": "Touch an ally to add 1d3 to their attacks and checks, or restore one of their low-level spell slots." }
+        },
+        "unstable_backlash": {
+          "name": { "ko": "불안정한 역류", "en": "Unstable Backlash" },
+          "desc": { "ko": "분노 중 피해를 입거나 내성에 실패하면 반응 행동으로 야생 쇄도를 다시 일으킨다.", "en": "When you take damage or fail a save while raging, use your reaction to trigger a new Wild Surge." }
+        },
+        "controlled_surge": {
+          "name": { "ko": "제어된 쇄도", "en": "Controlled Surge" },
+          "desc": { "ko": "야생 쇄도를 굴릴 때 두 번 굴려 원하는 결과를 고른다.", "en": "When you roll for Wild Surge, roll twice and choose the result." }
+        }
+      }
+    },
+    "giants": {
+      "levels": { "3": ["giant_power", "giants_havoc"], "6": ["elemental_cleaver"], "10": ["mighty_impel"], "14": ["demiurgic_colossus"] },
+      "features": {
+        "giant_power": {
+          "name": { "ko": "거인의 힘", "en": "Giant Power" },
+          "desc": { "ko": "거인어를 배우고, 드루이드술이나 기적술 소마법 하나를 얻는다. 지혜로 시전한다.", "en": "You learn Giant and gain the Druidcraft or Thaumaturgy cantrip, cast with Wisdom." },
+          "choice": { "key": "giantCantrip", "type": "list", "count": 1, "options": ["druidcraft", "thaumaturgy"] }
+        },
+        "giants_havoc": {
+          "name": { "ko": "거인의 파괴", "en": "Giant's Havoc" },
+          "desc": { "ko": "분노 중 근접 사거리가 5피트 늘고, 공간이 허락하면 대형이 된다. 근력으로 던지는 무기에 분노 피해가 더해진다.", "en": "While raging your reach increases by 5 feet and you can become Large, and thrown weapons using Strength add your rage damage." }
+        },
+        "elemental_cleaver": {
+          "name": { "ko": "원소의 도끼", "en": "Elemental Cleaver" },
+          "desc": { "ko": "분노할 때 무기에 산성·냉기·화염·천둥·번개 중 하나를 깃들여 피해 1d6을 더한다. 던지면 손으로 돌아온다.", "en": "When you rage, infuse your weapon with acid, cold, fire, thunder, or lightning for an extra 1d6 damage. It returns to your hand when thrown." }
+        },
+        "mighty_impel": {
+          "name": { "ko": "강력한 투척", "en": "Mighty Impel" },
+          "desc": { "ko": "분노 중 추가 행동으로 근처 중형 이하 존재를 최대 30피트 던진다. 원치 않는 대상은 근력 내성.", "en": "While raging, use a bonus action to hurl a nearby Medium or smaller creature up to 30 feet (Strength save if unwilling)." }
+        },
+        "demiurgic_colossus": {
+          "name": { "ko": "조물주의 거상", "en": "Demiurgic Colossus" },
+          "desc": { "ko": "분노 중 사거리가 10피트 늘고 초대형까지 커질 수 있다. 원소의 도끼 피해가 2d6이 되고 대형 존재까지 던질 수 있다.", "en": "While raging your reach increases by 10 feet and you can become Huge. Elemental Cleaver deals 2d6 and Mighty Impel can throw Large creatures." }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "classId": "druid",
+  "_note": "bonusSpells: circle spells, always prepared, keyed by druid level. Circle of the Land uses terrainSpells keyed by the chosen terrain instead.",
+  "subclasses": {
+    "land": {
+      "terrainSpells": {
+        "arctic": { "3": ["hold-person", "spike-growth"], "5": ["sleet-storm", "slow"], "7": ["freedom-of-movement", "ice-storm"], "9": ["commune-with-nature", "cone-of-cold"] },
+        "coast": { "3": ["mirror-image", "misty-step"], "5": ["water-breathing", "water-walk"], "7": ["control-water", "freedom-of-movement"], "9": ["conjure-elemental", "scrying"] },
+        "desert": { "3": ["blur", "silence"], "5": ["create-food-and-water", "protection-from-energy"], "7": ["blight", "hallucinatory-terrain"], "9": ["insect-plague", "wall-of-stone"] },
+        "forest": { "3": ["barkskin", "spider-climb"], "5": ["call-lightning", "plant-growth"], "7": ["divination", "freedom-of-movement"], "9": ["commune-with-nature", "tree-stride"] },
+        "grassland": { "3": ["invisibility", "pass-without-trace"], "5": ["daylight", "haste"], "7": ["divination", "freedom-of-movement"], "9": ["dream", "insect-plague"] },
+        "mountain": { "3": ["spider-climb", "spike-growth"], "5": ["lightning-bolt", "meld-into-stone"], "7": ["stone-shape", "stoneskin"], "9": ["passwall", "wall-of-stone"] },
+        "swamp": { "3": ["darkness", "acid-arrow"], "5": ["water-walk", "stinking-cloud"], "7": ["freedom-of-movement", "locate-creature"], "9": ["insect-plague", "scrying"] },
+        "underdark": { "3": ["spider-climb", "web"], "5": ["gaseous-form", "stinking-cloud"], "7": ["greater-invisibility", "stone-shape"], "9": ["cloudkill", "insect-plague"] }
+      },
+      "levels": { "2": ["land_bonus_cantrip", "natural_recovery", "circle_spells_land"], "6": ["lands_stride"], "10": ["natures_ward"], "14": ["natures_sanctuary"] },
+      "features": {
+        "land_bonus_cantrip": {
+          "name": { "ko": "추가 소마법", "en": "Bonus Cantrip" },
+          "desc": { "ko": "드루이드 소마법 하나를 더 배운다.", "en": "You learn one additional druid cantrip." },
+          "effects": [{ "type": "cantripChoice", "count": 1, "list": "druid", "ability": "wis" }]
+        },
+        "natural_recovery": {
+          "name": { "ko": "자연의 회복", "en": "Natural Recovery" },
+          "desc": { "ko": "하루 한 번 짧은 휴식 때, 드루이드 레벨 절반만큼 주문 슬롯을 되찾는다(6레벨 이상 제외).", "en": "Once a day during a short rest, recover spell slots with combined levels up to half your druid level (none of 6th level or higher)." }
+        },
+        "circle_spells_land": {
+          "name": { "ko": "회합 주문", "en": "Circle Spells" },
+          "desc": { "ko": "북극, 해안, 사막, 숲, 초원, 산, 늪, 언더다크 중 익숙한 지형 하나를 고른다. 3·5·7·9레벨에 그 지형의 주문 두 개씩을 항상 준비해 둔다.", "en": "Choose a land: arctic, coast, desert, forest, grassland, mountain, swamp, or Underdark. At 3rd, 5th, 7th, and 9th level you gain two of that land's spells, always prepared." },
+          "choice": { "key": "circleLand", "type": "list", "count": 1, "options": ["arctic", "coast", "desert", "forest", "grassland", "mountain", "swamp", "underdark"] }
+        },
+        "lands_stride": {
+          "name": { "ko": "대지 걷기", "en": "Land's Stride" },
+          "desc": { "ko": "마법이 아닌 험지를 느려지지 않고 지나가고, 마법으로 만든 식물에 맞서는 내성에 유리하다.", "en": "Nonmagical difficult terrain doesn't slow you, and you have advantage on saves against magically created plants." }
+        },
+        "natures_ward": {
+          "name": { "ko": "자연의 가호", "en": "Nature's Ward" },
+          "desc": { "ko": "정령과 요정에게 매혹되거나 겁먹지 않고, 독과 질병에 면역이 된다.", "en": "Elementals and fey can't charm or frighten you, and you are immune to poison and disease." }
+        },
+        "natures_sanctuary": {
+          "name": { "ko": "자연의 성역", "en": "Nature's Sanctuary" },
+          "desc": { "ko": "짐승과 식물 존재가 나를 공격하려면 지혜 내성에 성공해야 한다.", "en": "Beasts and plant creatures must succeed on a Wisdom save to attack you." }
+        }
+      }
+    },
+    "moon": {
+      "levels": { "2": ["combat_wild_shape", "circle_forms"], "6": ["primal_strike"], "10": ["elemental_wild_shape"], "14": ["thousand_forms"] },
+      "features": {
+        "combat_wild_shape": {
+          "name": { "ko": "전투 변신", "en": "Combat Wild Shape" },
+          "desc": { "ko": "야생 변신을 추가 행동으로 쓰고, 변신 중에 주문 슬롯을 써서 생명력을 회복한다.", "en": "Use Wild Shape as a bonus action, and spend spell slots while transformed to regain hit points." }
+        },
+        "circle_forms": {
+          "name": { "ko": "회합의 형상", "en": "Circle Forms" },
+          "desc": { "ko": "도전 지수 1의 짐승으로 변신할 수 있고, 6레벨부터는 드루이드 레벨의 3분의 1까지 오른다.", "en": "You can transform into beasts of CR 1, and from 6th level up to one third of your druid level." }
+        },
+        "primal_strike": {
+          "name": { "ko": "원시의 타격", "en": "Primal Strike" },
+          "desc": { "ko": "짐승 형상의 공격이 마법 공격으로 취급된다.", "en": "Your attacks in beast form count as magical." }
+        },
+        "elemental_wild_shape": {
+          "name": { "ko": "정령 변신", "en": "Elemental Wild Shape" },
+          "desc": { "ko": "야생 변신 두 번을 써서 공기·흙·불·물의 정령으로 변신한다.", "en": "Expend two uses of Wild Shape to become an air, earth, fire, or water elemental." }
+        },
+        "thousand_forms": {
+          "name": { "ko": "천의 모습", "en": "Thousand Forms" },
+          "desc": { "ko": "자기 변신 주문을 마음껏 쓸 수 있다.", "en": "You can cast Alter Self at will." }
+        }
+      }
+    },
+    "spores": {
+      "bonusSpells": { "2": ["chill-touch"], "3": ["blindness-deafness", "gentle-repose"], "5": ["animate-dead", "gaseous-form"], "7": ["blight", "confusion"], "9": ["cloudkill", "contagion"] },
+      "levels": { "2": ["halo_of_spores", "symbiotic_entity"], "6": ["fungal_infestation"], "10": ["spreading_spores"], "14": ["fungal_body"] },
+      "features": {
+        "halo_of_spores": {
+          "name": { "ko": "포자의 후광", "en": "Halo of Spores" },
+          "desc": { "ko": "주위에 보이지 않는 포자가 떠다녀, 근처에서 움직이는 적에게 반응 행동으로 사령 피해를 준다(건강 내성).", "en": "Invisible spores surround you; use your reaction to deal necrotic damage to a nearby creature (Constitution save)." }
+        },
+        "symbiotic_entity": {
+          "name": { "ko": "공생체", "en": "Symbiotic Entity" },
+          "desc": { "ko": "야생 변신 대신 포자를 일깨워 임시 생명력을 얻고, 근접 공격과 포자의 후광 피해가 늘어난다.", "en": "Instead of Wild Shape, awaken your spores for temporary hit points and extra damage on melee hits and Halo of Spores." }
+        },
+        "fungal_infestation": {
+          "name": { "ko": "균류 감염", "en": "Fungal Infestation" },
+          "desc": { "ko": "근처의 작은 존재가 죽으면 반응 행동으로 생명력 1의 좀비로 일으킨다.", "en": "When a nearby small creature dies, use your reaction to raise it as a 1-HP zombie." }
+        },
+        "spreading_spores": {
+          "name": { "ko": "포자 퍼뜨리기", "en": "Spreading Spores" },
+          "desc": { "ko": "공생체 상태에서 포자 구름을 던져 그 안의 적에게 피해를 준다.", "en": "While Symbiotic Entity is active, hurl a cloud of spores that damages creatures inside it." }
+        },
+        "fungal_body": {
+          "name": { "ko": "균류의 몸", "en": "Fungal Body" },
+          "desc": { "ko": "실명·청각 상실·공포·중독에 면역이고, 치명타가 일반 명중으로 바뀐다.", "en": "You are immune to being blinded, deafened, frightened, or poisoned, and critical hits against you become normal hits." }
+        }
+      }
+    },
+    "stars": {
+      "bonusSpells": { "2": ["guidance", "guiding-bolt"] },
+      "levels": { "2": ["star_map", "starry_form"], "6": ["cosmic_omen"], "10": ["twinkling_constellations"], "14": ["full_of_stars"] },
+      "features": {
+        "star_map": {
+          "name": { "ko": "별 지도", "en": "Star Map" },
+          "desc": { "ko": "인도 소마법과 유도 화살을 항상 준비해 두고, 유도 화살을 슬롯 없이 몇 번 쓸 수 있다.", "en": "You always have Guidance and Guiding Bolt prepared, and can cast Guiding Bolt a few times without a slot." }
+        },
+        "starry_form": {
+          "name": { "ko": "별의 형상", "en": "Starry Form" },
+          "desc": { "ko": "야생 변신 대신 별빛 형상이 된다. 궁수(빛의 화살), 성배(치유 강화), 용(집중 유지와 판정 안정) 중 하나를 고른다.", "en": "Instead of Wild Shape, take a starry form: Archer (radiant arrows), Chalice (stronger healing), or Dragon (steady concentration and checks)." }
+        },
+        "cosmic_omen": {
+          "name": { "ko": "우주의 징조", "en": "Cosmic Omen" },
+          "desc": { "ko": "긴 휴식 후 징조를 받아, 하루 동안 반응 행동으로 다른 이의 굴림에 d6을 더하거나 뺀다.", "en": "After a long rest you receive an omen, letting you add or subtract a d6 from others' rolls as a reaction that day." }
+        },
+        "twinkling_constellations": {
+          "name": { "ko": "반짝이는 별자리", "en": "Twinkling Constellations" },
+          "desc": { "ko": "별의 형상이 강해져 용 형상에선 날 수 있고, 매 턴 형상을 바꿀 수 있다.", "en": "Your Starry Form grows stronger: the dragon grants flight, and you can switch forms each turn." }
+        },
+        "full_of_stars": {
+          "name": { "ko": "별로 가득 찬 몸", "en": "Full of Stars" },
+          "desc": { "ko": "별의 형상 동안 반쯤 실체가 없어져 타격·관통·참격 피해에 저항한다.", "en": "While in Starry Form you become partly incorporeal, resisting bludgeoning, piercing, and slashing damage." }
+        }
+      }
+    }
+  }
+}

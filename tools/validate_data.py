@@ -132,11 +132,67 @@ def main():
                     errors.append(f"{sw}: replaces unknown parent trait '{replaced}'")
 
     class_count = check_classes(glossary, spells, errors, check_text)
+    done, total = check_subclasses(spells, errors, check_text, check_effect)
 
     if errors:
         print("\n".join(errors))
         sys.exit(1)
-    print(f"OK: {len(index)} races and {class_count} classes checked")
+    print(f"OK: {len(index)} races and {class_count} classes checked; subclass details {done}/{total}")
+
+
+def check_subclasses(spells, errors, check_text, check_effect):
+    """Check data/subclasses/<class>.json against the class files."""
+    common = load(DATA / "lists" / "common_features.json")["features"]
+    done = total = 0
+    for path in sorted((DATA / "classes").glob("*.json")):
+        if path.stem.startswith("_"):
+            continue
+        cls = load(path)
+        class_id = cls["id"]
+        listed = {s["id"] for s in cls.get("subclasses", [])}
+        total += len(listed)
+        detail_path = DATA / "subclasses" / f"{class_id}.json"
+        if not detail_path.exists():
+            continue
+        detail = load(detail_path)
+        where = f"subclasses/{class_id}"
+        if detail.get("classId") != class_id:
+            errors.append(f"{where}: classId does not match file name")
+        allowed_levels = {lv for lv, entry in cls["levels"].items() if entry.get("subclassFeature")}
+
+        for sub_id, sub in detail.get("subclasses", {}).items():
+            sw = f"{where}/{sub_id}"
+            if sub_id not in listed:
+                errors.append(f"{sw}: not listed in classes/{class_id}.json")
+                continue
+            done += 1
+            features = sub.get("features", {})
+            used = set()
+            for level, fids in sub.get("levels", {}).items():
+                if level not in allowed_levels:
+                    errors.append(f"{sw}: level {level} is not a subclass feature level")
+                for fid in fids:
+                    used.add(fid)
+                    if fid not in features and fid not in common and fid not in cls.get("features", {}):
+                        errors.append(f"{sw}: unknown feature '{fid}'")
+            missing_levels = allowed_levels - set(sub.get("levels", {}))
+            if missing_levels:
+                errors.append(f"{sw}: no features at subclass levels {sorted(missing_levels, key=int)}")
+            for fid, feature in features.items():
+                if fid not in used:
+                    errors.append(f"{sw}: feature '{fid}' is never granted")
+                check_text(f"{sw}/{fid}", feature.get("name"), "name")
+                check_text(f"{sw}/{fid}", feature.get("desc"), "desc")
+                for effect in feature.get("effects", []):
+                    check_effect(f"{sw}/{fid}", effect)
+
+            spell_tables = [sub.get("bonusSpells", {})] + list(sub.get("terrainSpells", {}).values())
+            for table in spell_tables:
+                for level, ids in table.items():
+                    for sid in ids:
+                        if sid not in spells:
+                            errors.append(f"{sw}: unknown spell '{sid}' at level {level}")
+    return done, total
 
 
 def check_classes(glossary, spells, errors, check_text):

@@ -1,0 +1,90 @@
+{
+  "classId": "bard",
+  "subclasses": {
+    "lore": {
+      "levels": { "3": ["lore_bonus_proficiencies", "cutting_words"], "6": ["additional_magical_secrets"], "14": ["peerless_skill"] },
+      "features": {
+        "lore_bonus_proficiencies": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiencies" },
+          "desc": { "ko": "원하는 기술 세 개에 숙련을 얻는다.", "en": "You gain proficiency in three skills of your choice." },
+          "effects": [{ "type": "skillChoice", "count": 3 }]
+        },
+        "cutting_words": {
+          "name": { "ko": "날카로운 말", "en": "Cutting Words" },
+          "desc": { "ko": "반응 행동으로 바드의 영감을 써서, 적의 명중·판정·피해 굴림에서 그 주사위만큼 깎는다.", "en": "Use your reaction and a Bardic Inspiration die to subtract it from a foe's attack roll, ability check, or damage roll." }
+        },
+        "additional_magical_secrets": {
+          "name": { "ko": "추가 마법의 비밀", "en": "Additional Magical Secrets" },
+          "desc": { "ko": "어느 직업의 주문 목록에서든 주문 두 개를 더 배운다.", "en": "Learn two more spells from any class's spell list." },
+          "choice": { "key": "additionalMagicalSecrets", "type": "spellAnyList", "count": 2 }
+        },
+        "peerless_skill": {
+          "name": { "ko": "견줄 데 없는 재주", "en": "Peerless Skill" },
+          "desc": { "ko": "능력 판정에 자신의 바드의 영감 주사위를 더할 수 있다.", "en": "You can spend a Bardic Inspiration die to add it to your own ability check." }
+        }
+      }
+    },
+    "valour": {
+      "levels": { "3": ["valour_bonus_proficiencies", "combat_inspiration"], "6": ["extra_attack"], "14": ["battle_magic"] },
+      "features": {
+        "valour_bonus_proficiencies": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiencies" },
+          "desc": { "ko": "평갑, 방패, 군용 무기에 숙련을 얻는다.", "en": "You gain proficiency with medium armor, shields, and martial weapons." },
+          "effects": [{ "type": "armorProficiency", "armor": ["medium", "shield"] }, { "type": "weaponProficiency", "weapons": ["martial"] }]
+        },
+        "combat_inspiration": {
+          "name": { "ko": "전투의 영감", "en": "Combat Inspiration" },
+          "desc": { "ko": "영감을 받은 동료는 그 주사위를 무기 피해에 더하거나, 맞을 때 방어도에 더할 수 있다.", "en": "Allies with your inspiration can add the die to weapon damage, or to their AC against an attack." }
+        },
+        "battle_magic": {
+          "name": { "ko": "전투 마법", "en": "Battle Magic" },
+          "desc": { "ko": "행동으로 바드 주문을 쓰면 추가 행동으로 무기 공격을 한 번 한다.", "en": "When you use your action to cast a bard spell, you can make one weapon attack as a bonus action." }
+        }
+      }
+    },
+    "swords": {
+      "levels": { "3": ["swords_bonus_proficiencies", "swords_fighting_style", "blade_flourish"], "6": ["extra_attack"], "14": ["masters_flourish"] },
+      "features": {
+        "swords_bonus_proficiencies": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiencies" },
+          "desc": { "ko": "평갑과 시미터에 숙련을 얻고, 숙련된 근접 무기를 주문 시전 매개체로 쓸 수 있다.", "en": "You gain proficiency with medium armor and the scimitar, and can use a proficient melee weapon as a spellcasting focus." },
+          "effects": [{ "type": "armorProficiency", "armor": ["medium"] }, { "type": "weaponProficiency", "weapons": ["scimitar"] }]
+        },
+        "swords_fighting_style": {
+          "name": { "ko": "전투 방식", "en": "Fighting Style" },
+          "desc": { "ko": "결투술이나 쌍수 전투 중 하나를 고른다.", "en": "Choose the Dueling or Two-Weapon Fighting style." },
+          "choice": { "key": "fightingStyle", "list": "fighting_styles", "count": 1, "only": ["dueling", "two_weapon_fighting"] }
+        },
+        "blade_flourish": {
+          "name": { "ko": "칼날 꽃", "en": "Blade Flourish" },
+          "desc": { "ko": "공격할 때 이동 속도가 오르고, 명중하면 바드의 영감을 써서 방어 꽃(방어도 증가), 베기 꽃(주변 적에게 피해), 찌르기 꽃(밀쳐내기) 중 하나를 펼친다.", "en": "Attacking boosts your speed, and on a hit you can spend Bardic Inspiration for a Defensive (AC), Slashing (hit a second foe), or Mobile (push) Flourish." }
+        },
+        "masters_flourish": {
+          "name": { "ko": "달인의 꽃", "en": "Master's Flourish" },
+          "desc": { "ko": "칼날 꽃을 쓸 때 영감 대신 d6을 굴려 쓸 수 있다.", "en": "You can roll a d6 for a Blade Flourish instead of spending Bardic Inspiration." }
+        }
+      }
+    },
+    "glamour": {
+      "levels": { "3": ["mantle_of_inspiration", "enthralling_performance"], "6": ["mantle_of_majesty"], "14": ["unbreakable_majesty"] },
+      "features": {
+        "mantle_of_inspiration": {
+          "name": { "ko": "영감의 망토", "en": "Mantle of Inspiration" },
+          "desc": { "ko": "추가 행동으로 바드의 영감을 써서, 여러 동료에게 임시 생명력을 주고 기회 공격 없이 이동하게 한다.", "en": "As a bonus action, spend Bardic Inspiration to give several allies temporary HP and let them move without provoking opportunity attacks." }
+        },
+        "enthralling_performance": {
+          "name": { "ko": "매혹의 공연", "en": "Enthralling Performance" },
+          "desc": { "ko": "1분 이상 공연하면 관객 몇 명이 지혜 내성에 실패할 때 한 시간 동안 나에게 매료된다.", "en": "After performing for a minute, some listeners who fail a Wisdom save are charmed by you for an hour." }
+        },
+        "mantle_of_majesty": {
+          "name": { "ko": "위엄의 망토", "en": "Mantle of Majesty" },
+          "desc": { "ko": "요정의 위엄을 둘러 1분 동안 매 턴 추가 행동으로 명령 주문을 슬롯 없이 쓴다.", "en": "Take on fey majesty for a minute, casting Command as a bonus action each turn without a slot." }
+        },
+        "unbreakable_majesty": {
+          "name": { "ko": "꺾이지 않는 위엄", "en": "Unbreakable Majesty" },
+          "desc": { "ko": "1분 동안 나를 공격하려는 존재는 매력 내성에 실패하면 다른 대상을 골라야 한다.", "en": "For a minute, creatures that try to attack you must succeed on a Charisma save or choose another target." }
+        }
+      }
+    }
+  }
+}
