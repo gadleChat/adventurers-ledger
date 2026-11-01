@@ -16,6 +16,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 BG3_LIST = ROOT / "tools" / "bg3_spells.json"
+EXTRA_TEXT = ROOT / "tools" / "extra_spell_text.json"
+SUMMARIES = ROOT / "tools" / "spell_summaries.json"
 OUT = ROOT / "data" / "spells" / "spells.json"
 
 
@@ -99,6 +101,40 @@ def main():
             errors.append(f"Extra spell already exists in SRD: {entry['id']}")
             continue
         spells[entry["id"]] = from_extra(entry)
+
+    # Merge authored text for non-SRD spells.
+    extra_text = json.loads(EXTRA_TEXT.read_text(encoding="utf-8"))["spells"]
+    for sid, text in extra_text.items():
+        spell = spells.get(sid)
+        if spell is None:
+            errors.append(f"Text for unknown spell: {sid}")
+            continue
+        for field in ("castingTime", "range", "duration", "components"):
+            if field in text:
+                spell[field] = text[field]
+        for field in ("desc", "higherLevel"):
+            if field in text:
+                spell[field] = {"ko": text[field]["ko"], "en": text[field]["en"]}
+
+    # Merge one-line summaries.
+    summaries = json.loads(SUMMARIES.read_text(encoding="utf-8"))["summaries"]
+    for sid, (ko, en) in summaries.items():
+        spell = spells.get(sid)
+        if spell is None:
+            errors.append(f"Summary for unknown spell: {sid}")
+            continue
+        spell["summary"] = {"ko": ko, "en": en}
+
+    # Every BG3 spell must have a summary and an English description.
+    for spell in spells.values():
+        if not spell["bg3"]:
+            continue
+        if not spell["summary"]["ko"] or not spell["summary"]["en"]:
+            errors.append(f"Missing summary: {spell['id']}")
+        if not spell["desc"]["en"]:
+            errors.append(f"Missing English description: {spell['id']}")
+        if spell["castingTime"] is None:
+            errors.append(f"Missing casting time: {spell['id']}")
 
     if errors:
         print("\n".join(errors))

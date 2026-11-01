@@ -1,0 +1,330 @@
+{
+  "_meta": {
+    "description": "Mechanical fields and original descriptions for BG3 spells that are not part of the SRD 5.1. Text is written from scratch for this project, based on 5e rules; it does not reproduce any book text."
+  },
+  "spells": {
+    "blade-ward": {
+      "castingTime": "1 action", "range": "Self", "duration": "1 round", "components": ["V", "S"],
+      "desc": {
+        "en": "You trace a protective sign in the air. Until the end of your next turn, you have resistance to bludgeoning, piercing, and slashing damage dealt by weapon attacks.",
+        "ko": "허공에 보호의 표식을 긋는다. 다음 턴이 끝날 때까지 무기 공격으로 입는 타격·관통·참격 피해에 저항을 얻는다."
+      }
+    },
+    "booming-blade": {
+      "castingTime": "1 action", "range": "Self (5-foot radius)", "duration": "1 round", "components": ["S", "M"],
+      "desc": {
+        "en": "As part of casting, make a melee weapon attack against a creature within reach. On a hit, the target suffers the attack's normal effects and is wrapped in crackling energy until the start of your next turn. If it willingly moves 5 feet or more before then, it takes 1d8 thunder damage and the spell ends.",
+        "ko": "시전하면서 근접 무기 공격을 한다. 명중하면 평소 피해에 더해 대상이 우르릉거리는 기운에 휩싸인다. 다음 턴 시작 전까지 대상이 스스로 5피트 이상 움직이면 천둥 피해 1d8을 입고 주문이 끝난다."
+      },
+      "higherLevel": {
+        "en": "At 5th level, the hit deals an extra 1d8 thunder damage and the movement damage becomes 2d8. Both increase by 1d8 again at 11th and 17th level.",
+        "ko": "5레벨에 명중 시 천둥 피해 1d8이 추가되고 이동 시 피해가 2d8로 오른다. 11레벨과 17레벨에 각각 1d8씩 더 오른다."
+      }
+    },
+    "friends": {
+      "castingTime": "1 action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["S", "M"],
+      "desc": {
+        "en": "For the duration, you have advantage on Charisma checks directed at one creature of your choice that isn't hostile toward you. When the spell ends, the creature realizes magic was used on it and may become hostile.",
+        "ko": "지속되는 동안, 적대적이지 않은 대상 하나에게 하는 매력 판정에 유리함을 얻는다. 주문이 끝나면 대상은 마법에 당했다는 걸 알아채고 적대적으로 변할 수 있다."
+      }
+    },
+    "thorn-whip": {
+      "castingTime": "1 action", "range": "30 feet", "duration": "Instantaneous", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "A thorny vine lashes out at a creature in range. Make a melee spell attack. On a hit, the target takes 1d6 piercing damage, and if it is Large or smaller, you pull it up to 10 feet closer to you.",
+        "ko": "가시 돋친 덩굴을 채찍처럼 휘두른다. 근접 주문 공격이 명중하면 관통 피해 1d6을 주고, 대형 이하 대상이면 최대 10피트 끌어당긴다."
+      },
+      "higherLevel": {
+        "en": "The damage increases by 1d6 at 5th, 11th, and 17th level.",
+        "ko": "5, 11, 17레벨에 피해가 1d6씩 늘어난다."
+      }
+    },
+    "toll-the-dead": {
+      "castingTime": "1 action", "range": "60 feet", "duration": "Instantaneous", "components": ["V", "S"],
+      "desc": {
+        "en": "A mournful bell tolls around a creature you can see. It must succeed on a Wisdom saving throw or take 1d8 necrotic damage, or 1d12 if it is already missing any hit points.",
+        "ko": "대상 주위로 음울한 종소리가 울린다. 지혜 내성에 실패하면 사령 피해 1d8을 입고, 이미 생명력이 깎여 있었다면 1d12를 입는다."
+      },
+      "higherLevel": {
+        "en": "The damage increases by one die at 5th, 11th, and 17th level.",
+        "ko": "5, 11, 17레벨에 피해 주사위가 하나씩 늘어난다."
+      }
+    },
+
+    "armor-of-agathys": {
+      "castingTime": "1 action", "range": "Self", "duration": "1 hour", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "A coat of spectral frost covers you, granting 5 temporary hit points. While any of them remain, a creature that hits you with a melee attack takes 5 cold damage.",
+        "ko": "유령 같은 서리가 몸을 감싸 임시 생명력 5를 얻는다. 임시 생명력이 남아 있는 동안 근접 공격으로 나를 때린 대상은 냉기 피해 5를 입는다."
+      },
+      "higherLevel": {
+        "en": "Both the temporary hit points and the cold damage increase by 5 for each slot level above 1st.",
+        "ko": "1레벨보다 높은 슬롯으로 시전하면 슬롯 레벨마다 임시 생명력과 냉기 피해가 5씩 늘어난다."
+      }
+    },
+    "arms-of-hadar": {
+      "castingTime": "1 action", "range": "Self (10-foot radius)", "duration": "Instantaneous", "components": ["V", "S"],
+      "desc": {
+        "en": "Dark tendrils erupt from you. Each creature within 10 feet makes a Strength saving throw. On a failure it takes 2d6 necrotic damage and can't take reactions until its next turn; on a success it takes half damage and suffers no other effect.",
+        "ko": "몸에서 검은 촉수가 터져 나온다. 10피트 안의 모든 대상은 근력 내성을 굴려, 실패하면 사령 피해 2d6을 입고 다음 턴까지 반응 행동을 못 한다. 성공하면 피해 절반만 입는다."
+      },
+      "higherLevel": {
+        "en": "Damage increases by 1d6 for each slot level above 1st.",
+        "ko": "슬롯 레벨이 1 오를 때마다 피해가 1d6 늘어난다."
+      }
+    },
+    "chromatic-orb": {
+      "castingTime": "1 action", "range": "90 feet", "duration": "Instantaneous", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "You hurl an orb of raw energy, choosing acid, cold, fire, lightning, poison, or thunder. Make a ranged spell attack; on a hit the target takes 3d8 damage of the chosen type. The component is a diamond worth at least 50 gp.",
+        "ko": "산성·냉기·화염·번개·독·천둥 중 하나를 골라 에너지 구체를 던진다. 원거리 주문 공격이 명중하면 고른 유형의 피해 3d8. 구성 요소로 50gp 이상의 다이아몬드가 필요하다."
+      },
+      "higherLevel": {
+        "en": "Damage increases by 1d8 for each slot level above 1st.",
+        "ko": "슬롯 레벨이 1 오를 때마다 피해가 1d8 늘어난다."
+      }
+    },
+    "compelled-duel": {
+      "castingTime": "1 bonus action", "range": "30 feet", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "You challenge a creature to single combat. It must succeed on a Wisdom saving throw or have disadvantage on attacks against anyone but you, and it must pass another Wisdom save to move more than 30 feet away from you. The spell ends if you attack or cast a spell on another hostile creature, an ally harms the target, or you end your turn more than 30 feet from it.",
+        "ko": "대상에게 일대일 결투를 강요한다. 지혜 내성에 실패하면 나 말고 다른 대상을 공격할 때 불리함을 받고, 나에게서 30피트 넘게 멀어지려면 지혜 내성을 다시 통과해야 한다. 내가 다른 적을 공격하거나 주문을 걸 때, 아군이 대상을 해칠 때, 내가 30피트 넘게 떨어진 채 턴을 끝낼 때 주문이 끝난다."
+      }
+    },
+    "dissonant-whispers": {
+      "castingTime": "1 action", "range": "60 feet", "duration": "Instantaneous", "components": ["V"],
+      "desc": {
+        "en": "You whisper a jarring melody only one creature can hear. It makes a Wisdom saving throw. On a failure it takes 3d6 psychic damage and must immediately use its reaction, if available, to move as far away from you as its speed allows. On a success it takes half damage and doesn't flee.",
+        "ko": "대상 하나에게만 들리는 거슬리는 선율을 속삭인다. 지혜 내성에 실패하면 정신 피해 3d6을 입고, 가능하면 즉시 반응 행동을 써서 이동 속도만큼 나에게서 도망친다. 성공하면 피해 절반만 입고 도망치지 않는다."
+      },
+      "higherLevel": {
+        "en": "Damage increases by 1d6 for each slot level above 1st.",
+        "ko": "슬롯 레벨이 1 오를 때마다 피해가 1d6 늘어난다."
+      }
+    },
+    "ensnaring-strike": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "The next time you hit with a weapon attack, thorny vines burst around the target. It must succeed on a Strength saving throw or be restrained; Large or bigger creatures have advantage. While restrained it takes 1d6 piercing damage at the start of each of its turns, and it or a creature next to it can use an action to try a Strength check to break free.",
+        "ko": "다음 무기 공격이 명중하면 대상 주위로 가시 덩굴이 솟는다. 근력 내성에 실패하면 속박 상태가 된다(대형 이상은 유리함). 속박된 동안 매 턴 시작 시 관통 피해 1d6을 입으며, 대상이나 곁의 누군가가 행동을 써서 근력 판정으로 풀어낼 수 있다."
+      },
+      "higherLevel": {
+        "en": "The damage increases by 1d6 for each slot level above 1st.",
+        "ko": "슬롯 레벨이 1 오를 때마다 피해가 1d6 늘어난다."
+      }
+    },
+    "hail-of-thorns": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "The next time you hit with a ranged weapon attack, the missile bursts into a spray of thorns. The target and every creature within 5 feet of it make a Dexterity saving throw, taking 1d10 piercing damage on a failure or half as much on a success.",
+        "ko": "다음 원거리 무기 공격이 명중하면 투사체가 가시 세례로 터진다. 대상과 그 5피트 안의 모든 대상은 민첩 내성을 굴려, 실패하면 관통 피해 1d10, 성공하면 절반을 입는다."
+      },
+      "higherLevel": {
+        "en": "Damage increases by 1d10 for each slot level above 1st, up to 6d10.",
+        "ko": "슬롯 레벨이 1 오를 때마다 피해가 1d10 늘어난다(최대 6d10)."
+      }
+    },
+    "hex": {
+      "castingTime": "1 bonus action", "range": "90 feet", "duration": "Concentration, up to 1 hour", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "You curse a creature you can see. Whenever you hit it with an attack, it takes an extra 1d6 necrotic damage. Choose one ability; the target has disadvantage on checks with it. If the target drops to 0 hit points, you can use a bonus action on a later turn to move the curse to a new creature.",
+        "ko": "보이는 대상 하나에게 저주를 건다. 그 대상을 공격으로 맞힐 때마다 사령 피해 1d6이 추가된다. 능력치 하나를 골라, 대상은 그 능력치 판정에 불리함을 받는다. 대상이 쓰러지면 이후 턴에 추가 행동으로 저주를 다른 대상에게 옮길 수 있다."
+      },
+      "higherLevel": {
+        "en": "With a 3rd- or 4th-level slot, concentration can last up to 8 hours; with a 5th-level or higher slot, up to 24 hours.",
+        "ko": "3·4레벨 슬롯으로 시전하면 최대 8시간, 5레벨 이상이면 최대 24시간 유지할 수 있다."
+      }
+    },
+    "ice-knife": {
+      "castingTime": "1 action", "range": "60 feet", "duration": "Instantaneous", "components": ["S", "M"],
+      "desc": {
+        "en": "You fling a shard of ice. Make a ranged spell attack; on a hit the target takes 1d10 piercing damage. Hit or miss, the shard then shatters: the target and each creature within 5 feet must succeed on a Dexterity saving throw or take 2d6 cold damage.",
+        "ko": "얼음 조각을 던진다. 원거리 주문 공격이 명중하면 관통 피해 1d10. 명중 여부와 상관없이 조각이 터져, 대상과 그 5피트 안의 모든 대상은 민첩 내성에 실패하면 냉기 피해 2d6을 입는다."
+      },
+      "higherLevel": {
+        "en": "The cold damage increases by 1d6 for each slot level above 1st.",
+        "ko": "슬롯 레벨이 1 오를 때마다 냉기 피해가 1d6 늘어난다."
+      }
+    },
+    "ray-of-sickness": {
+      "castingTime": "1 action", "range": "60 feet", "duration": "Instantaneous", "components": ["V", "S"],
+      "desc": {
+        "en": "A sickly green beam shoots at a creature. Make a ranged spell attack; on a hit it takes 2d8 poison damage and must make a Constitution saving throw or be poisoned until the end of your next turn.",
+        "ko": "병든 초록빛 광선을 쏜다. 원거리 주문 공격이 명중하면 독 피해 2d8을 주고, 대상은 건강 내성에 실패하면 내 다음 턴이 끝날 때까지 중독된다."
+      },
+      "higherLevel": {
+        "en": "Damage increases by 1d8 for each slot level above 1st.",
+        "ko": "슬롯 레벨이 1 오를 때마다 피해가 1d8 늘어난다."
+      }
+    },
+    "searing-smite": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "Your weapon flares with white-hot heat. The next time you hit with a melee weapon attack, it deals an extra 1d6 fire damage and the target catches fire. At the start of each of its turns it makes a Constitution saving throw, taking 1d6 fire damage on a failure; on a success the spell ends. It or a nearby creature can use an action to put out the flames.",
+        "ko": "무기가 하얗게 달아오른다. 다음 근접 무기 공격이 명중하면 화염 피해 1d6이 추가되고 대상에 불이 붙는다. 대상은 매 턴 시작 시 건강 내성을 굴려 실패하면 화염 피해 1d6을 입고, 성공하면 주문이 끝난다. 대상이나 곁의 누군가가 행동을 써서 불을 끌 수도 있다."
+      },
+      "higherLevel": {
+        "en": "The initial extra damage increases by 1d6 for each slot level above 1st.",
+        "ko": "슬롯 레벨이 1 오를 때마다 명중 시 추가 피해가 1d6 늘어난다."
+      }
+    },
+    "thunderous-smite": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "The next time you hit with a melee weapon attack, your weapon rings with thunder audible 300 feet away. The attack deals an extra 2d6 thunder damage, and the target must succeed on a Strength saving throw or be pushed 10 feet away and knocked prone.",
+        "ko": "다음 근접 무기 공격이 명중하면 300피트 밖까지 들리는 천둥이 울린다. 천둥 피해 2d6이 추가되고, 대상은 근력 내성에 실패하면 10피트 밀려나며 넘어진다."
+      }
+    },
+    "witch-bolt": {
+      "castingTime": "1 action", "range": "30 feet", "duration": "Concentration, up to 1 minute", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "A crackling arc of blue lightning links you to a creature. Make a ranged spell attack; on a hit it takes 1d12 lightning damage. On each later turn you can use your action to deal 1d12 lightning damage to it automatically. The spell ends if you use your action for anything else, or if the target leaves range or gains total cover.",
+        "ko": "푸른 번개 줄기가 나와 대상을 잇는다. 원거리 주문 공격이 명중하면 번개 피해 1d12. 이후 매 턴 행동을 써서 자동으로 번개 피해 1d12를 줄 수 있다. 행동을 다른 데 쓰거나 대상이 사거리를 벗어나거나 완전 엄폐를 얻으면 끝난다."
+      },
+      "higherLevel": {
+        "en": "The initial damage increases by 1d12 for each slot level above 1st.",
+        "ko": "슬롯 레벨이 1 오를 때마다 첫 피해가 1d12 늘어난다."
+      }
+    },
+    "wrathful-smite": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "The next time you hit with a melee weapon attack, the attack deals an extra 1d6 psychic damage, and the target must succeed on a Wisdom saving throw or be frightened of you until the spell ends. As an action, it can make a Wisdom check against your spell save DC to shake off the fear.",
+        "ko": "다음 근접 무기 공격이 명중하면 정신 피해 1d6이 추가되고, 대상은 지혜 내성에 실패하면 주문이 끝날 때까지 나를 두려워한다. 대상은 행동을 써서 내 주문 내성 난이도에 맞서 지혜 판정으로 공포를 떨쳐낼 수 있다."
+      }
+    },
+
+    "cloud-of-daggers": {
+      "castingTime": "1 action", "range": "60 feet", "duration": "Concentration, up to 1 minute", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "You fill a 5-foot cube with spinning daggers. A creature takes 4d4 slashing damage when it enters the area for the first time on a turn or starts its turn there.",
+        "ko": "5피트 정육면체 공간을 회전하는 단검으로 채운다. 그 공간에 턴 중 처음 들어오거나 그 안에서 턴을 시작하는 대상은 참격 피해 4d4를 입는다."
+      },
+      "higherLevel": {
+        "en": "Damage increases by 2d4 for each slot level above 2nd.",
+        "ko": "슬롯 레벨이 1 오를 때마다 피해가 2d4 늘어난다."
+      }
+    },
+    "crown-of-madness": {
+      "castingTime": "1 action", "range": "120 feet", "duration": "Concentration, up to 1 minute", "components": ["V", "S"],
+      "desc": {
+        "en": "A twisted crown of iron appears on a humanoid's head. It must succeed on a Wisdom saving throw or be charmed by you. While charmed, it must use its action before moving to attack a creature other than itself that you mentally choose. You must use your action each turn to keep control, and the target repeats the save at the end of each of its turns.",
+        "ko": "인간형 대상의 머리 위에 뒤틀린 쇠 왕관이 나타난다. 지혜 내성에 실패하면 매혹되어, 움직이기 전에 내가 마음속으로 고른 대상(자기 자신 제외)을 공격해야 한다. 나는 매 턴 행동을 써서 조종을 유지해야 하고, 대상은 자기 턴이 끝날 때마다 내성을 다시 굴린다."
+      }
+    },
+    "phantasmal-force": {
+      "castingTime": "1 action", "range": "60 feet", "duration": "Concentration, up to 1 minute", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "You plant an illusion in a creature's mind. If it fails an Intelligence saving throw, it perceives an object, creature, or phenomenon of your design, no larger than a 10-foot cube, that only it can see, and it rationalizes anything that contradicts it. The illusion can deal 1d6 psychic damage on each of your turns to a target inside or next to it. The target can use an action to examine it with an Intelligence (Investigation) check to disbelieve.",
+        "ko": "대상의 머릿속에 환영을 심는다. 지능 내성에 실패하면 10피트 정육면체 이하 크기의 물건·존재·현상을 대상만 보게 되고, 앞뒤 안 맞는 부분은 스스로 합리화한다. 환영 안이나 곁에 있으면 내 턴마다 정신 피해 1d6을 줄 수 있다. 대상은 행동을 써서 지능(조사) 판정으로 환영임을 간파할 수 있다."
+      }
+    },
+    "shadow-blade": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V", "S"],
+      "desc": {
+        "en": "You weave shadows into a sword in your hand. It counts as a simple melee weapon you are proficient with, deals 2d8 psychic damage on a hit, and has the finesse, light, and thrown (20/60) properties. You have advantage on attacks with it when the target is in dim light or darkness. If you let go of it, it vanishes, and you can summon it back as a bonus action.",
+        "ko": "그림자를 엮어 손에 칼을 만든다. 숙련된 단순 근접 무기로 취급하며 명중 시 정신 피해 2d8, 기교·경량·투척(20/60) 속성을 가진다. 대상이 어둑한 빛이나 어둠 속에 있으면 공격에 유리함을 얻는다. 손에서 놓으면 사라지고, 추가 행동으로 다시 불러낼 수 있다."
+      },
+      "higherLevel": {
+        "en": "Damage becomes 3d8 with a 3rd- or 4th-level slot, 4d8 with a 5th- or 6th-level slot, and 5d8 with a 7th-level or higher slot.",
+        "ko": "3·4레벨 슬롯이면 3d8, 5·6레벨이면 4d8, 7레벨 이상이면 5d8이 된다."
+      }
+    },
+
+    "blinding-smite": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "The next time you hit with a melee weapon attack, your weapon flashes with blinding light. The attack deals an extra 3d8 radiant damage, and the target must succeed on a Constitution saving throw or be blinded until the spell ends. It repeats the save at the end of each of its turns.",
+        "ko": "다음 근접 무기 공격이 명중하면 무기가 눈부신 빛을 터뜨린다. 광휘 피해 3d8이 추가되고, 대상은 건강 내성에 실패하면 주문이 끝날 때까지 실명한다. 자기 턴이 끝날 때마다 내성을 다시 굴린다."
+      }
+    },
+    "conjure-barrage": {
+      "castingTime": "1 action", "range": "Self (60-foot cone)", "duration": "Instantaneous", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "You throw a weapon or fire a piece of ammunition, and it multiplies into a storm of copies. Each creature in a 60-foot cone makes a Dexterity saving throw, taking 3d8 damage of the weapon's type on a failure or half as much on a success.",
+        "ko": "무기를 던지거나 탄환을 쏘면 그것이 수없이 복제되어 쏟아진다. 60피트 원뿔 안의 모든 대상은 민첩 내성을 굴려, 실패하면 무기 유형의 피해 3d8, 성공하면 절반을 입는다."
+      }
+    },
+    "crusaders-mantle": {
+      "castingTime": "1 action", "range": "Self (30-foot radius)", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "Holy power radiates from you in a 30-foot aura. While in the aura, you and each friendly creature deal an extra 1d4 radiant damage when hitting with a weapon attack.",
+        "ko": "30피트 반경으로 신성한 기운이 퍼진다. 기운 안에 있는 나와 아군은 무기 공격이 명중할 때 광휘 피해 1d4가 추가된다."
+      }
+    },
+    "elemental-weapon": {
+      "castingTime": "1 action", "range": "Touch", "duration": "Concentration, up to 1 hour", "components": ["V", "S"],
+      "desc": {
+        "en": "A nonmagical weapon you touch becomes magical. Choose acid, cold, fire, lightning, or thunder. The weapon gains a +1 bonus to attack rolls and deals an extra 1d4 damage of the chosen type on a hit.",
+        "ko": "만진 비마법 무기가 마법 무기가 된다. 산성·냉기·화염·번개·천둥 중 하나를 고르면, 무기는 명중 굴림에 +1을 얻고 명중 시 고른 유형의 피해 1d4가 추가된다."
+      },
+      "higherLevel": {
+        "en": "With a 5th- or 6th-level slot, the bonus is +2 and the extra damage 2d4; with a 7th-level or higher slot, +3 and 3d4.",
+        "ko": "5·6레벨 슬롯이면 +2와 2d4, 7레벨 이상이면 +3과 3d4가 된다."
+      }
+    },
+    "feign-death": {
+      "castingTime": "1 action", "range": "Touch", "duration": "1 hour", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "A willing creature you touch falls into a deathlike state that is indistinguishable from death to outside inspection. For the duration it is blinded and incapacitated, its speed is 0, and it has resistance to all damage except psychic. Any disease or poison affecting it is suspended until the spell ends.",
+        "ko": "만진 동의한 대상이 겉으로는 죽은 것과 구별이 안 되는 상태에 빠진다. 지속되는 동안 실명·행동 불능 상태이고 이동 속도가 0이 되며, 정신 피해를 뺀 모든 피해에 저항을 얻는다. 걸려 있던 질병이나 독은 주문이 끝날 때까지 멈춘다."
+      }
+    },
+    "hunger-of-hadar": {
+      "castingTime": "1 action", "range": "150 feet", "duration": "Concentration, up to 1 minute", "components": ["V", "S", "M"],
+      "desc": {
+        "en": "You open a gateway to the cold void between the stars, filling a 20-foot-radius sphere. The area is heavily obscured and difficult terrain, and no light can illuminate it. A creature that starts its turn inside takes 2d6 cold damage, and a creature that ends its turn inside must succeed on a Dexterity saving throw or take 2d6 acid damage as unseen things lick at it.",
+        "ko": "별 사이의 차가운 공허로 통하는 문을 열어 반경 20피트 구체를 채운다. 그 안은 짙게 가려진 험지이고 어떤 빛으로도 밝힐 수 없다. 안에서 턴을 시작하면 냉기 피해 2d6, 안에서 턴을 끝내면 보이지 않는 것들에게 핥여 민첩 내성에 실패할 경우 산성 피해 2d6을 입는다."
+      }
+    },
+    "lightning-arrow": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V", "S"],
+      "desc": {
+        "en": "The next time you make a ranged weapon attack, the ammunition turns into a bolt of lightning. Instead of the weapon's damage, the target takes 4d8 lightning damage on a hit, or half on a miss. Then each creature within 10 feet of the target makes a Dexterity saving throw, taking 2d8 lightning damage on a failure or half on a success.",
+        "ko": "다음 원거리 무기 공격의 탄환이 번개로 변한다. 무기 피해 대신 명중하면 번개 피해 4d8, 빗나가면 절반을 준다. 이어서 대상의 10피트 안 모든 대상은 민첩 내성을 굴려, 실패하면 번개 피해 2d8, 성공하면 절반을 입는다."
+      },
+      "higherLevel": {
+        "en": "Both damage amounts increase by 1d8 for each slot level above 3rd.",
+        "ko": "슬롯 레벨이 1 오를 때마다 두 피해 모두 1d8씩 늘어난다."
+      }
+    },
+
+    "grasping-vine": {
+      "castingTime": "1 bonus action", "range": "30 feet", "duration": "Concentration, up to 1 minute", "components": ["V", "S"],
+      "desc": {
+        "en": "A vine sprouts from the ground in an unoccupied space you can see. When you cast the spell, and as a bonus action on each later turn, the vine lashes at a creature within 30 feet of it. The target must succeed on a Dexterity saving throw or be pulled 20 feet toward the vine.",
+        "ko": "보이는 빈 공간의 땅에서 덩굴이 솟는다. 시전할 때와 이후 매 턴 추가 행동으로 덩굴이 30피트 안의 대상을 휘감고, 대상은 민첩 내성에 실패하면 덩굴 쪽으로 20피트 끌려간다."
+      }
+    },
+    "staggering-smite": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "The next time you hit with a melee weapon attack, your blow pierces both body and mind. The attack deals an extra 4d6 psychic damage, and the target must succeed on a Wisdom saving throw or have disadvantage on attack rolls and ability checks and be unable to take reactions until the end of its next turn.",
+        "ko": "다음 근접 무기 공격이 명중하면 몸과 마음을 함께 꿰뚫는다. 정신 피해 4d6이 추가되고, 대상은 지혜 내성에 실패하면 다음 턴이 끝날 때까지 명중 굴림과 능력 판정에 불리함을 받고 반응 행동을 못 한다."
+      }
+    },
+
+    "banishing-smite": {
+      "castingTime": "1 bonus action", "range": "Self", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "The next time you hit with a weapon attack, your weapon crackles with force. The attack deals an extra 5d10 force damage, and if this leaves the target with 50 hit points or fewer, it is banished: to its home plane if it is from another plane, otherwise to a harmless demiplane. It returns when the spell ends.",
+        "ko": "다음 무기 공격이 명중하면 무기에 역장이 튄다. 역장 피해 5d10이 추가되고, 그 결과 대상의 생명력이 50 이하로 남으면 추방된다. 다른 차원 출신이면 고향 차원으로, 아니면 무해한 반차원으로 보내지며 주문이 끝나면 돌아온다."
+      }
+    },
+    "destructive-wave": {
+      "castingTime": "1 action", "range": "Self (30-foot radius)", "duration": "Instantaneous", "components": ["V"],
+      "desc": {
+        "en": "You strike the ground and divine energy ripples outward. Each creature you choose within 30 feet makes a Constitution saving throw. On a failure it takes 5d6 thunder damage plus 5d6 radiant or necrotic damage (your choice) and is knocked prone. On a success it takes half damage and stays standing.",
+        "ko": "땅을 내리치면 신성한 힘이 물결처럼 퍼진다. 30피트 안에서 고른 대상들은 건강 내성을 굴려, 실패하면 천둥 피해 5d6과 광휘 또는 사령 피해(내가 선택) 5d6을 입고 넘어진다. 성공하면 피해 절반만 입고 넘어지지 않는다."
+      }
+    },
+
+    "arcane-gate": {
+      "castingTime": "1 action", "range": "500 feet", "duration": "Concentration, up to 10 minutes", "components": ["V", "S"],
+      "desc": {
+        "en": "You create two linked portals, each a 10-foot circle, at two points on the ground within range. A creature or object entering one portal exits from the other. Each portal has only one open side, and you can rotate them as a bonus action.",
+        "ko": "사거리 안 두 지점에 서로 이어진 지름 10피트의 원형 관문을 연다. 한쪽으로 들어가면 다른 쪽으로 나온다. 관문은 한 면만 열려 있고, 추가 행동으로 방향을 돌릴 수 있다."
+      }
+    }
+  }
+}

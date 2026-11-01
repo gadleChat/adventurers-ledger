@@ -217,7 +217,7 @@
     { "id": "elemental-weapon", "en": "Elemental Weapon", "ko": "원소 무기", "level": 3, "school": "transmutation", "classes": ["paladin"], "concentration": true, "source": "PHB" },
     { "id": "feign-death", "en": "Feign Death", "ko": "죽은 척하기", "level": 3, "school": "necromancy", "classes": ["bard", "cleric", "druid", "wizard"], "ritual": true, "source": "PHB" },
     { "id": "hunger-of-hadar", "en": "Hunger of Hadar", "ko": "하다르의 굶주림", "level": 3, "school": "conjuration", "classes": ["warlock"], "concentration": true, "source": "PHB" },
-    { "id": "lightning-arrow", "en": "Lightning Arrow", "ko": "번개 화살", "level": 3, "school": "transmutation", "classes": ["ranger"], "source": "PHB" },
+    { "id": "lightning-arrow", "en": "Lightning Arrow", "ko": "번개 화살", "level": 3, "school": "transmutation", "classes": ["ranger"], "concentration": true, "source": "PHB" },
 
     { "id": "grasping-vine", "en": "Grasping Vine", "ko": "휘감는 덩굴", "level": 4, "school": "conjuration", "classes": ["druid", "ranger"], "concentration": true, "source": "PHB" },
     { "id": "staggering-smite", "en": "Staggering Smite", "ko": "비틀거림의 강타", "level": 4, "school": "evocation", "classes": ["paladin"], "concentration": true, "source": "PHB" },
