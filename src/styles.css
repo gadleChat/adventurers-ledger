@@ -571,3 +571,52 @@ select.input { appearance: auto; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* ---------- Companions and AI edit ---------- */
+
+.roster-tag.is-companion { color: var(--vellum-text); border-color: var(--rule); }
+
+.method-list { display: grid; gap: 8px; margin-bottom: 12px; }
+.method {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  background: var(--walnut);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+}
+.method.is-on { border-color: var(--gilt); box-shadow: inset 0 0 0 1px var(--gilt); }
+.method-label { font-family: var(--serif); font-weight: 700; font-size: 16px; }
+.method.is-on .method-label { color: var(--gilt); }
+.method-help { font-size: 13px; color: var(--faded); }
+
+.notice {
+  border: 1px solid var(--gilt-dim);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 24px;
+  background: rgba(201, 164, 92, 0.08);
+  font-size: 14px;
+  max-width: 920px;
+}
+.notice p { margin: 0 0 6px; }
+
+.field-picks { margin-bottom: 10px; }
+.chip.is-on { color: var(--walnut); background: var(--gilt); border-color: var(--gilt); }
+
+.diff { margin-top: 12px; display: grid; gap: 12px; }
+.diff-row { border: 1px solid var(--rule); border-radius: var(--radius); padding: 12px 14px; background: rgba(0, 0, 0, 0.12); }
+.diff-row.is-rejected { opacity: 0.55; }
+.diff-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.diff-head h4 { font-size: 15px; }
+.diff-accept { display: flex; align-items: center; gap: 6px; font-size: 14px; accent-color: var(--gilt); }
+.diff-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.diff-cols p { margin: 4px 0 0; white-space: pre-wrap; font-size: 14px; }
+.diff-tag { font-size: 12px; color: var(--faded); border: 1px solid var(--rule); border-radius: 999px; padding: 0 8px; }
+.diff-tag.is-after { color: var(--gilt); border-color: var(--gilt-dim); }
+
+@media (max-width: 720px) {
+  .diff-cols { grid-template-columns: 1fr; }
+}

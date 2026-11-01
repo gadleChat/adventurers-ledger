@@ -67,6 +67,9 @@ export function buildPersonaText(sheet, d, lang = "en") {
   const who = [raceLine(sheet, lang), classLine(sheet, lang)].filter(Boolean).join(", ");
   const bgName = sheet.background.custom?.name ?? t(bg?.name, lang);
   lines.push(lang === "ko" ? `${who}. ${bgName ? `${bgName} 출신.` : ""}` : `${who}. ${bgName ? `${bgName} background.` : ""}`);
+  if (sheet.meta.kind === "companion") {
+    lines.push(lang === "ko" ? "{{user}}의 일행에 합류한 동료." : "A companion travelling in {{user}}'s party.");
+  }
 
   const appearance = appearanceFields
     .map((f) => [f, (profile.appearance ?? {})[f.id]])

@@ -12,6 +12,7 @@ export function FinishStep({ sheet, update, d, settings, goTo }) {
   const [status, setStatus] = useState(null);
   const [busy, setBusy] = useState(false);
   const [showCopy, setShowCopy] = useState(false);
+  const companion = sheet.meta.kind === "companion";
 
   const missing = allChoices(sheet).filter((desc) => !isComplete(sheet, desc));
   const budget = spellBudget(sheet);
@@ -87,7 +88,18 @@ export function FinishStep({ sheet, update, d, settings, goTo }) {
         {sheet.options.judgementMode ? <EquipmentPicker sheet={sheet} update={update} /> : null}
       </Section>
 
-      <Section title="페르소나로 저장" hint="AI가 읽는 글은 영어로 만든다. 직접 쓴 한국어 설정은 번역해서 붙이거나 그대로 둘 수 있다.">
+      {companion ? (
+        <Section title="동료를 채팅에 넣기" hint="동료 시트는 보통 리스 로어북에 넣는다. '로어북용 글 보기'에서 영어 글을 복사해 새 로어북 항목에 붙이고, 활성화 키에 동료 이름을 적으면 그 이름이 나올 때마다 AI가 시트를 읽는다.">
+          <div class="actions">
+            <button type="button" class="btn is-primary" onClick={() => setShowCopy(true)}>로어북용 글 보기</button>
+          </div>
+        </Section>
+      ) : null}
+
+      <Section
+        title={companion ? "페르소나로도 저장" : "페르소나로 저장"}
+        hint={companion ? "동료를 직접 연기하고 싶을 때만 쓴다." : "AI가 읽는 글은 영어로 만든다. 직접 쓴 한국어 설정은 번역해서 붙이거나 그대로 둘 수 있다."}
+      >
         <div class="actions">
           {hasKorean ? (
             <button type="button" class="btn" onClick={translate} disabled={busy}>
@@ -97,7 +109,7 @@ export function FinishStep({ sheet, update, d, settings, goTo }) {
           <button type="button" class="btn is-primary" onClick={save} disabled={busy}>
             {sheet.meta.personaId ? "페르소나 고치기" : "페르소나로 저장"}
           </button>
-          <button type="button" class="btn is-quiet" onClick={() => setShowCopy(true)}>페르소나가 안 들어갔어요</button>
+          {companion ? null : <button type="button" class="btn is-quiet" onClick={() => setShowCopy(true)}>페르소나가 안 들어갔어요</button>}
         </div>
         {hasKorean && !sheet.profileEn ? <p class="section-hint">번역하지 않으면 한국어 설정이 영어 시트 안에 그대로 들어간다. 요즘 모델은 대부분 잘 읽는다.</p> : null}
         {!inRisu ? <p class="section-hint">미리보기 환경이라 실제 리스에는 저장되지 않는다.</p> : null}
@@ -125,7 +137,11 @@ function CopyModal({ sheet, d, update, onClose }) {
   };
   return (
     <Modal title="직접 붙여 넣기" onClose={onClose} wide>
-      <p class="section-hint">리스의 페르소나 설명 칸에 왼쪽 영어 글을 붙여 넣으면 된다. 오른쪽은 확인용 한국어다.</p>
+      <p class="section-hint">
+        {sheet.meta.kind === "companion"
+          ? "로어북 항목 내용 칸에 왼쪽 영어 글을 붙여 넣고, 활성화 키에 동료 이름을 적는다. 오른쪽은 확인용 한국어다."
+          : "리스의 페르소나 설명 칸에 왼쪽 영어 글을 붙여 넣으면 된다. 오른쪽은 확인용 한국어다."}
+      </p>
       <div class="copy-grid">
         <div>
           <h4 class="sub-title">영어 (붙여 넣을 글)</h4>

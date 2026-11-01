@@ -9,8 +9,9 @@ import { Modal, Toggle } from "./parts.jsx";
 import { Ledger } from "./Ledger.jsx";
 import { RaceStep, ClassStep, BackgroundStep, AbilitiesStep, GrowthStep, SpellStep, ProfileStep } from "./steps.jsx";
 import { FinishStep } from "./FinishStep.jsx";
+import { CompanionDialog } from "./Companion.jsx";
 
-const DEFAULT_SETTINGS = { mode: "writer", translateModel: "otherAx" };
+const DEFAULT_SETTINGS = { mode: "writer", translateModel: "otherAx", companionModel: "model", editModel: "model" };
 
 const STEPS = [
   { id: "race", label: "종족", en: "Race" },
@@ -28,6 +29,8 @@ export function App() {
   const [settings, setSettings] = useState(DEFAULT_SETTINGS);
   const [editingId, setEditingId] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
+  const [showCompanion, setShowCompanion] = useState(false);
+  const [notices, setNotices] = useState([]);
   const saveTimer = useRef(null);
 
   useEffect(() => {
@@ -67,7 +70,9 @@ export function App() {
         sheet={current}
         update={(fn) => updateSheet(current.meta.id, fn)}
         settings={settings}
-        onBack={() => setEditingId(null)}
+        notices={notices}
+        dismissNotices={() => setNotices([])}
+        onBack={() => { setEditingId(null); setNotices([]); }}
       />
     );
   }
@@ -77,6 +82,14 @@ export function App() {
     const next = [sheet, ...sheets];
     setSheets(next);
     persist(next);
+    setEditingId(sheet.meta.id);
+  };
+  const addCompanion = (sheet, warnings) => {
+    const next = [sheet, ...sheets];
+    setSheets(next);
+    persist(next);
+    setNotices(warnings);
+    setShowCompanion(false);
     setEditingId(sheet.meta.id);
   };
   const remove = (id) => {
@@ -105,7 +118,10 @@ export function App() {
       <main class="home-main">
         <section class="home-intro">
           <p>세계관에 맞는 페르소나를 D&D 규칙으로 만들어 리스 페르소나로 저장한다.</p>
-          <button type="button" class="btn is-primary is-large" onClick={create}>새 모험가 등록</button>
+          <div class="actions">
+            <button type="button" class="btn is-primary is-large" onClick={create}>새 모험가 등록</button>
+            <button type="button" class="btn is-large" onClick={() => setShowCompanion(true)}>동료 데려오기</button>
+          </div>
         </section>
         {sheets.length ? (
           <ol class="roster">
@@ -118,6 +134,7 @@ export function App() {
         )}
       </main>
       {showSettings ? <SettingsModal settings={settings} save={saveSettings} onClose={() => setShowSettings(false)} /> : null}
+      {showCompanion ? <CompanionDialog settings={settings} onCreate={addCompanion} onClose={() => setShowCompanion(false)} /> : null}
     </div>
   );
 }
@@ -132,8 +149,9 @@ function RosterEntry({ sheet, onOpen, onDuplicate, onRemove }) {
   return (
     <li class="roster-entry">
       <button type="button" class="roster-open" onClick={onOpen}>
-        <span class="roster-name">{sheet.profile.name || "이름 없는 모험가"}</span>
+        <span class="roster-name">{sheet.profile.name || (sheet.meta.kind === "companion" ? "이름 없는 동료" : "이름 없는 모험가")}</span>
         <span class="roster-line">{line || "아직 정하지 않음"}</span>
+        {sheet.meta.kind === "companion" ? <span class="roster-tag is-companion">동료</span> : null}
         {sheet.meta.personaId ? <span class="roster-tag">페르소나 저장됨</span> : null}
       </button>
       <div class="roster-actions">
@@ -167,12 +185,26 @@ function SettingsModal({ settings, save, onClose }) {
         <button type="button" role="radio" aria-checked={settings.translateModel === "otherAx"} class={settings.translateModel === "otherAx" ? "is-on" : ""} onClick={() => save({ translateModel: "otherAx" })}>보조 모델</button>
         <button type="button" role="radio" aria-checked={settings.translateModel === "model"} class={settings.translateModel === "model" ? "is-on" : ""} onClick={() => save({ translateModel: "model" })}>메인 모델</button>
       </div>
-      <p class="section-hint">리스 설정에 정해 둔 메인·보조 모델을 그대로 쓴다.</p>
+      <ModelPicker label="동료 만들기에 쓸 모델" value={settings.companionModel} onChange={(v) => save({ companionModel: v })} />
+      <ModelPicker label="AI 수정에 쓸 모델" value={settings.editModel} onChange={(v) => save({ editModel: v })} />
+      <p class="section-hint">리스 설정에 정해 둔 메인·보조 모델을 그대로 쓴다. 동료 만들기와 수정은 글 품질이 중요해서 메인 모델을 권한다.</p>
     </Modal>
   );
 }
 
-function Editor({ sheet, update, settings, onBack }) {
+function ModelPicker({ label, value, onChange }) {
+  return (
+    <>
+      <h4 class="sub-title">{label}</h4>
+      <div class="segmented" role="radiogroup">
+        <button type="button" role="radio" aria-checked={value === "model"} class={value === "model" ? "is-on" : ""} onClick={() => onChange("model")}>메인 모델</button>
+        <button type="button" role="radio" aria-checked={value === "otherAx"} class={value === "otherAx" ? "is-on" : ""} onClick={() => onChange("otherAx")}>보조 모델</button>
+      </div>
+    </>
+  );
+}
+
+function Editor({ sheet, update, settings, notices, dismissNotices, onBack }) {
   const [step, setStep] = useState("race");
   const [ledgerOpen, setLedgerOpen] = useState(false);
   const d = useMemo(() => derive(sheet), [sheet]);
@@ -206,7 +238,7 @@ function Editor({ sheet, update, settings, onBack }) {
     abilities: <AbilitiesStep sheet={sheet} update={update} />,
     growth: <GrowthStep sheet={sheet} update={update} />,
     spells: <SpellStep sheet={sheet} update={update} />,
-    profile: <ProfileStep sheet={sheet} update={update} />,
+    profile: <ProfileStep sheet={sheet} update={update} settings={settings} />,
     finish: <FinishStep sheet={sheet} update={update} d={d} settings={settings} goTo={goTo} />,
   }[step];
 
@@ -214,7 +246,7 @@ function Editor({ sheet, update, settings, onBack }) {
     <div class="app editor">
       <header class="topbar">
         <button type="button" class="link-btn back" onClick={onBack}>명부 목록</button>
-        <h1 class="brand is-small">{sheet.profile.name || "새 모험가"}</h1>
+        <h1 class="brand is-small">{sheet.profile.name || (sheet.meta.kind === "companion" ? "새 동료" : "새 모험가")}</h1>
         <div class="topbar-actions">
           <button type="button" class="btn is-quiet ledger-toggle" onClick={() => setLedgerOpen(true)}>명부 보기</button>
           <button type="button" class="icon-btn" onClick={hide} aria-label="닫기">✕</button>
@@ -234,6 +266,13 @@ function Editor({ sheet, update, settings, onBack }) {
           </ol>
         </nav>
         <main class="editor-main" ref={mainRef}>
+          {notices.length || sheet.meta.autoFilled ? (
+            <div class="notice" role="status">
+              {sheet.meta.autoFilled ? <p>AI가 채팅을 읽고 채운 동료다. 레벨마다 고를 것 중 AI가 정하지 않은 건 무난한 걸로 자동으로 채웠으니, 단계마다 훑어보고 바꾸면 된다.</p> : null}
+              {notices.map((n) => <p>{n}</p>)}
+              <button type="button" class="link-btn" onClick={() => { dismissNotices(); if (sheet.meta.autoFilled) update((s) => ({ ...s, meta: { ...s.meta, autoFilled: false } })); }}>확인</button>
+            </div>
+          ) : null}
           {body}
           <footer class="step-nav">
             {index > 0 ? <button type="button" class="btn is-quiet" onClick={() => goTo(STEPS[index - 1].id)}>이전: {STEPS[index - 1].label}</button> : <span />}

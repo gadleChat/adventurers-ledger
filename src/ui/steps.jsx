@@ -12,6 +12,7 @@ import { creationChoices, levelChoices } from "../rules/choices.js";
 import { derive, mod, signed, abilityWord, spellBudget, spellChoicePool, classFeatures } from "../rules/calc.js";
 import { Option, Section, Chips, Field, Toggle } from "./parts.jsx";
 import { ChoicePicker } from "./ChoicePicker.jsx";
+import { AiEditPanel } from "./AiEdit.jsx";
 
 const sizeName = (s) => t(glossary.sizes[s]);
 
@@ -429,7 +430,7 @@ function GrantedList({ granted }) {
 
 /* ---------- Profile ---------- */
 
-export function ProfileStep({ sheet, update }) {
+export function ProfileStep({ sheet, update, settings }) {
   const race = getRace(sheet);
   const bg = getBackground(sheet);
   const p = sheet.profile;
@@ -492,6 +493,8 @@ export function ProfileStep({ sheet, update }) {
       <Section title="배경 이야기">
         <textarea class="input" rows="7" value={p.backstory} placeholder="어디서 태어나 무엇을 겪고, 왜 길을 나섰는지" onInput={(e) => setProfile({ backstory: e.currentTarget.value })} />
       </Section>
+
+      <AiEditPanel sheet={sheet} update={update} settings={settings} />
 
       <Section title="그 밖에">
         <Field label="추가 언어" en="Other languages">
