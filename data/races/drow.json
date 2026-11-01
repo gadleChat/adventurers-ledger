@@ -1,0 +1,98 @@
+{
+  "id": "drow",
+  "name": { "ko": "드로우", "en": "Drow" },
+  "source": "SRD5.1",
+  "rulesNote": {
+    "ko": "D&D 규칙에서는 엘프의 하위종족이지만, 발더게3처럼 별도 종족으로 분리했다. 엘프 공통 특성을 모두 포함한다.",
+    "en": "A subrace of elf in the D&D rules, split into its own race as in Baldur's Gate 3. Includes all common elf traits."
+  },
+  "summary": {
+    "ko": "지하 세계 언더다크에서 온 어둠의 엘프. 어둠 속 시야와 타고난 어둠의 마법을 지녔다.",
+    "en": "Dark elves of the Underdark, with superior darkvision and innate shadow magic."
+  },
+  "desc": {
+    "ko": "드로우는 오래전 지상에서 쫓겨나 언더다크 깊은 곳에 도시를 세운 엘프들이다. 많은 드로우 사회가 거미 여신 롤스를 섬기는 무자비한 사제들에게 지배받지만, 그 굴레를 벗어나 다른 길을 찾는 이들도 있다. 어둠에 익숙한 만큼 강한 햇빛에는 눈이 부신다.",
+    "en": "Drow are elves who were driven from the surface long ago and built cities deep in the Underdark. Many drow societies are ruled by the ruthless priestesses of the spider goddess Lolth, though some break free to find another path. Accustomed to darkness, they are dazzled by bright sunlight."
+  },
+  "size": "medium",
+  "speed": 30,
+  "defaultBonus": { "dex": 2, "cha": 1 },
+  "languages": { "fixed": ["common", "elvish", "undercommon"], "choose": 0 },
+  "traits": [
+    {
+      "id": "superior_darkvision",
+      "name": { "ko": "상급 암시야", "en": "Superior Darkvision" },
+      "desc": { "ko": "120피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다.", "en": "You can see in darkness within 120 feet as if it were dim light." },
+      "effects": [{ "type": "darkvision", "range": 120 }]
+    },
+    {
+      "id": "keen_senses",
+      "name": { "ko": "예리한 감각", "en": "Keen Senses" },
+      "desc": { "ko": "감지 기술에 숙련을 얻는다.", "en": "You are proficient in the Perception skill." },
+      "effects": [{ "type": "skillProficiency", "skill": "perception" }]
+    },
+    {
+      "id": "fey_ancestry",
+      "name": { "ko": "요정 혈통", "en": "Fey Ancestry" },
+      "desc": { "ko": "매혹에 맞서는 내성 굴림에 유리하고, 마법으로 잠들지 않는다.", "en": "You have advantage on saves against being charmed, and magic can't put you to sleep." },
+      "effects": [{ "type": "advantage", "on": "save", "vs": "charmed" }, { "type": "other", "key": "immune_magic_sleep" }]
+    },
+    {
+      "id": "trance",
+      "name": { "ko": "명상", "en": "Trance" },
+      "desc": { "ko": "잠을 자지 않고 하루 4시간 깊은 명상에 드는 것으로 긴 휴식의 이점을 얻는다.", "en": "You don't sleep; four hours of deep meditation gives you the benefit of a long rest." },
+      "effects": [{ "type": "other", "key": "trance" }]
+    },
+    {
+      "id": "sunlight_sensitivity",
+      "name": { "ko": "햇빛 민감성", "en": "Sunlight Sensitivity" },
+      "desc": { "ko": "직사광선 아래에서 공격 굴림과 시각에 의존하는 감지 판정에 불리함을 받는다.", "en": "In direct sunlight, you have disadvantage on attack rolls and on sight-based Perception checks." },
+      "effects": [{ "type": "other", "key": "sunlight_sensitivity" }]
+    },
+    {
+      "id": "drow_magic",
+      "name": { "ko": "드로우 마법", "en": "Drow Magic" },
+      "desc": { "ko": "춤추는 빛 소마법을 안다. 3레벨에 요정불, 5레벨에 암흑을 긴 휴식마다 한 번씩 쓸 수 있다. 매력으로 시전한다.", "en": "You know Dancing Lights. At 3rd level you can cast Faerie Fire, and at 5th level Darkness, each once per long rest. Charisma is your spellcasting ability." },
+      "effects": [
+        { "type": "cantrip", "spell": "dancing-lights", "ability": "cha" },
+        { "type": "innateSpell", "spell": "faerie-fire", "minLevel": 3, "castLevel": 1, "uses": 1, "recharge": "long", "ability": "cha" },
+        { "type": "innateSpell", "spell": "darkness", "minLevel": 5, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "cha" }
+      ]
+    },
+    {
+      "id": "drow_weapon_training",
+      "name": { "ko": "드로우 무기 훈련", "en": "Drow Weapon Training" },
+      "desc": { "ko": "레이피어, 소검, 손 쇠뇌에 숙련을 얻는다.", "en": "You are proficient with rapiers, shortswords, and hand crossbows." },
+      "effects": [{ "type": "weaponProficiency", "weapons": ["rapier", "shortsword", "hand_crossbow"] }]
+    }
+  ],
+  "subraces": [
+    {
+      "id": "lolth_sworn",
+      "name": { "ko": "롤스 맹약 드로우", "en": "Lolth-Sworn Drow" },
+      "source": "BG3",
+      "summary": { "ko": "거미 여신 롤스에게 충성을 맹세하고 그 교리 아래 자란 드로우.", "en": "Drow raised under, and sworn to, the spider goddess Lolth." },
+      "desc": {
+        "ko": "롤스를 섬기는 드로우 사회에서 자라 그 가르침을 몸에 새긴 이들. 붉은 눈이 맹약의 증표로 여겨진다. 규칙상 차이는 없고 설정상의 구분이다.",
+        "en": "Drow shaped by a society devoted to Lolth, often marked by red eyes. There is no mechanical difference; this is a story choice."
+      },
+      "traits": []
+    },
+    {
+      "id": "seldarine",
+      "name": { "ko": "셀다린 드로우", "en": "Seldarine Drow" },
+      "source": "BG3",
+      "summary": { "ko": "롤스를 등지고 엘프 신들의 판테온 셀다린을 따르는 드로우.", "en": "Drow who turned from Lolth to follow the elven pantheon, the Seldarine." },
+      "desc": {
+        "ko": "롤스의 교리를 거부하고 지상의 엘프 신들, 특히 이리스트리를 따르는 드로우. 규칙상 차이는 없고 설정상의 구분이다.",
+        "en": "Drow who reject Lolth and follow the elven gods of the surface, often Eilistraee. There is no mechanical difference; this is a story choice."
+      },
+      "traits": []
+    }
+  ],
+  "appearanceHints": {
+    "height": { "ko": "150~180cm, 호리호리한 체격", "en": "About 5 to 6 feet, slender" },
+    "lifespan": { "ko": "100세 무렵 성인, 700년 넘게 산다", "en": "Adult around 100, live over 700 years" },
+    "examples": ["흑요석빛 피부", "새하얀 머리칼", "붉게 빛나는 눈", "거미 문양 장신구", "햇빛에 찡그린 눈"]
+  }
+}

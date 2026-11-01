@@ -1,0 +1,99 @@
+{
+  "id": "elf",
+  "name": { "ko": "엘프", "en": "Elf" },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "수백 년을 사는 우아한 요정의 후손. 예민한 감각과 마법에 대한 친화력을 지녔다.",
+    "en": "Graceful, long-lived descendants of the fey, with keen senses and a bond to magic."
+  },
+  "desc": {
+    "ko": "엘프는 수백 년을 살며 세월을 느긋하게 바라본다. 잠 대신 깊은 명상에 들고, 요정의 피 덕분에 정신을 홀리는 마법에 잘 넘어가지 않는다. 숲과 고대 도시, 하늘 높은 탑에 터를 잡고 산다.",
+    "en": "Elves live for centuries and take a long view of the world. They meditate instead of sleeping, and their fey blood shields their minds against enchantment. They make their homes in forests, ancient cities, and soaring towers."
+  },
+  "size": "medium",
+  "speed": 30,
+  "defaultBonus": { "dex": 2 },
+  "languages": { "fixed": ["common", "elvish"], "choose": 0 },
+  "traits": [
+    {
+      "id": "darkvision",
+      "name": { "ko": "암시야", "en": "Darkvision" },
+      "desc": { "ko": "60피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다. 색은 구분하지 못한다.", "en": "You can see in darkness within 60 feet as if it were dim light, though only in shades of gray." },
+      "effects": [{ "type": "darkvision", "range": 60 }]
+    },
+    {
+      "id": "keen_senses",
+      "name": { "ko": "예리한 감각", "en": "Keen Senses" },
+      "desc": { "ko": "감지 기술에 숙련을 얻는다.", "en": "You are proficient in the Perception skill." },
+      "effects": [{ "type": "skillProficiency", "skill": "perception" }]
+    },
+    {
+      "id": "fey_ancestry",
+      "name": { "ko": "요정 혈통", "en": "Fey Ancestry" },
+      "desc": { "ko": "매혹에 맞서는 내성 굴림에 유리하고, 마법으로 잠들지 않는다.", "en": "You have advantage on saves against being charmed, and magic can't put you to sleep." },
+      "effects": [{ "type": "advantage", "on": "save", "vs": "charmed" }, { "type": "other", "key": "immune_magic_sleep" }]
+    },
+    {
+      "id": "trance",
+      "name": { "ko": "명상", "en": "Trance" },
+      "desc": { "ko": "잠을 자지 않고 하루 4시간 깊은 명상에 드는 것으로 긴 휴식의 이점을 얻는다.", "en": "You don't sleep; four hours of deep meditation gives you the benefit of a long rest." },
+      "effects": [{ "type": "other", "key": "trance" }]
+    }
+  ],
+  "subraces": [
+    {
+      "id": "high_elf",
+      "name": { "ko": "하이 엘프", "en": "High Elf" },
+      "source": "SRD5.1",
+      "summary": { "ko": "학문과 비전 마법을 사랑하는 엘프. 마법 하나를 타고난다.", "en": "Elves devoted to learning and arcane magic, born with a cantrip." },
+      "defaultBonus": { "int": 1 },
+      "languages": { "choose": 1 },
+      "traits": [
+        {
+          "id": "elf_weapon_training",
+          "name": { "ko": "엘프 무기 훈련", "en": "Elf Weapon Training" },
+          "desc": { "ko": "장검, 소검, 단궁, 장궁에 숙련을 얻는다.", "en": "You are proficient with longswords, shortswords, shortbows, and longbows." },
+          "effects": [{ "type": "weaponProficiency", "weapons": ["longsword", "shortsword", "shortbow", "longbow"] }]
+        },
+        {
+          "id": "high_elf_cantrip",
+          "name": { "ko": "타고난 소마법", "en": "Cantrip" },
+          "desc": { "ko": "위저드 주문 목록에서 소마법 하나를 배운다. 지능으로 시전한다.", "en": "You know one cantrip of your choice from the wizard spell list, cast with Intelligence." },
+          "effects": [{ "type": "cantripChoice", "count": 1, "list": "wizard", "ability": "int" }]
+        }
+      ]
+    },
+    {
+      "id": "wood_elf",
+      "name": { "ko": "우드 엘프", "en": "Wood Elf" },
+      "source": "PHB",
+      "summary": { "ko": "숲속을 바람처럼 누비는 날렵한 엘프.", "en": "Swift elves who move through forests like the wind." },
+      "defaultBonus": { "wis": 1 },
+      "traits": [
+        {
+          "id": "elf_weapon_training",
+          "name": { "ko": "엘프 무기 훈련", "en": "Elf Weapon Training" },
+          "desc": { "ko": "장검, 소검, 단궁, 장궁에 숙련을 얻는다.", "en": "You are proficient with longswords, shortswords, shortbows, and longbows." },
+          "effects": [{ "type": "weaponProficiency", "weapons": ["longsword", "shortsword", "shortbow", "longbow"] }]
+        },
+        {
+          "id": "fleet_of_foot",
+          "name": { "ko": "날랜 발", "en": "Fleet of Foot" },
+          "desc": { "ko": "이동 속도가 35피트가 된다.", "en": "Your walking speed increases to 35 feet." },
+          "effects": [{ "type": "speed", "value": 35 }]
+        },
+        {
+          "id": "mask_of_the_wild",
+          "name": { "ko": "야생의 가면", "en": "Mask of the Wild" },
+          "desc": { "ko": "나뭇잎, 비, 눈, 안개처럼 자연에 살짝만 가려져도 숨기를 시도할 수 있다.", "en": "You can try to hide even when only lightly obscured by natural phenomena like foliage, rain, snow, or mist." },
+          "effects": [{ "type": "other", "key": "mask_of_the_wild" }]
+        }
+      ]
+    }
+  ],
+  "appearanceHints": {
+    "height": { "ko": "150~180cm, 호리호리한 체격", "en": "About 5 to 6 feet, slender" },
+    "lifespan": { "ko": "100세 무렵 성인, 700년 넘게 산다", "en": "Adult around 100, live over 700 years" },
+    "examples": ["뾰족한 귀", "속을 알 수 없는 눈빛", "가는 손가락", "나이를 짐작할 수 없는 얼굴", "은빛이 도는 머리칼"]
+  }
+}

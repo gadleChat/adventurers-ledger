@@ -1,0 +1,108 @@
+{
+  "id": "gnome",
+  "name": { "ko": "노움", "en": "Gnome" },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "호기심 많고 영리한 작은 발명가들. 정신을 노리는 마법에 강하다.",
+    "en": "Small, curious, clever inventors whose minds resist magic."
+  },
+  "desc": {
+    "ko": "노움은 삶을 신나는 실험처럼 여기는 작은 종족이다. 기계 장치와 환영술, 이야기와 장난을 좋아하며, 날카로운 머리 덕분에 마법이 정신을 흔들려 해도 잘 버틴다.",
+    "en": "Gnomes treat life as one big exciting experiment. They love gadgets, illusions, stories, and pranks, and their sharp minds hold firm against magic that tries to cloud them."
+  },
+  "size": "small",
+  "speed": 25,
+  "defaultBonus": { "int": 2 },
+  "languages": { "fixed": ["common", "gnomish"], "choose": 0 },
+  "traits": [
+    {
+      "id": "darkvision",
+      "name": { "ko": "암시야", "en": "Darkvision" },
+      "desc": { "ko": "60피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다.", "en": "You can see in darkness within 60 feet as if it were dim light." },
+      "effects": [{ "type": "darkvision", "range": 60 }]
+    },
+    {
+      "id": "gnome_cunning",
+      "name": { "ko": "노움의 기지", "en": "Gnome Cunning" },
+      "desc": { "ko": "마법에 맞서는 지능·지혜·매력 내성 굴림에 유리하다.", "en": "You have advantage on Intelligence, Wisdom, and Charisma saves against magic." },
+      "effects": [{ "type": "advantage", "on": "save", "ability": ["int", "wis", "cha"], "vs": "magic" }]
+    }
+  ],
+  "subraces": [
+    {
+      "id": "rock_gnome",
+      "name": { "ko": "바위 노움", "en": "Rock Gnome" },
+      "source": "SRD5.1",
+      "summary": { "ko": "손재주 좋고 물건 고치기를 좋아하는 발명가 노움.", "en": "Tinkering gnomes who love to build and repair." },
+      "defaultBonus": { "con": 1 },
+      "traits": [
+        {
+          "id": "artificers_lore",
+          "name": { "ko": "장인의 지식", "en": "Artificer's Lore" },
+          "desc": { "ko": "마법 물건, 연금술 물건, 기술 장치에 관한 역사 판정에 숙련 보너스를 두 배로 더한다.", "en": "On History checks about magic items, alchemical objects, or technological devices, you add double your proficiency bonus." },
+          "effects": [{ "type": "other", "key": "artificers_lore" }]
+        },
+        {
+          "id": "tinker",
+          "name": { "ko": "땜장이", "en": "Tinker" },
+          "desc": { "ko": "땜장이 도구에 숙련을 얻고, 태엽 장난감이나 부싯깃 같은 작은 기계 장치를 만들 수 있다.", "en": "You are proficient with tinker's tools and can build tiny clockwork devices such as toys and fire starters." },
+          "effects": [{ "type": "other", "key": "tinker" }]
+        }
+      ]
+    },
+    {
+      "id": "forest_gnome",
+      "name": { "ko": "숲 노움", "en": "Forest Gnome" },
+      "source": "PHB",
+      "summary": { "ko": "숲속에 숨어 살며 환영술과 작은 동물과의 대화에 능한 노움.", "en": "Reclusive gnomes skilled with illusions and small animals." },
+      "defaultBonus": { "dex": 1 },
+      "traits": [
+        {
+          "id": "natural_illusionist",
+          "name": { "ko": "타고난 환영술사", "en": "Natural Illusionist" },
+          "desc": { "ko": "하급 환영 소마법을 안다. 지능으로 시전한다.", "en": "You know the Minor Illusion cantrip, cast with Intelligence." },
+          "effects": [{ "type": "cantrip", "spell": "minor-illusion", "ability": "int" }]
+        },
+        {
+          "id": "speak_with_small_beasts",
+          "name": { "ko": "작은 짐승과 대화", "en": "Speak with Small Beasts" },
+          "desc": { "ko": "소리와 몸짓으로 작은 짐승과 간단한 뜻을 주고받을 수 있다.", "en": "Through sounds and gestures, you can share simple ideas with small beasts." },
+          "effects": [{ "type": "other", "key": "speak_with_small_beasts" }]
+        }
+      ]
+    },
+    {
+      "id": "deep_gnome",
+      "name": { "ko": "딥 노움", "en": "Deep Gnome" },
+      "aliasEn": "Svirfneblin",
+      "source": "EE",
+      "summary": { "ko": "언더다크 바위 속에 숨어 사는 조용하고 조심스러운 노움.", "en": "Wary gnomes who live hidden among the stones of the Underdark." },
+      "desc": {
+        "ko": "스비르프네블린이라고도 불리는 딥 노움은 위험한 언더다크에서 살아남기 위해 눈에 띄지 않는 법을 익혔다. 다른 노움보다 무뚝뚝하지만 동족에게는 깊은 정을 품는다.",
+        "en": "Also called svirfneblin, deep gnomes survive the dangers of the Underdark by staying unseen. They are more reserved than other gnomes, but fiercely loyal to their own."
+      },
+      "defaultBonus": { "dex": 1 },
+      "languages": { "fixed": ["undercommon"] },
+      "replaces": ["darkvision"],
+      "traits": [
+        {
+          "id": "superior_darkvision",
+          "name": { "ko": "상급 암시야", "en": "Superior Darkvision" },
+          "desc": { "ko": "120피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다.", "en": "You can see in darkness within 120 feet as if it were dim light." },
+          "effects": [{ "type": "darkvision", "range": 120 }]
+        },
+        {
+          "id": "stone_camouflage",
+          "name": { "ko": "바위 위장", "en": "Stone Camouflage" },
+          "desc": { "ko": "바위가 많은 곳에서 숨기 위한 은신 판정에 유리하다.", "en": "You have advantage on Stealth checks to hide in rocky terrain." },
+          "effects": [{ "type": "advantage", "on": "check", "skill": "stealth", "note": "rocky terrain" }]
+        }
+      ]
+    }
+  ],
+  "appearanceHints": {
+    "height": { "ko": "90~120cm", "en": "About 3 to 4 feet" },
+    "lifespan": { "ko": "40세 무렵 성인, 350~500년 산다", "en": "Adult around 40, live 350 to 500 years" },
+    "examples": ["반짝이는 눈", "큼직한 코", "기름때 묻은 앞치마", "부스스한 머리", "주머니 가득한 공구"]
+  }
+}

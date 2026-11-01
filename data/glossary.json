@@ -126,6 +126,25 @@
     "githyanki": { "ko": "기스양키", "en": "Githyanki" },
     "dragonborn": { "ko": "드래곤본", "en": "Dragonborn" }
   },
+  "languages": {
+    "common": { "ko": "공용어", "en": "Common" },
+    "dwarvish": { "ko": "드워프어", "en": "Dwarvish" },
+    "elvish": { "ko": "엘프어", "en": "Elvish" },
+    "giant": { "ko": "거인어", "en": "Giant" },
+    "gnomish": { "ko": "노움어", "en": "Gnomish" },
+    "goblin": { "ko": "고블린어", "en": "Goblin" },
+    "halfling": { "ko": "하플링어", "en": "Halfling" },
+    "orc": { "ko": "오크어", "en": "Orc" },
+    "abyssal": { "ko": "심연어", "en": "Abyssal" },
+    "celestial": { "ko": "천상어", "en": "Celestial" },
+    "draconic": { "ko": "용언", "en": "Draconic" },
+    "deep_speech": { "ko": "심층어", "en": "Deep Speech" },
+    "infernal": { "ko": "지옥어", "en": "Infernal" },
+    "primordial": { "ko": "원시어", "en": "Primordial" },
+    "sylvan": { "ko": "숲의 언어", "en": "Sylvan" },
+    "undercommon": { "ko": "지하 공용어", "en": "Undercommon" },
+    "gith": { "ko": "기스어", "en": "Gith" }
+  },
   "sizes": {
     "tiny": { "ko": "초소형", "en": "Tiny" },
     "small": { "ko": "소형", "en": "Small" },

@@ -1,0 +1,101 @@
+{
+  "id": "half_elf",
+  "name": { "ko": "하프엘프", "en": "Half-Elf" },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "인간과 엘프 양쪽의 피를 이어받아 두 세계 사이를 오가는 이들.",
+    "en": "Of both human and elven blood, at home in two worlds and fully in neither."
+  },
+  "desc": {
+    "ko": "하프엘프는 인간의 야망과 엘프의 우아함을 함께 물려받았다. 어느 쪽 사회에서도 온전히 속하지 못한다고 느끼기 쉽지만, 그만큼 사람을 읽고 어울리는 데 능숙하다.",
+    "en": "Half-elves inherit human drive and elven grace. They often feel they belong fully to neither society, which makes them skilled at reading and fitting in with others."
+  },
+  "size": "medium",
+  "speed": 30,
+  "defaultBonus": { "cha": 2 },
+  "bonusChoice": { "choose": 2, "amount": 1, "exclude": ["cha"] },
+  "languages": { "fixed": ["common", "elvish"], "choose": 1 },
+  "traits": [
+    {
+      "id": "darkvision",
+      "name": { "ko": "암시야", "en": "Darkvision" },
+      "desc": { "ko": "60피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다.", "en": "You can see in darkness within 60 feet as if it were dim light." },
+      "effects": [{ "type": "darkvision", "range": 60 }]
+    },
+    {
+      "id": "fey_ancestry",
+      "name": { "ko": "요정 혈통", "en": "Fey Ancestry" },
+      "desc": { "ko": "매혹에 맞서는 내성 굴림에 유리하고, 마법으로 잠들지 않는다.", "en": "You have advantage on saves against being charmed, and magic can't put you to sleep." },
+      "effects": [{ "type": "advantage", "on": "save", "vs": "charmed" }, { "type": "other", "key": "immune_magic_sleep" }]
+    },
+    {
+      "id": "skill_versatility",
+      "name": { "ko": "다재다능", "en": "Skill Versatility" },
+      "desc": { "ko": "원하는 기술 두 개에 숙련을 얻는다.", "en": "You gain proficiency in two skills of your choice." },
+      "effects": [{ "type": "skillChoice", "count": 2 }]
+    }
+  ],
+  "subraces": [
+    {
+      "id": "standard_half_elf",
+      "name": { "ko": "일반 하프엘프", "en": "Standard Half-Elf" },
+      "source": "SRD5.1",
+      "summary": { "ko": "기술 두 개를 고르는 기본형 하프엘프.", "en": "The standard half-elf, choosing two skills." },
+      "traits": []
+    },
+    {
+      "id": "high_half_elf",
+      "name": { "ko": "하이 하프엘프", "en": "High Half-Elf" },
+      "source": "SCAG",
+      "summary": { "ko": "하이 엘프의 피를 받아 소마법 하나를 타고난다.", "en": "Of high elf descent, born with a wizard cantrip." },
+      "replaces": ["skill_versatility"],
+      "traits": [
+        {
+          "id": "high_elf_cantrip",
+          "name": { "ko": "타고난 소마법", "en": "Cantrip" },
+          "desc": { "ko": "위저드 주문 목록에서 소마법 하나를 배운다. 지능으로 시전한다.", "en": "You know one cantrip of your choice from the wizard spell list, cast with Intelligence." },
+          "effects": [{ "type": "cantripChoice", "count": 1, "list": "wizard", "ability": "int" }]
+        }
+      ]
+    },
+    {
+      "id": "wood_half_elf",
+      "name": { "ko": "우드 하프엘프", "en": "Wood Half-Elf" },
+      "source": "SCAG",
+      "summary": { "ko": "우드 엘프의 피를 받아 발이 날래다.", "en": "Of wood elf descent, quick on their feet." },
+      "replaces": ["skill_versatility"],
+      "traits": [
+        {
+          "id": "fleet_of_foot",
+          "name": { "ko": "날랜 발", "en": "Fleet of Foot" },
+          "desc": { "ko": "이동 속도가 35피트가 된다.", "en": "Your walking speed increases to 35 feet." },
+          "effects": [{ "type": "speed", "value": 35 }]
+        }
+      ]
+    },
+    {
+      "id": "drow_half_elf",
+      "name": { "ko": "드로우 하프엘프", "en": "Drow Half-Elf" },
+      "source": "SCAG",
+      "summary": { "ko": "드로우의 피를 받아 어둠의 마법을 타고난다.", "en": "Of drow descent, born with innate shadow magic." },
+      "replaces": ["skill_versatility"],
+      "traits": [
+        {
+          "id": "drow_magic",
+          "name": { "ko": "드로우 마법", "en": "Drow Magic" },
+          "desc": { "ko": "춤추는 빛 소마법을 안다. 3레벨에 요정불, 5레벨에 암흑을 긴 휴식마다 한 번씩 쓸 수 있다. 매력으로 시전한다.", "en": "You know Dancing Lights. At 3rd level you can cast Faerie Fire, and at 5th level Darkness, each once per long rest. Charisma is your spellcasting ability." },
+          "effects": [
+            { "type": "cantrip", "spell": "dancing-lights", "ability": "cha" },
+            { "type": "innateSpell", "spell": "faerie-fire", "minLevel": 3, "castLevel": 1, "uses": 1, "recharge": "long", "ability": "cha" },
+            { "type": "innateSpell", "spell": "darkness", "minLevel": 5, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "cha" }
+          ]
+        }
+      ]
+    }
+  ],
+  "appearanceHints": {
+    "height": { "ko": "155~185cm", "en": "About 5 to 6 feet" },
+    "lifespan": { "ko": "20세 무렵 성인, 180년 넘게 산다", "en": "Adult around 20, live over 180 years" },
+    "examples": ["살짝 뾰족한 귀", "어느 쪽도 닮지 않은 얼굴", "부드러운 이목구비", "엘프치고 단단한 체격"]
+  }
+}

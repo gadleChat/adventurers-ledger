@@ -1,0 +1,95 @@
+{
+  "id": "tiefling",
+  "name": { "ko": "티플링", "en": "Tiefling" },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "지옥의 피가 흐르는 이들. 뿔과 꼬리, 불에 강한 몸과 타고난 지옥의 마법을 지녔다.",
+    "en": "Bearers of infernal blood, with horns, tails, resistance to fire, and innate hellish magic."
+  },
+  "desc": {
+    "ko": "티플링은 먼 조상이 아홉 지옥의 군주와 맺은 계약 때문에 악마의 흔적을 지니고 태어난다. 뿔과 꼬리, 특이한 피부색 탓에 의심과 차별을 받기 일쑤지만, 그 시선을 이겨내며 자기 길을 개척하는 이들이 많다. 어느 지옥 군주의 혈통이냐에 따라 타고나는 마법이 다르다.",
+    "en": "Tieflings carry fiendish marks because of a pact an ancestor made with a lord of the Nine Hells. Horns, tails, and unusual skin tones bring them suspicion and prejudice, and many forge their own path in spite of it. The magic they are born with depends on which archdevil's bloodline they carry."
+  },
+  "size": "medium",
+  "speed": 30,
+  "defaultBonus": { "cha": 2 },
+  "languages": { "fixed": ["common", "infernal"], "choose": 0 },
+  "traits": [
+    {
+      "id": "darkvision",
+      "name": { "ko": "암시야", "en": "Darkvision" },
+      "desc": { "ko": "60피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다.", "en": "You can see in darkness within 60 feet as if it were dim light." },
+      "effects": [{ "type": "darkvision", "range": 60 }]
+    },
+    {
+      "id": "hellish_resistance",
+      "name": { "ko": "지옥의 저항력", "en": "Hellish Resistance" },
+      "desc": { "ko": "화염 피해에 저항한다.", "en": "You have resistance to fire damage." },
+      "effects": [{ "type": "resistance", "damage": "fire" }]
+    }
+  ],
+  "subraces": [
+    {
+      "id": "asmodeus",
+      "name": { "ko": "아스모데우스 티플링", "en": "Asmodeus Tiefling" },
+      "source": "SRD5.1",
+      "summary": { "ko": "아홉 지옥의 지배자 아스모데우스의 혈통. 가장 흔한 티플링.", "en": "Of the bloodline of Asmodeus, ruler of the Nine Hells. The most common tieflings." },
+      "defaultBonus": { "int": 1 },
+      "traits": [
+        {
+          "id": "infernal_legacy",
+          "name": { "ko": "지옥의 유산", "en": "Infernal Legacy" },
+          "desc": { "ko": "기적술 소마법을 안다. 3레벨에 지옥의 질책(2레벨로), 5레벨에 암흑을 긴 휴식마다 한 번씩 쓸 수 있다. 매력으로 시전한다.", "en": "You know Thaumaturgy. At 3rd level you can cast Hellish Rebuke as a 2nd-level spell, and at 5th level Darkness, each once per long rest. Charisma is your spellcasting ability." },
+          "effects": [
+            { "type": "cantrip", "spell": "thaumaturgy", "ability": "cha" },
+            { "type": "innateSpell", "spell": "hellish-rebuke", "minLevel": 3, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "cha" },
+            { "type": "innateSpell", "spell": "darkness", "minLevel": 5, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "cha" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mephistopheles",
+      "name": { "ko": "메피스토펠레스 티플링", "en": "Mephistopheles Tiefling" },
+      "source": "MToF",
+      "summary": { "ko": "비전 지식을 탐하는 대마법사 악마 메피스토펠레스의 혈통.", "en": "Of the bloodline of Mephistopheles, the archdevil of arcane lore." },
+      "defaultBonus": { "int": 1 },
+      "traits": [
+        {
+          "id": "legacy_of_cania",
+          "name": { "ko": "카니아의 유산", "en": "Legacy of Cania" },
+          "desc": { "ko": "마법사의 손 소마법을 안다. 3레벨에 타오르는 손길(2레벨로), 5레벨에 화염검을 긴 휴식마다 한 번씩 쓸 수 있다. 매력으로 시전한다.", "en": "You know Mage Hand. At 3rd level you can cast Burning Hands as a 2nd-level spell, and at 5th level Flame Blade, each once per long rest. Charisma is your spellcasting ability." },
+          "effects": [
+            { "type": "cantrip", "spell": "mage-hand", "ability": "cha" },
+            { "type": "innateSpell", "spell": "burning-hands", "minLevel": 3, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "cha" },
+            { "type": "innateSpell", "spell": "flame-blade", "minLevel": 5, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "cha" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zariel",
+      "name": { "ko": "자리엘 티플링", "en": "Zariel Tiefling" },
+      "source": "MToF",
+      "summary": { "ko": "타락한 천사이자 전쟁의 대악마 자리엘의 혈통. 전사의 피가 흐른다.", "en": "Of the bloodline of Zariel, fallen angel and archdevil of war." },
+      "defaultBonus": { "str": 1 },
+      "traits": [
+        {
+          "id": "legacy_of_avernus",
+          "name": { "ko": "아베르누스의 유산", "en": "Legacy of Avernus" },
+          "desc": { "ko": "기적술 소마법을 안다. 3레벨에 작열의 강타(2레벨로), 5레벨에 낙인의 강타를 긴 휴식마다 한 번씩 쓸 수 있다. 매력으로 시전한다.", "en": "You know Thaumaturgy. At 3rd level you can cast Searing Smite as a 2nd-level spell, and at 5th level Branding Smite, each once per long rest. Charisma is your spellcasting ability." },
+          "effects": [
+            { "type": "cantrip", "spell": "thaumaturgy", "ability": "cha" },
+            { "type": "innateSpell", "spell": "searing-smite", "minLevel": 3, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "cha" },
+            { "type": "innateSpell", "spell": "branding-smite", "minLevel": 5, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "cha" }
+          ]
+        }
+      ]
+    }
+  ],
+  "appearanceHints": {
+    "height": { "ko": "150~190cm", "en": "About 5 to 6 feet" },
+    "lifespan": { "ko": "인간과 비슷하게 자라고 조금 더 오래 산다", "en": "Mature like humans and live a little longer" },
+    "examples": ["휘어진 뿔", "가늘고 긴 꼬리", "붉은빛 피부", "눈동자 없는 금빛 눈", "유황 냄새"]
+  }
+}

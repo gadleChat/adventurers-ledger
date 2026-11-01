@@ -1,0 +1,140 @@
+{
+  "id": "dwarf",
+  "name": { "ko": "드워프", "en": "Dwarf" },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "바위처럼 단단하고 고집 센 장인이자 전사. 독에도 잘 버틴다.",
+    "en": "Stone-hard, stubborn crafters and warriors who shrug off poison."
+  },
+  "desc": {
+    "ko": "드워프는 산과 지하 깊은 곳에 요새를 짓고 사는 강인한 종족이다. 대장일과 석공술에 자부심이 크고, 은혜와 원한을 모두 오래 기억한다. 무거운 갑옷을 입어도 걸음이 느려지지 않는다.",
+    "en": "Dwarves are a hardy people who carve strongholds into mountains and deep underground. They take great pride in smithing and stonework, and remember both kindness and grudges for a very long time. Heavy armor doesn't slow them down."
+  },
+  "size": "medium",
+  "speed": 25,
+  "defaultBonus": { "con": 2 },
+  "languages": { "fixed": ["common", "dwarvish"], "choose": 0 },
+  "traits": [
+    {
+      "id": "darkvision",
+      "name": { "ko": "암시야", "en": "Darkvision" },
+      "desc": { "ko": "60피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다.", "en": "You can see in darkness within 60 feet as if it were dim light." },
+      "effects": [{ "type": "darkvision", "range": 60 }]
+    },
+    {
+      "id": "heavy_armor_speed",
+      "name": { "ko": "묵직한 걸음", "en": "Unhindered by Armor" },
+      "desc": { "ko": "중갑을 입어도 이동 속도가 줄지 않는다.", "en": "Your speed is not reduced by wearing heavy armor." },
+      "effects": [{ "type": "other", "key": "ignore_heavy_armor_speed" }]
+    },
+    {
+      "id": "dwarven_resilience",
+      "name": { "ko": "드워프의 강인함", "en": "Dwarven Resilience" },
+      "desc": { "ko": "독에 맞서는 내성 굴림에 유리하고 독 피해에 저항한다.", "en": "You have advantage on saves against poison and resistance to poison damage." },
+      "effects": [{ "type": "advantage", "on": "save", "vs": "poisoned" }, { "type": "resistance", "damage": "poison" }]
+    },
+    {
+      "id": "dwarven_combat_training",
+      "name": { "ko": "드워프 전투 훈련", "en": "Dwarven Combat Training" },
+      "desc": { "ko": "전투 도끼, 손도끼, 경량 망치, 전쟁 망치에 숙련을 얻는다.", "en": "You are proficient with battleaxes, handaxes, light hammers, and warhammers." },
+      "effects": [{ "type": "weaponProficiency", "weapons": ["battleaxe", "handaxe", "light_hammer", "warhammer"] }]
+    },
+    {
+      "id": "tool_proficiency",
+      "name": { "ko": "장인의 손", "en": "Tool Proficiency" },
+      "desc": { "ko": "대장장이, 양조사, 석공 도구 중 하나에 숙련을 얻는다.", "en": "You gain proficiency with smith's, brewer's, or mason's tools." },
+      "effects": [{ "type": "toolChoice", "count": 1, "from": ["smiths_tools", "brewers_supplies", "masons_tools"] }]
+    },
+    {
+      "id": "stonecunning",
+      "name": { "ko": "돌의 지식", "en": "Stonecunning" },
+      "desc": { "ko": "석조물의 내력을 알아내는 역사 판정에 숙련 보너스를 두 배로 더한다.", "en": "On History checks about the origin of stonework, you add double your proficiency bonus." },
+      "effects": [{ "type": "other", "key": "stonecunning" }]
+    }
+  ],
+  "subraces": [
+    {
+      "id": "gold_dwarf",
+      "name": { "ko": "골드 드워프", "en": "Gold Dwarf" },
+      "aliasEn": "Hill Dwarf",
+      "source": "SRD5.1",
+      "summary": { "ko": "통찰이 깊고 유난히 질긴 드워프.", "en": "Perceptive dwarves with remarkable toughness." },
+      "defaultBonus": { "wis": 1 },
+      "traits": [
+        {
+          "id": "dwarven_toughness",
+          "name": { "ko": "드워프의 맷집", "en": "Dwarven Toughness" },
+          "desc": { "ko": "레벨마다 최대 생명력이 1씩 더 오른다.", "en": "Your hit point maximum increases by 1 for every level." },
+          "effects": [{ "type": "hpPerLevel", "value": 1 }]
+        }
+      ]
+    },
+    {
+      "id": "shield_dwarf",
+      "name": { "ko": "실드 드워프", "en": "Shield Dwarf" },
+      "aliasEn": "Mountain Dwarf",
+      "source": "PHB",
+      "summary": { "ko": "험한 산악에서 단련된 힘세고 갑옷에 익숙한 드워프.", "en": "Strong dwarves of the mountains, trained in armor." },
+      "defaultBonus": { "str": 2 },
+      "traits": [
+        {
+          "id": "dwarven_armor_training",
+          "name": { "ko": "드워프 갑옷 훈련", "en": "Dwarven Armor Training" },
+          "desc": { "ko": "경갑과 평갑에 숙련을 얻는다.", "en": "You are proficient with light and medium armor." },
+          "effects": [{ "type": "armorProficiency", "armor": ["light", "medium"] }]
+        }
+      ]
+    },
+    {
+      "id": "duergar",
+      "name": { "ko": "듀에르가", "en": "Duergar" },
+      "source": "SCAG",
+      "summary": { "ko": "언더다크의 회색 드워프. 몸을 키우거나 모습을 감추는 힘을 타고났다.", "en": "Gray dwarves of the Underdark, able to grow large or turn invisible." },
+      "desc": {
+        "ko": "듀에르가는 마인드 플레이어에게 오랫동안 노예로 부려지다 풀려난 드워프들의 후손이다. 그 세월이 남긴 정신의 힘으로 몸을 부풀리거나 투명해질 수 있지만, 어둠에 익숙해 햇빛에 약하다.",
+        "en": "Duergar descend from dwarves long enslaved by mind flayers. Those ages left them with psionic gifts to swell in size or vanish from sight, but they are used to darkness and suffer in sunlight."
+      },
+      "defaultBonus": { "str": 1 },
+      "languages": { "fixed": ["undercommon"] },
+      "traits": [
+        {
+          "id": "superior_darkvision",
+          "name": { "ko": "상급 암시야", "en": "Superior Darkvision" },
+          "desc": { "ko": "120피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다.", "en": "You can see in darkness within 120 feet as if it were dim light." },
+          "effects": [{ "type": "darkvision", "range": 120 }]
+        },
+        {
+          "id": "duergar_resilience",
+          "name": { "ko": "듀에르가의 강인함", "en": "Duergar Resilience" },
+          "desc": { "ko": "환영, 매혹, 마비에 맞서는 내성 굴림에 유리하다.", "en": "You have advantage on saves against illusions and against being charmed or paralyzed." },
+          "effects": [
+            { "type": "advantage", "on": "save", "vs": "illusion" },
+            { "type": "advantage", "on": "save", "vs": "charmed" },
+            { "type": "advantage", "on": "save", "vs": "paralyzed" }
+          ]
+        },
+        {
+          "id": "duergar_magic",
+          "name": { "ko": "듀에르가 마법", "en": "Duergar Magic" },
+          "desc": { "ko": "3레벨에 확대/축소(확대만), 5레벨에 투명화를 긴 휴식마다 한 번씩 쓸 수 있다. 지능으로 시전한다.", "en": "At 3rd level you can cast Enlarge/Reduce (enlarge only), and at 5th level Invisibility, each once per long rest. Intelligence is your spellcasting ability." },
+          "effects": [
+            { "type": "innateSpell", "spell": "enlarge-reduce", "minLevel": 3, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "int", "note": "enlarge only" },
+            { "type": "innateSpell", "spell": "invisibility", "minLevel": 5, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "int" }
+          ]
+        },
+        {
+          "id": "sunlight_sensitivity",
+          "name": { "ko": "햇빛 민감성", "en": "Sunlight Sensitivity" },
+          "desc": { "ko": "직사광선 아래에서 공격 굴림과 시각에 의존하는 감지 판정에 불리함을 받는다.", "en": "In direct sunlight, you have disadvantage on attack rolls and on sight-based Perception checks." },
+          "effects": [{ "type": "other", "key": "sunlight_sensitivity" }]
+        }
+      ],
+      "replaces": ["darkvision"]
+    }
+  ],
+  "appearanceHints": {
+    "height": { "ko": "120~150cm, 떡 벌어진 체격", "en": "About 4 to 5 feet, broad and stocky" },
+    "lifespan": { "ko": "50세에 성인, 350년 안팎 산다", "en": "Adult at 50, live around 350 years" },
+    "examples": ["땋아 내린 수염", "굵은 팔뚝", "그을음 묻은 손", "단단한 눈빛", "씨족 문양 장신구"]
+  }
+}

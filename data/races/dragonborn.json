@@ -1,0 +1,599 @@
+{
+  "id": "dragonborn",
+  "name": {
+    "ko": "드래곤본",
+    "en": "Dragonborn"
+  },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "용의 피를 이은 자긍심 높은 종족. 조상 용의 숨결을 뿜는다.",
+    "en": "Proud people of draconic blood who breathe the element of their dragon ancestors."
+  },
+  "desc": {
+    "ko": "드래곤본은 용을 닮은 비늘과 얼굴을 지닌 인간형 종족이다. 씨족의 명예를 목숨처럼 여기고, 어떤 용의 혈통이냐에 따라 비늘 색과 내뿜는 숨결이 다르다.",
+    "en": "Dragonborn are humanoids with draconic scales and features. They hold clan honor above their own lives, and the color of their scales and the element of their breath come from their dragon ancestry."
+  },
+  "size": "medium",
+  "speed": 30,
+  "defaultBonus": {
+    "str": 2,
+    "cha": 1
+  },
+  "languages": {
+    "fixed": [
+      "common",
+      "draconic"
+    ],
+    "choose": 0
+  },
+  "traits": [],
+  "subraces": [
+    {
+      "id": "black_dragonborn",
+      "name": {
+        "ko": "검은 용 드래곤본",
+        "en": "Black Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "검은 용의 혈통. 5×30피트 직선으로 산성 숨결을 뿜는다.",
+        "en": "Black dragon ancestry: a 5 by 30 ft. line of acid breath."
+      },
+      "ancestry": {
+        "damage": "acid",
+        "shape": "line",
+        "save": "dex"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 5×30피트 직선으로 산성 숨결을 내뿜는다. 범위 안의 대상은 민첩 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 산성 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale acid in a 5 by 30 ft. line. Each creature in the area makes a Dexterity save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 acid damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "acid",
+              "shape": "line",
+              "save": "dex"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "산성 피해에 저항한다.",
+            "en": "You have resistance to acid damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "acid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blue_dragonborn",
+      "name": {
+        "ko": "푸른 용 드래곤본",
+        "en": "Blue Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "푸른 용의 혈통. 5×30피트 직선으로 번개 숨결을 뿜는다.",
+        "en": "Blue dragon ancestry: a 5 by 30 ft. line of lightning breath."
+      },
+      "ancestry": {
+        "damage": "lightning",
+        "shape": "line",
+        "save": "dex"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 5×30피트 직선으로 번개 숨결을 내뿜는다. 범위 안의 대상은 민첩 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 번개 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale lightning in a 5 by 30 ft. line. Each creature in the area makes a Dexterity save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 lightning damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "lightning",
+              "shape": "line",
+              "save": "dex"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "번개 피해에 저항한다.",
+            "en": "You have resistance to lightning damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "lightning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brass_dragonborn",
+      "name": {
+        "ko": "황동 용 드래곤본",
+        "en": "Brass Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "황동 용의 혈통. 5×30피트 직선으로 화염 숨결을 뿜는다.",
+        "en": "Brass dragon ancestry: a 5 by 30 ft. line of fire breath."
+      },
+      "ancestry": {
+        "damage": "fire",
+        "shape": "line",
+        "save": "dex"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 5×30피트 직선으로 화염 숨결을 내뿜는다. 범위 안의 대상은 민첩 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 화염 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale fire in a 5 by 30 ft. line. Each creature in the area makes a Dexterity save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 fire damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "fire",
+              "shape": "line",
+              "save": "dex"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "화염 피해에 저항한다.",
+            "en": "You have resistance to fire damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "fire"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bronze_dragonborn",
+      "name": {
+        "ko": "청동 용 드래곤본",
+        "en": "Bronze Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "청동 용의 혈통. 5×30피트 직선으로 번개 숨결을 뿜는다.",
+        "en": "Bronze dragon ancestry: a 5 by 30 ft. line of lightning breath."
+      },
+      "ancestry": {
+        "damage": "lightning",
+        "shape": "line",
+        "save": "dex"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 5×30피트 직선으로 번개 숨결을 내뿜는다. 범위 안의 대상은 민첩 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 번개 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale lightning in a 5 by 30 ft. line. Each creature in the area makes a Dexterity save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 lightning damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "lightning",
+              "shape": "line",
+              "save": "dex"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "번개 피해에 저항한다.",
+            "en": "You have resistance to lightning damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "lightning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "copper_dragonborn",
+      "name": {
+        "ko": "구리 용 드래곤본",
+        "en": "Copper Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "구리 용의 혈통. 5×30피트 직선으로 산성 숨결을 뿜는다.",
+        "en": "Copper dragon ancestry: a 5 by 30 ft. line of acid breath."
+      },
+      "ancestry": {
+        "damage": "acid",
+        "shape": "line",
+        "save": "dex"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 5×30피트 직선으로 산성 숨결을 내뿜는다. 범위 안의 대상은 민첩 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 산성 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale acid in a 5 by 30 ft. line. Each creature in the area makes a Dexterity save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 acid damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "acid",
+              "shape": "line",
+              "save": "dex"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "산성 피해에 저항한다.",
+            "en": "You have resistance to acid damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "acid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gold_dragonborn",
+      "name": {
+        "ko": "금 용 드래곤본",
+        "en": "Gold Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "금 용의 혈통. 15피트 원뿔으로 화염 숨결을 뿜는다.",
+        "en": "Gold dragon ancestry: a 15 ft. cone of fire breath."
+      },
+      "ancestry": {
+        "damage": "fire",
+        "shape": "cone",
+        "save": "dex"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 15피트 원뿔으로 화염 숨결을 내뿜는다. 범위 안의 대상은 민첩 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 화염 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale fire in a 15 ft. cone. Each creature in the area makes a Dexterity save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 fire damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "fire",
+              "shape": "cone",
+              "save": "dex"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "화염 피해에 저항한다.",
+            "en": "You have resistance to fire damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "fire"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "green_dragonborn",
+      "name": {
+        "ko": "초록 용 드래곤본",
+        "en": "Green Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "초록 용의 혈통. 15피트 원뿔으로 독 숨결을 뿜는다.",
+        "en": "Green dragon ancestry: a 15 ft. cone of poison breath."
+      },
+      "ancestry": {
+        "damage": "poison",
+        "shape": "cone",
+        "save": "con"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 15피트 원뿔으로 독 숨결을 내뿜는다. 범위 안의 대상은 건강 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 독 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale poison in a 15 ft. cone. Each creature in the area makes a Constitution save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 poison damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "poison",
+              "shape": "cone",
+              "save": "con"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "독 피해에 저항한다.",
+            "en": "You have resistance to poison damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "red_dragonborn",
+      "name": {
+        "ko": "붉은 용 드래곤본",
+        "en": "Red Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "붉은 용의 혈통. 15피트 원뿔으로 화염 숨결을 뿜는다.",
+        "en": "Red dragon ancestry: a 15 ft. cone of fire breath."
+      },
+      "ancestry": {
+        "damage": "fire",
+        "shape": "cone",
+        "save": "dex"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 15피트 원뿔으로 화염 숨결을 내뿜는다. 범위 안의 대상은 민첩 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 화염 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale fire in a 15 ft. cone. Each creature in the area makes a Dexterity save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 fire damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "fire",
+              "shape": "cone",
+              "save": "dex"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "화염 피해에 저항한다.",
+            "en": "You have resistance to fire damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "fire"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "silver_dragonborn",
+      "name": {
+        "ko": "은 용 드래곤본",
+        "en": "Silver Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "은 용의 혈통. 15피트 원뿔으로 냉기 숨결을 뿜는다.",
+        "en": "Silver dragon ancestry: a 15 ft. cone of cold breath."
+      },
+      "ancestry": {
+        "damage": "cold",
+        "shape": "cone",
+        "save": "con"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 15피트 원뿔으로 냉기 숨결을 내뿜는다. 범위 안의 대상은 건강 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 냉기 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale cold in a 15 ft. cone. Each creature in the area makes a Constitution save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 cold damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "cold",
+              "shape": "cone",
+              "save": "con"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "냉기 피해에 저항한다.",
+            "en": "You have resistance to cold damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "cold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "white_dragonborn",
+      "name": {
+        "ko": "하얀 용 드래곤본",
+        "en": "White Dragonborn"
+      },
+      "source": "SRD5.1",
+      "summary": {
+        "ko": "하얀 용의 혈통. 15피트 원뿔으로 냉기 숨결을 뿜는다.",
+        "en": "White dragon ancestry: a 15 ft. cone of cold breath."
+      },
+      "ancestry": {
+        "damage": "cold",
+        "shape": "cone",
+        "save": "con"
+      },
+      "traits": [
+        {
+          "id": "breath_weapon",
+          "name": {
+            "ko": "숨결 무기",
+            "en": "Breath Weapon"
+          },
+          "desc": {
+            "ko": "행동을 써서 15피트 원뿔으로 냉기 숨결을 내뿜는다. 범위 안의 대상은 건강 내성(난이도 8 + 건강 수정치 + 숙련 보너스)을 굴려, 실패하면 냉기 피해 2d6, 성공하면 절반을 입는다. 피해는 6레벨에 3d6, 11레벨에 4d6, 16레벨에 5d6. 짧은 휴식이나 긴 휴식마다 한 번.",
+            "en": "As an action, you exhale cold in a 15 ft. cone. Each creature in the area makes a Constitution save (DC 8 + your Constitution modifier + your proficiency bonus), taking 2d6 cold damage on a failure or half on a success. The damage becomes 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th. Once per short or long rest."
+          },
+          "effects": [
+            {
+              "type": "breathWeapon",
+              "damage": "cold",
+              "shape": "cone",
+              "save": "con"
+            }
+          ]
+        },
+        {
+          "id": "damage_resistance",
+          "name": {
+            "ko": "피해 저항",
+            "en": "Damage Resistance"
+          },
+          "desc": {
+            "ko": "냉기 피해에 저항한다.",
+            "en": "You have resistance to cold damage."
+          },
+          "effects": [
+            {
+              "type": "resistance",
+              "damage": "cold"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "appearanceHints": {
+    "height": {
+      "ko": "180~200cm, 육중한 체격",
+      "en": "About 6 to 6½ feet, heavily built"
+    },
+    "lifespan": {
+      "ko": "15세에 성인, 80년 안팎 산다",
+      "en": "Adult at 15, live around 80 years"
+    },
+    "examples": [
+      "비늘 덮인 주둥이",
+      "꼬리 없는 용의 몸",
+      "씨족 문장",
+      "목에서 새는 연기",
+      "번들거리는 비늘"
+    ]
+  }
+}

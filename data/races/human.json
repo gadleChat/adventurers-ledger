@@ -1,0 +1,53 @@
+{
+  "id": "human",
+  "name": { "ko": "인간", "en": "Human" },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "짧은 생을 야망으로 불태우는, 어디에나 있는 가장 흔하고 다재다능한 종족.",
+    "en": "The most widespread and versatile people, burning brief lives with ambition."
+  },
+  "desc": {
+    "ko": "인간은 다른 종족에 비해 수명이 짧은 대신 적응력이 뛰어나고 야심이 크다. 어느 땅에서나 마을과 왕국을 세우며, 외모와 문화가 지역마다 크게 다르다.",
+    "en": "Humans live short lives compared to other peoples, but make up for it with adaptability and drive. They build towns and kingdoms in every land, and their looks and cultures vary enormously from place to place."
+  },
+  "size": "medium",
+  "speed": 30,
+  "defaultBonus": { "str": 1, "dex": 1, "con": 1, "int": 1, "wis": 1, "cha": 1 },
+  "languages": { "fixed": ["common"], "choose": 1 },
+  "traits": [],
+  "subraces": [
+    {
+      "id": "standard_human",
+      "name": { "ko": "일반 인간", "en": "Standard Human" },
+      "source": "SRD5.1",
+      "summary": { "ko": "모든 능력치가 고르게 1씩 오른다.", "en": "Every ability score increases by 1." },
+      "traits": []
+    },
+    {
+      "id": "variant_human",
+      "name": { "ko": "변형 인간", "en": "Variant Human" },
+      "source": "PHB",
+      "summary": { "ko": "능력치 대신 기술 하나와 특기 하나를 얻는 특화형 인간.", "en": "Trades broad ability increases for a skill and a feat." },
+      "bonusOverride": { "choose": 2, "amount": 1 },
+      "traits": [
+        {
+          "id": "variant_skill",
+          "name": { "ko": "숙련 기술", "en": "Skilled" },
+          "desc": { "ko": "원하는 기술 하나에 숙련을 얻는다.", "en": "You gain proficiency in one skill of your choice." },
+          "effects": [{ "type": "skillChoice", "count": 1 }]
+        },
+        {
+          "id": "variant_feat",
+          "name": { "ko": "특기", "en": "Feat" },
+          "desc": { "ko": "1레벨에 특기 하나를 고른다.", "en": "You gain one feat of your choice at 1st level." },
+          "effects": [{ "type": "featChoice", "count": 1 }]
+        }
+      ]
+    }
+  ],
+  "appearanceHints": {
+    "height": { "ko": "150~190cm 안팎", "en": "About 5 to 6 feet" },
+    "lifespan": { "ko": "18세 전후 성인, 100세를 넘기기 어렵다", "en": "Adult in their late teens, rarely live past 100" },
+    "examples": ["햇볕에 그을린 피부", "굳은살 박인 손", "날카로운 눈매", "희끗한 관자놀이", "흉터 진 턱"]
+  }
+}

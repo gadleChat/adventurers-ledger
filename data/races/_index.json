@@ -1,0 +1,15 @@
+{
+  "order": [
+    "human",
+    "elf",
+    "drow",
+    "half_elf",
+    "half_orc",
+    "halfling",
+    "dwarf",
+    "gnome",
+    "tiefling",
+    "githyanki",
+    "dragonborn"
+  ]
+}

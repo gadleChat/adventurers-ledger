@@ -1,0 +1,50 @@
+{
+  "id": "githyanki",
+  "name": { "ko": "기스양키", "en": "Githyanki" },
+  "source": "MToF",
+  "summary": {
+    "ko": "아스트랄 차원의 전사 종족. 타고난 무예와 정신 능력으로 싸운다.",
+    "en": "Warrior people of the Astral Plane, fighting with martial skill and psionic power."
+  },
+  "desc": {
+    "ko": "기스양키는 오래전 마인드 플레이어의 노예였다가 반란을 일으켜 자유를 쟁취한 종족의 한 갈래다. 지금은 아스트랄 차원에서 은빛 검을 든 기사들과 함께 리치 여왕 블라키스를 섬기며 약탈과 전쟁을 일삼는다. 모든 기스양키는 어려서부터 무기와 정신 능력을 함께 단련한다.",
+    "en": "Githyanki are one branch of a people who rose up against their mind flayer masters long ago and won their freedom. Now they dwell on the Astral Plane, serving the lich-queen Vlaakith with silver-sworded knights and raiding other worlds. Every githyanki trains in both arms and psionics from childhood."
+  },
+  "size": "medium",
+  "speed": 30,
+  "defaultBonus": { "str": 2, "int": 1 },
+  "languages": { "fixed": ["common", "gith"], "choose": 0 },
+  "traits": [
+    {
+      "id": "decadent_mastery",
+      "name": { "ko": "오랜 숙련", "en": "Decadent Mastery" },
+      "desc": { "ko": "긴 수명 동안 익힌 것들로, 언어 하나와 기술 또는 도구 하나에 숙련을 얻는다.", "en": "Long life has given you one extra language and proficiency in one skill or tool of your choice." },
+      "effects": [{ "type": "skillChoice", "count": 1, "orTool": true }, { "type": "other", "key": "extra_language" }]
+    },
+    {
+      "id": "martial_prodigy",
+      "name": { "ko": "무예의 천재", "en": "Martial Prodigy" },
+      "desc": { "ko": "경갑과 평갑, 소검, 장검, 대검에 숙련을 얻는다.", "en": "You are proficient with light and medium armor, and with shortswords, longswords, and greatswords." },
+      "effects": [
+        { "type": "armorProficiency", "armor": ["light", "medium"] },
+        { "type": "weaponProficiency", "weapons": ["shortsword", "longsword", "greatsword"] }
+      ]
+    },
+    {
+      "id": "githyanki_psionics",
+      "name": { "ko": "기스양키 정신 능력", "en": "Githyanki Psionics" },
+      "desc": { "ko": "마법사의 손 소마법을 알며, 그 손은 보이지 않는다. 3레벨에 도약 강화, 5레벨에 안개 걸음을 긴 휴식마다 한 번씩 쓸 수 있다. 지능으로 시전하고 구성 요소가 필요 없다.", "en": "You know Mage Hand, and the hand is invisible. At 3rd level you can cast Jump, and at 5th level Misty Step, each once per long rest. Intelligence is your spellcasting ability, and these spells need no components." },
+      "effects": [
+        { "type": "cantrip", "spell": "mage-hand", "ability": "int" },
+        { "type": "innateSpell", "spell": "jump", "minLevel": 3, "castLevel": 1, "uses": 1, "recharge": "long", "ability": "int" },
+        { "type": "innateSpell", "spell": "misty-step", "minLevel": 5, "castLevel": 2, "uses": 1, "recharge": "long", "ability": "int" }
+      ]
+    }
+  ],
+  "subraces": [],
+  "appearanceHints": {
+    "height": { "ko": "180cm 안팎, 마른 근육질", "en": "About 6 feet, lean and wiry" },
+    "lifespan": { "ko": "인간과 비슷하게 자라고 조금 더 오래 산다", "en": "Mature like humans, live somewhat longer" },
+    "examples": ["누르스름한 피부", "움푹 들어간 눈", "뾰족한 귀", "높이 묶은 머리", "은빛 검집"]
+  }
+}

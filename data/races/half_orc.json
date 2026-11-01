@@ -1,0 +1,49 @@
+{
+  "id": "half_orc",
+  "name": { "ko": "하프오크", "en": "Half-Orc" },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "오크의 힘과 끈질긴 생명력을 물려받은, 쉽게 쓰러지지 않는 전사들.",
+    "en": "Inheritors of orcish strength and tenacity, hard to put down."
+  },
+  "desc": {
+    "ko": "하프오크는 인간과 오크 사이에서 태어나 강인한 체력과 거친 존재감을 지녔다. 어디서나 편견과 마주하지만, 그만큼 스스로의 힘으로 자리를 증명해낸다.",
+    "en": "Born of human and orc, half-orcs carry great physical toughness and an imposing presence. They face prejudice wherever they go, and often prove themselves by their own strength."
+  },
+  "size": "medium",
+  "speed": 30,
+  "defaultBonus": { "str": 2, "con": 1 },
+  "languages": { "fixed": ["common", "orc"], "choose": 0 },
+  "traits": [
+    {
+      "id": "darkvision",
+      "name": { "ko": "암시야", "en": "Darkvision" },
+      "desc": { "ko": "60피트 안의 어둠을 흐릿한 빛처럼 볼 수 있다.", "en": "You can see in darkness within 60 feet as if it were dim light." },
+      "effects": [{ "type": "darkvision", "range": 60 }]
+    },
+    {
+      "id": "menacing",
+      "name": { "ko": "위압감", "en": "Menacing" },
+      "desc": { "ko": "위협 기술에 숙련을 얻는다.", "en": "You are proficient in the Intimidation skill." },
+      "effects": [{ "type": "skillProficiency", "skill": "intimidation" }]
+    },
+    {
+      "id": "relentless_endurance",
+      "name": { "ko": "끈질긴 인내", "en": "Relentless Endurance" },
+      "desc": { "ko": "생명력이 0이 되어도 죽지 않았다면 1로 버틸 수 있다. 긴 휴식마다 한 번.", "en": "When reduced to 0 hit points but not killed outright, you can drop to 1 instead. Once per long rest." },
+      "effects": [{ "type": "other", "key": "relentless_endurance" }]
+    },
+    {
+      "id": "savage_attacks",
+      "name": { "ko": "야만적인 공격", "en": "Savage Attacks" },
+      "desc": { "ko": "근접 무기 공격으로 치명타를 내면 무기 피해 주사위를 하나 더 굴린다.", "en": "When you score a critical hit with a melee weapon, roll one of the weapon's damage dice one more time and add it." },
+      "effects": [{ "type": "other", "key": "savage_attacks" }]
+    }
+  ],
+  "subraces": [],
+  "appearanceHints": {
+    "height": { "ko": "170~200cm, 우람한 체격", "en": "About 5½ to 6½ feet, heavily built" },
+    "lifespan": { "ko": "14세 무렵 성인, 75년 안팎 산다", "en": "Adult around 14, rarely live past 75" },
+    "examples": ["튀어나온 아랫니", "잿빛이 도는 피부", "굵은 눈썹뼈", "전투 흉터", "낮고 거친 목소리"]
+  }
+}

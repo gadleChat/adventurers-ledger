@@ -1,0 +1,75 @@
+{
+  "id": "halfling",
+  "name": { "ko": "하플링", "en": "Halfling" },
+  "source": "SRD5.1",
+  "summary": {
+    "ko": "작은 체구에 낙천적이고, 위기 앞에서 유난히 운이 좋은 종족.",
+    "en": "Small, cheerful folk with an uncanny knack for luck in a pinch."
+  },
+  "desc": {
+    "ko": "하플링은 집과 음식, 친구를 무엇보다 아끼는 소박한 사람들이다. 작지만 겁이 없고, 결정적인 순간에 운이 따르는 것으로 유명하다. 다른 종족의 마을에 섞여 살거나 떠돌이 무리로 여행하기도 한다.",
+    "en": "Halflings cherish home, food, and friends above all. Small but fearless, they are famous for luck that turns up at the crucial moment. They live among other peoples or travel in wandering bands."
+  },
+  "size": "small",
+  "speed": 25,
+  "defaultBonus": { "dex": 2 },
+  "languages": { "fixed": ["common", "halfling"], "choose": 0 },
+  "traits": [
+    {
+      "id": "lucky",
+      "name": { "ko": "행운", "en": "Lucky" },
+      "desc": { "ko": "명중·능력 판정·내성 굴림에서 d20이 1이 나오면 다시 굴려 새 결과를 쓴다.", "en": "When you roll a 1 on the d20 for an attack, ability check, or saving throw, you can reroll and must use the new roll." },
+      "effects": [{ "type": "reroll", "on": "natural_1", "rolls": ["attack", "check", "save"] }]
+    },
+    {
+      "id": "brave",
+      "name": { "ko": "용감함", "en": "Brave" },
+      "desc": { "ko": "공포에 맞서는 내성 굴림에 유리하다.", "en": "You have advantage on saves against being frightened." },
+      "effects": [{ "type": "advantage", "on": "save", "vs": "frightened" }]
+    },
+    {
+      "id": "halfling_nimbleness",
+      "name": { "ko": "하플링의 민첩함", "en": "Halfling Nimbleness" },
+      "desc": { "ko": "자기보다 큰 존재의 공간을 지나갈 수 있다.", "en": "You can move through the space of any creature larger than you." },
+      "effects": [{ "type": "other", "key": "halfling_nimbleness" }]
+    }
+  ],
+  "subraces": [
+    {
+      "id": "lightfoot",
+      "name": { "ko": "라이트풋 하플링", "en": "Lightfoot Halfling" },
+      "source": "SRD5.1",
+      "summary": { "ko": "붙임성 좋고 눈에 잘 띄지 않는 떠돌이 하플링.", "en": "Affable halflings who easily slip out of sight." },
+      "defaultBonus": { "cha": 1 },
+      "traits": [
+        {
+          "id": "naturally_stealthy",
+          "name": { "ko": "타고난 은신", "en": "Naturally Stealthy" },
+          "desc": { "ko": "자기보다 한 단계 이상 큰 존재 뒤에 가려지기만 해도 숨기를 시도할 수 있다.", "en": "You can attempt to hide even when obscured only by a creature at least one size larger than you." },
+          "effects": [{ "type": "other", "key": "naturally_stealthy" }]
+        }
+      ]
+    },
+    {
+      "id": "strongheart",
+      "name": { "ko": "스트롱하트 하플링", "en": "Strongheart Halfling" },
+      "aliasEn": "Stout Halfling",
+      "source": "PHB",
+      "summary": { "ko": "드워프 피가 섞였다는 말이 돌 만큼 튼튼한 하플링.", "en": "Hardy halflings, said to have a touch of dwarven blood." },
+      "defaultBonus": { "con": 1 },
+      "traits": [
+        {
+          "id": "stout_resilience",
+          "name": { "ko": "강건함", "en": "Stout Resilience" },
+          "desc": { "ko": "독에 맞서는 내성 굴림에 유리하고 독 피해에 저항한다.", "en": "You have advantage on saves against poison and resistance to poison damage." },
+          "effects": [{ "type": "advantage", "on": "save", "vs": "poisoned" }, { "type": "resistance", "damage": "poison" }]
+        }
+      ]
+    }
+  ],
+  "appearanceHints": {
+    "height": { "ko": "90cm 안팎", "en": "About 3 feet" },
+    "lifespan": { "ko": "20세에 성인, 150세 전후까지 산다", "en": "Adult at 20, live around 150 years" },
+    "examples": ["동그란 볼", "곱슬거리는 머리", "맨발에 굳은살", "장난기 어린 눈", "주머니 가득한 간식"]
+  }
+}
