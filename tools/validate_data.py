@@ -135,6 +135,7 @@ def main():
     done, total = check_subclasses(spells, errors, check_text, check_effect)
     check_lists(errors, check_text)
     bg_count, feat_count = check_backgrounds_and_feats(glossary, errors, check_text, check_effect)
+    check_weapon_references(errors, check_text)
     for path in sorted((DATA / "classes").glob("[!_]*.json")):
         for fid, feature in load(path).get("features", {}).items():
             check_choice(f"classes/{path.stem}/{fid}", feature.get("choice"), errors)
@@ -146,6 +147,43 @@ def main():
         sys.exit(1)
     print(f"OK: {len(index)} races, {class_count} classes, {bg_count} backgrounds, {feat_count} feats; "
           f"subclass details {done}/{total}")
+
+
+def check_weapon_references(errors, check_text):
+    """Every weapon id used in a proficiency must exist in equipment.json."""
+    equipment = load(DATA / "equipment.json")
+    weapons = {w["id"] for w in equipment["weapons"]} | {"simple", "martial"}
+    for item in equipment["armor"] + equipment["weapons"]:
+        check_text(f"equipment/{item['id']}", item.get("name"), "name")
+
+    def walk(node, where):
+        if isinstance(node, dict):
+            if node.get("type") == "weaponProficiency":
+                for wid in node.get("weapons", []):
+                    if wid not in weapons:
+                        errors.append(f"{where}: unknown weapon '{wid}'")
+            for key, value in node.items():
+                walk(value, where)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value, where)
+
+    for folder in ("races", "subclasses"):
+        for path in (DATA / folder).glob("[!_]*.json"):
+            walk(load(path), f"{folder}/{path.stem}")
+    walk(load(DATA / "feats.json"), "feats")
+    for path in (DATA / "classes").glob("[!_]*.json"):
+        cls = load(path)
+        for wid in cls["proficiencies"].get("weapons", []):
+            if wid not in weapons:
+                errors.append(f"classes/{path.stem}: unknown weapon '{wid}'")
+        walk(cls.get("features", {}), f"classes/{path.stem}")
+
+    appearance = load(DATA / "appearance.json")
+    for field in appearance["fields"]:
+        check_text(f"appearance/{field['id']}", field.get("label"), "label")
+        for i, example in enumerate(field.get("examples", [])):
+            check_text(f"appearance/{field['id']}[{i}]", example, "example")
 
 
 def check_backgrounds_and_feats(glossary, errors, check_text, check_effect):

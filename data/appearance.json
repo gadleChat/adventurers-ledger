@@ -1,0 +1,99 @@
+{
+  "_meta": {
+    "description": "General appearance suggestion chips per field, shown alongside each race's own appearanceHints.examples. Written for this project."
+  },
+  "fields": [
+    {
+      "id": "age",
+      "label": { "ko": "나이", "en": "Age" },
+      "examples": [
+        { "ko": "갓 성인이 된", "en": "Barely of age" },
+        { "ko": "한창때인", "en": "In their prime" },
+        { "ko": "세월이 묻어나는", "en": "Weathered by years" },
+        { "ko": "나이를 짐작하기 어려운", "en": "Of uncertain age" }
+      ]
+    },
+    {
+      "id": "build",
+      "label": { "ko": "체격", "en": "Build" },
+      "examples": [
+        { "ko": "호리호리한", "en": "Slender" },
+        { "ko": "다부진", "en": "Sturdy" },
+        { "ko": "근육질의", "en": "Muscular" },
+        { "ko": "통통한", "en": "Plump" },
+        { "ko": "마르고 앙상한", "en": "Gaunt" },
+        { "ko": "키가 껑충한", "en": "Lanky" }
+      ]
+    },
+    {
+      "id": "eyes",
+      "label": { "ko": "눈", "en": "Eyes" },
+      "examples": [
+        { "ko": "매서운 눈매", "en": "Piercing eyes" },
+        { "ko": "졸린 듯 처진 눈", "en": "Heavy-lidded eyes" },
+        { "ko": "빛나는 눈동자", "en": "Gleaming eyes" },
+        { "ko": "짝짝이 눈", "en": "Mismatched eyes" },
+        { "ko": "지쳐 보이는 눈", "en": "Tired eyes" },
+        { "ko": "웃음기 어린 눈", "en": "Laughing eyes" }
+      ]
+    },
+    {
+      "id": "hair",
+      "label": { "ko": "머리", "en": "Hair" },
+      "examples": [
+        { "ko": "짧게 친 머리", "en": "Close-cropped hair" },
+        { "ko": "허리까지 오는 긴 머리", "en": "Waist-length hair" },
+        { "ko": "부스스한 곱슬머리", "en": "Wild curls" },
+        { "ko": "땋아 내린 머리", "en": "Braided hair" },
+        { "ko": "삭발한 머리", "en": "Shaved head" },
+        { "ko": "희끗희끗한 머리", "en": "Graying hair" }
+      ]
+    },
+    {
+      "id": "skin",
+      "label": { "ko": "피부", "en": "Skin" },
+      "examples": [
+        { "ko": "햇볕에 그을린", "en": "Sun-darkened" },
+        { "ko": "창백한", "en": "Pale" },
+        { "ko": "주근깨가 많은", "en": "Freckled" },
+        { "ko": "문신이 새겨진", "en": "Tattooed" },
+        { "ko": "흉터투성이인", "en": "Covered in scars" }
+      ]
+    },
+    {
+      "id": "marks",
+      "label": { "ko": "눈에 띄는 특징", "en": "Distinguishing Marks" },
+      "examples": [
+        { "ko": "얼굴을 가로지르는 흉터", "en": "A scar across the face" },
+        { "ko": "한쪽 귀가 잘려 나간", "en": "A missing ear" },
+        { "ko": "손가락 하나가 없는", "en": "A missing finger" },
+        { "ko": "늘 끼고 다니는 반지", "en": "A ring never taken off" },
+        { "ko": "목에 걸린 낡은 부적", "en": "An old charm around the neck" },
+        { "ko": "험악한 외모", "en": "A menacing look" }
+      ]
+    },
+    {
+      "id": "clothing",
+      "label": { "ko": "옷차림", "en": "Clothing" },
+      "examples": [
+        { "ko": "낡았지만 깔끔한 옷", "en": "Worn but tidy clothes" },
+        { "ko": "화려한 장신구", "en": "Flashy jewelry" },
+        { "ko": "여행에 찌든 망토", "en": "A travel-stained cloak" },
+        { "ko": "늘 검은 옷", "en": "Always dressed in black" },
+        { "ko": "몸에 맞지 않는 훔친 옷", "en": "Stolen clothes that don't quite fit" }
+      ]
+    },
+    {
+      "id": "voice",
+      "label": { "ko": "목소리와 버릇", "en": "Voice and Mannerisms" },
+      "examples": [
+        { "ko": "낮고 거친 목소리", "en": "A low, rough voice" },
+        { "ko": "말이 빠르고 많은", "en": "Talks fast and a lot" },
+        { "ko": "말끝을 흐리는", "en": "Trails off mid-sentence" },
+        { "ko": "생각할 때 손가락을 두드리는", "en": "Taps fingers while thinking" },
+        { "ko": "웃음소리가 큰", "en": "A loud laugh" },
+        { "ko": "사투리가 짙은", "en": "A thick regional accent" }
+      ]
+    }
+  ]
+}
