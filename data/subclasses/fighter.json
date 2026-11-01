@@ -1,0 +1,139 @@
+{
+  "classId": "fighter",
+  "subclasses": {
+    "champion": {
+      "levels": { "3": ["improved_critical"], "7": ["remarkable_athlete"], "10": ["additional_fighting_style"], "15": ["superior_critical"], "18": ["survivor"] },
+      "features": {
+        "improved_critical": {
+          "name": { "ko": "향상된 치명타", "en": "Improved Critical" },
+          "desc": { "ko": "무기 공격이 19나 20에서 치명타가 된다.", "en": "Your weapon attacks score a critical hit on a roll of 19 or 20." }
+        },
+        "remarkable_athlete": {
+          "name": { "ko": "뛰어난 운동선수", "en": "Remarkable Athlete" },
+          "desc": { "ko": "숙련이 없는 근력·민첩·건강 판정에 숙련 보너스 절반을 더하고, 멀리뛰기 거리가 늘어난다.", "en": "Add half your proficiency bonus to Strength, Dexterity, and Constitution checks you aren't proficient in, and your running long jump improves." }
+        },
+        "additional_fighting_style": {
+          "name": { "ko": "추가 전투 방식", "en": "Additional Fighting Style" },
+          "desc": { "ko": "전투 방식 하나를 더 고른다.", "en": "Choose a second Fighting Style." },
+          "choice": { "key": "fightingStyle2", "list": "fighting_styles", "count": 1 }
+        },
+        "superior_critical": {
+          "name": { "ko": "탁월한 치명타", "en": "Superior Critical" },
+          "desc": { "ko": "무기 공격이 18~20에서 치명타가 된다.", "en": "Your weapon attacks score a critical hit on a roll of 18 to 20." }
+        },
+        "survivor": {
+          "name": { "ko": "생존자", "en": "Survivor" },
+          "desc": { "ko": "생명력이 절반 이하일 때 매 턴 시작에 5 + 건강 수정치만큼 회복한다.", "en": "While at half HP or less, regain 5 + your Constitution modifier at the start of each turn." }
+        }
+      }
+    },
+    "battle_master": {
+      "levels": { "3": ["combat_superiority", "student_of_war"], "7": ["know_your_enemy"], "10": ["improved_combat_superiority"], "15": ["relentless"], "18": ["improved_combat_superiority_2"] },
+      "scaling": {
+        "superiorityDice": { "name": { "ko": "우월 주사위", "en": "Superiority Dice" }, "values": [0, 0, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6] },
+        "superiorityDie": { "name": { "ko": "우월 주사위 크기", "en": "Superiority Die Size" }, "values": [null, null, "d8", "d8", "d8", "d8", "d8", "d8", "d8", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d10", "d12", "d12", "d12"] },
+        "maneuversKnown": { "name": { "ko": "아는 기교", "en": "Maneuvers Known" }, "values": [0, 0, 3, 3, 3, 3, 5, 5, 5, 7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 9] }
+      },
+      "features": {
+        "combat_superiority": {
+          "name": { "ko": "전투 우위", "en": "Combat Superiority" },
+          "desc": { "ko": "우월 주사위를 써서 기교를 펼친다. 기교 세 개를 배우고(7·10·15레벨에 두 개씩 더), 주사위는 짧은 휴식에 회복한다.", "en": "Spend superiority dice to perform maneuvers. Learn three maneuvers (two more at 7th, 10th, and 15th level); dice return on a short rest." },
+          "choice": { "key": "maneuvers", "list": "maneuvers", "countFromScaling": "maneuversKnown" }
+        },
+        "student_of_war": {
+          "name": { "ko": "전쟁의 학도", "en": "Student of War" },
+          "desc": { "ko": "장인 도구 하나에 숙련을 얻는다.", "en": "You gain proficiency with one type of artisan's tools." },
+          "effects": [{ "type": "toolChoice", "count": 1, "from": ["artisans_tools"] }]
+        },
+        "know_your_enemy": {
+          "name": { "ko": "적을 알라", "en": "Know Your Enemy" },
+          "desc": { "ko": "1분 동안 관찰하면 상대가 나보다 어떤 능력에서 강한지 약한지 알아낸다.", "en": "Observe a creature for a minute to learn how it compares to you in certain capabilities." }
+        },
+        "improved_combat_superiority": {
+          "name": { "ko": "향상된 전투 우위", "en": "Improved Combat Superiority" },
+          "desc": { "ko": "우월 주사위가 d10이 된다.", "en": "Your superiority dice become d10s." }
+        },
+        "relentless": {
+          "name": { "ko": "끈질김", "en": "Relentless" },
+          "desc": { "ko": "우선권을 굴릴 때 우월 주사위가 없으면 하나를 되찾는다.", "en": "When you roll initiative with no superiority dice, you regain one." }
+        },
+        "improved_combat_superiority_2": {
+          "name": { "ko": "향상된 전투 우위 (2)", "en": "Improved Combat Superiority (2)" },
+          "desc": { "ko": "우월 주사위가 d12가 된다.", "en": "Your superiority dice become d12s." }
+        }
+      }
+    },
+    "eldritch_knight": {
+      "spellcasting": {
+        "ability": "int", "type": "known", "progression": "third", "list": "wizard",
+        "schoolRestriction": { "schools": ["abjuration", "evocation"], "freePicks": { "3": 1, "8": 1, "14": 1, "20": 1 } },
+        "cantripsKnown": [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+        "spellsKnown": [0, 0, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 11, 11, 12, 13]
+      },
+      "levels": { "3": ["ek_spellcasting", "weapon_bond"], "7": ["war_magic"], "10": ["eldritch_strike"], "15": ["arcane_charge"], "18": ["improved_war_magic"] },
+      "features": {
+        "ek_spellcasting": {
+          "name": { "ko": "주문 시전", "en": "Spellcasting" },
+          "desc": { "ko": "위저드 주문을 지능으로 시전한다. 대부분 방호술과 방출술 주문만 배울 수 있다.", "en": "You cast wizard spells using Intelligence, mostly limited to abjuration and evocation." }
+        },
+        "weapon_bond": {
+          "name": { "ko": "무기 결속", "en": "Weapon Bond" },
+          "desc": { "ko": "무기와 결속해 빼앗기지 않고, 추가 행동으로 손에 불러온다.", "en": "Bond with a weapon so it can't be disarmed and returns to your hand as a bonus action." }
+        },
+        "war_magic": {
+          "name": { "ko": "전쟁 마법", "en": "War Magic" },
+          "desc": { "ko": "행동으로 소마법을 쓰면 추가 행동으로 무기 공격을 한 번 한다.", "en": "When you use your action to cast a cantrip, you can make one weapon attack as a bonus action." }
+        },
+        "eldritch_strike": {
+          "name": { "ko": "비술 일격", "en": "Eldritch Strike" },
+          "desc": { "ko": "무기로 맞힌 대상은 다음 턴 끝까지 내 주문에 대한 내성에 불리하다.", "en": "A creature you hit with a weapon has disadvantage on its next save against your spells." }
+        },
+        "arcane_charge": {
+          "name": { "ko": "비전 돌격", "en": "Arcane Charge" },
+          "desc": { "ko": "행동 연쇄를 쓸 때 30피트 순간이동한다.", "en": "When you use Action Surge, you can teleport up to 30 feet." }
+        },
+        "improved_war_magic": {
+          "name": { "ko": "향상된 전쟁 마법", "en": "Improved War Magic" },
+          "desc": { "ko": "행동으로 주문을 쓰면 추가 행동으로 무기 공격을 한 번 한다.", "en": "When you use your action to cast a spell, you can make one weapon attack as a bonus action." }
+        }
+      }
+    },
+    "arcane_archer": {
+      "levels": { "3": ["arcane_archer_lore", "arcane_shot"], "7": ["magic_arrow", "curving_shot", "arcane_shot_option"], "10": ["arcane_shot_option"], "15": ["ever_ready_shot", "arcane_shot_option"], "18": ["arcane_shot_option", "arcane_shot_improvement"] },
+      "features": {
+        "arcane_archer_lore": {
+          "name": { "ko": "비전 궁수의 지식", "en": "Arcane Archer Lore" },
+          "desc": { "ko": "비전학이나 자연 중 하나에 숙련을 얻고, 요술이나 드루이드술 소마법 하나를 배운다.", "en": "Gain proficiency in Arcana or Nature, and learn Prestidigitation or Druidcraft." },
+          "effects": [{ "type": "skillChoice", "count": 1, "from": ["arcana", "nature"] }],
+          "choice": { "key": "arcaneArcherCantrip", "type": "list", "count": 1, "options": ["prestidigitation", "druidcraft"] }
+        },
+        "arcane_shot": {
+          "name": { "ko": "비전 사격", "en": "Arcane Shot" },
+          "desc": { "ko": "비전 사격 두 가지를 배우고, 화살이 명중하면 짧은 휴식마다 두 번 그 효과를 실을 수 있다.", "en": "Learn two Arcane Shot options; twice per short rest, apply one when an arrow hits." },
+          "choice": { "key": "arcaneShots", "list": "arcane_shots", "count": 2 }
+        },
+        "arcane_shot_option": {
+          "name": { "ko": "추가 비전 사격", "en": "Additional Arcane Shot" },
+          "desc": { "ko": "비전 사격 하나를 더 배운다.", "en": "Learn one more Arcane Shot option." },
+          "choice": { "key": "arcaneShots", "list": "arcane_shots", "count": 1 }
+        },
+        "magic_arrow": {
+          "name": { "ko": "마법 화살", "en": "Magic Arrow" },
+          "desc": { "ko": "쏘는 화살이 마법 화살로 취급된다.", "en": "Arrows you fire count as magical." }
+        },
+        "curving_shot": {
+          "name": { "ko": "휘는 사격", "en": "Curving Shot" },
+          "desc": { "ko": "마법 화살이 빗나가면 추가 행동으로 다른 대상에게 다시 굴린다.", "en": "When a magic arrow misses, use a bonus action to reroll against a different target." }
+        },
+        "ever_ready_shot": {
+          "name": { "ko": "언제나 준비된 사격", "en": "Ever-Ready Shot" },
+          "desc": { "ko": "우선권을 굴릴 때 비전 사격이 없으면 하나를 되찾는다.", "en": "When you roll initiative with no Arcane Shot uses left, you regain one." }
+        },
+        "arcane_shot_improvement": {
+          "name": { "ko": "비전 사격 강화", "en": "Arcane Shot Improvement" },
+          "desc": { "ko": "비전 사격의 피해가 더 커진다.", "en": "Your Arcane Shot options deal more damage." }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "classId": "ranger",
+  "_note": "bonusSpells: always known and not counted against spells known, keyed by ranger level.",
+  "subclasses": {
+    "hunter": {
+      "levels": { "3": ["hunters_prey"], "7": ["defensive_tactics"], "11": ["multiattack"], "15": ["superior_hunters_defense"] },
+      "features": {
+        "hunters_prey": {
+          "name": { "ko": "사냥감", "en": "Hunter's Prey" },
+          "desc": { "ko": "하나를 고른다. 거인 처단자(다친 적에게 1d8 추가), 대형 사냥꾼(큰 적이 공격하면 반격), 무리 파괴자(곁의 다른 적에게 한 번 더 공격).", "en": "Choose one: Colossus Slayer (extra 1d8 against wounded foes), Giant Killer (strike back when a Large foe attacks), or Horde Breaker (an extra attack against an adjacent foe)." },
+          "choice": { "key": "huntersPrey", "type": "list", "count": 1, "options": ["colossus_slayer", "giant_killer", "horde_breaker"] }
+        },
+        "defensive_tactics": {
+          "name": { "ko": "방어 전술", "en": "Defensive Tactics" },
+          "desc": { "ko": "하나를 고른다. 포위 탈출(기회 공격에 불리함), 다중 공격 방어(같은 적의 후속 공격에 방어도 +4), 강철 의지(공포 내성 유리).", "en": "Choose one: Escape the Horde (opportunity attacks against you have disadvantage), Multiattack Defense (+4 AC against a foe's later attacks), or Steel Will (advantage against fear)." },
+          "choice": { "key": "defensiveTactics", "type": "list", "count": 1, "options": ["escape_the_horde", "multiattack_defense", "steel_will"] }
+        },
+        "multiattack": {
+          "name": { "ko": "다중 공격", "en": "Multiattack" },
+          "desc": { "ko": "하나를 고른다. 일제 사격(범위 안 모든 적에게 원거리 공격), 회오리 공격(주변 모든 적에게 근접 공격).", "en": "Choose one: Volley (ranged attack against every foe in an area) or Whirlwind Attack (melee attack against every adjacent foe)." },
+          "choice": { "key": "multiattack", "type": "list", "count": 1, "options": ["volley", "whirlwind_attack"] }
+        },
+        "superior_hunters_defense": {
+          "name": { "ko": "사냥꾼의 탁월한 방어", "en": "Superior Hunter's Defense" },
+          "desc": { "ko": "하나를 고른다. 회피, 물결 막기(빗나간 공격을 다른 적에게 돌림), 기막힌 회피(피해 절반).", "en": "Choose one: Evasion, Stand Against the Tide (redirect a missed attack), or Uncanny Dodge (halve damage)." },
+          "choice": { "key": "superiorHuntersDefense", "type": "list", "count": 1, "options": ["evasion", "stand_against_the_tide", "uncanny_dodge"] }
+        }
+      }
+    },
+    "beast_master": {
+      "levels": { "3": ["rangers_companion"], "7": ["exceptional_training"], "11": ["bestial_fury"], "15": ["share_spells"] },
+      "features": {
+        "rangers_companion": {
+          "name": { "ko": "레인저의 동료", "en": "Ranger's Companion" },
+          "desc": { "ko": "중형 이하 짐승 하나가 동료가 되어 함께 싸우고, 내 숙련 보너스를 함께 쓴다.", "en": "A Medium or smaller beast becomes your companion, fighting alongside you and sharing your proficiency bonus." }
+        },
+        "exceptional_training": {
+          "name": { "ko": "특별한 훈련", "en": "Exceptional Training" },
+          "desc": { "ko": "동료 짐승이 추가 행동으로 질주·이탈·회피·돕기를 하고, 공격이 마법으로 취급된다.", "en": "Your companion can Dash, Disengage, Dodge, or Help as a bonus action, and its attacks count as magical." }
+        },
+        "bestial_fury": {
+          "name": { "ko": "야수의 분노", "en": "Bestial Fury" },
+          "desc": { "ko": "동료 짐승이 공격 명령에 두 번 공격한다.", "en": "Your companion makes two attacks when commanded to attack." }
+        },
+        "share_spells": {
+          "name": { "ko": "주문 공유", "en": "Share Spells" },
+          "desc": { "ko": "자신에게 거는 주문이 근처 동료 짐승에게도 걸린다.", "en": "Spells you cast targeting yourself also affect your nearby companion." }
+        }
+      }
+    },
+    "gloom_stalker": {
+      "bonusSpells": { "3": ["disguise-self"], "5": ["rope-trick"], "9": ["fear"], "13": ["greater-invisibility"], "17": ["seeming"] },
+      "levels": { "3": ["dread_ambusher", "umbral_sight"], "7": ["iron_mind"], "11": ["stalkers_flurry"], "15": ["shadowy_dodge"] },
+      "features": {
+        "dread_ambusher": {
+          "name": { "ko": "공포의 매복자", "en": "Dread Ambusher" },
+          "desc": { "ko": "우선권에 지혜 수정치를 더하고, 첫 턴에 이동 속도가 늘며 추가 공격 한 번에 1d8 피해를 더한다.", "en": "Add your Wisdom modifier to initiative; on your first turn you move faster and make an extra attack with +1d8 damage." }
+        },
+        "umbral_sight": {
+          "name": { "ko": "그림자 시야", "en": "Umbral Sight" },
+          "desc": { "ko": "60피트 암시야를 얻고(있으면 30피트 증가), 어둠 속에서 암시야에 의존하는 적에게 보이지 않는다.", "en": "Gain 60-foot darkvision (or +30 if you have it) and become invisible to creatures relying on darkvision while in darkness." },
+          "effects": [{ "type": "darkvision", "range": 60 }]
+        },
+        "iron_mind": {
+          "name": { "ko": "강철 정신", "en": "Iron Mind" },
+          "desc": { "ko": "지혜 내성에 숙련을 얻는다(이미 있으면 지능이나 매력).", "en": "Gain proficiency in Wisdom saves (or Intelligence or Charisma if you have it)." }
+        },
+        "stalkers_flurry": {
+          "name": { "ko": "추적자의 연타", "en": "Stalker's Flurry" },
+          "desc": { "ko": "턴마다 한 번, 공격이 빗나가면 다른 무기 공격을 한 번 더 한다.", "en": "Once per turn, when you miss with a weapon attack, make another weapon attack." }
+        },
+        "shadowy_dodge": {
+          "name": { "ko": "그림자 회피", "en": "Shadowy Dodge" },
+          "desc": { "ko": "유리함 없이 공격받으면 반응 행동으로 그 공격에 불리함을 준다.", "en": "When attacked without advantage, use your reaction to impose disadvantage." }
+        }
+      }
+    },
+    "swarmkeeper": {
+      "bonusSpells": { "3": ["mage-hand", "faerie-fire"], "5": ["web"], "9": ["gaseous-form"], "13": ["arcane-eye"], "17": ["insect-plague"] },
+      "levels": { "3": ["gathered_swarm"], "7": ["writhing_tide"], "11": ["mighty_swarm"], "15": ["swarming_dispersal"] },
+      "features": {
+        "gathered_swarm": {
+          "name": { "ko": "모여든 무리", "en": "Gathered Swarm" },
+          "desc": { "ko": "자연 정령 무리가 곁에 머물러, 턴마다 한 번 명중 시 피해를 더하거나 대상을 밀거나 나를 옮겨준다.", "en": "A swarm of nature spirits accompanies you; once per turn on a hit it deals extra damage, pushes the target, or moves you." }
+        },
+        "writhing_tide": {
+          "name": { "ko": "꿈틀대는 물결", "en": "Writhing Tide" },
+          "desc": { "ko": "추가 행동으로 무리를 몸에 감아 1분 동안 날 수 있다.", "en": "As a bonus action, your swarm lifts you, granting flight for a minute." }
+        },
+        "mighty_swarm": {
+          "name": { "ko": "강대한 무리", "en": "Mighty Swarm" },
+          "desc": { "ko": "모여든 무리의 피해가 커지고, 밀어내면 넘어뜨리며, 나를 옮길 때 반 엄폐를 준다.", "en": "Gathered Swarm deals more damage, knocks pushed foes prone, and grants you half cover when it moves you." }
+        },
+        "swarming_dispersal": {
+          "name": { "ko": "흩어지는 무리", "en": "Swarming Dispersal" },
+          "desc": { "ko": "피해를 입으면 반응 행동으로 저항을 얻고 무리 속으로 흩어져 순간이동한다.", "en": "When you take damage, use your reaction to resist it and teleport away in a burst of swarm." }
+        }
+      }
+    }
+  }
+}

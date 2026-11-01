@@ -1,0 +1,112 @@
+{
+  "classId": "rogue",
+  "subclasses": {
+    "thief": {
+      "levels": { "3": ["fast_hands", "second_story_work"], "9": ["supreme_sneak"], "13": ["use_magic_device"], "17": ["thiefs_reflexes"] },
+      "features": {
+        "fast_hands": {
+          "name": { "ko": "재빠른 손", "en": "Fast Hands" },
+          "desc": { "ko": "교활한 행동으로 손재주 판정, 도둑 도구 사용, 물건 사용을 추가 행동으로 한다.", "en": "Use Cunning Action to make Sleight of Hand checks, use thieves' tools, or use an object as a bonus action." }
+        },
+        "second_story_work": {
+          "name": { "ko": "이층 털이", "en": "Second-Story Work" },
+          "desc": { "ko": "기어오르기가 이동 속도를 더 쓰지 않고, 도움닫기 멀리뛰기 거리가 민첩 수정치만큼 는다.", "en": "Climbing costs no extra movement, and your running jump distance increases by your Dexterity modifier." }
+        },
+        "supreme_sneak": {
+          "name": { "ko": "최고의 잠입", "en": "Supreme Sneak" },
+          "desc": { "ko": "이동 속도 절반 이하로 움직이면 은신 판정에 유리하다.", "en": "You have advantage on Stealth checks if you move no more than half your speed." }
+        },
+        "use_magic_device": {
+          "name": { "ko": "마법 물건 사용", "en": "Use Magic Device" },
+          "desc": { "ko": "직업·종족·레벨 제한을 무시하고 마법 물건을 쓴다.", "en": "Ignore class, race, and level requirements on magic items." }
+        },
+        "thiefs_reflexes": {
+          "name": { "ko": "도둑의 반사신경", "en": "Thief's Reflexes" },
+          "desc": { "ko": "전투 첫 라운드에 두 번 행동한다.", "en": "You take two turns during the first round of combat." }
+        }
+      }
+    },
+    "arcane_trickster": {
+      "spellcasting": {
+        "ability": "int", "type": "known", "progression": "third", "list": "wizard",
+        "schoolRestriction": { "schools": ["enchantment", "illusion"], "freePicks": { "3": 1, "8": 1, "14": 1, "20": 1 } },
+        "fixedCantrips": ["mage-hand"],
+        "cantripsKnown": [0, 0, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+        "spellsKnown": [0, 0, 3, 4, 4, 4, 5, 6, 6, 7, 8, 8, 9, 10, 10, 11, 11, 11, 12, 13]
+      },
+      "levels": { "3": ["at_spellcasting", "mage_hand_legerdemain"], "9": ["magical_ambush"], "13": ["versatile_trickster"], "17": ["spell_thief"] },
+      "features": {
+        "at_spellcasting": {
+          "name": { "ko": "주문 시전", "en": "Spellcasting" },
+          "desc": { "ko": "위저드 주문을 지능으로 시전한다. 마법사의 손을 알고, 대부분 환혹술과 환영술 주문만 배울 수 있다.", "en": "You cast wizard spells using Intelligence. You know Mage Hand, and most of your spells must be enchantment or illusion." }
+        },
+        "mage_hand_legerdemain": {
+          "name": { "ko": "마법사의 손 묘기", "en": "Mage Hand Legerdemain" },
+          "desc": { "ko": "마법사의 손이 투명해지고, 그 손으로 물건을 훔치거나 자물쇠를 따며, 추가 행동으로 조종한다.", "en": "Your Mage Hand is invisible, can pick pockets and locks, and is controlled as a bonus action." }
+        },
+        "magical_ambush": {
+          "name": { "ko": "마법 매복", "en": "Magical Ambush" },
+          "desc": { "ko": "숨은 상태에서 주문을 쓰면 대상이 그 주문 내성에 불리하다.", "en": "If you are hidden when you cast a spell, the target has disadvantage on its save." }
+        },
+        "versatile_trickster": {
+          "name": { "ko": "다재다능한 사기꾼", "en": "Versatile Trickster" },
+          "desc": { "ko": "추가 행동으로 마법사의 손을 써서 대상의 주의를 끌고, 그 대상에 대한 공격에 유리함을 얻는다.", "en": "Use your Mage Hand as a bonus action to distract a creature, gaining advantage on attacks against it." }
+        },
+        "spell_thief": {
+          "name": { "ko": "주문 도둑", "en": "Spell Thief" },
+          "desc": { "ko": "적의 주문에 반응 행동으로 맞서 성공하면 그 주문을 빼앗아 8시간 동안 내가 쓴다.", "en": "When a creature casts a spell on you, use your reaction to steal it and cast it yourself for 8 hours." }
+        }
+      }
+    },
+    "assassin": {
+      "levels": { "3": ["assassin_bonus_proficiencies", "assassinate"], "9": ["infiltration_expertise"], "13": ["impostor"], "17": ["death_strike"] },
+      "features": {
+        "assassin_bonus_proficiencies": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiencies" },
+          "desc": { "ko": "변장 도구와 독살자 도구에 숙련을 얻는다.", "en": "You gain proficiency with the disguise kit and the poisoner's kit." }
+        },
+        "assassinate": {
+          "name": { "ko": "암살", "en": "Assassinate" },
+          "desc": { "ko": "아직 행동하지 않은 대상을 공격할 때 유리하고, 기습당한 대상에게 맞히면 치명타가 된다.", "en": "You have advantage against creatures that haven't acted yet, and hits against surprised creatures are critical hits." }
+        },
+        "infiltration_expertise": {
+          "name": { "ko": "잠입의 달인", "en": "Infiltration Expertise" },
+          "desc": { "ko": "며칠에 걸쳐 완벽한 가짜 신분을 만든다.", "en": "Spend several days crafting a flawless false identity." }
+        },
+        "impostor": {
+          "name": { "ko": "사칭자", "en": "Impostor" },
+          "desc": { "ko": "세 시간 관찰한 사람의 말투, 글씨, 버릇을 똑같이 흉내 낸다.", "en": "After studying a person for three hours, you can mimic their speech, writing, and behavior." }
+        },
+        "death_strike": {
+          "name": { "ko": "죽음의 일격", "en": "Death Strike" },
+          "desc": { "ko": "기습당한 대상에게 명중하면 대상이 건강 내성에 실패할 경우 피해가 두 배가 된다.", "en": "When you hit a surprised creature, it takes double damage if it fails a Constitution save." }
+        }
+      }
+    },
+    "swashbuckler": {
+      "levels": { "3": ["fancy_footwork", "rakish_audacity"], "9": ["panache"], "13": ["elegant_maneuver"], "17": ["master_duelist"] },
+      "features": {
+        "fancy_footwork": {
+          "name": { "ko": "화려한 발놀림", "en": "Fancy Footwork" },
+          "desc": { "ko": "근접 공격한 대상은 그 턴 동안 나에게 기회 공격을 하지 못한다.", "en": "A creature you make a melee attack against can't make opportunity attacks against you that turn." }
+        },
+        "rakish_audacity": {
+          "name": { "ko": "건방진 대담함", "en": "Rakish Audacity" },
+          "desc": { "ko": "우선권에 매력 수정치를 더하고, 곁에 다른 존재가 없으면 일대일 상대에게도 급소 공격을 할 수 있다.", "en": "Add your Charisma modifier to initiative, and you can Sneak Attack a foe you're dueling alone." }
+        },
+        "panache": {
+          "name": { "ko": "멋", "en": "Panache" },
+          "desc": { "ko": "설득 판정으로 적이 나만 노리게 하거나, 적대적이지 않은 이를 매혹한다.", "en": "Use Persuasion to make a foe focus on you, or to charm a non-hostile creature." }
+        },
+        "elegant_maneuver": {
+          "name": { "ko": "우아한 몸놀림", "en": "Elegant Maneuver" },
+          "desc": { "ko": "추가 행동으로 다음 곡예나 운동 판정에 유리함을 얻는다.", "en": "As a bonus action, gain advantage on your next Acrobatics or Athletics check." }
+        },
+        "master_duelist": {
+          "name": { "ko": "결투의 달인", "en": "Master Duelist" },
+          "desc": { "ko": "빗나간 공격을 유리함을 받아 다시 굴린다. 짧은 휴식마다 한 번.", "en": "Reroll a missed attack with advantage. Once per short rest." }
+        }
+      }
+    }
+  }
+}

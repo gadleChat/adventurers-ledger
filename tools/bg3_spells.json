@@ -225,6 +225,9 @@
     { "id": "banishing-smite", "en": "Banishing Smite", "ko": "추방의 강타", "level": 5, "school": "abjuration", "classes": ["paladin"], "concentration": true, "source": "PHB" },
     { "id": "destructive-wave", "en": "Destructive Wave", "ko": "파괴의 파동", "level": 5, "school": "evocation", "classes": ["paladin"], "source": "PHB" },
 
-    { "id": "arcane-gate", "en": "Arcane Gate", "ko": "비전 관문", "level": 6, "school": "conjuration", "classes": ["sorcerer", "warlock", "wizard"], "concentration": true, "source": "PHB" }
+    { "id": "arcane-gate", "en": "Arcane Gate", "ko": "비전 관문", "level": 6, "school": "conjuration", "classes": ["sorcerer", "warlock", "wizard"], "concentration": true, "source": "PHB" },
+
+    { "id": "aura-of-vitality", "en": "Aura of Vitality", "ko": "활력의 오라", "level": 3, "school": "evocation", "classes": ["paladin"], "concentration": true, "source": "PHB", "bg3": false },
+    { "id": "circle-of-power", "en": "Circle of Power", "ko": "힘의 원", "level": 5, "school": "abjuration", "classes": ["paladin"], "concentration": true, "source": "PHB", "bg3": false }
   ]
 }

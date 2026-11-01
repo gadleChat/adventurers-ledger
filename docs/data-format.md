@@ -102,6 +102,15 @@ Class files are listed in display order in `data/classes/_index.json`.
 | `features` | Same shape as class features, with optional `effects` and `choice`. |
 | `bonusSpells` | Spells always prepared / always known, keyed by class level (domain, circle, oath, and patron spells). |
 | `terrainSpells` | Circle of the Land only: `bonusSpells` tables per chosen terrain. |
+| `expandedSpells` | Warlock patrons only: spells added to the warlock list (not automatically known). |
+| `spellcasting` | Eldritch Knight and Arcane Trickster: same shape as class spellcasting, with `progression: "third"`, `schoolRestriction`, and optional `fixedCantrips`. |
+| `scaling` | Subclass-specific tables of 20 values (e.g. superiority dice). |
+| `tenets` | Paladin oaths: the oath's tenets as `{ko, en}`. |
+
+## Lists (`data/lists/*.json`)
+
+Option lists referred to by a `choice.list`: `fighting_styles`, `metamagic`, `maneuvers`, `arcane_shots`, `elemental_disciplines`, `invocations`. Each has an `items` array of `{ id, name, desc, source, ... }`. Invocations carry `requires` (`minLevel`, `pact`, `spell`); elemental disciplines carry `minLevel`.
+A `choice.list` that names a class (e.g. `wizard`) refers to that class's spell list instead.
 
 ## Spells (`data/spells/spells.json`)
 

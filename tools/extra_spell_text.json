@@ -319,6 +319,20 @@
       }
     },
 
+    "aura-of-vitality": {
+      "castingTime": "1 action", "range": "Self (30-foot radius)", "duration": "Concentration, up to 1 minute", "components": ["V"],
+      "desc": {
+        "en": "Healing energy radiates from you in a 30-foot aura. Until the spell ends, you can use a bonus action on each of your turns to restore 2d6 hit points to one creature in the aura, including yourself.",
+        "ko": "몸에서 30피트 반경으로 치유의 기운이 퍼진다. 주문이 끝날 때까지 매 턴 추가 행동으로 기운 안의 존재 하나(나 포함)를 2d6 회복시킨다."
+      }
+    },
+    "circle-of-power": {
+      "castingTime": "1 action", "range": "Self (30-foot radius)", "duration": "Concentration, up to 10 minutes", "components": ["V"],
+      "desc": {
+        "en": "Divine energy forms a 30-foot aura around you. You and friendly creatures in it have advantage on saving throws against spells and other magical effects, and when such a creature succeeds on a save that would deal half damage, it takes no damage instead.",
+        "ko": "30피트 반경으로 신성한 기운이 퍼진다. 그 안의 나와 아군은 주문과 마법 효과에 맞서는 내성에 유리하고, 성공하면 절반 피해를 받는 효과에서 피해를 전혀 받지 않는다."
+      }
+    },
     "arcane-gate": {
       "castingTime": "1 action", "range": "500 feet", "duration": "Concentration, up to 10 minutes", "components": ["V", "S"],
       "desc": {

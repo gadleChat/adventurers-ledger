@@ -1,0 +1,89 @@
+{
+  "classId": "monk",
+  "subclasses": {
+    "open_hand": {
+      "levels": { "3": ["open_hand_technique"], "6": ["wholeness_of_body"], "11": ["tranquility"], "17": ["quivering_palm"] },
+      "features": {
+        "open_hand_technique": {
+          "name": { "ko": "열린 손의 기술", "en": "Open Hand Technique" },
+          "desc": { "ko": "연타가 명중하면 대상을 넘어뜨리거나, 15피트 밀어내거나, 반응 행동을 막는다.", "en": "When Flurry of Blows hits, you can knock the target prone, push it 15 feet, or deny its reactions." }
+        },
+        "wholeness_of_body": {
+          "name": { "ko": "온전한 몸", "en": "Wholeness of Body" },
+          "desc": { "ko": "긴 휴식마다 한 번, 몽크 레벨의 세 배만큼 스스로 회복한다.", "en": "Once per long rest, heal yourself for three times your monk level." }
+        },
+        "tranquility": {
+          "name": { "ko": "평온", "en": "Tranquility" },
+          "desc": { "ko": "긴 휴식이 끝나면 성역의 효과를 받아, 공격하기 전까지 적이 나를 노리기 어렵다.", "en": "After a long rest you gain the effect of Sanctuary until you attack." }
+        },
+        "quivering_palm": {
+          "name": { "ko": "진동하는 손바닥", "en": "Quivering Palm" },
+          "desc": { "ko": "기 3점으로 대상에게 치명적인 진동을 심고, 나중에 발동하면 건강 내성에 실패한 대상의 생명력이 0이 된다.", "en": "Spend 3 ki to set lethal vibrations in a creature; trigger them later to drop it to 0 HP if it fails a Constitution save." }
+        }
+      }
+    },
+    "shadow": {
+      "levels": { "3": ["shadow_arts"], "6": ["shadow_step"], "11": ["cloak_of_shadows"], "17": ["opportunist"] },
+      "features": {
+        "shadow_arts": {
+          "name": { "ko": "그림자 술법", "en": "Shadow Arts" },
+          "desc": { "ko": "기 2점으로 암흑, 암시야, 흔적 없는 이동, 침묵을 쓰고, 하급 환영 소마법을 안다.", "en": "Spend 2 ki to cast Darkness, Darkvision, Pass without Trace, or Silence, and you know Minor Illusion." },
+          "effects": [{ "type": "cantrip", "spell": "minor-illusion", "ability": "wis" }]
+        },
+        "shadow_step": {
+          "name": { "ko": "그림자 걸음", "en": "Shadow Step" },
+          "desc": { "ko": "어둑한 곳에서 다른 어둑한 곳으로 추가 행동으로 60피트 순간이동하고, 다음 근접 공격이 유리하다.", "en": "As a bonus action, teleport 60 feet between areas of dim light or darkness and gain advantage on your next melee attack." }
+        },
+        "cloak_of_shadows": {
+          "name": { "ko": "그림자의 망토", "en": "Cloak of Shadows" },
+          "desc": { "ko": "어둑한 곳에서 행동을 써서 투명해진다.", "en": "In dim light or darkness, use your action to become invisible." }
+        },
+        "opportunist": {
+          "name": { "ko": "기회주의자", "en": "Opportunist" },
+          "desc": { "ko": "근처 적이 다른 이에게 맞으면 반응 행동으로 그 적을 공격한다.", "en": "When a nearby creature is hit by someone else, use your reaction to attack it." }
+        }
+      }
+    },
+    "four_elements": {
+      "levels": { "3": ["disciple_of_the_elements"], "6": ["elemental_discipline"], "11": ["elemental_discipline"], "17": ["elemental_discipline"] },
+      "features": {
+        "disciple_of_the_elements": {
+          "name": { "ko": "원소의 제자", "en": "Disciple of the Elements" },
+          "desc": { "ko": "원소 조율과 원소 수련 하나를 배운다. 기를 써서 원소의 힘을 일으킨다.", "en": "Learn Elemental Attunement and one elemental discipline, spending ki to call on elemental power." },
+          "choice": { "key": "elementalDisciplines", "list": "elemental_disciplines", "count": 1 }
+        },
+        "elemental_discipline": {
+          "name": { "ko": "추가 원소 수련", "en": "Additional Discipline" },
+          "desc": { "ko": "원소 수련 하나를 더 배우고, 이미 아는 하나를 바꿀 수 있다.", "en": "Learn one more elemental discipline, and you may swap one you know." },
+          "choice": { "key": "elementalDisciplines", "list": "elemental_disciplines", "count": 1 }
+        }
+      }
+    },
+    "drunken_master": {
+      "levels": { "3": ["drunken_bonus_proficiencies", "drunken_technique"], "6": ["tipsy_sway"], "11": ["drunkards_luck"], "17": ["intoxicated_frenzy"] },
+      "features": {
+        "drunken_bonus_proficiencies": {
+          "name": { "ko": "추가 숙련", "en": "Bonus Proficiencies" },
+          "desc": { "ko": "공연 기술과 양조사 도구에 숙련을 얻는다.", "en": "You gain proficiency in Performance and with brewer's supplies." },
+          "effects": [{ "type": "skillProficiency", "skill": "performance" }]
+        },
+        "drunken_technique": {
+          "name": { "ko": "취권 기술", "en": "Drunken Technique" },
+          "desc": { "ko": "연타를 쓰면 이탈 효과와 이동 속도 +10피트를 얻는다.", "en": "Flurry of Blows also grants you Disengage and +10 feet of speed." }
+        },
+        "tipsy_sway": {
+          "name": { "ko": "비틀거리는 흔들림", "en": "Tipsy Sway" },
+          "desc": { "ko": "넘어져도 쉽게 일어나고, 빗나간 공격을 반응 행동으로 다른 적에게 돌린다.", "en": "Stand up easily from prone, and redirect a missed attack to another creature as a reaction." }
+        },
+        "drunkards_luck": {
+          "name": { "ko": "주정뱅이의 행운", "en": "Drunkard's Luck" },
+          "desc": { "ko": "기 2점으로 판정·명중·내성의 불리함을 없앤다.", "en": "Spend 2 ki to cancel disadvantage on a check, attack, or save." }
+        },
+        "intoxicated_frenzy": {
+          "name": { "ko": "만취 광란", "en": "Intoxicated Frenzy" },
+          "desc": { "ko": "연타를 서로 다른 대상에게 쓰면 최대 다섯 번까지 공격한다.", "en": "Flurry of Blows can make up to five attacks if each targets a different creature." }
+        }
+      }
+    }
+  }
+}

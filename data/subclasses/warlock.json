@@ -1,0 +1,100 @@
+{
+  "classId": "warlock",
+  "_note": "expandedSpells: added to the warlock spell list for this patron (not automatically known), keyed by the warlock level at which that spell level becomes available.",
+  "subclasses": {
+    "fiend": {
+      "expandedSpells": { "1": ["burning-hands", "command"], "3": ["blindness-deafness", "scorching-ray"], "5": ["fireball", "stinking-cloud"], "7": ["fire-shield", "wall-of-fire"], "9": ["flame-strike", "hallow"] },
+      "levels": { "1": ["dark_ones_blessing"], "6": ["dark_ones_own_luck"], "10": ["fiendish_resilience"], "14": ["hurl_through_hell"] },
+      "features": {
+        "dark_ones_blessing": {
+          "name": { "ko": "어둠의 축복", "en": "Dark One's Blessing" },
+          "desc": { "ko": "적을 쓰러뜨리면 매력 수정치 + 워락 레벨만큼 임시 생명력을 얻는다.", "en": "When you reduce a foe to 0 HP, gain temporary HP equal to your Charisma modifier + warlock level." }
+        },
+        "dark_ones_own_luck": {
+          "name": { "ko": "어둠의 행운", "en": "Dark One's Own Luck" },
+          "desc": { "ko": "능력 판정이나 내성에 d10을 더한다. 짧은 휴식마다 한 번.", "en": "Add a d10 to an ability check or saving throw. Once per short rest." }
+        },
+        "fiendish_resilience": {
+          "name": { "ko": "악마의 강인함", "en": "Fiendish Resilience" },
+          "desc": { "ko": "휴식마다 피해 유형 하나를 골라 저항한다(마법·은 무기 피해 제외).", "en": "After each rest, choose a damage type to resist (not from magical or silvered weapons)." }
+        },
+        "hurl_through_hell": {
+          "name": { "ko": "지옥 던지기", "en": "Hurl Through Hell" },
+          "desc": { "ko": "공격으로 맞힌 대상을 잠시 지옥으로 보내 끔찍한 정신 피해를 준다.", "en": "Send a creature you hit through the lower planes for a moment, dealing heavy psychic damage." }
+        }
+      }
+    },
+    "archfey": {
+      "expandedSpells": { "1": ["faerie-fire", "sleep"], "3": ["calm-emotions", "phantasmal-force"], "5": ["blink", "plant-growth"], "7": ["dominate-beast", "greater-invisibility"], "9": ["dominate-person", "seeming"] },
+      "levels": { "1": ["fey_presence"], "6": ["misty_escape"], "10": ["beguiling_defenses"], "14": ["dark_delirium"] },
+      "features": {
+        "fey_presence": {
+          "name": { "ko": "요정의 존재감", "en": "Fey Presence" },
+          "desc": { "ko": "주변 존재들을 지혜 내성에 실패하면 매혹하거나 공포에 빠뜨린다. 짧은 휴식마다 한 번.", "en": "Charm or frighten nearby creatures that fail a Wisdom save. Once per short rest." }
+        },
+        "misty_escape": {
+          "name": { "ko": "안개 탈출", "en": "Misty Escape" },
+          "desc": { "ko": "피해를 입으면 반응 행동으로 투명해지며 60피트 순간이동한다.", "en": "When you take damage, use your reaction to turn invisible and teleport 60 feet." }
+        },
+        "beguiling_defenses": {
+          "name": { "ko": "현혹의 방어", "en": "Beguiling Defenses" },
+          "desc": { "ko": "매혹되지 않고, 나를 매혹하려는 자를 반응 행동으로 되레 매혹한다.", "en": "You can't be charmed, and you can turn a charm attempt back on its caster." }
+        },
+        "dark_delirium": {
+          "name": { "ko": "어둠의 착란", "en": "Dark Delirium" },
+          "desc": { "ko": "대상 하나를 1분 동안 환상의 세계에 가둬 매혹하거나 공포에 빠뜨린다.", "en": "Trap a creature in an illusory realm for a minute, charmed or frightened." }
+        }
+      }
+    },
+    "great_old_one": {
+      "expandedSpells": { "1": ["dissonant-whispers", "hideous-laughter"], "3": ["detect-thoughts", "phantasmal-force"], "5": ["clairvoyance", "sending"], "7": ["dominate-beast", "black-tentacles"], "9": ["dominate-person", "telekinesis"] },
+      "levels": { "1": ["awakened_mind"], "6": ["entropic_ward"], "10": ["thought_shield"], "14": ["create_thrall"] },
+      "features": {
+        "awakened_mind": {
+          "name": { "ko": "깨어난 정신", "en": "Awakened Mind" },
+          "desc": { "ko": "30피트 안의 존재와 텔레파시로 대화한다.", "en": "Communicate telepathically with creatures within 30 feet." }
+        },
+        "entropic_ward": {
+          "name": { "ko": "엔트로피의 결계", "en": "Entropic Ward" },
+          "desc": { "ko": "공격받을 때 반응 행동으로 불리함을 주고, 빗나가면 다음 공격에 유리함을 얻는다.", "en": "Use your reaction to impose disadvantage on an attack; if it misses, gain advantage on your next attack against it." }
+        },
+        "thought_shield": {
+          "name": { "ko": "생각의 방패", "en": "Thought Shield" },
+          "desc": { "ko": "생각을 읽히지 않고, 정신 피해에 저항하며 그 피해를 공격자에게 돌려준다.", "en": "Your thoughts can't be read, you resist psychic damage, and you reflect it onto the attacker." },
+          "effects": [{ "type": "resistance", "damage": "psychic" }]
+        },
+        "create_thrall": {
+          "name": { "ko": "노예 만들기", "en": "Create Thrall" },
+          "desc": { "ko": "무력한 인간형을 만져 영구히 매혹하고 텔레파시로 이어진다.", "en": "Touch an incapacitated humanoid to charm it permanently and link to it telepathically." }
+        }
+      }
+    },
+    "hexblade": {
+      "expandedSpells": { "1": ["shield", "wrathful-smite"], "3": ["blur", "branding-smite"], "5": ["blink", "elemental-weapon"], "7": ["phantasmal-killer", "staggering-smite"], "9": ["banishing-smite", "cone-of-cold"] },
+      "levels": { "1": ["hexblades_curse", "hex_warrior"], "6": ["accursed_specter"], "10": ["armor_of_hexes"], "14": ["master_of_hexes"] },
+      "features": {
+        "hexblades_curse": {
+          "name": { "ko": "저주검의 저주", "en": "Hexblade's Curse" },
+          "desc": { "ko": "대상 하나를 저주해 피해에 숙련 보너스를 더하고, 19~20에 치명타를 내며, 그 대상이 죽으면 회복한다.", "en": "Curse a creature: add your proficiency bonus to damage against it, crit on 19-20, and heal when it dies." }
+        },
+        "hex_warrior": {
+          "name": { "ko": "저주 전사", "en": "Hex Warrior" },
+          "desc": { "ko": "평갑, 방패, 군용 무기에 숙련을 얻고, 결속한 무기의 명중과 피해에 매력을 쓴다.", "en": "Gain proficiency with medium armor, shields, and martial weapons, and use Charisma for your bonded weapon." },
+          "effects": [{ "type": "armorProficiency", "armor": ["medium", "shield"] }, { "type": "weaponProficiency", "weapons": ["martial"] }]
+        },
+        "accursed_specter": {
+          "name": { "ko": "저주받은 망령", "en": "Accursed Specter" },
+          "desc": { "ko": "죽인 인간형의 영혼을 망령으로 일으켜 부린다.", "en": "Raise the spirit of a humanoid you slay as a specter that serves you." }
+        },
+        "armor_of_hexes": {
+          "name": { "ko": "저주의 갑옷", "en": "Armor of Hexes" },
+          "desc": { "ko": "저주한 대상의 공격이 절반 확률로 빗나간다.", "en": "Attacks from your cursed target have a 50% chance to miss." }
+        },
+        "master_of_hexes": {
+          "name": { "ko": "저주의 주인", "en": "Master of Hexes" },
+          "desc": { "ko": "저주한 대상이 죽으면 회복 없이 저주를 다른 대상에게 옮긴다.", "en": "When your cursed target dies, you can move the curse to another creature instead of healing." }
+        }
+      }
+    }
+  }
+}

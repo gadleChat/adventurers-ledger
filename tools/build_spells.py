@@ -64,7 +64,7 @@ def from_extra(e):
         "duration": None,
         "components": [],
         "source": e["source"],
-        "bg3": True,
+        "bg3": e.get("bg3", True),
         "summary": {"ko": None, "en": None},
         "desc": {"ko": None, "en": None},
         "higherLevel": {"ko": None, "en": None},

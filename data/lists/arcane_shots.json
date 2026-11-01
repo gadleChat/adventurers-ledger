@@ -1,0 +1,21 @@
+{
+  "_meta": { "description": "Arcane Archer Arcane Shot options. Damage increases at 18th level." },
+  "items": [
+    { "id": "banishing_arrow", "name": { "ko": "추방의 화살", "en": "Banishing Arrow" }, "source": "XGtE",
+      "desc": { "ko": "명중 시 대상이 매력 내성에 실패하면 요정계로 잠시 추방된다.", "en": "On a hit, the target is briefly banished to the Feywild if it fails a Charisma save." } },
+    { "id": "beguiling_arrow", "name": { "ko": "매혹의 화살", "en": "Beguiling Arrow" }, "source": "XGtE",
+      "desc": { "ko": "명중 시 정신 피해를 더하고, 대상이 지혜 내성에 실패하면 동료 하나에게 매혹된다.", "en": "On a hit, deal psychic damage; the target may be charmed by an ally (Wisdom save)." } },
+    { "id": "bursting_arrow", "name": { "ko": "폭발 화살", "en": "Bursting Arrow" }, "source": "XGtE",
+      "desc": { "ko": "명중 시 화살이 터져 대상 주변 10피트에 역장 피해를 준다.", "en": "On a hit, the arrow explodes, dealing force damage within 10 feet of the target." } },
+    { "id": "enfeebling_arrow", "name": { "ko": "쇠약의 화살", "en": "Enfeebling Arrow" }, "source": "XGtE",
+      "desc": { "ko": "명중 시 사령 피해를 더하고, 대상이 건강 내성에 실패하면 무기 피해가 절반이 된다.", "en": "On a hit, deal necrotic damage; the target's weapon damage is halved if it fails a Constitution save." } },
+    { "id": "grasping_arrow", "name": { "ko": "휘감는 화살", "en": "Grasping Arrow" }, "source": "XGtE",
+      "desc": { "ko": "명중 시 독 피해를 더하고 가시 덩굴이 감겨, 움직일 때마다 참격 피해를 주고 느리게 한다.", "en": "On a hit, deal poison damage and wrap the target in brambles that slow it and cut it as it moves." } },
+    { "id": "piercing_arrow", "name": { "ko": "관통 화살", "en": "Piercing Arrow" }, "source": "XGtE",
+      "desc": { "ko": "화살이 30피트 직선의 모든 존재를 꿰뚫는다(민첩 내성).", "en": "The arrow passes through everything in a 30-foot line (Dexterity save)." } },
+    { "id": "seeking_arrow", "name": { "ko": "추적 화살", "en": "Seeking Arrow" }, "source": "XGtE",
+      "desc": { "ko": "본 적 있는 대상을 엄폐를 무시하고 쫓아가 맞히고 위치를 알려준다.", "en": "The arrow seeks a creature you've seen, ignoring cover, and reveals its location." } },
+    { "id": "shadow_arrow", "name": { "ko": "그림자 화살", "en": "Shadow Arrow" }, "source": "XGtE",
+      "desc": { "ko": "명중 시 정신 피해를 더하고, 대상이 지혜 내성에 실패하면 5피트 너머를 보지 못한다.", "en": "On a hit, deal psychic damage; the target can't see beyond 5 feet if it fails a Wisdom save." } }
+  ]
+}

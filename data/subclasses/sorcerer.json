@@ -1,0 +1,113 @@
+{
+  "classId": "sorcerer",
+  "subclasses": {
+    "draconic": {
+      "levels": { "1": ["dragon_ancestor", "draconic_resilience"], "6": ["elemental_affinity"], "14": ["dragon_wings"], "18": ["draconic_presence"] },
+      "features": {
+        "dragon_ancestor": {
+          "name": { "ko": "용 조상", "en": "Dragon Ancestor" },
+          "desc": { "ko": "용 혈통 하나를 고르고 용언을 배운다. 용과 대화할 때 매력 판정에 숙련 보너스를 두 배로 더한다.", "en": "Choose a dragon ancestry and learn Draconic. You add double your proficiency bonus to Charisma checks when dealing with dragons." },
+          "choice": { "key": "dragonAncestor", "type": "list", "count": 1, "options": ["black", "blue", "brass", "bronze", "copper", "gold", "green", "red", "silver", "white"] }
+        },
+        "draconic_resilience": {
+          "name": { "ko": "용의 강인함", "en": "Draconic Resilience" },
+          "desc": { "ko": "레벨마다 최대 생명력이 1씩 더 오르고, 갑옷 없이 방어도가 13 + 민첩 수정치가 된다.", "en": "Your HP maximum increases by 1 per level, and without armor your AC is 13 + your Dexterity modifier." },
+          "effects": [{ "type": "hpPerLevel", "value": 1 }]
+        },
+        "elemental_affinity": {
+          "name": { "ko": "원소 친화", "en": "Elemental Affinity" },
+          "desc": { "ko": "혈통 원소의 주문 피해에 매력 수정치를 더하고, 마력 1점으로 한 시간 동안 그 원소에 저항한다.", "en": "Add your Charisma modifier to spell damage of your ancestry's element, and spend 1 sorcery point to resist that element for an hour." }
+        },
+        "dragon_wings": {
+          "name": { "ko": "용의 날개", "en": "Dragon Wings" },
+          "desc": { "ko": "추가 행동으로 용의 날개를 펼쳐 이동 속도만큼 난다.", "en": "As a bonus action, sprout dragon wings and gain a flying speed equal to your speed." }
+        },
+        "draconic_presence": {
+          "name": { "ko": "용의 위엄", "en": "Draconic Presence" },
+          "desc": { "ko": "마력 5점으로 1분 동안 용의 기운을 뿜어 주변을 매혹하거나 공포에 빠뜨린다.", "en": "Spend 5 sorcery points to exude a dragon's aura for a minute, charming or frightening those nearby." }
+        }
+      }
+    },
+    "wild_magic": {
+      "levels": { "1": ["wild_magic_surge", "tides_of_chaos"], "6": ["bend_luck"], "14": ["controlled_chaos"], "18": ["spell_bombardment"] },
+      "features": {
+        "wild_magic_surge": {
+          "name": { "ko": "야생 마법 쇄도", "en": "Wild Magic Surge" },
+          "desc": { "ko": "주문을 쓸 때 가끔 무작위 마법 효과가 터진다.", "en": "Casting spells can occasionally trigger a random magical effect." }
+        },
+        "tides_of_chaos": {
+          "name": { "ko": "혼돈의 물결", "en": "Tides of Chaos" },
+          "desc": { "ko": "명중·판정·내성 한 번에 유리함을 얻는다. 쓰고 나면 야생 마법 쇄도가 일어나기 쉬워진다.", "en": "Gain advantage on one attack, check, or save; afterward a Wild Magic Surge becomes likely." }
+        },
+        "bend_luck": {
+          "name": { "ko": "운 비틀기", "en": "Bend Luck" },
+          "desc": { "ko": "마력 2점과 반응 행동으로 다른 존재의 굴림에 1d4를 더하거나 뺀다.", "en": "Spend 2 sorcery points and your reaction to add or subtract 1d4 from another creature's roll." }
+        },
+        "controlled_chaos": {
+          "name": { "ko": "제어된 혼돈", "en": "Controlled Chaos" },
+          "desc": { "ko": "야생 마법 쇄도를 두 번 굴려 원하는 결과를 고른다.", "en": "Roll twice on the Wild Magic Surge table and choose the result." }
+        },
+        "spell_bombardment": {
+          "name": { "ko": "주문 폭격", "en": "Spell Bombardment" },
+          "desc": { "ko": "주문 피해 주사위가 최댓값이 나오면 그 주사위를 한 번 더 굴려 더한다.", "en": "When a damage die rolls its maximum, roll it again and add it." }
+        }
+      }
+    },
+    "storm": {
+      "levels": { "1": ["wind_speaker", "tempestuous_magic"], "6": ["heart_of_the_storm", "storm_guide"], "14": ["storms_fury"], "18": ["wind_soul"] },
+      "features": {
+        "wind_speaker": {
+          "name": { "ko": "바람의 언어", "en": "Wind Speaker" },
+          "desc": { "ko": "원시어와 그 방언(물·불·흙·바람)을 말할 수 있다.", "en": "You can speak Primordial and its elemental dialects." }
+        },
+        "tempestuous_magic": {
+          "name": { "ko": "폭풍 같은 마법", "en": "Tempestuous Magic" },
+          "desc": { "ko": "1레벨 이상 주문을 쓰면 추가 행동으로 기회 공격 없이 10피트 날아간다.", "en": "After casting a leveled spell, use a bonus action to fly 10 feet without provoking opportunity attacks." }
+        },
+        "heart_of_the_storm": {
+          "name": { "ko": "폭풍의 심장", "en": "Heart of the Storm" },
+          "desc": { "ko": "번개와 천둥에 저항하고, 그런 주문을 쓰면 주변 적에게 번개나 천둥 피해를 터뜨린다.", "en": "Resist lightning and thunder; casting such spells bursts damage onto nearby foes." },
+          "effects": [{ "type": "resistance", "damage": "lightning" }, { "type": "resistance", "damage": "thunder" }]
+        },
+        "storm_guide": {
+          "name": { "ko": "폭풍의 인도자", "en": "Storm Guide" },
+          "desc": { "ko": "주변의 비를 멈추거나 바람의 방향을 바꾼다.", "en": "Stop rain around you or change the direction of the wind." }
+        },
+        "storms_fury": {
+          "name": { "ko": "폭풍의 격노", "en": "Storm's Fury" },
+          "desc": { "ko": "근접 공격에 맞으면 반응 행동으로 번개 피해를 돌려주고 밀어낸다.", "en": "When hit in melee, use your reaction to deal lightning damage and push the attacker away." }
+        },
+        "wind_soul": {
+          "name": { "ko": "바람의 혼", "en": "Wind Soul" },
+          "desc": { "ko": "번개와 천둥에 면역이고 60피트 비행 속도를 얻으며, 동료들에게 잠시 날개를 나눠준다.", "en": "Immune to lightning and thunder, gain a 60-foot flying speed, and briefly share flight with allies." }
+        }
+      }
+    },
+    "shadow": {
+      "levels": { "1": ["eyes_of_the_dark", "strength_of_the_grave"], "6": ["hound_of_ill_omen"], "14": ["shadow_walk"], "18": ["umbral_form"] },
+      "features": {
+        "eyes_of_the_dark": {
+          "name": { "ko": "어둠의 눈", "en": "Eyes of the Dark" },
+          "desc": { "ko": "120피트 암시야를 얻고, 3레벨부터 마력 2점으로 암흑을 쓰며 그 안을 볼 수 있다.", "en": "Gain 120-foot darkvision; from 3rd level spend 2 sorcery points to cast Darkness and see through it." },
+          "effects": [{ "type": "darkvision", "range": 120 }]
+        },
+        "strength_of_the_grave": {
+          "name": { "ko": "무덤의 힘", "en": "Strength of the Grave" },
+          "desc": { "ko": "생명력이 0이 될 때 매력 내성으로 1로 버틸 수 있다(광휘 피해나 치명타 제외).", "en": "When reduced to 0 HP, a Charisma save can leave you at 1 instead (not against radiant damage or critical hits)." }
+        },
+        "hound_of_ill_omen": {
+          "name": { "ko": "불길한 사냥개", "en": "Hound of Ill Omen" },
+          "desc": { "ko": "마력 3점으로 그림자 사냥개를 불러 대상을 쫓게 하고, 그 대상은 내 주문 내성에 불리하다.", "en": "Spend 3 sorcery points to summon a shadow hound that hunts a target; the target has disadvantage on saves against your spells." }
+        },
+        "shadow_walk": {
+          "name": { "ko": "그림자 걷기", "en": "Shadow Walk" },
+          "desc": { "ko": "어둑한 곳에서 다른 어둑한 곳으로 추가 행동으로 120피트 순간이동한다.", "en": "As a bonus action, teleport up to 120 feet between areas of dim light or darkness." }
+        },
+        "umbral_form": {
+          "name": { "ko": "그림자 형상", "en": "Umbral Form" },
+          "desc": { "ko": "마력 6점으로 1분 동안 그림자가 되어 역장과 광휘를 뺀 모든 피해에 저항하고 물체를 통과한다.", "en": "Spend 6 sorcery points to become shadow for a minute, resisting all damage but force and radiant and passing through objects." }
+        }
+      }
+    }
+  }
+}

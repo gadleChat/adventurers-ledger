@@ -1,0 +1,141 @@
+{
+  "classId": "wizard",
+  "subclasses": {
+    "abjuration": {
+      "levels": { "2": ["abjuration_savant", "arcane_ward"], "6": ["projected_ward"], "10": ["improved_abjuration"], "14": ["spell_resistance"] },
+      "features": {
+        "abjuration_savant": { "name": { "ko": "방호술 연구자", "en": "Abjuration Savant" },
+          "desc": { "ko": "방호술 주문을 주문서에 옮겨 적는 시간과 비용이 절반이 된다.", "en": "Copying abjuration spells into your spellbook takes half the time and gold." } },
+        "arcane_ward": { "name": { "ko": "비전 결계", "en": "Arcane Ward" },
+          "desc": { "ko": "방호술 주문을 쓰면 피해를 대신 받아주는 마법 결계가 생긴다.", "en": "Casting abjuration spells creates a magical ward that absorbs damage for you." } },
+        "projected_ward": { "name": { "ko": "결계 투사", "en": "Projected Ward" },
+          "desc": { "ko": "근처 동료가 피해를 입으면 반응 행동으로 비전 결계가 대신 받는다.", "en": "When a nearby ally takes damage, use your reaction to have your Arcane Ward absorb it." } },
+        "improved_abjuration": { "name": { "ko": "향상된 방호술", "en": "Improved Abjuration" },
+          "desc": { "ko": "주문 해제 같은 판정에 숙련 보너스를 더한다.", "en": "Add your proficiency bonus to ability checks made as part of abjuration spells like Counterspell." } },
+        "spell_resistance": { "name": { "ko": "주문 저항", "en": "Spell Resistance" },
+          "desc": { "ko": "주문에 맞서는 내성에 유리하고 주문 피해에 저항한다.", "en": "You have advantage on saves against spells and resistance to spell damage." } }
+      }
+    },
+    "conjuration": {
+      "levels": { "2": ["conjuration_savant", "minor_conjuration"], "6": ["benign_transposition"], "10": ["focused_conjuration"], "14": ["durable_summons"] },
+      "features": {
+        "conjuration_savant": { "name": { "ko": "조형술 연구자", "en": "Conjuration Savant" },
+          "desc": { "ko": "조형술 주문을 옮겨 적는 시간과 비용이 절반이 된다.", "en": "Copying conjuration spells into your spellbook takes half the time and gold." } },
+        "minor_conjuration": { "name": { "ko": "하급 조형", "en": "Minor Conjuration" },
+          "desc": { "ko": "작은 무생물을 잠시 만들어낸다.", "en": "Conjure a small inanimate object for a short time." } },
+        "benign_transposition": { "name": { "ko": "온화한 자리바꿈", "en": "Benign Transposition" },
+          "desc": { "ko": "30피트 순간이동하거나 동의한 존재와 자리를 바꾼다.", "en": "Teleport 30 feet or swap places with a willing creature." } },
+        "focused_conjuration": { "name": { "ko": "집중된 조형", "en": "Focused Conjuration" },
+          "desc": { "ko": "조형술 주문의 집중이 피해로 깨지지 않는다.", "en": "Damage can't break your concentration on conjuration spells." } },
+        "durable_summons": { "name": { "ko": "튼튼한 소환수", "en": "Durable Summons" },
+          "desc": { "ko": "소환한 존재들이 임시 생명력 30을 얻는다.", "en": "Creatures you summon gain 30 temporary hit points." } }
+      }
+    },
+    "divination": {
+      "levels": { "2": ["divination_savant", "portent"], "6": ["expert_divination"], "10": ["the_third_eye"], "14": ["greater_portent"] },
+      "features": {
+        "divination_savant": { "name": { "ko": "예지술 연구자", "en": "Divination Savant" },
+          "desc": { "ko": "예지술 주문을 옮겨 적는 시간과 비용이 절반이 된다.", "en": "Copying divination spells into your spellbook takes half the time and gold." } },
+        "portent": { "name": { "ko": "전조", "en": "Portent" },
+          "desc": { "ko": "긴 휴식 후 d20 두 개를 굴려 두고, 나중에 아무 굴림이나 그 값으로 바꿔치기한다.", "en": "After a long rest, roll two d20s and save them to replace any roll later." } },
+        "expert_divination": { "name": { "ko": "예지의 달인", "en": "Expert Divination" },
+          "desc": { "ko": "2레벨 이상 예지술 주문을 쓰면 그보다 낮은 주문 슬롯 하나를 되찾는다.", "en": "Casting a divination spell of 2nd level or higher restores a lower-level spell slot." } },
+        "the_third_eye": { "name": { "ko": "제3의 눈", "en": "The Third Eye" },
+          "desc": { "ko": "암시야, 에테르 시야, 모든 글 읽기, 투명체 보기 중 하나를 얻는다.", "en": "Gain darkvision, ethereal sight, the ability to read any language, or see invisibility." } },
+        "greater_portent": { "name": { "ko": "상급 전조", "en": "Greater Portent" },
+          "desc": { "ko": "전조 주사위를 세 개 굴린다.", "en": "You roll three d20s for Portent." } }
+      }
+    },
+    "enchantment": {
+      "levels": { "2": ["enchantment_savant", "hypnotic_gaze"], "6": ["instinctive_charm"], "10": ["split_enchantment"], "14": ["alter_memories"] },
+      "features": {
+        "enchantment_savant": { "name": { "ko": "환혹술 연구자", "en": "Enchantment Savant" },
+          "desc": { "ko": "환혹술 주문을 옮겨 적는 시간과 비용이 절반이 된다.", "en": "Copying enchantment spells into your spellbook takes half the time and gold." } },
+        "hypnotic_gaze": { "name": { "ko": "최면의 시선", "en": "Hypnotic Gaze" },
+          "desc": { "ko": "곁의 대상을 지혜 내성에 실패하면 매혹해 멍하게 만든다.", "en": "Charm an adjacent creature that fails a Wisdom save, leaving it dazed." } },
+        "instinctive_charm": { "name": { "ko": "본능적 매혹", "en": "Instinctive Charm" },
+          "desc": { "ko": "공격받을 때 반응 행동으로 공격자가 다른 대상을 노리게 한다.", "en": "When attacked, use your reaction to divert the attack to another creature." } },
+        "split_enchantment": { "name": { "ko": "분할 환혹", "en": "Split Enchantment" },
+          "desc": { "ko": "대상이 하나인 환혹술 주문을 두 대상에게 건다.", "en": "Single-target enchantment spells can target a second creature." } },
+        "alter_memories": { "name": { "ko": "기억 변조", "en": "Alter Memories" },
+          "desc": { "ko": "매혹한 대상이 매혹당한 사실을 잊게 하고, 기억 일부를 지운다.", "en": "Make a charmed creature forget it was charmed, and erase some of its memories." } }
+      }
+    },
+    "evocation": {
+      "levels": { "2": ["evocation_savant", "sculpt_spells"], "6": ["potent_cantrip"], "10": ["empowered_evocation"], "14": ["overchannel"] },
+      "features": {
+        "evocation_savant": { "name": { "ko": "방출술 연구자", "en": "Evocation Savant" },
+          "desc": { "ko": "방출술 주문을 옮겨 적는 시간과 비용이 절반이 된다.", "en": "Copying evocation spells into your spellbook takes half the time and gold." } },
+        "sculpt_spells": { "name": { "ko": "주문 다듬기", "en": "Sculpt Spells" },
+          "desc": { "ko": "방출술 광역 주문에서 동료 몇 명을 빼, 내성에 자동 성공하고 피해를 받지 않게 한다.", "en": "Shield some allies from your evocation spells; they automatically succeed and take no damage." } },
+        "potent_cantrip": { "name": { "ko": "강력한 소마법", "en": "Potent Cantrip" },
+          "desc": { "ko": "소마법 내성에 성공한 대상도 피해의 절반을 입는다.", "en": "Creatures that succeed on saves against your cantrips still take half damage." } },
+        "empowered_evocation": { "name": { "ko": "강화된 방출술", "en": "Empowered Evocation" },
+          "desc": { "ko": "방출술 주문 피해에 지능 수정치를 더한다.", "en": "Add your Intelligence modifier to the damage of your evocation spells." } },
+        "overchannel": { "name": { "ko": "과충전", "en": "Overchannel" },
+          "desc": { "ko": "5레벨 이하 주문의 피해를 최댓값으로 낸다. 다시 쓰면 내가 사령 피해를 입는다.", "en": "Deal maximum damage with a spell of 5th level or lower; using it again hurts you with necrotic damage." } }
+      }
+    },
+    "illusion": {
+      "levels": { "2": ["illusion_savant", "improved_minor_illusion"], "6": ["malleable_illusions"], "10": ["illusory_self"], "14": ["illusory_reality"] },
+      "features": {
+        "illusion_savant": { "name": { "ko": "환영술 연구자", "en": "Illusion Savant" },
+          "desc": { "ko": "환영술 주문을 옮겨 적는 시간과 비용이 절반이 된다.", "en": "Copying illusion spells into your spellbook takes half the time and gold." } },
+        "improved_minor_illusion": { "name": { "ko": "향상된 하급 환영", "en": "Improved Minor Illusion" },
+          "desc": { "ko": "하급 환영을 배우고, 소리와 형상을 한꺼번에 만든다.", "en": "Learn Minor Illusion and create both a sound and an image with it." },
+          "effects": [{ "type": "cantrip", "spell": "minor-illusion", "ability": "int" }] },
+        "malleable_illusions": { "name": { "ko": "변하는 환영", "en": "Malleable Illusions" },
+          "desc": { "ko": "지속 중인 환영의 모습을 행동으로 바꾼다.", "en": "Use your action to change the nature of a lasting illusion." } },
+        "illusory_self": { "name": { "ko": "환영 자아", "en": "Illusory Self" },
+          "desc": { "ko": "공격받을 때 반응 행동으로 환영 분신을 세워 공격을 빗나가게 한다.", "en": "When attacked, use your reaction to interpose an illusory duplicate so the attack misses." } },
+        "illusory_reality": { "name": { "ko": "환영의 실체화", "en": "Illusory Reality" },
+          "desc": { "ko": "환영 속 무생물 하나를 1분 동안 진짜로 만든다.", "en": "Make one inanimate object in your illusion real for a minute." } }
+      }
+    },
+    "necromancy": {
+      "levels": { "2": ["necromancy_savant", "grim_harvest"], "6": ["undead_thralls"], "10": ["inured_to_undeath"], "14": ["command_undead"] },
+      "features": {
+        "necromancy_savant": { "name": { "ko": "사령술 연구자", "en": "Necromancy Savant" },
+          "desc": { "ko": "사령술 주문을 옮겨 적는 시간과 비용이 절반이 된다.", "en": "Copying necromancy spells into your spellbook takes half the time and gold." } },
+        "grim_harvest": { "name": { "ko": "섬뜩한 수확", "en": "Grim Harvest" },
+          "desc": { "ko": "주문으로 적을 죽이면 주문 레벨에 따라 생명력을 회복한다.", "en": "When you kill a creature with a spell, regain HP based on the spell's level." } },
+        "undead_thralls": { "name": { "ko": "언데드 노예", "en": "Undead Thralls" },
+          "desc": { "ko": "사자 조종으로 하나 더 일으키고, 내 언데드가 더 튼튼하고 세진다.", "en": "Animate Dead raises an extra corpse, and your undead are tougher and stronger." } },
+        "inured_to_undeath": { "name": { "ko": "죽음에 익숙함", "en": "Inured to Undeath" },
+          "desc": { "ko": "사령 피해에 저항하고 최대 생명력이 줄지 않는다.", "en": "You resist necrotic damage and your HP maximum can't be reduced." },
+          "effects": [{ "type": "resistance", "damage": "necrotic" }] },
+        "command_undead": { "name": { "ko": "언데드 지배", "en": "Command Undead" },
+          "desc": { "ko": "언데드 하나를 매력 내성에 실패하면 영구히 부린다.", "en": "Bring an undead under your permanent control if it fails a Charisma save." } }
+      }
+    },
+    "transmutation": {
+      "levels": { "2": ["transmutation_savant", "minor_alchemy"], "6": ["transmuters_stone"], "10": ["shapechanger"], "14": ["master_transmuter"] },
+      "features": {
+        "transmutation_savant": { "name": { "ko": "변환술 연구자", "en": "Transmutation Savant" },
+          "desc": { "ko": "변환술 주문을 옮겨 적는 시간과 비용이 절반이 된다.", "en": "Copying transmutation spells into your spellbook takes half the time and gold." } },
+        "minor_alchemy": { "name": { "ko": "하급 연금술", "en": "Minor Alchemy" },
+          "desc": { "ko": "나무, 돌, 쇠 같은 재료를 잠시 다른 재료로 바꾼다.", "en": "Temporarily change an object of wood, stone, or metal into another of those materials." } },
+        "transmuters_stone": { "name": { "ko": "변환술사의 돌", "en": "Transmuter's Stone" },
+          "desc": { "ko": "지니는 사람에게 암시야, 속도, 내성 숙련, 저항 중 하나를 주는 돌을 만든다.", "en": "Create a stone that grants its bearer darkvision, speed, a save proficiency, or a resistance." } },
+        "shapechanger": { "name": { "ko": "형상 변환자", "en": "Shapechanger" },
+          "desc": { "ko": "변신을 슬롯 없이 자신에게 쓴다(짐승 형태). 짧은 휴식마다 한 번.", "en": "Cast Polymorph on yourself without a slot, becoming a beast. Once per short rest." } },
+        "master_transmuter": { "name": { "ko": "변환술의 대가", "en": "Master Transmuter" },
+          "desc": { "ko": "변환술사의 돌을 깨서 큰 효과를 낸다: 물건 변환, 질병·독 치료, 되살리기, 젊어지기.", "en": "Destroy your stone for a major effect: transmute matter, cure ailments, restore life, or restore youth." } }
+      }
+    },
+    "bladesinging": {
+      "levels": { "2": ["training_in_war_and_song", "bladesong"], "6": ["extra_attack"], "10": ["song_of_defense"], "14": ["song_of_victory"] },
+      "features": {
+        "training_in_war_and_song": { "name": { "ko": "전쟁과 노래의 훈련", "en": "Training in War and Song" },
+          "desc": { "ko": "경갑과 한손 근접 무기 하나에 숙련을 얻고, 공연 기술에 숙련을 얻는다.", "en": "Gain proficiency with light armor, one one-handed melee weapon, and the Performance skill." },
+          "effects": [{ "type": "armorProficiency", "armor": ["light"] }, { "type": "skillProficiency", "skill": "performance" }] },
+        "bladesong": { "name": { "ko": "칼날노래", "en": "Bladesong" },
+          "desc": { "ko": "추가 행동으로 칼날노래를 시작해 1분 동안 방어도·이동 속도·곡예·집중 내성에 지능 수정치를 더한다.", "en": "As a bonus action, start a Bladesong for a minute, adding your Intelligence modifier to AC and concentration saves, with extra speed and Acrobatics." } },
+        "song_of_defense": { "name": { "ko": "방어의 노래", "en": "Song of Defense" },
+          "desc": { "ko": "칼날노래 중 반응 행동으로 주문 슬롯을 써서 받는 피해를 줄인다.", "en": "During Bladesong, use your reaction and a spell slot to reduce damage you take." } },
+        "song_of_victory": { "name": { "ko": "승리의 노래", "en": "Song of Victory" },
+          "desc": { "ko": "칼날노래 중 근접 무기 피해에 지능 수정치를 더한다.", "en": "During Bladesong, add your Intelligence modifier to melee weapon damage." } }
+      }
+    }
+  }
+}

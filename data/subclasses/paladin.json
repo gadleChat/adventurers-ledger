@@ -1,0 +1,140 @@
+{
+  "classId": "paladin",
+  "_note": "bonusSpells: oath spells, always prepared, keyed by paladin level.",
+  "subclasses": {
+    "devotion": {
+      "bonusSpells": { "3": ["protection-from-evil-and-good", "sanctuary"], "5": ["lesser-restoration", "zone-of-truth"], "9": ["beacon-of-hope", "dispel-magic"], "13": ["freedom-of-movement", "guardian-of-faith"], "17": ["commune", "flame-strike"] },
+      "levels": { "3": ["sacred_weapon", "turn_the_unholy"], "7": ["aura_of_devotion"], "15": ["purity_of_spirit"], "20": ["holy_nimbus"] },
+      "tenets": { "ko": "정직, 용기, 자비, 명예, 의무", "en": "Honesty, Courage, Compassion, Honor, Duty" },
+      "features": {
+        "sacred_weapon": {
+          "name": { "ko": "신성 변환: 성스러운 무기", "en": "Channel Divinity: Sacred Weapon" },
+          "desc": { "ko": "1분 동안 무기가 빛나며 명중 굴림에 매력 수정치를 더한다.", "en": "For a minute your weapon shines and you add your Charisma modifier to attack rolls." }
+        },
+        "turn_the_unholy": {
+          "name": { "ko": "신성 변환: 부정한 것 퇴치", "en": "Channel Divinity: Turn the Unholy" },
+          "desc": { "ko": "주변의 악마와 언데드를 지혜 내성에 실패하면 도망치게 한다.", "en": "Nearby fiends and undead that fail a Wisdom save are turned." }
+        },
+        "aura_of_devotion": {
+          "name": { "ko": "헌신의 오라", "en": "Aura of Devotion" },
+          "desc": { "ko": "나와 주변 아군은 매혹되지 않는다.", "en": "You and nearby allies can't be charmed." }
+        },
+        "purity_of_spirit": {
+          "name": { "ko": "순수한 영혼", "en": "Purity of Spirit" },
+          "desc": { "ko": "항상 선악으로부터의 보호 효과를 받는다.", "en": "You are always under the effect of Protection from Evil and Good." }
+        },
+        "holy_nimbus": {
+          "name": { "ko": "성스러운 후광", "en": "Holy Nimbus" },
+          "desc": { "ko": "1분 동안 햇빛을 내뿜어 근처 적을 광휘로 태우고, 악마와 언데드의 주문에 맞서는 내성이 유리하다.", "en": "For a minute you radiate sunlight that burns nearby foes, with advantage on saves against spells from fiends and undead." }
+        }
+      }
+    },
+    "ancients": {
+      "bonusSpells": { "3": ["ensnaring-strike", "speak-with-animals"], "5": ["moonbeam", "misty-step"], "9": ["plant-growth", "protection-from-energy"], "13": ["ice-storm", "stoneskin"], "17": ["commune-with-nature", "tree-stride"] },
+      "levels": { "3": ["natures_wrath", "turn_the_faithless"], "7": ["aura_of_warding"], "15": ["undying_sentinel"], "20": ["elder_champion"] },
+      "tenets": { "ko": "빛을 밝혀라, 빛을 지켜라, 자신의 빛을 지켜라, 빛이 되어라", "en": "Kindle the Light, Shelter the Light, Preserve Your Own Light, Be the Light" },
+      "features": {
+        "natures_wrath": {
+          "name": { "ko": "신성 변환: 자연의 분노", "en": "Channel Divinity: Nature's Wrath" },
+          "desc": { "ko": "유령 덩굴로 대상 하나를 속박한다(근력이나 민첩 내성).", "en": "Spectral vines restrain a creature (Strength or Dexterity save)." }
+        },
+        "turn_the_faithless": {
+          "name": { "ko": "신성 변환: 신앙 없는 자 퇴치", "en": "Channel Divinity: Turn the Faithless" },
+          "desc": { "ko": "주변의 요정과 악마를 지혜 내성에 실패하면 도망치게 하고 진짜 모습을 드러낸다.", "en": "Nearby fey and fiends that fail a Wisdom save are turned and their true forms revealed." }
+        },
+        "aura_of_warding": {
+          "name": { "ko": "수호의 오라", "en": "Aura of Warding" },
+          "desc": { "ko": "나와 주변 아군이 주문 피해에 저항한다.", "en": "You and nearby allies have resistance to damage from spells." }
+        },
+        "undying_sentinel": {
+          "name": { "ko": "죽지 않는 파수꾼", "en": "Undying Sentinel" },
+          "desc": { "ko": "생명력이 0이 되어도 1로 버틴다(긴 휴식마다 한 번). 늙지 않는다.", "en": "Once per long rest, drop to 1 HP instead of 0. You no longer suffer the frailty of old age." }
+        },
+        "elder_champion": {
+          "name": { "ko": "고대의 투사", "en": "Elder Champion" },
+          "desc": { "ko": "1분 동안 매 턴 회복하고, 주문을 추가 행동으로 쓰며, 근처 적이 내 주문 내성에 불리하다.", "en": "For a minute you regenerate each turn, cast spells as a bonus action, and nearby foes have disadvantage on saves against your spells." }
+        }
+      }
+    },
+    "vengeance": {
+      "bonusSpells": { "3": ["bane", "hunters-mark"], "5": ["hold-person", "misty-step"], "9": ["haste", "protection-from-energy"], "13": ["banishment", "dimension-door"], "17": ["hold-monster", "scrying"] },
+      "levels": { "3": ["abjure_enemy", "vow_of_enmity"], "7": ["relentless_avenger"], "15": ["soul_of_vengeance"], "20": ["avenging_angel"] },
+      "tenets": { "ko": "큰 악과 싸워라, 사악한 자에게 자비는 없다, 무슨 수를 써서라도, 보상하라", "en": "Fight the Greater Evil, No Mercy for the Wicked, By Any Means Necessary, Restitution" },
+      "features": {
+        "abjure_enemy": {
+          "name": { "ko": "신성 변환: 적 단죄", "en": "Channel Divinity: Abjure Enemy" },
+          "desc": { "ko": "대상 하나를 지혜 내성에 실패하면 공포에 빠뜨려 그 자리에 묶는다.", "en": "A creature that fails a Wisdom save is frightened and can't move." }
+        },
+        "vow_of_enmity": {
+          "name": { "ko": "신성 변환: 적의의 맹세", "en": "Channel Divinity: Vow of Enmity" },
+          "desc": { "ko": "1분 동안 대상 하나에 대한 공격에 유리함을 얻는다.", "en": "Gain advantage on attacks against one creature for a minute." }
+        },
+        "relentless_avenger": {
+          "name": { "ko": "끈질긴 복수자", "en": "Relentless Avenger" },
+          "desc": { "ko": "기회 공격을 맞히면 그 반응으로 절반 속도만큼 기회 공격 없이 쫓아간다.", "en": "When you hit with an opportunity attack, you can move half your speed without provoking." }
+        },
+        "soul_of_vengeance": {
+          "name": { "ko": "복수의 혼", "en": "Soul of Vengeance" },
+          "desc": { "ko": "적의의 맹세 대상이 공격하면 반응 행동으로 근접 공격한다.", "en": "When the target of your Vow of Enmity attacks, you can make a melee attack against it as a reaction." }
+        },
+        "avenging_angel": {
+          "name": { "ko": "복수의 천사", "en": "Avenging Angel" },
+          "desc": { "ko": "한 시간 동안 날개가 돋아 날고, 위협의 오라로 적에게 공포를 준다.", "en": "For an hour you sprout wings to fly and emanate an aura of menace that frightens foes." }
+        }
+      }
+    },
+    "oathbreaker": {
+      "bonusSpells": { "3": ["hellish-rebuke", "inflict-wounds"], "5": ["crown-of-madness", "darkness"], "9": ["animate-dead", "bestow-curse"], "13": ["blight", "confusion"], "17": ["contagion", "dominate-person"] },
+      "levels": { "3": ["control_undead", "dreadful_aspect"], "7": ["aura_of_hate"], "15": ["supernatural_resistance"], "20": ["dread_lord"] },
+      "features": {
+        "control_undead": {
+          "name": { "ko": "신성 변환: 언데드 조종", "en": "Channel Divinity: Control Undead" },
+          "desc": { "ko": "언데드 하나를 지혜 내성에 실패하면 하루 동안 부린다.", "en": "An undead that fails a Wisdom save obeys you for 24 hours." }
+        },
+        "dreadful_aspect": {
+          "name": { "ko": "신성 변환: 공포의 형상", "en": "Channel Divinity: Dreadful Aspect" },
+          "desc": { "ko": "어둠의 기운을 뿜어 주변 적들을 지혜 내성에 실패하면 공포에 빠뜨린다.", "en": "Exude menace that frightens nearby foes who fail a Wisdom save." }
+        },
+        "aura_of_hate": {
+          "name": { "ko": "증오의 오라", "en": "Aura of Hate" },
+          "desc": { "ko": "나와 주변의 악마·언데드가 근접 무기 피해에 매력 수정치를 더한다.", "en": "You and nearby fiends and undead add your Charisma modifier to melee weapon damage." }
+        },
+        "supernatural_resistance": {
+          "name": { "ko": "초자연적 저항", "en": "Supernatural Resistance" },
+          "desc": { "ko": "마법이 아닌 무기의 타격·관통·참격 피해에 저항한다.", "en": "You resist bludgeoning, piercing, and slashing damage from nonmagical weapons." }
+        },
+        "dread_lord": {
+          "name": { "ko": "공포의 군주", "en": "Dread Lord" },
+          "desc": { "ko": "1분 동안 어둠의 오라를 둘러 빛을 줄이고, 겁먹은 적에게 정신 피해를 주며, 그림자로 공격한다.", "en": "For a minute you are shrouded in gloom that dims light, deals psychic damage to frightened foes, and lets you strike with shadows." }
+        }
+      }
+    },
+    "crown": {
+      "bonusSpells": { "3": ["command", "compelled-duel"], "5": ["warding-bond", "zone-of-truth"], "9": ["aura-of-vitality", "spirit-guardians"], "13": ["banishment", "guardian-of-faith"], "17": ["circle-of-power", "geas"] },
+      "levels": { "3": ["champion_challenge", "turn_the_tide"], "7": ["divine_allegiance"], "15": ["unyielding_spirit"], "20": ["exalted_champion"] },
+      "tenets": { "ko": "법, 충성, 용기, 책임", "en": "Law, Loyalty, Courage, Responsibility" },
+      "features": {
+        "champion_challenge": {
+          "name": { "ko": "신성 변환: 투사의 도전", "en": "Channel Divinity: Champion Challenge" },
+          "desc": { "ko": "주변 존재들이 지혜 내성에 실패하면 나에게서 멀리 떨어지지 못한다.", "en": "Nearby creatures that fail a Wisdom save can't willingly move far from you." }
+        },
+        "turn_the_tide": {
+          "name": { "ko": "신성 변환: 전세 역전", "en": "Channel Divinity: Turn the Tide" },
+          "desc": { "ko": "생명력이 절반 이하인 주변 아군을 회복시킨다.", "en": "Heal nearby allies who are at half HP or less." }
+        },
+        "divine_allegiance": {
+          "name": { "ko": "신성한 충성", "en": "Divine Allegiance" },
+          "desc": { "ko": "곁의 동료가 피해를 입으면 반응 행동으로 대신 받는다.", "en": "When a nearby ally takes damage, use your reaction to take it instead." }
+        },
+        "unyielding_spirit": {
+          "name": { "ko": "굴하지 않는 정신", "en": "Unyielding Spirit" },
+          "desc": { "ko": "마비와 기절에 맞서는 내성에 유리하다.", "en": "You have advantage on saves against being paralyzed or stunned." }
+        },
+        "exalted_champion": {
+          "name": { "ko": "고귀한 투사", "en": "Exalted Champion" },
+          "desc": { "ko": "한 시간 동안 물리 피해에 저항하고, 나와 아군이 죽음 내성과 지혜 내성에 유리하다.", "en": "For an hour you resist nonmagical physical damage, and you and allies have advantage on death and Wisdom saves." }
+        }
+      }
+    }
+  }
+}

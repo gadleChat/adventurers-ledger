@@ -133,11 +133,52 @@ def main():
 
     class_count = check_classes(glossary, spells, errors, check_text)
     done, total = check_subclasses(spells, errors, check_text, check_effect)
+    check_lists(errors, check_text)
+    for path in sorted((DATA / "classes").glob("[!_]*.json")):
+        for fid, feature in load(path).get("features", {}).items():
+            check_choice(f"classes/{path.stem}/{fid}", feature.get("choice"), errors)
+    for fid, feature in load(DATA / "lists" / "common_features.json")["features"].items():
+        check_choice(f"lists/common_features/{fid}", feature.get("choice"), errors)
 
     if errors:
         print("\n".join(errors))
         sys.exit(1)
     print(f"OK: {len(index)} races and {class_count} classes checked; subclass details {done}/{total}")
+
+
+CLASS_LISTS = {"barbarian", "bard", "cleric", "druid", "fighter", "monk",
+               "paladin", "ranger", "rogue", "sorcerer", "warlock", "wizard"}
+
+
+def check_choice(where, choice, errors):
+    """A choice's `list` must be a class spell list or a file in data/lists/."""
+    if not choice or "list" not in choice:
+        return
+    name = choice["list"]
+    if name in CLASS_LISTS:
+        return
+    path = DATA / "lists" / f"{name}.json"
+    if not path.exists():
+        errors.append(f"{where}: choice list '{name}' has no file in data/lists/")
+        return
+    items = {item["id"] for item in load(path).get("items", [])}
+    for option in choice.get("only", []):
+        if option not in items:
+            errors.append(f"{where}: '{option}' is not in list '{name}'")
+
+
+def check_lists(errors, check_text):
+    """Every item in data/lists/*.json with an `items` array needs ko/en text."""
+    for path in sorted((DATA / "lists").glob("*.json")):
+        data = load(path)
+        seen = set()
+        for item in data.get("items", []):
+            where = f"lists/{path.stem}/{item.get('id')}"
+            if item.get("id") in seen:
+                errors.append(f"{where}: duplicate id")
+            seen.add(item.get("id"))
+            check_text(where, item.get("name"), "name")
+            check_text(where, item.get("desc"), "desc")
 
 
 def check_subclasses(spells, errors, check_text, check_effect):
@@ -186,7 +227,26 @@ def check_subclasses(spells, errors, check_text, check_effect):
                 for effect in feature.get("effects", []):
                     check_effect(f"{sw}/{fid}", effect)
 
-            spell_tables = [sub.get("bonusSpells", {})] + list(sub.get("terrainSpells", {}).values())
+            for fid, feature in features.items():
+                check_choice(f"{sw}/{fid}", feature.get("choice"), errors)
+
+            spellcasting = sub.get("spellcasting")
+            if spellcasting:
+                for key in ("cantripsKnown", "spellsKnown"):
+                    if len(spellcasting.get(key, [])) != 20:
+                        errors.append(f"{sw}: spellcasting '{key}' needs 20 values")
+                if spellcasting.get("progression") != "third":
+                    errors.append(f"{sw}: subclass casters should use 'third' progression")
+                for sid in spellcasting.get("fixedCantrips", []):
+                    if sid not in spells:
+                        errors.append(f"{sw}: unknown spell '{sid}'")
+
+            for key, table in sub.get("scaling", {}).items():
+                if len(table.get("values", [])) != 20:
+                    errors.append(f"{sw}: scaling '{key}' needs 20 values")
+
+            spell_tables = [sub.get("bonusSpells", {}), sub.get("expandedSpells", {})]
+            spell_tables += list(sub.get("terrainSpells", {}).values())
             for table in spell_tables:
                 for level, ids in table.items():
                     for sid in ids:

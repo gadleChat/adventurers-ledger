@@ -5565,6 +5565,40 @@
       }
     },
     {
+      "id": "aura-of-vitality",
+      "name": {
+        "ko": "활력의 오라",
+        "en": "Aura of Vitality"
+      },
+      "level": 3,
+      "school": "evocation",
+      "classes": [
+        "paladin"
+      ],
+      "ritual": false,
+      "concentration": true,
+      "castingTime": "1 action",
+      "range": "Self (30-foot radius)",
+      "duration": "Concentration, up to 1 minute",
+      "components": [
+        "V"
+      ],
+      "source": "PHB",
+      "bg3": false,
+      "summary": {
+        "ko": "주위에 치유의 기운을 펼쳐 매 턴 동료를 회복시킨다.",
+        "en": "An aura that lets you heal a creature each turn."
+      },
+      "desc": {
+        "ko": "몸에서 30피트 반경으로 치유의 기운이 퍼진다. 주문이 끝날 때까지 매 턴 추가 행동으로 기운 안의 존재 하나(나 포함)를 2d6 회복시킨다.",
+        "en": "Healing energy radiates from you in a 30-foot aura. Until the spell ends, you can use a bonus action on each of your turns to restore 2d6 hit points to one creature in the aura, including yourself."
+      },
+      "higherLevel": {
+        "ko": null,
+        "en": null
+      }
+    },
+    {
       "id": "beacon-of-hope",
       "name": {
         "ko": "희망의 등불",
@@ -8741,6 +8775,40 @@
       "desc": {
         "ko": "다음 무기 공격이 명중하면 무기에 역장이 튄다. 역장 피해 5d10이 추가되고, 그 결과 대상의 생명력이 50 이하로 남으면 추방된다. 다른 차원 출신이면 고향 차원으로, 아니면 무해한 반차원으로 보내지며 주문이 끝나면 돌아온다.",
         "en": "The next time you hit with a weapon attack, your weapon crackles with force. The attack deals an extra 5d10 force damage, and if this leaves the target with 50 hit points or fewer, it is banished: to its home plane if it is from another plane, otherwise to a harmless demiplane. It returns when the spell ends."
+      },
+      "higherLevel": {
+        "ko": null,
+        "en": null
+      }
+    },
+    {
+      "id": "circle-of-power",
+      "name": {
+        "ko": "힘의 원",
+        "en": "Circle of Power"
+      },
+      "level": 5,
+      "school": "abjuration",
+      "classes": [
+        "paladin"
+      ],
+      "ritual": false,
+      "concentration": true,
+      "castingTime": "1 action",
+      "range": "Self (30-foot radius)",
+      "duration": "Concentration, up to 10 minutes",
+      "components": [
+        "V"
+      ],
+      "source": "PHB",
+      "bg3": false,
+      "summary": {
+        "ko": "주위의 동료가 마법에 잘 버티게 하는 신성한 원을 펼친다.",
+        "en": "An aura that helps allies resist magic."
+      },
+      "desc": {
+        "ko": "30피트 반경으로 신성한 기운이 퍼진다. 그 안의 나와 아군은 주문과 마법 효과에 맞서는 내성에 유리하고, 성공하면 절반 피해를 받는 효과에서 피해를 전혀 받지 않는다.",
+        "en": "Divine energy forms a 30-foot aura around you. You and friendly creatures in it have advantage on saving throws against spells and other magical effects, and when such a creature succeeds on a save that would deal half damage, it takes no damage instead."
       },
       "higherLevel": {
         "ko": null,
