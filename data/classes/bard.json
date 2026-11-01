@@ -1,0 +1,98 @@
+{
+  "id": "bard",
+  "name": { "ko": "바드", "en": "Bard" },
+  "source": "SRD5.1",
+  "summary": { "ko": "노래와 말에 마법을 실어 동료를 북돋고 적을 홀리는 예술가.", "en": "An artist whose songs and words carry magic to inspire allies and beguile foes." },
+  "desc": {
+    "ko": "바드는 세상을 이루는 창조의 선율을 음악과 이야기로 다룬다. 동료의 사기를 끌어올리고, 재치 있는 말로 적의 마음을 흔들며, 못 하는 게 없을 만큼 두루 재주가 많다.",
+    "en": "Bards wield the music of creation through song and story. They lift their allies' spirits, unsettle enemies with clever words, and dabble in a little of everything."
+  },
+  "hitDie": 8,
+  "primary": ["cha"],
+  "saves": ["dex", "cha"],
+  "proficiencies": {
+    "armor": ["light"],
+    "weapons": ["simple", "hand_crossbow", "longsword", "rapier", "shortsword"],
+    "tools": [],
+    "toolChoice": { "count": 3, "category": "musical_instrument" }
+  },
+  "skillChoice": { "count": 3, "from": null },
+  "spellcasting": {
+    "ability": "cha",
+    "type": "known",
+    "progression": "full",
+    "list": "bard",
+    "ritual": true,
+    "cantripsKnown": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+    "spellsKnown": [4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 15, 16, 18, 19, 19, 20, 22, 22, 22]
+  },
+  "subclassLevel": 3,
+  "subclassTitle": { "ko": "바드 학파", "en": "Bard College" },
+  "levels": {
+    "1": { "features": ["spellcasting", "bardic_inspiration"] },
+    "2": { "features": ["jack_of_all_trades", "song_of_rest"] },
+    "3": { "features": ["expertise"], "subclassFeature": true },
+    "4": { "features": ["asi"] },
+    "5": { "features": ["font_of_inspiration"] },
+    "6": { "features": ["countercharm"], "subclassFeature": true },
+    "7": { "features": [] },
+    "8": { "features": ["asi"] },
+    "9": { "features": [] },
+    "10": { "features": ["expertise", "magical_secrets"] },
+    "11": { "features": [] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": ["magical_secrets"], "subclassFeature": true },
+    "15": { "features": [] },
+    "16": { "features": ["asi"] },
+    "17": { "features": [] },
+    "18": { "features": ["magical_secrets"] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["superior_inspiration"] }
+  },
+  "scaling": {
+    "inspirationDie": { "name": { "ko": "바드의 영감 주사위", "en": "Bardic Inspiration Die" }, "values": ["d6", "d6", "d6", "d6", "d8", "d8", "d8", "d8", "d8", "d10", "d10", "d10", "d10", "d10", "d12", "d12", "d12", "d12", "d12", "d12"] },
+    "songOfRestDie": { "name": { "ko": "휴식의 노래 주사위", "en": "Song of Rest Die" }, "values": [null, "d6", "d6", "d6", "d6", "d6", "d6", "d6", "d8", "d8", "d8", "d8", "d10", "d10", "d10", "d10", "d12", "d12", "d12", "d12"] }
+  },
+  "features": {
+    "bardic_inspiration": {
+      "name": { "ko": "바드의 영감", "en": "Bardic Inspiration" },
+      "desc": { "ko": "추가 행동으로 동료에게 영감 주사위를 준다. 동료는 판정·명중·내성에 그 주사위를 더할 수 있다. 매력 수정치만큼 쓰고 긴 휴식에 회복한다.", "en": "As a bonus action, give an ally an inspiration die to add to a check, attack, or save. Uses equal your Charisma modifier, regained on a long rest." }
+    },
+    "jack_of_all_trades": {
+      "name": { "ko": "만능 재주꾼", "en": "Jack of All Trades" },
+      "desc": { "ko": "숙련이 없는 능력 판정에 숙련 보너스의 절반을 더한다.", "en": "Add half your proficiency bonus to ability checks you aren't proficient in." }
+    },
+    "song_of_rest": {
+      "name": { "ko": "휴식의 노래", "en": "Song of Rest" },
+      "desc": { "ko": "짧은 휴식 동안 노래로 동료들이 생명력을 조금 더 회복하게 한다.", "en": "Your music during a short rest helps allies recover extra hit points." }
+    },
+    "font_of_inspiration": {
+      "name": { "ko": "영감의 샘", "en": "Font of Inspiration" },
+      "desc": { "ko": "바드의 영감을 짧은 휴식에도 회복한다.", "en": "You regain Bardic Inspiration on a short rest as well." }
+    },
+    "countercharm": {
+      "name": { "ko": "반매혹의 선율", "en": "Countercharm" },
+      "desc": { "ko": "연주로 주변 동료가 공포와 매혹에 맞서는 내성에 유리하게 한다.", "en": "Your performance gives nearby allies advantage on saves against being frightened or charmed." }
+    },
+    "magical_secrets": {
+      "name": { "ko": "마법의 비밀", "en": "Magical Secrets" },
+      "desc": { "ko": "어느 직업의 주문 목록에서든 주문 두 개를 골라 바드 주문으로 배운다.", "en": "Learn two spells from any class's spell list; they count as bard spells for you." },
+      "choice": { "key": "magicalSecrets", "type": "spellAnyList", "count": 2 }
+    },
+    "superior_inspiration": {
+      "name": { "ko": "탁월한 영감", "en": "Superior Inspiration" },
+      "desc": { "ko": "우선권을 굴릴 때 바드의 영감이 하나도 없으면 하나를 되찾는다.", "en": "When you roll initiative with no Bardic Inspiration left, you regain one use." }
+    }
+  },
+  "subclasses": [
+    { "id": "lore", "name": { "ko": "전승 학파", "en": "College of Lore" }, "source": "SRD5.1",
+      "summary": { "ko": "온갖 지식을 수집하고 날카로운 말로 적을 깎아내리는 바드.", "en": "Collectors of knowledge whose cutting words undermine foes." } },
+    { "id": "valour", "name": { "ko": "용맹 학파", "en": "College of Valour" }, "aliasEn": "College of Valor", "source": "PHB",
+      "summary": { "ko": "영웅의 노래를 부르며 직접 전장에 서는 전사 바드.", "en": "Skalds who sing of heroes and fight on the front line." } },
+    { "id": "swords", "name": { "ko": "검술 학파", "en": "College of Swords" }, "source": "XGtE",
+      "summary": { "ko": "화려한 칼놀림으로 관객을 사로잡는 검무사.", "en": "Blade-dancers who dazzle with flashy swordplay." } },
+    { "id": "glamour", "name": { "ko": "매혹 학파", "en": "College of Glamour" }, "source": "XGtE",
+      "summary": { "ko": "요정계의 매혹을 노래에 담아 사람들을 홀린다.", "en": "Weave the fey enchantment of the Feywild into their performances." } }
+  ]
+}

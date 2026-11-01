@@ -1,0 +1,86 @@
+{
+  "id": "wizard",
+  "name": { "ko": "위저드", "en": "Wizard" },
+  "source": "SRD5.1",
+  "summary": { "ko": "연구와 주문서로 마법을 익힌 학자. 가장 많은 주문을 다룬다.", "en": "A scholarly mage who learns magic through study and a spellbook." },
+  "desc": {
+    "ko": "위저드는 마법을 학문으로 다룬다. 주문서에 주문을 베껴 적고 매일 아침 그날 쓸 주문을 준비하며, 연구할수록 더 많은 주문을 손에 넣는다. 마법의 여덟 학파 중 하나를 깊이 파고들거나 칼과 마법을 함께 익히기도 한다.",
+    "en": "Wizards treat magic as a field of study. They copy spells into their spellbook, prepare each day's spells every morning, and gain more spells the more they research. Many specialize in one of the eight schools of magic, and some learn to blend blade and spell."
+  },
+  "hitDie": 6,
+  "primary": ["int"],
+  "saves": ["int", "wis"],
+  "proficiencies": { "armor": [], "weapons": ["dagger", "dart", "sling", "quarterstaff", "light_crossbow"], "tools": [] },
+  "skillChoice": { "count": 2, "from": ["arcana", "history", "insight", "investigation", "medicine", "religion"] },
+  "spellcasting": {
+    "ability": "int",
+    "type": "prepared",
+    "progression": "full",
+    "list": "wizard",
+    "ritual": true,
+    "cantripsKnown": [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    "spellsKnown": null,
+    "preparedFormula": "int + level",
+    "spellbook": { "start": 6, "perLevel": 2 }
+  },
+  "subclassLevel": 2,
+  "subclassTitle": { "ko": "비전 전통", "en": "Arcane Tradition" },
+  "levels": {
+    "1": { "features": ["spellcasting", "arcane_recovery"] },
+    "2": { "features": [], "subclassFeature": true },
+    "3": { "features": [] },
+    "4": { "features": ["asi"] },
+    "5": { "features": [] },
+    "6": { "features": [], "subclassFeature": true },
+    "7": { "features": [] },
+    "8": { "features": ["asi"] },
+    "9": { "features": [] },
+    "10": { "features": [], "subclassFeature": true },
+    "11": { "features": [] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": [], "subclassFeature": true },
+    "15": { "features": [] },
+    "16": { "features": ["asi"] },
+    "17": { "features": [] },
+    "18": { "features": ["spell_mastery"] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["signature_spells"] }
+  },
+  "features": {
+    "arcane_recovery": {
+      "name": { "ko": "비전 회복", "en": "Arcane Recovery" },
+      "desc": { "ko": "하루 한 번 짧은 휴식 때, 위저드 레벨의 절반만큼 주문 슬롯을 되찾는다(6레벨 이상 슬롯 제외).", "en": "Once a day during a short rest, recover spell slots with combined levels up to half your wizard level (none of 6th level or higher)." }
+    },
+    "spell_mastery": {
+      "name": { "ko": "주문 숙달", "en": "Spell Mastery" },
+      "desc": { "ko": "1레벨 주문 하나와 2레벨 주문 하나를 골라, 슬롯 없이 마음껏 시전한다.", "en": "Choose one 1st-level and one 2nd-level spell; you can cast them at their lowest level without expending a slot." },
+      "choice": { "key": "spellMastery", "type": "spellPerLevel", "list": "wizard", "levels": [1, 2] }
+    },
+    "signature_spells": {
+      "name": { "ko": "대표 주문", "en": "Signature Spells" },
+      "desc": { "ko": "3레벨 주문 두 개를 골라 항상 준비해 두고, 각각 짧은 휴식마다 한 번 슬롯 없이 시전한다.", "en": "Choose two 3rd-level spells; they are always prepared and each can be cast once per short rest without a slot." },
+      "choice": { "key": "signatureSpells", "type": "spell", "list": "wizard", "spellLevel": 3, "count": 2 }
+    }
+  },
+  "subclasses": [
+    { "id": "abjuration", "name": { "ko": "방호술 학파", "en": "School of Abjuration" }, "source": "PHB",
+      "summary": { "ko": "보호와 차단의 마법으로 마법 장벽을 두르는 수호 마법사.", "en": "Masters of protective magic who raise an arcane ward." } },
+    { "id": "conjuration", "name": { "ko": "조형술 학파", "en": "School of Conjuration" }, "source": "PHB",
+      "summary": { "ko": "물건과 존재를 불러내고 순간이동하는 소환술사.", "en": "Summoners who call forth objects and creatures and teleport." } },
+    { "id": "divination", "name": { "ko": "예지술 학파", "en": "School of Divination" }, "source": "PHB",
+      "summary": { "ko": "미래를 엿보고 운명의 주사위를 미리 쥐는 예언자.", "en": "Seers who glimpse the future and hold fate's dice in hand." } },
+    { "id": "enchantment", "name": { "ko": "환혹술 학파", "en": "School of Enchantment" }, "source": "PHB",
+      "summary": { "ko": "다른 이의 마음을 홀리고 조종하는 매혹술사.", "en": "Enchanters who beguile and control the minds of others." } },
+    { "id": "evocation", "name": { "ko": "방출술 학파", "en": "School of Evocation" }, "source": "SRD5.1",
+      "summary": { "ko": "불과 번개 같은 파괴 주문의 전문가.", "en": "Specialists in destructive spells of fire, lightning, and force." } },
+    { "id": "illusion", "name": { "ko": "환영술 학파", "en": "School of Illusion" }, "source": "PHB",
+      "summary": { "ko": "감각을 속이고 환영을 현실로 만드는 환술사.", "en": "Illusionists who deceive the senses and make illusions real." } },
+    { "id": "necromancy", "name": { "ko": "사령술 학파", "en": "School of Necromancy" }, "source": "PHB",
+      "summary": { "ko": "생명과 죽음의 경계를 다루고 언데드를 부리는 강령술사.", "en": "Necromancers who manipulate life and death and command undead." } },
+    { "id": "transmutation", "name": { "ko": "변환술 학파", "en": "School of Transmutation" }, "source": "PHB",
+      "summary": { "ko": "물질과 몸을 바꾸는 연금술사.", "en": "Transmuters who change matter and bodies." } },
+    { "id": "bladesinging", "name": { "ko": "칼날노래", "en": "Bladesinging" }, "source": "TCoE",
+      "summary": { "ko": "칼춤과 마법을 하나로 엮는 엘프 전통의 검무 마법사.", "en": "Elven tradition of weaving swordplay and spellcasting into a dance." } }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "druid",
+  "name": { "ko": "드루이드", "en": "Druid" },
+  "source": "SRD5.1",
+  "summary": { "ko": "자연의 힘을 다루고 짐승으로 모습을 바꾸는 사제.", "en": "A priest of nature who wields its power and takes the shapes of beasts." },
+  "desc": {
+    "ko": "드루이드는 자연의 균형을 지키는 이들이다. 바람과 불, 식물과 짐승의 힘을 빌려 주문을 쓰고, 야생의 모습으로 변신해 짐승처럼 싸우거나 몰래 움직인다. 금속 갑옷은 입지 않는다.",
+    "en": "Druids guard the balance of nature. They draw on wind, fire, plants, and beasts for their spells, and take wild shapes to fight or move unseen. They refuse to wear metal armor."
+  },
+  "hitDie": 8,
+  "primary": ["wis"],
+  "saves": ["int", "wis"],
+  "proficiencies": {
+    "armor": ["light", "medium", "shield"],
+    "armorNote": { "ko": "금속으로 된 갑옷과 방패는 쓰지 않는다.", "en": "Druids will not wear armor or use shields made of metal." },
+    "weapons": ["club", "dagger", "dart", "javelin", "mace", "quarterstaff", "scimitar", "sickle", "sling", "spear"],
+    "tools": ["herbalism_kit"]
+  },
+  "skillChoice": { "count": 2, "from": ["arcana", "animal_handling", "insight", "medicine", "nature", "perception", "religion", "survival"] },
+  "spellcasting": {
+    "ability": "wis",
+    "type": "prepared",
+    "progression": "full",
+    "list": "druid",
+    "ritual": true,
+    "cantripsKnown": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+    "spellsKnown": null,
+    "preparedFormula": "wis + level"
+  },
+  "subclassLevel": 2,
+  "subclassTitle": { "ko": "드루이드 회합", "en": "Druid Circle" },
+  "extraLanguages": ["druidic"],
+  "levels": {
+    "1": { "features": ["druidic", "spellcasting"] },
+    "2": { "features": ["wild_shape"], "subclassFeature": true },
+    "3": { "features": [] },
+    "4": { "features": ["asi"] },
+    "5": { "features": [] },
+    "6": { "features": [], "subclassFeature": true },
+    "7": { "features": [] },
+    "8": { "features": ["asi"] },
+    "9": { "features": [] },
+    "10": { "features": [], "subclassFeature": true },
+    "11": { "features": [] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": [], "subclassFeature": true },
+    "15": { "features": [] },
+    "16": { "features": ["asi"] },
+    "17": { "features": [] },
+    "18": { "features": ["timeless_body", "beast_spells"] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["archdruid"] }
+  },
+  "scaling": {
+    "wildShapeMaxCR": { "name": { "ko": "변신 최대 도전 지수", "en": "Wild Shape Max CR" }, "values": [null, "1/4", "1/4", "1/2", "1/2", "1/2", "1/2", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"] }
+  },
+  "features": {
+    "druidic": {
+      "name": { "ko": "드루이드어", "en": "Druidic" },
+      "desc": { "ko": "드루이드끼리만 통하는 비밀 언어를 알고, 그 언어로 숨긴 메시지를 남길 수 있다.", "en": "You know Druidic, the secret language of druids, and can leave hidden messages in it." }
+    },
+    "wild_shape": {
+      "name": { "ko": "야생 변신", "en": "Wild Shape" },
+      "desc": { "ko": "행동을 써서 본 적 있는 짐승으로 변신한다. 짧은 휴식마다 두 번. 레벨이 오를수록 더 강한 짐승이 되고, 4레벨부터 헤엄치는, 8레벨부터 나는 짐승도 가능하다.", "en": "As an action, transform into a beast you have seen, twice per short rest. Stronger beasts become available as you level; swimming forms at 4th level and flying forms at 8th." }
+    },
+    "beast_spells": {
+      "name": { "ko": "짐승의 주문", "en": "Beast Spells" },
+      "desc": { "ko": "야생 변신 중에도 대부분의 주문을 시전할 수 있다.", "en": "You can cast most of your spells while in Wild Shape." }
+    },
+    "archdruid": {
+      "name": { "ko": "대드루이드", "en": "Archdruid" },
+      "desc": { "ko": "야생 변신을 횟수 제한 없이 쓰고, 말과 몸짓 구성 요소 없이 주문을 시전할 수 있다.", "en": "You can use Wild Shape an unlimited number of times and ignore verbal and somatic components of your druid spells." }
+    }
+  },
+  "subclasses": [
+    { "id": "land", "name": { "ko": "대지의 회합", "en": "Circle of the Land" }, "source": "SRD5.1",
+      "summary": { "ko": "특정 지형과 깊이 이어져 주문을 더 많이 다루는 현자.", "en": "Mystics bound to a particular land, with deeper spellcasting." } },
+    { "id": "moon", "name": { "ko": "달의 회합", "en": "Circle of the Moon" }, "source": "PHB",
+      "summary": { "ko": "강한 짐승으로 변신해 전장을 누비는 변신술사.", "en": "Shapeshifters who become fearsome beasts in battle." } },
+    { "id": "spores", "name": { "ko": "포자의 회합", "en": "Circle of Spores" }, "source": "TCoE",
+      "summary": { "ko": "부패와 균류의 순환 속에서 죽음과 생명을 함께 다룬다.", "en": "Find beauty in decay, wielding fungal spores and death." } },
+    { "id": "stars", "name": { "ko": "별의 회합", "en": "Circle of Stars" }, "source": "TCoE",
+      "summary": { "ko": "별자리의 힘을 몸에 두르고 별빛 주문을 다룬다.", "en": "Draw power from constellations, taking on a starry form." } }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "ranger",
+  "name": { "ko": "레인저", "en": "Ranger" },
+  "source": "SRD5.1",
+  "summary": { "ko": "야생을 누비며 사냥감을 쫓는 추적자이자 사수.", "en": "A wilderness tracker and hunter, deadly at range." },
+  "desc": {
+    "ko": "레인저는 문명의 끝자락에서 괴물을 사냥하고 길을 지키는 이들이다. 특정한 적과 지형에 정통하고, 활과 칼을 함께 다루며, 자연의 마법을 조금 빌려 쓴다.",
+    "en": "Rangers hunt monsters and guard the paths at the edges of civilization. They know particular foes and terrains intimately, fight with bow and blade, and borrow a little of nature's magic."
+  },
+  "hitDie": 10,
+  "primary": ["dex", "wis"],
+  "saves": ["str", "dex"],
+  "proficiencies": { "armor": ["light", "medium", "shield"], "weapons": ["simple", "martial"], "tools": [] },
+  "skillChoice": { "count": 3, "from": ["animal_handling", "athletics", "insight", "investigation", "nature", "perception", "stealth", "survival"] },
+  "spellcasting": {
+    "ability": "wis",
+    "type": "known",
+    "progression": "half",
+    "list": "ranger",
+    "ritual": false,
+    "startLevel": 2,
+    "cantripsKnown": null,
+    "spellsKnown": [0, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11]
+  },
+  "subclassLevel": 3,
+  "subclassTitle": { "ko": "레인저 유형", "en": "Ranger Archetype" },
+  "levels": {
+    "1": { "features": ["favored_enemy", "natural_explorer"] },
+    "2": { "features": ["fighting_style", "spellcasting"] },
+    "3": { "features": ["primeval_awareness"], "subclassFeature": true },
+    "4": { "features": ["asi"] },
+    "5": { "features": ["extra_attack"] },
+    "6": { "features": ["favored_enemy", "natural_explorer"] },
+    "7": { "features": [], "subclassFeature": true },
+    "8": { "features": ["asi", "lands_stride"] },
+    "9": { "features": [] },
+    "10": { "features": ["natural_explorer", "hide_in_plain_sight"] },
+    "11": { "features": [], "subclassFeature": true },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": ["favored_enemy", "vanish"] },
+    "15": { "features": [], "subclassFeature": true },
+    "16": { "features": ["asi"] },
+    "17": { "features": [] },
+    "18": { "features": ["feral_senses"] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["foe_slayer"] }
+  },
+  "features": {
+    "favored_enemy": {
+      "name": { "ko": "숙적", "en": "Favored Enemy" },
+      "desc": { "ko": "적 유형 하나(또는 인간형 종족 둘)를 골라, 그 적을 추적하고 기억해내는 판정에 유리하고 그들의 언어 하나를 배운다. 6레벨과 14레벨에 하나씩 더 고른다.", "en": "Choose a type of enemy (or two humanoid races); you have advantage on checks to track and recall lore about them and learn one of their languages. Choose another at 6th and 14th level." },
+      "choice": { "key": "favoredEnemy", "type": "text", "count": 1 }
+    },
+    "natural_explorer": {
+      "name": { "ko": "자연 탐험가", "en": "Natural Explorer" },
+      "desc": { "ko": "익숙한 지형 하나를 고른다. 그 지형에서는 길을 잃지 않고, 험지에 느려지지 않으며, 먹을 것과 흔적을 잘 찾는다. 6레벨과 10레벨에 하나씩 더 고른다.", "en": "Choose a favored terrain. There you can't get lost, difficult terrain doesn't slow your group, and you find food and tracks easily. Choose another at 6th and 10th level." },
+      "choice": { "key": "favoredTerrain", "type": "list", "count": 1, "options": ["arctic", "coast", "desert", "forest", "grassland", "mountain", "swamp", "underdark"] }
+    },
+    "primeval_awareness": {
+      "name": { "ko": "원초적 감각", "en": "Primeval Awareness" },
+      "desc": { "ko": "주문 슬롯을 써서 주변 몇 킬로미터 안에 특정 종류의 존재가 있는지 감지한다.", "en": "Spend a spell slot to sense whether certain kinds of creatures are present within a few miles." }
+    },
+    "lands_stride": {
+      "name": { "ko": "대지 걷기", "en": "Land's Stride" },
+      "desc": { "ko": "마법이 아닌 험지를 느려지지 않고 지나가고, 식물의 가시에 다치지 않는다.", "en": "Nonmagical difficult terrain doesn't slow you, and plants' thorns don't harm you." }
+    },
+    "hide_in_plain_sight": {
+      "name": { "ko": "눈앞의 은신", "en": "Hide in Plain Sight" },
+      "desc": { "ko": "1분 동안 위장을 준비하면, 움직이지 않는 동안 은신 판정이 크게 오른다.", "en": "Spend a minute camouflaging yourself to gain a large bonus to Stealth while you stay still." }
+    },
+    "vanish": {
+      "name": { "ko": "자취 감추기", "en": "Vanish" },
+      "desc": { "ko": "추가 행동으로 숨을 수 있고, 마법이 아닌 방법으로는 추적되지 않는다.", "en": "You can Hide as a bonus action, and you can't be tracked by nonmagical means." }
+    },
+    "feral_senses": {
+      "name": { "ko": "야생의 감각", "en": "Feral Senses" },
+      "desc": { "ko": "보이지 않는 적을 공격해도 불리하지 않고, 가까이 숨은 존재의 위치를 안다.", "en": "Attacking unseen creatures doesn't impose disadvantage, and you know the location of nearby invisible creatures." }
+    },
+    "foe_slayer": {
+      "name": { "ko": "숙적 처단자", "en": "Foe Slayer" },
+      "desc": { "ko": "턴마다 한 번, 숙적에 대한 명중이나 피해 굴림에 지혜 수정치를 더한다.", "en": "Once per turn, add your Wisdom modifier to an attack or damage roll against a favored enemy." }
+    }
+  },
+  "subclasses": [
+    { "id": "hunter", "name": { "ko": "사냥꾼", "en": "Hunter" }, "source": "SRD5.1",
+      "summary": { "ko": "거대한 괴물과 무리를 상대하는 기술을 익힌 사냥의 달인.", "en": "Experts at taking down giant monsters and hordes alike." } },
+    { "id": "beast_master", "name": { "ko": "야수 조련사", "en": "Beast Master" }, "source": "PHB",
+      "summary": { "ko": "야수 동료와 함께 싸우는 레인저.", "en": "Rangers who fight alongside an animal companion." } },
+    { "id": "gloom_stalker", "name": { "ko": "어둠 추적자", "en": "Gloom Stalker" }, "source": "XGtE",
+      "summary": { "ko": "어둠 속에서 먼저 덮치는 매복의 명수.", "en": "Ambushers at home in darkness who strike first." } },
+    { "id": "swarmkeeper", "name": { "ko": "무리 지기", "en": "Swarmkeeper" }, "source": "TCoE",
+      "summary": { "ko": "벌레나 새, 요정 같은 작은 정령 무리를 몸에 두른다.", "en": "Accompanied by a swarm of nature spirits in the form of insects, birds, or pixies." } }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "id": "barbarian",
+  "name": { "ko": "바바리안", "en": "Barbarian" },
+  "source": "SRD5.1",
+  "summary": { "ko": "분노에 몸을 맡겨 싸우는 원초적인 전사.", "en": "A primal warrior who fights in a battle rage." },
+  "desc": {
+    "ko": "바바리안은 문명의 규칙보다 몸속에서 끓어오르는 원초적인 힘을 믿는다. 분노가 타오르면 상처를 아랑곳하지 않고 적을 짓밟으며, 갑옷 없이도 질긴 몸으로 버틴다.",
+    "en": "Barbarians trust the primal fury inside them more than the rules of civilization. When rage takes hold they shrug off wounds and crush their foes, enduring even without armor."
+  },
+  "hitDie": 12,
+  "primary": ["str"],
+  "saves": ["str", "con"],
+  "proficiencies": { "armor": ["light", "medium", "shield"], "weapons": ["simple", "martial"], "tools": [] },
+  "skillChoice": { "count": 2, "from": ["animal_handling", "athletics", "intimidation", "nature", "perception", "survival"] },
+  "spellcasting": null,
+  "subclassLevel": 3,
+  "subclassTitle": { "ko": "원시의 길", "en": "Primal Path" },
+  "levels": {
+    "1": { "features": ["rage", "unarmored_defense_con"] },
+    "2": { "features": ["reckless_attack", "danger_sense"] },
+    "3": { "features": [], "subclassFeature": true },
+    "4": { "features": ["asi"] },
+    "5": { "features": ["extra_attack", "fast_movement"] },
+    "6": { "features": [], "subclassFeature": true },
+    "7": { "features": ["feral_instinct"] },
+    "8": { "features": ["asi"] },
+    "9": { "features": ["brutal_critical"] },
+    "10": { "features": [], "subclassFeature": true },
+    "11": { "features": ["relentless_rage"] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": [], "subclassFeature": true },
+    "15": { "features": ["persistent_rage"] },
+    "16": { "features": ["asi"] },
+    "17": { "features": [] },
+    "18": { "features": ["indomitable_might"] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["primal_champion"] }
+  },
+  "scaling": {
+    "rages": { "name": { "ko": "분노 횟수", "en": "Rages" }, "values": [2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, "unlimited"] },
+    "rageDamage": { "name": { "ko": "분노 피해", "en": "Rage Damage" }, "values": [2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4] },
+    "brutalCriticalDice": { "name": { "ko": "잔혹한 치명타 주사위", "en": "Brutal Critical Dice" }, "values": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3] }
+  },
+  "features": {
+    "rage": {
+      "name": { "ko": "분노", "en": "Rage" },
+      "desc": { "ko": "추가 행동으로 분노한다. 분노 중에는 근력 판정과 내성에 유리하고, 근력 근접 공격 피해가 늘며, 타격·관통·참격 피해에 저항한다. 중갑을 입으면 쓸 수 없다.", "en": "As a bonus action you enter a rage: advantage on Strength checks and saves, bonus damage on Strength melee attacks, and resistance to bludgeoning, piercing, and slashing damage. Not usable in heavy armor." }
+    },
+    "reckless_attack": {
+      "name": { "ko": "무모한 공격", "en": "Reckless Attack" },
+      "desc": { "ko": "턴의 첫 공격을 무모하게 휘둘러 근력 근접 공격에 유리함을 얻지만, 다음 턴까지 나를 노리는 공격도 유리해진다.", "en": "Throw caution aside for advantage on Strength melee attacks this turn, but attacks against you have advantage until your next turn." }
+    },
+    "danger_sense": {
+      "name": { "ko": "위험 감지", "en": "Danger Sense" },
+      "desc": { "ko": "보이는 효과(함정, 주문 등)에 맞서는 민첩 내성에 유리하다.", "en": "Advantage on Dexterity saves against effects you can see, such as traps and spells." }
+    },
+    "fast_movement": {
+      "name": { "ko": "빠른 이동", "en": "Fast Movement" },
+      "desc": { "ko": "중갑을 입지 않으면 이동 속도가 10피트 오른다.", "en": "Your speed increases by 10 feet while not wearing heavy armor." }
+    },
+    "feral_instinct": {
+      "name": { "ko": "야생의 본능", "en": "Feral Instinct" },
+      "desc": { "ko": "우선권 굴림에 유리하고, 기습당해도 분노하면 첫 턴에 움직일 수 있다.", "en": "Advantage on initiative, and you can act normally on a surprise round if you rage first." }
+    },
+    "brutal_critical": {
+      "name": { "ko": "잔혹한 치명타", "en": "Brutal Critical" },
+      "desc": { "ko": "근접 치명타 때 무기 피해 주사위를 추가로 굴린다. 9레벨 1개, 13레벨 2개, 17레벨 3개.", "en": "Roll extra weapon damage dice on melee critical hits: one at 9th level, two at 13th, three at 17th." }
+    },
+    "relentless_rage": {
+      "name": { "ko": "끝없는 분노", "en": "Relentless Rage" },
+      "desc": { "ko": "분노 중 생명력이 0이 되면 건강 내성으로 1로 버틸 수 있다. 쓸 때마다 난이도가 오른다.", "en": "If you drop to 0 HP while raging, a Constitution save lets you drop to 1 instead; the DC rises each time." }
+    },
+    "persistent_rage": {
+      "name": { "ko": "꺼지지 않는 분노", "en": "Persistent Rage" },
+      "desc": { "ko": "분노가 기절하거나 스스로 끝내기 전까지는 일찍 끝나지 않는다.", "en": "Your rage ends early only if you fall unconscious or choose to end it." }
+    },
+    "indomitable_might": {
+      "name": { "ko": "불굴의 힘", "en": "Indomitable Might" },
+      "desc": { "ko": "근력 판정 결과가 근력 점수보다 낮으면 근력 점수를 대신 쓴다.", "en": "If a Strength check total is lower than your Strength score, use the score instead." }
+    },
+    "primal_champion": {
+      "name": { "ko": "원시의 투사", "en": "Primal Champion" },
+      "desc": { "ko": "근력과 건강이 각각 4씩 오르고, 최대치도 24가 된다.", "en": "Your Strength and Constitution each increase by 4, to a maximum of 24." }
+    }
+  },
+  "subclasses": [
+    { "id": "berserker", "name": { "ko": "광전사의 길", "en": "Path of the Berserker" }, "source": "SRD5.1",
+      "summary": { "ko": "광란에 빠져 미친 듯이 공격을 퍼붓는 전사.", "en": "Warriors who fall into a frenzy of relentless attacks." } },
+    { "id": "wildheart", "name": { "ko": "야생심장의 길", "en": "Path of the Wildheart" }, "aliasEn": "Path of the Totem Warrior", "source": "PHB",
+      "summary": { "ko": "곰, 독수리, 늑대 같은 동물 정령과 교감해 그 힘을 빌린다.", "en": "Bonded with animal spirits like bear, eagle, and wolf, borrowing their power." } },
+    { "id": "wild_magic", "name": { "ko": "야생 마법의 길", "en": "Path of Wild Magic" }, "source": "TCoE",
+      "summary": { "ko": "분노할 때마다 예측할 수 없는 마법이 폭발한다.", "en": "Each rage unleashes a burst of unpredictable magic." } },
+    { "id": "giants", "name": { "ko": "거인의 길", "en": "Path of Giants" }, "source": "BoMT",
+      "summary": { "ko": "분노하면 거인처럼 몸이 커지고 원소의 힘이 깃든다.", "en": "Rage makes you grow like a giant, infused with elemental power." } }
+  ]
+}

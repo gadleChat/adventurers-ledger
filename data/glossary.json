@@ -143,7 +143,9 @@
     "primordial": { "ko": "원시어", "en": "Primordial" },
     "sylvan": { "ko": "숲의 언어", "en": "Sylvan" },
     "undercommon": { "ko": "지하 공용어", "en": "Undercommon" },
-    "gith": { "ko": "기스어", "en": "Gith" }
+    "gith": { "ko": "기스어", "en": "Gith" },
+    "druidic": { "ko": "드루이드어", "en": "Druidic", "secret": true },
+    "thieves_cant": { "ko": "도둑의 은어", "en": "Thieves' Cant", "secret": true }
   },
   "sizes": {
     "tiny": { "ko": "초소형", "en": "Tiny" },

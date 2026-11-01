@@ -1,0 +1,114 @@
+{
+  "id": "monk",
+  "name": { "ko": "몽크", "en": "Monk" },
+  "source": "SRD5.1",
+  "summary": { "ko": "몸과 정신을 수련해 맨손과 기의 힘으로 싸우는 무도가.", "en": "A martial artist who fights with bare hands and the power of ki." },
+  "desc": {
+    "ko": "몽크는 수도원에서 몸과 마음을 갈고닦아 몸속에 흐르는 기를 다루게 된 이들이다. 갑옷 없이도 빠르게 움직이며 맨손으로 연타를 퍼붓고, 날아오는 화살을 붙잡고, 높은 곳에서 떨어져도 사뿐히 내려앉는다.",
+    "en": "Monks train body and mind in monasteries until they can command the ki flowing within them. Unarmored, they move with blinding speed, unleash flurries of blows, catch arrows from the air, and land lightly from great falls."
+  },
+  "hitDie": 8,
+  "primary": ["dex", "wis"],
+  "saves": ["str", "dex"],
+  "proficiencies": {
+    "armor": [],
+    "weapons": ["simple", "shortsword"],
+    "tools": [],
+    "toolChoice": { "count": 1, "category": "artisan_or_instrument" }
+  },
+  "skillChoice": { "count": 2, "from": ["acrobatics", "athletics", "history", "insight", "religion", "stealth"] },
+  "spellcasting": null,
+  "subclassLevel": 3,
+  "subclassTitle": { "ko": "수도 전통", "en": "Monastic Tradition" },
+  "levels": {
+    "1": { "features": ["unarmored_defense_wis", "martial_arts"] },
+    "2": { "features": ["ki", "unarmored_movement"] },
+    "3": { "features": ["deflect_missiles"], "subclassFeature": true },
+    "4": { "features": ["asi", "slow_fall"] },
+    "5": { "features": ["extra_attack", "stunning_strike"] },
+    "6": { "features": ["ki_empowered_strikes"], "subclassFeature": true },
+    "7": { "features": ["evasion", "stillness_of_mind"] },
+    "8": { "features": ["asi"] },
+    "9": { "features": [] },
+    "10": { "features": ["purity_of_body"] },
+    "11": { "features": [], "subclassFeature": true },
+    "12": { "features": ["asi"] },
+    "13": { "features": ["tongue_of_the_sun_and_moon"] },
+    "14": { "features": ["diamond_soul"] },
+    "15": { "features": ["timeless_body"] },
+    "16": { "features": ["asi"] },
+    "17": { "features": [], "subclassFeature": true },
+    "18": { "features": ["empty_body"] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["perfect_self"] }
+  },
+  "scaling": {
+    "martialArtsDie": { "name": { "ko": "무술 주사위", "en": "Martial Arts Die" }, "values": ["d4", "d4", "d4", "d4", "d6", "d6", "d6", "d6", "d6", "d6", "d8", "d8", "d8", "d8", "d8", "d8", "d10", "d10", "d10", "d10"] },
+    "ki": { "name": { "ko": "기 점수", "en": "Ki Points" }, "values": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] },
+    "unarmoredMovement": { "name": { "ko": "비무장 이동 보너스", "en": "Unarmored Movement" }, "values": [0, 10, 10, 10, 10, 15, 15, 15, 15, 20, 20, 20, 20, 25, 25, 25, 25, 30, 30, 30] }
+  },
+  "features": {
+    "martial_arts": {
+      "name": { "ko": "무술", "en": "Martial Arts" },
+      "desc": { "ko": "맨손이나 몽크 무기로 싸울 때 민첩을 쓸 수 있고, 맨손 피해가 무술 주사위가 되며, 공격 후 추가 행동으로 맨손 공격을 한 번 더 한다.", "en": "With unarmed strikes or monk weapons you can use Dexterity, your unarmed damage uses the Martial Arts die, and you can make an unarmed strike as a bonus action after attacking." }
+    },
+    "ki": {
+      "name": { "ko": "기", "en": "Ki" },
+      "desc": { "ko": "기 점수를 써서 연타(추가 맨손 공격 두 번), 인내의 방어(추가 행동으로 회피), 바람의 걸음(추가 행동으로 이탈이나 질주)을 쓴다. 짧은 휴식에 회복한다.", "en": "Spend ki points on Flurry of Blows (two bonus unarmed strikes), Patient Defense (Dodge as a bonus action), or Step of the Wind (Disengage or Dash as a bonus action). Regained on a short rest." }
+    },
+    "unarmored_movement": {
+      "name": { "ko": "비무장 이동", "en": "Unarmored Movement" },
+      "desc": { "ko": "갑옷과 방패 없이 이동 속도가 오른다. 9레벨부터는 벽이나 물 위도 달릴 수 있다.", "en": "Your speed increases while unarmored. From 9th level you can run along walls and across liquids." }
+    },
+    "deflect_missiles": {
+      "name": { "ko": "투사체 쳐내기", "en": "Deflect Missiles" },
+      "desc": { "ko": "반응 행동으로 날아오는 원거리 무기 피해를 줄이고, 피해가 0이 되면 붙잡아 기 1점으로 되던질 수 있다.", "en": "Use your reaction to reduce ranged weapon damage; if reduced to 0, you can catch the missile and throw it back for 1 ki." }
+    },
+    "slow_fall": {
+      "name": { "ko": "느린 낙하", "en": "Slow Fall" },
+      "desc": { "ko": "반응 행동으로 낙하 피해를 몽크 레벨의 다섯 배만큼 줄인다.", "en": "Use your reaction to reduce falling damage by five times your monk level." }
+    },
+    "stunning_strike": {
+      "name": { "ko": "기절 타격", "en": "Stunning Strike" },
+      "desc": { "ko": "근접 공격이 명중하면 기 1점을 써서, 대상이 건강 내성에 실패할 경우 다음 턴 끝까지 기절시킨다.", "en": "When you hit with a melee attack, spend 1 ki to try to stun the target until the end of your next turn (Constitution save)." }
+    },
+    "ki_empowered_strikes": {
+      "name": { "ko": "기 강화 타격", "en": "Ki-Empowered Strikes" },
+      "desc": { "ko": "맨손 공격이 마법 공격으로 취급된다.", "en": "Your unarmed strikes count as magical." }
+    },
+    "stillness_of_mind": {
+      "name": { "ko": "고요한 마음", "en": "Stillness of Mind" },
+      "desc": { "ko": "행동을 써서 자신에게 걸린 매혹이나 공포를 끝낸다.", "en": "Use your action to end one effect causing you to be charmed or frightened." }
+    },
+    "purity_of_body": {
+      "name": { "ko": "순수한 육체", "en": "Purity of Body" },
+      "desc": { "ko": "질병과 독에 면역이 된다.", "en": "You are immune to disease and poison." }
+    },
+    "tongue_of_the_sun_and_moon": {
+      "name": { "ko": "해와 달의 언어", "en": "Tongue of the Sun and Moon" },
+      "desc": { "ko": "말하는 모든 존재의 말을 알아듣고, 내 말도 모두가 알아듣는다.", "en": "You understand all spoken languages, and anyone who understands a language understands you." }
+    },
+    "diamond_soul": {
+      "name": { "ko": "금강의 혼", "en": "Diamond Soul" },
+      "desc": { "ko": "모든 내성 굴림에 숙련을 얻고, 실패한 내성은 기 1점으로 다시 굴릴 수 있다.", "en": "You gain proficiency in all saving throws and can spend 1 ki to reroll a failed save." }
+    },
+    "empty_body": {
+      "name": { "ko": "공허한 몸", "en": "Empty Body" },
+      "desc": { "ko": "기 4점으로 1분 동안 투명해지고 역장을 뺀 모든 피해에 저항한다.", "en": "Spend 4 ki to become invisible for 1 minute with resistance to all damage but force." }
+    },
+    "perfect_self": {
+      "name": { "ko": "완전한 자아", "en": "Perfect Self" },
+      "desc": { "ko": "우선권을 굴릴 때 기가 하나도 없으면 4점을 되찾는다.", "en": "When you roll initiative with no ki left, you regain 4 ki points." }
+    }
+  },
+  "subclasses": [
+    { "id": "open_hand", "name": { "ko": "열린 손의 길", "en": "Way of the Open Hand" }, "source": "SRD5.1",
+      "summary": { "ko": "맨손 무술의 정점. 연타로 적을 넘어뜨리고 밀쳐낸다.", "en": "Masters of unarmed combat who topple and push foes with their flurries." } },
+    { "id": "shadow", "name": { "ko": "그림자의 길", "en": "Way of Shadow" }, "source": "PHB",
+      "summary": { "ko": "어둠 속을 걷고 그림자 사이로 순간이동하는 닌자.", "en": "Ninja-like monks who move through darkness and step between shadows." } },
+    { "id": "four_elements", "name": { "ko": "사원소의 길", "en": "Way of the Four Elements" }, "source": "PHB",
+      "summary": { "ko": "기를 원소로 바꿔 불, 물, 바람, 땅을 다룬다.", "en": "Channel ki into the elements of fire, water, air, and earth." } },
+    { "id": "drunken_master", "name": { "ko": "취권 달인의 길", "en": "Way of the Drunken Master" }, "source": "XGtE",
+      "summary": { "ko": "비틀거리는 몸짓 속에 날카로운 공방을 숨긴 취권의 고수.", "en": "Unpredictable fighters whose staggering moves hide deadly precision." } }
+  ]
+}

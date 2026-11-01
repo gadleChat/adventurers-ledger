@@ -1,0 +1,96 @@
+{
+  "id": "rogue",
+  "name": { "ko": "로그", "en": "Rogue" },
+  "source": "SRD5.1",
+  "summary": { "ko": "그림자 속에서 빈틈을 노리는 재주꾼. 은신과 급소 공격의 달인.", "en": "A cunning specialist of stealth, skill, and well-placed strikes." },
+  "desc": {
+    "ko": "로그는 도둑, 탐정, 첩자, 소매치기처럼 재주와 기지로 먹고사는 이들이다. 누구보다 많은 기술에 능하고, 상대가 방심한 틈을 정확히 찔러 큰 피해를 준다. 위험한 순간엔 몸을 날려 피하는 데도 능숙하다.",
+    "en": "Rogues are thieves, investigators, spies, and cutpurses who live by skill and wits. They master more skills than anyone, strike precisely where a foe is vulnerable for heavy damage, and are quick to dodge out of danger."
+  },
+  "hitDie": 8,
+  "primary": ["dex"],
+  "saves": ["dex", "int"],
+  "proficiencies": {
+    "armor": ["light"],
+    "weapons": ["simple", "hand_crossbow", "longsword", "rapier", "shortsword"],
+    "tools": ["thieves_tools"]
+  },
+  "skillChoice": { "count": 4, "from": ["acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleight_of_hand", "stealth"] },
+  "spellcasting": null,
+  "subclassLevel": 3,
+  "subclassTitle": { "ko": "로그 유형", "en": "Roguish Archetype" },
+  "extraLanguages": ["thieves_cant"],
+  "levels": {
+    "1": { "features": ["expertise", "sneak_attack", "thieves_cant"] },
+    "2": { "features": ["cunning_action"] },
+    "3": { "features": [], "subclassFeature": true },
+    "4": { "features": ["asi"] },
+    "5": { "features": ["uncanny_dodge"] },
+    "6": { "features": ["expertise"] },
+    "7": { "features": ["evasion"] },
+    "8": { "features": ["asi"] },
+    "9": { "features": [], "subclassFeature": true },
+    "10": { "features": ["asi"] },
+    "11": { "features": ["reliable_talent"] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [], "subclassFeature": true },
+    "14": { "features": ["blindsense"] },
+    "15": { "features": ["slippery_mind"] },
+    "16": { "features": ["asi"] },
+    "17": { "features": [], "subclassFeature": true },
+    "18": { "features": ["elusive"] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["stroke_of_luck"] }
+  },
+  "scaling": {
+    "sneakAttack": { "name": { "ko": "급소 공격", "en": "Sneak Attack" }, "values": ["1d6", "1d6", "2d6", "2d6", "3d6", "3d6", "4d6", "4d6", "5d6", "5d6", "6d6", "6d6", "7d6", "7d6", "8d6", "8d6", "9d6", "9d6", "10d6", "10d6"] }
+  },
+  "features": {
+    "sneak_attack": {
+      "name": { "ko": "급소 공격", "en": "Sneak Attack" },
+      "desc": { "ko": "턴마다 한 번, 유리함이 있거나 대상 곁에 아군이 있을 때 기교·원거리 무기 명중에 추가 피해를 준다.", "en": "Once per turn, deal extra damage with a finesse or ranged weapon hit when you have advantage or an ally is next to the target." }
+    },
+    "thieves_cant": {
+      "name": { "ko": "도둑의 은어", "en": "Thieves' Cant" },
+      "desc": { "ko": "도둑들끼리만 통하는 은어와 표식을 안다.", "en": "You know the secret slang and signs of thieves." }
+    },
+    "cunning_action": {
+      "name": { "ko": "교활한 행동", "en": "Cunning Action" },
+      "desc": { "ko": "추가 행동으로 질주, 이탈, 숨기를 할 수 있다.", "en": "You can Dash, Disengage, or Hide as a bonus action." }
+    },
+    "uncanny_dodge": {
+      "name": { "ko": "기막힌 회피", "en": "Uncanny Dodge" },
+      "desc": { "ko": "보이는 공격자에게 맞으면 반응 행동으로 그 피해를 절반으로 줄인다.", "en": "When an attacker you can see hits you, use your reaction to halve the damage." }
+    },
+    "reliable_talent": {
+      "name": { "ko": "믿음직한 재능", "en": "Reliable Talent" },
+      "desc": { "ko": "숙련된 능력 판정에서 d20이 9 이하로 나와도 10으로 친다.", "en": "On ability checks you're proficient in, treat a d20 roll of 9 or lower as a 10." }
+    },
+    "blindsense": {
+      "name": { "ko": "맹목 감지", "en": "Blindsense" },
+      "desc": { "ko": "들을 수만 있으면 10피트 안에 숨거나 투명한 존재의 위치를 안다.", "en": "If you can hear, you know the location of hidden or invisible creatures within 10 feet." }
+    },
+    "slippery_mind": {
+      "name": { "ko": "미끄러운 정신", "en": "Slippery Mind" },
+      "desc": { "ko": "지혜 내성 굴림에 숙련을 얻는다.", "en": "You gain proficiency in Wisdom saving throws." }
+    },
+    "elusive": {
+      "name": { "ko": "잡히지 않는 자", "en": "Elusive" },
+      "desc": { "ko": "쓰러지지 않은 동안 어떤 공격도 나에게 유리함을 얻지 못한다.", "en": "No attack roll has advantage against you while you aren't incapacitated." }
+    },
+    "stroke_of_luck": {
+      "name": { "ko": "행운의 일격", "en": "Stroke of Luck" },
+      "desc": { "ko": "빗나간 공격을 명중으로, 실패한 능력 판정을 20으로 바꾼다. 짧은 휴식마다 한 번.", "en": "Turn a missed attack into a hit, or treat a failed ability check as a 20. Once per short rest." }
+    }
+  },
+  "subclasses": [
+    { "id": "thief", "name": { "ko": "도둑", "en": "Thief" }, "source": "SRD5.1",
+      "summary": { "ko": "재빠른 손과 발로 무엇이든 훔쳐내는 도둑.", "en": "Nimble burglars with fast hands and quick feet." } },
+    { "id": "arcane_trickster", "name": { "ko": "비전 사기꾼", "en": "Arcane Trickster" }, "source": "PHB",
+      "summary": { "ko": "환영과 매혹 마법으로 속임수를 부리는 마법 도둑.", "en": "Rogues who use illusion and enchantment magic for trickery." } },
+    { "id": "assassin", "name": { "ko": "암살자", "en": "Assassin" }, "source": "PHB",
+      "summary": { "ko": "변장과 기습으로 단숨에 목표를 처리하는 암살자.", "en": "Killers who strike from disguise and ambush." } },
+    { "id": "swashbuckler", "name": { "ko": "검객", "en": "Swashbuckler" }, "source": "XGtE",
+      "summary": { "ko": "말솜씨와 화려한 칼솜씨로 일대일 결투를 즐기는 멋쟁이.", "en": "Dashing duelists who fight with flair and charm." } }
+  ]
+}

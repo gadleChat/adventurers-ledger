@@ -131,10 +131,91 @@ def main():
                 if replaced not in parent_traits:
                     errors.append(f"{sw}: replaces unknown parent trait '{replaced}'")
 
+    class_count = check_classes(glossary, spells, errors, check_text)
+
     if errors:
         print("\n".join(errors))
         sys.exit(1)
-    print(f"OK: {len(index)} races checked")
+    print(f"OK: {len(index)} races and {class_count} classes checked")
+
+
+def check_classes(glossary, spells, errors, check_text):
+    skills = set(glossary["skills"])
+    common = load(DATA / "lists" / "common_features.json")["features"]
+    for fid, feature in common.items():
+        check_text(f"lists/common_features/{fid}", feature.get("name"), "name")
+        check_text(f"lists/common_features/{fid}", feature.get("desc"), "desc")
+
+    index = load(DATA / "classes" / "_index.json")["order"]
+    files = {p.stem for p in (DATA / "classes").glob("*.json") if not p.stem.startswith("_")}
+    if set(index) != files:
+        errors.append(f"classes/_index.json does not match files: {sorted(set(index) ^ files)}")
+
+    for class_id in index:
+        path = DATA / "classes" / f"{class_id}.json"
+        if not path.exists():
+            continue
+        cls = load(path)
+        where = f"classes/{class_id}"
+        if cls.get("id") != class_id:
+            errors.append(f"{where}: id does not match file name")
+        for field in ("name", "summary", "desc", "subclassTitle"):
+            check_text(where, cls.get(field), field)
+        for ability in cls.get("saves", []) + cls.get("primary", []):
+            if ability not in ABILITIES:
+                errors.append(f"{where}: unknown ability '{ability}'")
+        choice = cls.get("skillChoice", {})
+        for skill in choice.get("from") or []:
+            if skill not in skills:
+                errors.append(f"{where}: unknown skill '{skill}'")
+
+        features = cls.get("features", {})
+        for fid, feature in features.items():
+            check_text(f"{where}/{fid}", feature.get("name"), "name")
+            check_text(f"{where}/{fid}", feature.get("desc"), "desc")
+
+        levels = cls.get("levels", {})
+        if sorted(levels, key=int) != [str(n) for n in range(1, 21)]:
+            errors.append(f"{where}: levels must cover 1-20")
+        used = set()
+        for level, entry in levels.items():
+            for fid in entry.get("features", []):
+                used.add(fid)
+                if fid not in features and fid not in common:
+                    errors.append(f"{where}: level {level} refers to unknown feature '{fid}'")
+        for fid in features:
+            if fid not in used:
+                errors.append(f"{where}: feature '{fid}' is never granted")
+        if not levels.get(str(cls.get("subclassLevel")), {}).get("subclassFeature"):
+            errors.append(f"{where}: subclassLevel is not marked as a subclass feature level")
+
+        for key, table in cls.get("scaling", {}).items():
+            check_text(f"{where}/scaling/{key}", table.get("name"), "name")
+            if len(table.get("values", [])) != 20:
+                errors.append(f"{where}: scaling '{key}' needs 20 values")
+
+        spellcasting = cls.get("spellcasting")
+        if spellcasting:
+            if spellcasting.get("ability") not in ABILITIES:
+                errors.append(f"{where}: bad spellcasting ability")
+            if spellcasting.get("progression") not in ("full", "half", "third", "pact"):
+                errors.append(f"{where}: bad spellcasting progression")
+            for key in ("cantripsKnown", "spellsKnown"):
+                values = spellcasting.get(key)
+                if values is not None and len(values) != 20:
+                    errors.append(f"{where}: spellcasting '{key}' needs 20 values")
+            if not any(class_id in s["classes"] for s in spells.values()):
+                errors.append(f"{where}: no spells list this class")
+
+        sub_ids = set()
+        for sub in cls.get("subclasses", []):
+            sw = f"{where}/{sub.get('id')}"
+            if sub.get("id") in sub_ids:
+                errors.append(f"{sw}: duplicate subclass id")
+            sub_ids.add(sub.get("id"))
+            check_text(sw, sub.get("name"), "name")
+            check_text(sw, sub.get("summary"), "summary")
+    return len(index)
 
 
 if __name__ == "__main__":

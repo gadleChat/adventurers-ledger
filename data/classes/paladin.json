@@ -1,0 +1,103 @@
+{
+  "id": "paladin",
+  "name": { "ko": "팔라딘", "en": "Paladin" },
+  "source": "SRD5.1",
+  "summary": { "ko": "맹세의 힘으로 싸우는 신성한 기사.", "en": "A holy warrior bound by a sacred oath." },
+  "desc": {
+    "ko": "팔라딘은 정의, 복수, 자연 같은 이상에 맹세를 바치고 그 맹세에서 힘을 얻는다. 무거운 갑옷을 입고 앞장서 싸우며, 손을 얹어 상처를 치유하고, 일격에 신성한 힘을 실어 내리친다. 맹세를 어기면 힘을 잃거나 타락한다.",
+    "en": "Paladins swear oaths to ideals like justice, vengeance, or the beauty of the world, and draw power from those oaths. They fight in heavy armor at the front, heal with a touch, and pour divine power into their strikes. Breaking the oath can cost them that power, or corrupt it."
+  },
+  "hitDie": 10,
+  "primary": ["str", "cha"],
+  "saves": ["wis", "cha"],
+  "proficiencies": { "armor": ["light", "medium", "heavy", "shield"], "weapons": ["simple", "martial"], "tools": [] },
+  "skillChoice": { "count": 2, "from": ["athletics", "insight", "intimidation", "medicine", "persuasion", "religion"] },
+  "spellcasting": {
+    "ability": "cha",
+    "type": "prepared",
+    "progression": "half",
+    "list": "paladin",
+    "ritual": false,
+    "startLevel": 2,
+    "cantripsKnown": null,
+    "spellsKnown": null,
+    "preparedFormula": "cha + floor(level / 2)"
+  },
+  "subclassLevel": 3,
+  "subclassTitle": { "ko": "신성한 맹세", "en": "Sacred Oath" },
+  "levels": {
+    "1": { "features": ["divine_sense", "lay_on_hands"] },
+    "2": { "features": ["fighting_style", "spellcasting", "divine_smite"] },
+    "3": { "features": ["divine_health"], "subclassFeature": true },
+    "4": { "features": ["asi"] },
+    "5": { "features": ["extra_attack"] },
+    "6": { "features": ["aura_of_protection"] },
+    "7": { "features": [], "subclassFeature": true },
+    "8": { "features": ["asi"] },
+    "9": { "features": [] },
+    "10": { "features": ["aura_of_courage"] },
+    "11": { "features": ["improved_divine_smite"] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": ["cleansing_touch"] },
+    "15": { "features": [], "subclassFeature": true },
+    "16": { "features": ["asi"] },
+    "17": { "features": [] },
+    "18": { "features": ["aura_improvements"] },
+    "19": { "features": ["asi"] },
+    "20": { "features": [], "subclassFeature": true }
+  },
+  "scaling": {
+    "auraRange": { "name": { "ko": "오라 범위(피트)", "en": "Aura Range (ft.)" }, "values": [0, 0, 0, 0, 0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 30, 30, 30] }
+  },
+  "features": {
+    "divine_sense": {
+      "name": { "ko": "신성 감지", "en": "Divine Sense" },
+      "desc": { "ko": "주변의 천상·악마·언데드 존재와 신성하거나 더럽혀진 장소를 감지한다.", "en": "Sense nearby celestials, fiends, and undead, and places that have been consecrated or desecrated." }
+    },
+    "lay_on_hands": {
+      "name": { "ko": "안수", "en": "Lay on Hands" },
+      "desc": { "ko": "팔라딘 레벨의 다섯 배만큼 치유력을 지니고, 손을 얹어 나눠 쓰거나 질병·독을 치료한다. 긴 휴식에 회복한다.", "en": "You have a pool of healing equal to five times your paladin level, spent by touch to restore HP or cure disease and poison. Restored on a long rest." }
+    },
+    "divine_smite": {
+      "name": { "ko": "신성 강타", "en": "Divine Smite" },
+      "desc": { "ko": "근접 무기 공격이 명중하면 주문 슬롯을 써서 광휘 피해를 더한다. 언데드와 악마에게는 더 아프다.", "en": "When you hit with a melee weapon, spend a spell slot to deal extra radiant damage, more against undead and fiends." }
+    },
+    "divine_health": {
+      "name": { "ko": "신성한 건강", "en": "Divine Health" },
+      "desc": { "ko": "질병에 면역이 된다.", "en": "You are immune to disease." }
+    },
+    "aura_of_protection": {
+      "name": { "ko": "보호의 오라", "en": "Aura of Protection" },
+      "desc": { "ko": "나와 주변 아군이 모든 내성 굴림에 내 매력 수정치를 더한다.", "en": "You and nearby allies add your Charisma modifier to all saving throws." }
+    },
+    "aura_of_courage": {
+      "name": { "ko": "용기의 오라", "en": "Aura of Courage" },
+      "desc": { "ko": "나와 주변 아군은 공포에 걸리지 않는다.", "en": "You and nearby allies can't be frightened." }
+    },
+    "improved_divine_smite": {
+      "name": { "ko": "강화된 신성 강타", "en": "Improved Divine Smite" },
+      "desc": { "ko": "모든 근접 무기 명중에 광휘 피해 1d8이 더해진다.", "en": "Every melee weapon hit deals an extra 1d8 radiant damage." }
+    },
+    "cleansing_touch": {
+      "name": { "ko": "정화의 손길", "en": "Cleansing Touch" },
+      "desc": { "ko": "행동을 써서 자신이나 동료에게 걸린 주문 하나를 끝낸다. 매력 수정치만큼 쓸 수 있다.", "en": "Use your action to end one spell on yourself or a willing creature, a number of times equal to your Charisma modifier." }
+    },
+    "aura_improvements": {
+      "name": { "ko": "오라 강화", "en": "Aura Improvements" },
+      "desc": { "ko": "오라의 범위가 30피트로 늘어난다.", "en": "Your auras now extend to 30 feet." }
+    }
+  },
+  "subclasses": [
+    { "id": "devotion", "name": { "ko": "헌신의 맹세", "en": "Oath of Devotion" }, "source": "SRD5.1",
+      "summary": { "ko": "정직과 용기, 자비를 지키는 전형적인 성기사.", "en": "The classic knight in shining armor, sworn to honesty, courage, and mercy." } },
+    { "id": "ancients", "name": { "ko": "고대의 맹세", "en": "Oath of the Ancients" }, "source": "PHB",
+      "summary": { "ko": "세상의 빛과 아름다움, 생명을 지키는 녹색 기사.", "en": "Green knights who protect light, beauty, and life." } },
+    { "id": "vengeance", "name": { "ko": "복수의 맹세", "en": "Oath of Vengeance" }, "source": "PHB",
+      "summary": { "ko": "큰 악을 끝까지 쫓아 응징하는 복수자.", "en": "Avengers who hunt down great evil at any cost." } },
+    { "id": "oathbreaker", "name": { "ko": "맹세 파기자", "en": "Oathbreaker" }, "source": "DMG",
+      "summary": { "ko": "맹세를 저버리고 어둠의 힘을 손에 넣은 타락한 기사.", "en": "Fallen paladins who broke their oath and took up dark power." } },
+    { "id": "crown", "name": { "ko": "왕관의 맹세", "en": "Oath of the Crown" }, "source": "SCAG",
+      "summary": { "ko": "법과 질서, 나라에 충성을 바친 수호 기사.", "en": "Guardians sworn to law, order, and the realm." } }
+  ]
+}

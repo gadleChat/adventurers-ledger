@@ -1,0 +1,21 @@
+{
+  "_meta": { "description": "Sorcerer Metamagic options." },
+  "items": [
+    { "id": "careful", "name": { "ko": "신중한 주문", "en": "Careful Spell" }, "cost": 1, "source": "SRD5.1",
+      "desc": { "ko": "광역 주문을 쓸 때 고른 대상들이 내성 굴림에 자동으로 성공한다.", "en": "Chosen creatures automatically succeed on the saving throw against your area spell." } },
+    { "id": "distant", "name": { "ko": "원격 주문", "en": "Distant Spell" }, "cost": 1, "source": "SRD5.1",
+      "desc": { "ko": "주문 사거리를 두 배로 늘리거나, 접촉 주문을 30피트 사거리로 바꾼다.", "en": "Double a spell's range, or make a touch spell reach 30 feet." } },
+    { "id": "empowered", "name": { "ko": "강화 주문", "en": "Empowered Spell" }, "cost": 1, "source": "SRD5.1",
+      "desc": { "ko": "피해 주사위 일부(매력 수정치만큼)를 다시 굴린다.", "en": "Reroll a number of damage dice up to your Charisma modifier." } },
+    { "id": "extended", "name": { "ko": "연장 주문", "en": "Extended Spell" }, "cost": 1, "source": "SRD5.1",
+      "desc": { "ko": "1분 이상 지속되는 주문의 지속 시간을 두 배로 늘린다.", "en": "Double the duration of a spell lasting 1 minute or longer." } },
+    { "id": "heightened", "name": { "ko": "고양 주문", "en": "Heightened Spell" }, "cost": 3, "source": "SRD5.1",
+      "desc": { "ko": "대상 하나가 첫 내성 굴림에 불리함을 받는다.", "en": "One target has disadvantage on its first save against the spell." } },
+    { "id": "quickened", "name": { "ko": "가속 주문", "en": "Quickened Spell" }, "cost": 2, "source": "SRD5.1",
+      "desc": { "ko": "행동으로 쓰는 주문을 추가 행동으로 시전한다.", "en": "Cast a spell that takes an action as a bonus action instead." } },
+    { "id": "subtle", "name": { "ko": "은밀한 주문", "en": "Subtle Spell" }, "cost": 1, "source": "SRD5.1",
+      "desc": { "ko": "말과 몸짓 없이 주문을 시전한다.", "en": "Cast a spell without verbal or somatic components." } },
+    { "id": "twinned", "name": { "ko": "쌍둥이 주문", "en": "Twinned Spell" }, "cost": "spell level (1 for cantrips)", "source": "SRD5.1",
+      "desc": { "ko": "대상이 하나뿐인 주문을 두 번째 대상에게도 건다.", "en": "Target a second creature with a spell that targets only one." } }
+  ]
+}

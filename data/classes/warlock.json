@@ -1,0 +1,101 @@
+{
+  "id": "warlock",
+  "name": { "ko": "워락", "en": "Warlock" },
+  "source": "SRD5.1",
+  "summary": { "ko": "강대한 존재와 계약을 맺고 그 대가로 마법을 얻은 술사.", "en": "A spellcaster whose power comes from a pact with an otherworldly patron." },
+  "desc": {
+    "ko": "워락은 악마, 요정 군주, 이해할 수 없는 고대의 존재 같은 후원자와 계약을 맺어 힘을 얻었다. 주문 슬롯은 적지만 짧은 휴식마다 다시 차오르고, 비밀스러운 영창으로 자기만의 능력을 갖춘다. 후원자가 언제 대가를 요구할지는 아무도 모른다.",
+    "en": "Warlocks gain their power through a pact with a patron: a fiend, an archfey, an incomprehensible ancient being. They have few spell slots, but those slots return on every short rest, and eldritch invocations give them unique abilities. No one knows when the patron will call in the debt."
+  },
+  "hitDie": 8,
+  "primary": ["cha"],
+  "saves": ["wis", "cha"],
+  "proficiencies": { "armor": ["light"], "weapons": ["simple"], "tools": [] },
+  "skillChoice": { "count": 2, "from": ["arcana", "deception", "history", "intimidation", "investigation", "nature", "religion"] },
+  "spellcasting": {
+    "ability": "cha",
+    "type": "known",
+    "progression": "pact",
+    "list": "warlock",
+    "ritual": false,
+    "cantripsKnown": [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+    "spellsKnown": [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15]
+  },
+  "subclassLevel": 1,
+  "subclassTitle": { "ko": "이계의 후원자", "en": "Otherworldly Patron" },
+  "levels": {
+    "1": { "features": ["pact_magic"], "subclassFeature": true },
+    "2": { "features": ["eldritch_invocations"] },
+    "3": { "features": ["pact_boon"] },
+    "4": { "features": ["asi"] },
+    "5": { "features": [] },
+    "6": { "features": [], "subclassFeature": true },
+    "7": { "features": [] },
+    "8": { "features": ["asi"] },
+    "9": { "features": [] },
+    "10": { "features": [], "subclassFeature": true },
+    "11": { "features": ["mystic_arcanum_6"] },
+    "12": { "features": ["asi"] },
+    "13": { "features": ["mystic_arcanum_7"] },
+    "14": { "features": [], "subclassFeature": true },
+    "15": { "features": ["mystic_arcanum_8"] },
+    "16": { "features": ["asi"] },
+    "17": { "features": ["mystic_arcanum_9"] },
+    "18": { "features": [] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["eldritch_master"] }
+  },
+  "scaling": {
+    "invocationsKnown": { "name": { "ko": "아는 영창", "en": "Invocations Known" }, "values": [0, 2, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8] }
+  },
+  "features": {
+    "pact_magic": {
+      "name": { "ko": "계약 마법", "en": "Pact Magic" },
+      "desc": { "ko": "주문 슬롯은 모두 같은 레벨이고 개수가 적지만 짧은 휴식마다 전부 회복한다. 슬롯 레벨은 5레벨까지 오른다.", "en": "All your spell slots share one level and there are few of them, but they all return on a short rest. Slot level rises to a maximum of 5th." }
+    },
+    "eldritch_invocations": {
+      "name": { "ko": "섬뜩한 영창", "en": "Eldritch Invocations" },
+      "desc": { "ko": "후원자에게서 받은 비전 지식의 조각들. 고르는 영창마다 고유한 능력을 얻으며 레벨이 오를수록 더 배운다.", "en": "Fragments of forbidden knowledge granting unique abilities. You learn more as you level." },
+      "choice": { "key": "invocations", "list": "invocations", "countFromScaling": "invocationsKnown" }
+    },
+    "pact_boon": {
+      "name": { "ko": "계약의 선물", "en": "Pact Boon" },
+      "desc": { "ko": "후원자가 주는 선물 하나를 고른다: 사슬(특별한 마법 친구), 칼날(불러낼 수 있는 계약 무기), 책(다른 직업의 소마법이 담긴 그림자의 책).", "en": "Choose a gift from your patron: the Chain (a special familiar), the Blade (a summonable pact weapon), or the Tome (a Book of Shadows with extra cantrips)." },
+      "choice": { "key": "pactBoon", "type": "list", "count": 1, "options": ["chain", "blade", "tome"] }
+    },
+    "mystic_arcanum_6": {
+      "name": { "ko": "비전의 비밀 (6레벨)", "en": "Mystic Arcanum (6th level)" },
+      "desc": { "ko": "워락 6레벨 주문 하나를 골라, 슬롯 없이 긴 휴식마다 한 번 시전한다.", "en": "Choose one 6th-level warlock spell to cast once per long rest without a slot." },
+      "choice": { "key": "arcanum6", "type": "spell", "list": "warlock", "spellLevel": 6, "count": 1 }
+    },
+    "mystic_arcanum_7": {
+      "name": { "ko": "비전의 비밀 (7레벨)", "en": "Mystic Arcanum (7th level)" },
+      "desc": { "ko": "워락 7레벨 주문 하나를 골라, 슬롯 없이 긴 휴식마다 한 번 시전한다.", "en": "Choose one 7th-level warlock spell to cast once per long rest without a slot." },
+      "choice": { "key": "arcanum7", "type": "spell", "list": "warlock", "spellLevel": 7, "count": 1 }
+    },
+    "mystic_arcanum_8": {
+      "name": { "ko": "비전의 비밀 (8레벨)", "en": "Mystic Arcanum (8th level)" },
+      "desc": { "ko": "워락 8레벨 주문 하나를 골라, 슬롯 없이 긴 휴식마다 한 번 시전한다.", "en": "Choose one 8th-level warlock spell to cast once per long rest without a slot." },
+      "choice": { "key": "arcanum8", "type": "spell", "list": "warlock", "spellLevel": 8, "count": 1 }
+    },
+    "mystic_arcanum_9": {
+      "name": { "ko": "비전의 비밀 (9레벨)", "en": "Mystic Arcanum (9th level)" },
+      "desc": { "ko": "워락 9레벨 주문 하나를 골라, 슬롯 없이 긴 휴식마다 한 번 시전한다.", "en": "Choose one 9th-level warlock spell to cast once per long rest without a slot." },
+      "choice": { "key": "arcanum9", "type": "spell", "list": "warlock", "spellLevel": 9, "count": 1 }
+    },
+    "eldritch_master": {
+      "name": { "ko": "섬뜩한 달인", "en": "Eldritch Master" },
+      "desc": { "ko": "1분 동안 후원자에게 간청해 계약 마법 슬롯을 전부 되찾는다. 긴 휴식마다 한 번.", "en": "Spend a minute entreating your patron to regain all Pact Magic slots. Once per long rest." }
+    }
+  },
+  "subclasses": [
+    { "id": "fiend", "name": { "ko": "마족", "en": "The Fiend" }, "source": "SRD5.1",
+      "summary": { "ko": "지옥이나 심연의 악마와 계약해 불과 파멸의 힘을 얻었다.", "en": "A pact with a devil or demon, granting fire and ruin." } },
+    { "id": "archfey", "name": { "ko": "대요정", "en": "The Archfey" }, "source": "PHB",
+      "summary": { "ko": "변덕스러운 요정 군주와 계약해 매혹과 환영을 다룬다.", "en": "A pact with a capricious fey lord, granting charm and illusion." } },
+    { "id": "great_old_one", "name": { "ko": "고대의 존재", "en": "The Great Old One" }, "source": "PHB",
+      "summary": { "ko": "이해할 수 없는 존재의 힘이 정신을 파고든다.", "en": "An incomprehensible entity whose power seeps into your mind." } },
+    { "id": "hexblade", "name": { "ko": "저주검", "en": "The Hexblade" }, "source": "XGtE",
+      "summary": { "ko": "그림자 차원의 지성 있는 무기와 계약한 칼잡이 워락.", "en": "A pact with a sentient weapon from the Shadowfell, making you a blade-wielder." } }
+  ]
+}

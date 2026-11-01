@@ -1,0 +1,44 @@
+{
+  "_meta": { "description": "Features shared by several classes. Class files refer to these ids directly." },
+  "features": {
+    "asi": {
+      "name": { "ko": "능력치 향상", "en": "Ability Score Improvement" },
+      "desc": { "ko": "능력치 하나를 2 올리거나 두 개를 1씩 올린다(최대 20). 대신 특기 하나를 고를 수도 있다.", "en": "Increase one ability score by 2 or two by 1 (maximum 20), or take a feat instead." },
+      "choice": { "key": "asi", "type": "asiOrFeat" }
+    },
+    "extra_attack": {
+      "name": { "ko": "추가 공격", "en": "Extra Attack" },
+      "desc": { "ko": "공격 행동 한 번에 두 번 공격한다.", "en": "You attack twice when you take the Attack action." }
+    },
+    "spellcasting": {
+      "name": { "ko": "주문 시전", "en": "Spellcasting" },
+      "desc": { "ko": "직업의 주문 목록에서 주문을 익혀 시전한다. 상세 규칙은 직업의 주문 시전 정보를 따른다.", "en": "You learn and cast spells from your class spell list, as described in the class spellcasting details." }
+    },
+    "unarmored_defense_con": {
+      "name": { "ko": "비무장 방어", "en": "Unarmored Defense" },
+      "desc": { "ko": "갑옷을 입지 않으면 방어도가 10 + 민첩 수정치 + 건강 수정치가 된다. 방패는 써도 된다.", "en": "Without armor, your AC equals 10 + Dexterity modifier + Constitution modifier. You can still use a shield." }
+    },
+    "unarmored_defense_wis": {
+      "name": { "ko": "비무장 방어", "en": "Unarmored Defense" },
+      "desc": { "ko": "갑옷과 방패 없이 방어도가 10 + 민첩 수정치 + 지혜 수정치가 된다.", "en": "Without armor or a shield, your AC equals 10 + Dexterity modifier + Wisdom modifier." }
+    },
+    "fighting_style": {
+      "name": { "ko": "전투 방식", "en": "Fighting Style" },
+      "desc": { "ko": "전투 방식 하나를 골라 특화한다.", "en": "You adopt a particular style of fighting." },
+      "choice": { "key": "fightingStyle", "list": "fighting_styles", "count": 1 }
+    },
+    "expertise": {
+      "name": { "ko": "전문화", "en": "Expertise" },
+      "desc": { "ko": "숙련된 기술(또는 도둑 도구) 두 개를 골라, 그 판정에 숙련 보너스를 두 배로 더한다.", "en": "Choose two of your skill proficiencies (or thieves' tools); your proficiency bonus is doubled for them." },
+      "choice": { "key": "expertise", "type": "expertise", "count": 2 }
+    },
+    "evasion": {
+      "name": { "ko": "회피", "en": "Evasion" },
+      "desc": { "ko": "민첩 내성으로 피해를 절반 받는 효과에 성공하면 피해를 받지 않고, 실패해도 절반만 받는다.", "en": "On a Dexterity save for half damage, you take no damage on a success and half on a failure." }
+    },
+    "timeless_body": {
+      "name": { "ko": "시간을 잊은 몸", "en": "Timeless Body" },
+      "desc": { "ko": "노화가 크게 느려지고 마법으로 늙지 않는다.", "en": "You age much more slowly and can't be aged magically." }
+    }
+  }
+}

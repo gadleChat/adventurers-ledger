@@ -1,0 +1,76 @@
+{
+  "id": "fighter",
+  "name": { "ko": "파이터", "en": "Fighter" },
+  "source": "SRD5.1",
+  "summary": { "ko": "온갖 무기와 갑옷을 다루는 전투의 전문가.", "en": "A master of martial combat, skilled with every weapon and armor." },
+  "desc": {
+    "ko": "파이터는 기사, 용병, 검투사, 경비병처럼 싸움으로 먹고사는 이들이다. 어떤 무기든 능숙하게 다루고, 위기의 순간 숨을 고르며 버티고, 한 턴에 몰아치는 폭발력을 지녔다.",
+    "en": "Fighters are knights, mercenaries, gladiators, and guards who live by combat. They handle any weapon with skill, catch their breath to keep going, and can unleash bursts of action at the critical moment."
+  },
+  "hitDie": 10,
+  "primary": ["str", "dex"],
+  "saves": ["str", "con"],
+  "proficiencies": { "armor": ["light", "medium", "heavy", "shield"], "weapons": ["simple", "martial"], "tools": [] },
+  "skillChoice": { "count": 2, "from": ["acrobatics", "animal_handling", "athletics", "history", "insight", "intimidation", "perception", "survival"] },
+  "spellcasting": null,
+  "subclassLevel": 3,
+  "subclassTitle": { "ko": "무예 유형", "en": "Martial Archetype" },
+  "levels": {
+    "1": { "features": ["fighting_style", "second_wind"] },
+    "2": { "features": ["action_surge"] },
+    "3": { "features": [], "subclassFeature": true },
+    "4": { "features": ["asi"] },
+    "5": { "features": ["extra_attack"] },
+    "6": { "features": ["asi"] },
+    "7": { "features": [], "subclassFeature": true },
+    "8": { "features": ["asi"] },
+    "9": { "features": ["indomitable"] },
+    "10": { "features": [], "subclassFeature": true },
+    "11": { "features": ["extra_attack_2"] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": ["asi"] },
+    "15": { "features": [], "subclassFeature": true },
+    "16": { "features": ["asi"] },
+    "17": { "features": [] },
+    "18": { "features": [], "subclassFeature": true },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["extra_attack_3"] }
+  },
+  "scaling": {
+    "actionSurge": { "name": { "ko": "행동 연쇄 횟수", "en": "Action Surge Uses" }, "values": [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2] },
+    "indomitable": { "name": { "ko": "불굴 횟수", "en": "Indomitable Uses" }, "values": [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3] }
+  },
+  "features": {
+    "second_wind": {
+      "name": { "ko": "재기의 바람", "en": "Second Wind" },
+      "desc": { "ko": "추가 행동으로 숨을 고르며 1d10 + 파이터 레벨만큼 생명력을 회복한다. 짧은 휴식마다 한 번.", "en": "As a bonus action, regain 1d10 + your fighter level in hit points. Once per short rest." }
+    },
+    "action_surge": {
+      "name": { "ko": "행동 연쇄", "en": "Action Surge" },
+      "desc": { "ko": "자기 턴에 행동을 한 번 더 한다. 짧은 휴식마다 한 번, 17레벨부터 두 번.", "en": "Take one additional action on your turn. Once per short rest, twice from 17th level." }
+    },
+    "indomitable": {
+      "name": { "ko": "불굴", "en": "Indomitable" },
+      "desc": { "ko": "실패한 내성 굴림을 다시 굴린다. 긴 휴식마다 한 번, 13레벨에 두 번, 17레벨에 세 번.", "en": "Reroll a failed saving throw. Once per long rest, twice at 13th level, three times at 17th." }
+    },
+    "extra_attack_2": {
+      "name": { "ko": "추가 공격 (2)", "en": "Extra Attack (2)" },
+      "desc": { "ko": "공격 행동 한 번에 세 번 공격한다.", "en": "You attack three times when you take the Attack action." }
+    },
+    "extra_attack_3": {
+      "name": { "ko": "추가 공격 (3)", "en": "Extra Attack (3)" },
+      "desc": { "ko": "공격 행동 한 번에 네 번 공격한다.", "en": "You attack four times when you take the Attack action." }
+    }
+  },
+  "subclasses": [
+    { "id": "champion", "name": { "ko": "투사", "en": "Champion" }, "source": "SRD5.1",
+      "summary": { "ko": "단련된 몸 하나로 치명타를 노리는 정통파 전사.", "en": "A straightforward warrior honed for devastating critical hits." } },
+    { "id": "battle_master", "name": { "ko": "전투의 대가", "en": "Battle Master" }, "source": "PHB",
+      "summary": { "ko": "전술 기교로 전장을 지휘하는 전략가.", "en": "A tactician who controls the battlefield with combat maneuvers." } },
+    { "id": "eldritch_knight", "name": { "ko": "비술 기사", "en": "Eldritch Knight" }, "source": "PHB",
+      "summary": { "ko": "검술에 위저드 마법을 더한 마법 전사.", "en": "A warrior who blends swordplay with wizard magic." } },
+    { "id": "arcane_archer", "name": { "ko": "비전 궁수", "en": "Arcane Archer" }, "source": "XGtE",
+      "summary": { "ko": "화살에 마법을 실어 쏘는 엘프 전통의 궁수.", "en": "An archer who weaves magic into their arrows." } }
+  ]
+}

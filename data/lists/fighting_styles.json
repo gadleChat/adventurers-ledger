@@ -1,0 +1,47 @@
+{
+  "_meta": { "description": "Fighting styles. `classes` lists which classes may pick each style." },
+  "items": [
+    {
+      "id": "archery",
+      "name": { "ko": "궁술", "en": "Archery" },
+      "classes": ["fighter", "ranger"],
+      "source": "SRD5.1",
+      "desc": { "ko": "원거리 무기 명중 굴림에 +2.", "en": "+2 to attack rolls with ranged weapons." }
+    },
+    {
+      "id": "defense",
+      "name": { "ko": "방어술", "en": "Defense" },
+      "classes": ["fighter", "paladin", "ranger"],
+      "source": "SRD5.1",
+      "desc": { "ko": "갑옷을 입고 있으면 방어도 +1.", "en": "+1 to AC while wearing armor." }
+    },
+    {
+      "id": "dueling",
+      "name": { "ko": "결투술", "en": "Dueling" },
+      "classes": ["fighter", "paladin", "ranger"],
+      "source": "SRD5.1",
+      "desc": { "ko": "한 손에만 근접 무기를 들고 다른 무기가 없으면 피해 +2.", "en": "+2 damage when wielding a melee weapon in one hand and no other weapon." }
+    },
+    {
+      "id": "great_weapon_fighting",
+      "name": { "ko": "대형 무기 전투", "en": "Great Weapon Fighting" },
+      "classes": ["fighter", "paladin"],
+      "source": "SRD5.1",
+      "desc": { "ko": "양손 근접 무기 피해 주사위에서 1이나 2가 나오면 다시 굴린다.", "en": "Reroll 1s and 2s on damage dice with two-handed melee weapons." }
+    },
+    {
+      "id": "protection",
+      "name": { "ko": "보호술", "en": "Protection" },
+      "classes": ["fighter", "paladin"],
+      "source": "SRD5.1",
+      "desc": { "ko": "방패를 들고 있으면, 곁의 아군을 노린 공격에 반응 행동으로 불리함을 줄 수 있다.", "en": "With a shield, use your reaction to impose disadvantage on an attack against an adjacent ally." }
+    },
+    {
+      "id": "two_weapon_fighting",
+      "name": { "ko": "쌍수 전투", "en": "Two-Weapon Fighting" },
+      "classes": ["fighter", "ranger"],
+      "source": "SRD5.1",
+      "desc": { "ko": "보조 손 무기 공격에도 능력치 수정치를 피해에 더한다.", "en": "Add your ability modifier to the damage of your off-hand attack." }
+    }
+  ]
+}

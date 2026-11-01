@@ -1,0 +1,77 @@
+{
+  "id": "sorcerer",
+  "name": { "ko": "소서러", "en": "Sorcerer" },
+  "source": "SRD5.1",
+  "summary": { "ko": "핏줄이나 사건으로 마법을 타고난 술사. 주문을 자유롭게 비틀어 쓴다.", "en": "A spellcaster with innate magic who can twist and reshape their spells." },
+  "desc": {
+    "ko": "소서러는 배워서가 아니라 타고나서 마법을 쓴다. 용의 피, 폭풍의 기운, 혼돈의 흔적처럼 몸에 새겨진 근원이 힘을 주며, 그 힘을 주물러 주문을 늘리고 빠르게 하고 두 갈래로 나눈다.",
+    "en": "Sorcerers don't study magic; they are born with it. A source in their very being, like dragon blood, storm energy, or a mark of chaos, gives them power, and they bend that power to extend, quicken, or split their spells."
+  },
+  "hitDie": 6,
+  "primary": ["cha"],
+  "saves": ["con", "cha"],
+  "proficiencies": { "armor": [], "weapons": ["dagger", "dart", "sling", "quarterstaff", "light_crossbow"], "tools": [] },
+  "skillChoice": { "count": 2, "from": ["arcana", "deception", "insight", "intimidation", "persuasion", "religion"] },
+  "spellcasting": {
+    "ability": "cha",
+    "type": "known",
+    "progression": "full",
+    "list": "sorcerer",
+    "ritual": false,
+    "cantripsKnown": [4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
+    "spellsKnown": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 12, 13, 13, 14, 14, 15, 15, 15, 15]
+  },
+  "subclassLevel": 1,
+  "subclassTitle": { "ko": "마법의 근원", "en": "Sorcerous Origin" },
+  "levels": {
+    "1": { "features": ["spellcasting"], "subclassFeature": true },
+    "2": { "features": ["font_of_magic"] },
+    "3": { "features": ["metamagic"] },
+    "4": { "features": ["asi"] },
+    "5": { "features": [] },
+    "6": { "features": [], "subclassFeature": true },
+    "7": { "features": [] },
+    "8": { "features": ["asi"] },
+    "9": { "features": [] },
+    "10": { "features": ["metamagic"] },
+    "11": { "features": [] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": [], "subclassFeature": true },
+    "15": { "features": [] },
+    "16": { "features": ["asi"] },
+    "17": { "features": ["metamagic"] },
+    "18": { "features": [], "subclassFeature": true },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["sorcerous_restoration"] }
+  },
+  "scaling": {
+    "sorceryPoints": { "name": { "ko": "마력 점수", "en": "Sorcery Points" }, "values": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] },
+    "metamagicKnown": { "name": { "ko": "아는 초월 마법", "en": "Metamagic Known" }, "values": [0, 0, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4] }
+  },
+  "features": {
+    "font_of_magic": {
+      "name": { "ko": "마법의 샘", "en": "Font of Magic" },
+      "desc": { "ko": "마력 점수를 얻는다. 마력 점수로 주문 슬롯을 만들거나, 주문 슬롯을 마력 점수로 바꿀 수 있다. 긴 휴식에 회복한다.", "en": "You gain sorcery points, which you can convert into spell slots or create from spell slots. Regained on a long rest." }
+    },
+    "metamagic": {
+      "name": { "ko": "초월 마법", "en": "Metamagic" },
+      "desc": { "ko": "마력 점수를 써서 주문을 변형하는 초월 마법을 배운다. 3레벨에 두 개, 10레벨과 17레벨에 하나씩 더.", "en": "Learn Metamagic options that spend sorcery points to alter your spells: two at 3rd level, one more at 10th and 17th." },
+      "choice": { "key": "metamagic", "list": "metamagic", "countByLevel": { "3": 2, "10": 1, "17": 1 } }
+    },
+    "sorcerous_restoration": {
+      "name": { "ko": "마력 회복", "en": "Sorcerous Restoration" },
+      "desc": { "ko": "짧은 휴식 때 마력 점수 4점을 회복한다.", "en": "You regain 4 sorcery points on a short rest." }
+    }
+  },
+  "subclasses": [
+    { "id": "draconic", "name": { "ko": "용의 혈통", "en": "Draconic Bloodline" }, "source": "SRD5.1",
+      "summary": { "ko": "용의 피를 이어받아 비늘 같은 피부와 원소의 힘을 지녔다.", "en": "Dragon blood grants scaled resilience and elemental power." } },
+    { "id": "wild_magic", "name": { "ko": "야생 마법", "en": "Wild Magic" }, "source": "PHB",
+      "summary": { "ko": "통제되지 않는 혼돈의 마법이 언제 터질지 모른다.", "en": "Chaotic magic that can surge unpredictably at any moment." } },
+    { "id": "storm", "name": { "ko": "폭풍 마법", "en": "Storm Sorcery" }, "source": "XGtE",
+      "summary": { "ko": "폭풍의 기운을 타고나 바람을 타고 번개를 부린다.", "en": "Born of the storm, riding the wind and calling lightning." } },
+    { "id": "shadow", "name": { "ko": "그림자 마법", "en": "Shadow Magic" }, "source": "XGtE",
+      "summary": { "ko": "그림자 차원의 힘이 깃들어 어둠을 다루고 쉽게 죽지 않는다.", "en": "Touched by the Shadowfell, wielding darkness and cheating death." } }
+  ]
+}

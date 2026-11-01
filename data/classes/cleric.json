@@ -1,0 +1,94 @@
+{
+  "id": "cleric",
+  "name": { "ko": "클레릭", "en": "Cleric" },
+  "source": "SRD5.1",
+  "summary": { "ko": "신의 권능을 대리하는 사제. 치유하고, 보호하고, 신의 적을 친다.", "en": "A priestly champion who wields divine power to heal, protect, and smite." },
+  "desc": {
+    "ko": "클레릭은 신과 필멸자 사이의 다리다. 섬기는 신의 영역에 따라 생명, 빛, 폭풍, 죽음 등 다른 권능을 다루며, 기도로 주문을 받아 동료를 살리고 신의 뜻을 세상에 펼친다.",
+    "en": "Clerics are a bridge between the gods and mortals. Depending on their deity's domain they wield life, light, storm, death, or other powers, receiving spells through prayer to save their allies and carry out divine will."
+  },
+  "hitDie": 8,
+  "primary": ["wis"],
+  "saves": ["wis", "cha"],
+  "proficiencies": { "armor": ["light", "medium", "shield"], "weapons": ["simple"], "tools": [] },
+  "skillChoice": { "count": 2, "from": ["history", "insight", "medicine", "persuasion", "religion"] },
+  "spellcasting": {
+    "ability": "wis",
+    "type": "prepared",
+    "progression": "full",
+    "list": "cleric",
+    "ritual": true,
+    "cantripsKnown": [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
+    "spellsKnown": null,
+    "preparedFormula": "wis + level"
+  },
+  "subclassLevel": 1,
+  "subclassTitle": { "ko": "신성 권역", "en": "Divine Domain" },
+  "deityChoice": true,
+  "levels": {
+    "1": { "features": ["spellcasting"], "subclassFeature": true },
+    "2": { "features": ["channel_divinity", "turn_undead"], "subclassFeature": true },
+    "3": { "features": [] },
+    "4": { "features": ["asi"] },
+    "5": { "features": ["destroy_undead"] },
+    "6": { "features": [], "subclassFeature": true },
+    "7": { "features": [] },
+    "8": { "features": ["asi"], "subclassFeature": true },
+    "9": { "features": [] },
+    "10": { "features": ["divine_intervention"] },
+    "11": { "features": [] },
+    "12": { "features": ["asi"] },
+    "13": { "features": [] },
+    "14": { "features": [] },
+    "15": { "features": [] },
+    "16": { "features": ["asi"] },
+    "17": { "features": [], "subclassFeature": true },
+    "18": { "features": [] },
+    "19": { "features": ["asi"] },
+    "20": { "features": ["divine_intervention_improvement"] }
+  },
+  "scaling": {
+    "channelDivinity": { "name": { "ko": "신성 변환 횟수", "en": "Channel Divinity Uses" }, "values": [0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3] },
+    "destroyUndeadCR": { "name": { "ko": "언데드 파괴 도전 지수", "en": "Destroy Undead CR" }, "values": [null, null, null, null, "1/2", "1/2", "1/2", "1", "1", "1", "2", "2", "2", "3", "3", "3", "4", "4", "4", "4"] }
+  },
+  "features": {
+    "channel_divinity": {
+      "name": { "ko": "신성 변환", "en": "Channel Divinity" },
+      "desc": { "ko": "신의 힘을 직접 끌어와 특별한 효과를 낸다. 짧은 휴식이나 긴 휴식에 회복한다. 권역에 따라 쓸 수 있는 효과가 늘어난다.", "en": "Channel divine energy directly for special effects, regained on a short or long rest. Your domain grants additional options." }
+    },
+    "turn_undead": {
+      "name": { "ko": "언데드 퇴치", "en": "Turn Undead" },
+      "desc": { "ko": "신성 변환으로 성표를 들어, 주변 언데드가 지혜 내성에 실패하면 한동안 도망치게 한다.", "en": "Use Channel Divinity to present your holy symbol; nearby undead that fail a Wisdom save flee for a while." }
+    },
+    "destroy_undead": {
+      "name": { "ko": "언데드 파괴", "en": "Destroy Undead" },
+      "desc": { "ko": "언데드 퇴치에 실패한 약한 언데드는 그 자리에서 파괴된다. 레벨이 오를수록 더 강한 언데드도 파괴한다.", "en": "Weak undead that fail against your Turn Undead are destroyed outright; the threshold rises as you level." }
+    },
+    "divine_intervention": {
+      "name": { "ko": "신의 개입", "en": "Divine Intervention" },
+      "desc": { "ko": "신에게 직접 도움을 청한다. 클레릭 레벨 이하의 퍼센트 확률로 응답이 온다. 성공하면 7일 동안, 실패하면 긴 휴식 후 다시 쓸 수 있다.", "en": "Call on your deity to intervene. It answers if you roll a percentage at or below your cleric level. Usable again after 7 days on success, or after a long rest on failure." }
+    },
+    "divine_intervention_improvement": {
+      "name": { "ko": "신의 개입 강화", "en": "Divine Intervention Improvement" },
+      "desc": { "ko": "신의 개입이 반드시 응답을 받는다.", "en": "Your call for Divine Intervention always succeeds." }
+    }
+  },
+  "subclasses": [
+    { "id": "life", "name": { "ko": "생명 권역", "en": "Life Domain" }, "source": "SRD5.1",
+      "summary": { "ko": "치유에 특화된, 생명을 지키는 사제.", "en": "Healers who champion life itself." } },
+    { "id": "knowledge", "name": { "ko": "지식 권역", "en": "Knowledge Domain" }, "source": "PHB",
+      "summary": { "ko": "학문과 비밀을 섬기며 남의 생각까지 읽어내는 사제.", "en": "Seekers of learning and secrets, even the thoughts of others." } },
+    { "id": "light", "name": { "ko": "빛 권역", "en": "Light Domain" }, "source": "PHB",
+      "summary": { "ko": "타오르는 빛과 불로 어둠을 몰아내는 사제.", "en": "Bearers of radiant light and fire who drive back darkness." } },
+    { "id": "nature", "name": { "ko": "자연 권역", "en": "Nature Domain" }, "source": "PHB",
+      "summary": { "ko": "자연의 신을 섬기며 짐승과 식물을 다루는 사제.", "en": "Servants of nature gods who command beasts and plants." } },
+    { "id": "tempest", "name": { "ko": "폭풍 권역", "en": "Tempest Domain" }, "source": "PHB",
+      "summary": { "ko": "천둥과 번개로 신의 분노를 내리치는 사제.", "en": "Wielders of thunder and lightning, the fury of the storm." } },
+    { "id": "trickery", "name": { "ko": "기만 권역", "en": "Trickery Domain" }, "source": "PHB",
+      "summary": { "ko": "속임수와 환영으로 권력을 흔드는 장난꾸러기 사제.", "en": "Mischievous priests of deception and illusion." } },
+    { "id": "war", "name": { "ko": "전쟁 권역", "en": "War Domain" }, "source": "PHB",
+      "summary": { "ko": "전장에서 신의 힘으로 싸우는 전투 사제.", "en": "Battle priests who fight with divine might." } },
+    { "id": "death", "name": { "ko": "죽음 권역", "en": "Death Domain" }, "source": "DMG",
+      "summary": { "ko": "죽음의 힘을 다루며 생명을 끊어내는 어두운 사제.", "en": "Dark priests who wield the forces of death." } }
+  ]
+}
