@@ -1,0 +1,181 @@
+{
+  "_meta": {
+    "description": "Core term glossary (Korean <-> English). Korean terms are drafts and must be checked against the Baldur's Gate 3 Korean localization.",
+    "verified": false,
+    "schemaVersion": 1
+  },
+  "abilities": {
+    "str": { "ko": "근력", "en": "Strength", "abbr": { "ko": "근", "en": "STR" } },
+    "dex": { "ko": "민첩", "en": "Dexterity", "abbr": { "ko": "민", "en": "DEX" } },
+    "con": { "ko": "건강", "en": "Constitution", "abbr": { "ko": "건", "en": "CON" } },
+    "int": { "ko": "지능", "en": "Intelligence", "abbr": { "ko": "지", "en": "INT" } },
+    "wis": { "ko": "지혜", "en": "Wisdom", "abbr": { "ko": "혜", "en": "WIS" } },
+    "cha": { "ko": "매력", "en": "Charisma", "abbr": { "ko": "매", "en": "CHA" } }
+  },
+  "skills": {
+    "acrobatics": { "ko": "곡예", "en": "Acrobatics", "ability": "dex" },
+    "animal_handling": { "ko": "동물 조련", "en": "Animal Handling", "ability": "wis" },
+    "arcana": { "ko": "비전학", "en": "Arcana", "ability": "int" },
+    "athletics": { "ko": "운동", "en": "Athletics", "ability": "str" },
+    "deception": { "ko": "기만", "en": "Deception", "ability": "cha" },
+    "history": { "ko": "역사", "en": "History", "ability": "int" },
+    "insight": { "ko": "통찰", "en": "Insight", "ability": "wis" },
+    "intimidation": { "ko": "위협", "en": "Intimidation", "ability": "cha" },
+    "investigation": { "ko": "조사", "en": "Investigation", "ability": "int" },
+    "medicine": { "ko": "의학", "en": "Medicine", "ability": "wis" },
+    "nature": { "ko": "자연", "en": "Nature", "ability": "int" },
+    "perception": { "ko": "감지", "en": "Perception", "ability": "wis" },
+    "performance": { "ko": "공연", "en": "Performance", "ability": "cha" },
+    "persuasion": { "ko": "설득", "en": "Persuasion", "ability": "cha" },
+    "religion": { "ko": "종교", "en": "Religion", "ability": "int" },
+    "sleight_of_hand": { "ko": "손재주", "en": "Sleight of Hand", "ability": "dex" },
+    "stealth": { "ko": "은신", "en": "Stealth", "ability": "dex" },
+    "survival": { "ko": "생존", "en": "Survival", "ability": "wis" }
+  },
+  "conditions": {
+    "blinded": { "ko": "실명", "en": "Blinded" },
+    "charmed": { "ko": "매혹", "en": "Charmed" },
+    "deafened": { "ko": "청각 상실", "en": "Deafened" },
+    "exhaustion": { "ko": "탈진", "en": "Exhaustion" },
+    "frightened": { "ko": "공포", "en": "Frightened" },
+    "grappled": { "ko": "붙잡힘", "en": "Grappled" },
+    "incapacitated": { "ko": "행동 불능", "en": "Incapacitated" },
+    "invisible": { "ko": "투명", "en": "Invisible" },
+    "paralyzed": { "ko": "마비", "en": "Paralyzed" },
+    "petrified": { "ko": "석화", "en": "Petrified" },
+    "poisoned": { "ko": "중독", "en": "Poisoned" },
+    "prone": { "ko": "넘어짐", "en": "Prone" },
+    "restrained": { "ko": "속박", "en": "Restrained" },
+    "stunned": { "ko": "기절", "en": "Stunned" },
+    "unconscious": { "ko": "의식 불명", "en": "Unconscious" }
+  },
+  "damageTypes": {
+    "acid": { "ko": "산성", "en": "Acid" },
+    "bludgeoning": { "ko": "타격", "en": "Bludgeoning" },
+    "cold": { "ko": "냉기", "en": "Cold" },
+    "fire": { "ko": "화염", "en": "Fire" },
+    "force": { "ko": "역장", "en": "Force" },
+    "lightning": { "ko": "번개", "en": "Lightning" },
+    "necrotic": { "ko": "사령", "en": "Necrotic" },
+    "piercing": { "ko": "관통", "en": "Piercing" },
+    "poison": { "ko": "독", "en": "Poison" },
+    "psychic": { "ko": "정신", "en": "Psychic" },
+    "radiant": { "ko": "광휘", "en": "Radiant" },
+    "slashing": { "ko": "참격", "en": "Slashing" },
+    "thunder": { "ko": "천둥", "en": "Thunder" }
+  },
+  "schools": {
+    "abjuration": { "ko": "방호술", "en": "Abjuration" },
+    "conjuration": { "ko": "조형술", "en": "Conjuration" },
+    "divination": { "ko": "예지술", "en": "Divination" },
+    "enchantment": { "ko": "환혹술", "en": "Enchantment" },
+    "evocation": { "ko": "방출술", "en": "Evocation" },
+    "illusion": { "ko": "환영술", "en": "Illusion" },
+    "necromancy": { "ko": "사령술", "en": "Necromancy" },
+    "transmutation": { "ko": "변환술", "en": "Transmutation" }
+  },
+  "classes": {
+    "barbarian": { "ko": "바바리안", "en": "Barbarian" },
+    "bard": { "ko": "바드", "en": "Bard" },
+    "cleric": { "ko": "클레릭", "en": "Cleric" },
+    "druid": { "ko": "드루이드", "en": "Druid" },
+    "fighter": { "ko": "파이터", "en": "Fighter" },
+    "monk": { "ko": "몽크", "en": "Monk" },
+    "paladin": { "ko": "팔라딘", "en": "Paladin" },
+    "ranger": { "ko": "레인저", "en": "Ranger" },
+    "rogue": { "ko": "로그", "en": "Rogue" },
+    "sorcerer": { "ko": "소서러", "en": "Sorcerer" },
+    "warlock": { "ko": "워락", "en": "Warlock" },
+    "wizard": { "ko": "위저드", "en": "Wizard" }
+  },
+  "races": {
+    "human": { "ko": "인간", "en": "Human" },
+    "elf": { "ko": "엘프", "en": "Elf", "subraces": {
+      "high_elf": { "ko": "하이 엘프", "en": "High Elf" },
+      "wood_elf": { "ko": "우드 엘프", "en": "Wood Elf" }
+    } },
+    "drow": { "ko": "드로우", "en": "Drow", "subraces": {
+      "lolth_sworn": { "ko": "롤스 맹약 드로우", "en": "Lolth-Sworn Drow" },
+      "seldarine": { "ko": "셀다린 드로우", "en": "Seldarine Drow" }
+    } },
+    "half_elf": { "ko": "하프엘프", "en": "Half-Elf", "subraces": {
+      "high_half_elf": { "ko": "하이 하프엘프", "en": "High Half-Elf" },
+      "wood_half_elf": { "ko": "우드 하프엘프", "en": "Wood Half-Elf" },
+      "drow_half_elf": { "ko": "드로우 하프엘프", "en": "Drow Half-Elf" }
+    } },
+    "half_orc": { "ko": "하프오크", "en": "Half-Orc" },
+    "halfling": { "ko": "하플링", "en": "Halfling", "subraces": {
+      "lightfoot": { "ko": "라이트풋 하플링", "en": "Lightfoot Halfling" },
+      "strongheart": { "ko": "스트롱하트 하플링", "en": "Strongheart Halfling", "aliasEn": "Stout Halfling" }
+    } },
+    "dwarf": { "ko": "드워프", "en": "Dwarf", "subraces": {
+      "gold_dwarf": { "ko": "골드 드워프", "en": "Gold Dwarf", "aliasEn": "Hill Dwarf" },
+      "shield_dwarf": { "ko": "실드 드워프", "en": "Shield Dwarf", "aliasEn": "Mountain Dwarf" },
+      "duergar": { "ko": "듀에르가", "en": "Duergar" }
+    } },
+    "gnome": { "ko": "노움", "en": "Gnome", "subraces": {
+      "rock_gnome": { "ko": "바위 노움", "en": "Rock Gnome" },
+      "forest_gnome": { "ko": "숲 노움", "en": "Forest Gnome" },
+      "deep_gnome": { "ko": "딥 노움", "en": "Deep Gnome", "aliasEn": "Svirfneblin" }
+    } },
+    "tiefling": { "ko": "티플링", "en": "Tiefling", "subraces": {
+      "asmodeus": { "ko": "아스모데우스 티플링", "en": "Asmodeus Tiefling" },
+      "mephistopheles": { "ko": "메피스토펠레스 티플링", "en": "Mephistopheles Tiefling" },
+      "zariel": { "ko": "자리엘 티플링", "en": "Zariel Tiefling" }
+    } },
+    "githyanki": { "ko": "기스양키", "en": "Githyanki" },
+    "dragonborn": { "ko": "드래곤본", "en": "Dragonborn" }
+  },
+  "sizes": {
+    "tiny": { "ko": "초소형", "en": "Tiny" },
+    "small": { "ko": "소형", "en": "Small" },
+    "medium": { "ko": "중형", "en": "Medium" },
+    "large": { "ko": "대형", "en": "Large" }
+  },
+  "terms": {
+    "ability_score": { "ko": "능력치", "en": "Ability Score" },
+    "ability_modifier": { "ko": "능력치 수정치", "en": "Ability Modifier" },
+    "ability_check": { "ko": "능력 판정", "en": "Ability Check" },
+    "saving_throw": { "ko": "내성 굴림", "en": "Saving Throw" },
+    "proficiency": { "ko": "숙련", "en": "Proficiency" },
+    "proficiency_bonus": { "ko": "숙련 보너스", "en": "Proficiency Bonus" },
+    "expertise": { "ko": "전문화", "en": "Expertise" },
+    "advantage": { "ko": "유리함", "en": "Advantage" },
+    "disadvantage": { "ko": "불리함", "en": "Disadvantage" },
+    "armor_class": { "ko": "방어도", "en": "Armor Class", "abbr": { "ko": "AC", "en": "AC" } },
+    "hit_points": { "ko": "생명력", "en": "Hit Points", "abbr": { "ko": "HP", "en": "HP" } },
+    "hit_die": { "ko": "생명력 주사위", "en": "Hit Die" },
+    "initiative": { "ko": "우선권", "en": "Initiative" },
+    "speed": { "ko": "이동 속도", "en": "Speed" },
+    "darkvision": { "ko": "암시야", "en": "Darkvision" },
+    "level": { "ko": "레벨", "en": "Level" },
+    "class": { "ko": "직업", "en": "Class" },
+    "subclass": { "ko": "하위 직업", "en": "Subclass" },
+    "race": { "ko": "종족", "en": "Race" },
+    "subrace": { "ko": "하위 종족", "en": "Subrace" },
+    "background": { "ko": "배경", "en": "Background" },
+    "feat": { "ko": "특기", "en": "Feat" },
+    "ability_score_improvement": { "ko": "능력치 향상", "en": "Ability Score Improvement" },
+    "point_buy": { "ko": "포인트 구매", "en": "Point Buy" },
+    "standard_array": { "ko": "표준 배열", "en": "Standard Array" },
+    "cantrip": { "ko": "소마법", "en": "Cantrip" },
+    "spell": { "ko": "주문", "en": "Spell" },
+    "spell_slot": { "ko": "주문 슬롯", "en": "Spell Slot" },
+    "spell_level": { "ko": "주문 레벨", "en": "Spell Level" },
+    "spell_save_dc": { "ko": "주문 내성 난이도", "en": "Spell Save DC" },
+    "spell_attack": { "ko": "주문 공격", "en": "Spell Attack" },
+    "spellcasting_ability": { "ko": "주문 시전 능력치", "en": "Spellcasting Ability" },
+    "concentration": { "ko": "집중", "en": "Concentration" },
+    "ritual": { "ko": "의식", "en": "Ritual" },
+    "prepared_spells": { "ko": "준비한 주문", "en": "Prepared Spells" },
+    "known_spells": { "ko": "습득한 주문", "en": "Known Spells" },
+    "short_rest": { "ko": "짧은 휴식", "en": "Short Rest" },
+    "long_rest": { "ko": "긴 휴식", "en": "Long Rest" },
+    "personality_traits": { "ko": "성격 특성", "en": "Personality Traits" },
+    "ideals": { "ko": "이상", "en": "Ideals" },
+    "bonds": { "ko": "유대", "en": "Bonds" },
+    "flaws": { "ko": "결점", "en": "Flaws" },
+    "languages": { "ko": "언어", "en": "Languages" },
+    "alignment": { "ko": "성향", "en": "Alignment" }
+  }
+}
