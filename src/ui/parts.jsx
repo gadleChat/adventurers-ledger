@@ -1,20 +1,22 @@
 // Shared UI pieces.
 import { useState } from "preact/hooks";
 import { t } from "../rules/data.js";
+import { Icon } from "./Icon.jsx";
 
 /** A selectable entry: Korean name, small English original, and a one-line summary. */
-export function Option({ name, summary, desc, selected, disabled, note, onSelect, badge, compact }) {
+export function Option({ name, summary, desc, selected, disabled, note, onSelect, badge, compact, icon }) {
   const [open, setOpen] = useState(false);
   const detail = desc && t(desc) !== t(summary) ? desc : null;
   return (
     <div class={`option${selected ? " is-selected" : ""}${disabled ? " is-disabled" : ""}${compact ? " is-compact" : ""}`}>
       <button
         type="button"
-        class="option-main"
+        class={`option-main${icon ? " has-icon" : ""}`}
         disabled={disabled}
         aria-pressed={selected ? "true" : "false"}
         onClick={onSelect}
       >
+        {icon ? <Icon slot={icon} class="option-icon" /> : null}
         <span class="option-name">
           {t(name)}
           {badge ? <span class="option-badge">{badge}</span> : null}

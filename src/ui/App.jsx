@@ -1,4 +1,5 @@
 // Top-level screens: the ledger index (saved adventurers) and the editor.
+import { Icon } from "./Icon.jsx";
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { t } from "../rules/data.js";
 import { newSheet, getRace, getSubrace, getClass, level as levelOf, touch } from "../rules/sheet.js";
@@ -111,7 +112,7 @@ export function App() {
       <header class="topbar">
         <h1 class="brand">모험가 명부</h1>
         <div class="topbar-actions">
-          <button type="button" class="btn is-quiet" onClick={() => setShowSettings(true)}>설정</button>
+          <button type="button" class="btn is-quiet" onClick={() => setShowSettings(true)}><Icon slot="ui:settings" />설정</button>
           <button type="button" class="icon-btn" onClick={hide} aria-label="닫기">✕</button>
         </div>
       </header>
@@ -119,8 +120,8 @@ export function App() {
         <section class="home-intro">
           <p>세계관에 맞는 페르소나를 D&D 규칙으로 만들어 리스 페르소나로 저장한다.</p>
           <div class="actions">
-            <button type="button" class="btn is-primary is-large" onClick={create}>새 모험가 등록</button>
-            <button type="button" class="btn is-large" onClick={() => setShowCompanion(true)}>동료 데려오기</button>
+            <button type="button" class="btn is-primary is-large" onClick={create}><Icon slot="ui:new" />새 모험가 등록</button>
+            <button type="button" class="btn is-large" onClick={() => setShowCompanion(true)}><Icon slot="ui:companion" />동료 데려오기</button>
           </div>
         </section>
         {sheets.length ? (
@@ -149,6 +150,7 @@ function RosterEntry({ sheet, onOpen, onDuplicate, onRemove }) {
   return (
     <li class="roster-entry">
       <button type="button" class="roster-open" onClick={onOpen}>
+        <span class="roster-crest"><Icon slot={cls ? `class:${cls.id}` : "ui:empty"} /></span>
         <span class="roster-name">{sheet.profile.name || (sheet.meta.kind === "companion" ? "이름 없는 동료" : "이름 없는 모험가")}</span>
         <span class="roster-line">{line || "아직 정하지 않음"}</span>
         {sheet.meta.kind === "companion" ? <span class="roster-tag is-companion">동료</span> : null}
@@ -188,6 +190,7 @@ function SettingsModal({ settings, save, onClose }) {
       <ModelPicker label="동료 만들기에 쓸 모델" value={settings.companionModel} onChange={(v) => save({ companionModel: v })} />
       <ModelPicker label="AI 수정에 쓸 모델" value={settings.editModel} onChange={(v) => save({ editModel: v })} />
       <p class="section-hint">리스 설정에 정해 둔 메인·보조 모델을 그대로 쓴다. 동료 만들기와 수정은 글 품질이 중요해서 메인 모델을 권한다.</p>
+      <p class="credits">아이콘: game-icons.net (Lorc, Delapouite 외, CC BY 3.0). 규칙: D&D SRD 5.1 (CC BY 4.0). 비공식 팬 제작물.</p>
     </Modal>
   );
 }
@@ -248,7 +251,7 @@ function Editor({ sheet, update, settings, notices, dismissNotices, onBack }) {
         <button type="button" class="link-btn back" onClick={onBack}>명부 목록</button>
         <h1 class="brand is-small">{sheet.profile.name || (sheet.meta.kind === "companion" ? "새 동료" : "새 모험가")}</h1>
         <div class="topbar-actions">
-          <button type="button" class="btn is-quiet ledger-toggle" onClick={() => setLedgerOpen(true)}>명부 보기</button>
+          <button type="button" class="btn is-quiet ledger-toggle" onClick={() => setLedgerOpen(true)}><Icon slot="ui:ledger" />명부 보기</button>
           <button type="button" class="icon-btn" onClick={hide} aria-label="닫기">✕</button>
         </div>
       </header>
@@ -258,7 +261,7 @@ function Editor({ sheet, update, settings, notices, dismissNotices, onBack }) {
             {STEPS.map((s, i) => (
               <li>
                 <button type="button" class={`step${s.id === step ? " is-current" : ""}${status[s.id] ? " is-done" : ""}`} aria-current={s.id === step ? "step" : undefined} onClick={() => goTo(s.id)}>
-                  <span class="step-num">{i + 1}</span>
+                  <span class="step-num" title={`${i + 1}단계`}><Icon slot={`step:${s.id}`} /></span>
                   <span class="step-label">{s.label}</span>
                 </button>
               </li>

@@ -2,6 +2,7 @@
 import { ABILITIES, abilityName, skillName, t, getSubclass, languageName, spellById } from "../rules/data.js";
 import { getRace, getSubrace, getClass, getBackground } from "../rules/sheet.js";
 import { signed, abilityWord } from "../rules/calc.js";
+import { Icon } from "./Icon.jsx";
 
 export function Ledger({ sheet, d }) {
   const race = getRace(sheet);
@@ -18,6 +19,7 @@ export function Ledger({ sheet, d }) {
   return (
     <article class="ledger" aria-label="명부 미리보기">
       <header class="ledger-head">
+        {cls ? <Icon slot={`class:${cls.id}`} class="ledger-crest" /> : null}
         <h2 class={sheet.profile.name ? "" : "is-blank"}>{sheet.profile.name || "이름을 적을 자리"}</h2>
         <p class="ledger-line">
           {[raceName, cls ? `${d.level}레벨 ${t(cls.name)}` : null].filter(Boolean).join(" · ") || "종족과 직업이 여기 적힌다"}
@@ -30,7 +32,7 @@ export function Ledger({ sheet, d }) {
       <div class="ledger-abilities">
         {ABILITIES.map((ab) => (
           <div class="ledger-ability">
-            <span class="ledger-ability-name">{abilityName(ab)}</span>
+            <span class="ledger-ability-name"><Icon slot={`ability:${ab}`} />{abilityName(ab)}</span>
             <span class="ledger-ability-score">{d.scores[ab]}</span>
             <span class="ledger-ability-mod">{judge ? signed(d.mods[ab]) : t(abilityWord(d.scores[ab]))}</span>
           </div>

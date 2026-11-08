@@ -1,4 +1,5 @@
 // The creation steps.
+import { Icon } from "./Icon.jsx";
 import { useState } from "preact/hooks";
 import {
   races, classes, backgrounds, ABILITIES, abilityName, skillName, t, glossary,
@@ -30,9 +31,10 @@ export function RaceStep({ sheet, update }) {
       <Section title="종족" hint="태어난 혈통. 능력치 보너스는 능력치 단계에서 원하는 곳으로 옮길 수 있다.">
         <div class="option-grid is-wide">
           {races.map((r) => (
-            <Option name={r.name} summary={r.summary} selected={!custom && race?.id === r.id} onSelect={() => update((s) => setRace(s, r.id))} />
+            <Option icon={`race:${r.id}`} name={r.name} summary={r.summary} selected={!custom && race?.id === r.id} onSelect={() => update((s) => setRace(s, r.id))} />
           ))}
           <Option
+            icon="race:custom"
             name={{ ko: "직접 만들기", en: "Custom race" }}
             summary={{ ko: "세계관 고유의 종족을 이름과 설명으로 만든다.", en: "" }}
             selected={Boolean(custom)}
@@ -117,7 +119,7 @@ export function ClassStep({ sheet, update }) {
       <Section title="직업" hint="멀티클래스는 아직 지원하지 않는다.">
         <div class="option-grid is-wide">
           {classes.map((c) => (
-            <Option name={c.name} summary={c.summary} selected={cls?.id === c.id} onSelect={() => update((s) => setClass(s, c.id))} />
+            <Option icon={`class:${c.id}`} name={c.name} summary={c.summary} selected={cls?.id === c.id} onSelect={() => update((s) => setClass(s, c.id))} />
           ))}
         </div>
       </Section>
@@ -156,9 +158,10 @@ export function BackgroundStep({ sheet, update }) {
       <Section title="배경" hint="모험을 떠나기 전의 삶. 성격 예시는 외형·설정 단계에서 쓸 수 있다.">
         <div class="option-grid is-wide">
           {backgrounds.map((b) => (
-            <Option name={b.name} summary={b.summary} badge={b.bg3 ? null : "발더게3 밖"} selected={!custom && bg?.id === b.id} onSelect={() => update((s) => setBackground(s, b.id))} />
+            <Option icon={`background:${b.id}`} name={b.name} summary={b.summary} badge={b.bg3 ? null : "발더게3 밖"} selected={!custom && bg?.id === b.id} onSelect={() => update((s) => setBackground(s, b.id))} />
           ))}
           <Option
+            icon="background:custom"
             name={{ ko: "직접 만들기", en: "Custom background" }}
             summary={{ ko: "세계관에 맞는 출신을 직접 적는다.", en: "" }}
             selected={Boolean(custom)}
@@ -232,7 +235,7 @@ export function AbilitiesStep({ sheet, update }) {
         <div class="ability-table" role="table">
           {ABILITIES.map((ab) => (
             <div class="ability-row" role="row">
-              <span class="ability-name" role="cell">{abilityName(ab)}<span class="en">{t(glossary.abilities[ab].abbr, "en")}</span></span>
+              <span class="ability-name" role="cell"><Icon slot={`ability:${ab}`} />{abilityName(ab)}<span class="en">{t(glossary.abilities[ab].abbr, "en")}</span></span>
               <span class="ability-input" role="cell">
                 {method === "pointBuy" ? (
                   <span class="stepper">

@@ -620,3 +620,44 @@ select.input { appearance: auto; }
 @media (max-width: 720px) {
   .diff-cols { grid-template-columns: 1fr; }
 }
+
+/* ---------- Icons (game-icons.net) ---------- */
+
+.gi { width: 1em; height: 1em; fill: currentColor; flex: none; display: inline-block; vertical-align: -0.15em; }
+.btn .gi { width: 1.15em; height: 1.15em; margin-right: 6px; vertical-align: -0.2em; }
+
+.option-main.has-icon {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 12px;
+  align-content: start;
+}
+.option-main.has-icon > :not(.option-icon) { grid-column: 2; }
+.option-icon { grid-column: 1; grid-row: 1 / span 4; width: 40px; height: 40px; color: var(--gilt-dim); margin-top: 2px; transition: color 0.15s; }
+.option:hover:not(.is-disabled) .option-icon { color: var(--faded); }
+.option.is-selected .option-icon { color: var(--gilt); }
+
+.step-num { width: 28px; height: 28px; }
+.step-num .gi { width: 17px; height: 17px; }
+
+.ability-name .gi { width: 18px; height: 18px; margin-right: 6px; color: var(--gilt-dim); }
+
+.ledger-head { position: relative; }
+.ledger-crest { position: absolute; top: 0; right: 0; width: 46px; height: 46px; color: var(--page-faded); opacity: 0.45; }
+.ledger-head h2, .ledger-head .ledger-line { padding-right: 52px; }
+.ledger-ability-name { display: flex; align-items: center; justify-content: center; gap: 3px; }
+.ledger-ability-name .gi { width: 12px; height: 12px; opacity: 0.8; }
+
+.roster-open { grid-template-columns: auto 1fr auto; }
+.roster-crest { grid-column: 1; grid-row: 1 / span 2; align-self: center; width: 40px; height: 40px; border: 1px solid var(--rule); border-radius: 50%; display: grid; place-items: center; color: var(--gilt); }
+.roster-crest .gi { width: 24px; height: 24px; }
+.roster-name, .roster-line { grid-column: 2; }
+.roster-tag { grid-column: 3; }
+
+@media (max-width: 720px) {
+  .option-main.has-icon { grid-template-columns: 32px 1fr; column-gap: 10px; }
+  .option-icon { width: 32px; height: 32px; }
+  .step-num { width: 22px; height: 22px; }
+  .step-num .gi { width: 14px; height: 14px; }
+}
+.credits { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 12px; color: var(--faded); }
