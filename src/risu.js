@@ -197,6 +197,67 @@ export async function readChatContext(names, lore = []) {
   };
 }
 
+// ---------- Chat link mode ----------
+
+let replacerFn = null;
+let diceButtonId = null;
+let personaCache = { at: 0, id: null };
+
+/** Add (or with null, remove) the function that edits main-model requests. */
+export async function setRequestHook(fn) {
+  if (!api) return;
+  if (replacerFn) {
+    try { await api.removeRisuReplacer("beforeRequest", replacerFn); } catch { /* already gone */ }
+    replacerFn = null;
+  }
+  if (fn) {
+    replacerFn = fn;
+    await api.addRisuReplacer("beforeRequest", fn);
+  }
+}
+
+/** Show or hide the dice button next to the chat input. */
+export async function setDiceButton(onClick) {
+  if (!api) return;
+  if (diceButtonId) {
+    try { await api.unregisterUIPart(diceButtonId); } catch { /* already gone */ }
+    diceButtonId = null;
+  }
+  if (onClick) {
+    const res = await api.registerButton(
+      { name: "판정 굴리기", icon: "🎲", iconType: "html", location: "chat", id: "adventurers-ledger-dice" },
+      onClick,
+    );
+    diceButtonId = res?.id ?? "adventurers-ledger-dice";
+  }
+}
+
+/** Id of the persona currently selected in RisuAI, cached briefly. Null if unknown. */
+export async function selectedPersonaId() {
+  if (!api) return null;
+  if (Date.now() - personaCache.at < 20000) return personaCache.id;
+  let id = null;
+  try {
+    const db = await api.getDatabase(["personas", "selectedPersona"]);
+    id = db?.personas?.[db.selectedPersona]?.id ?? null;
+  } catch {
+    id = null;
+  }
+  personaCache = { at: Date.now(), id };
+  return id;
+}
+
+/** Send a message to the current chat as the user. Returns { ok } or { ok: false, reason }. */
+export async function sendToChat(text) {
+  if (!api) return { ok: true, preview: true };
+  try {
+    const sent = await api.sendChat(text);
+    return sent === false ? { ok: false, reason: "permission" } : { ok: true };
+  } catch (error) {
+    return { ok: false, reason: String(error?.message ?? error) };
+  }
+}
+
 /**
  * Ask the user's configured model. `which` is "model" (main) or "otherAx" (auxiliary).
  * Returns the response text, or throws with a readable message.

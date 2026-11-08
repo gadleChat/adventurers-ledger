@@ -89,9 +89,34 @@ export function FinishStep({ sheet, update, d, settings, goTo }) {
       </Section>
 
       {companion ? (
-        <Section title="동료를 채팅에 넣기" hint="동료 시트는 보통 리스 로어북에 넣는다. '로어북용 글 보기'에서 영어 글을 복사해 새 로어북 항목에 붙이고, 활성화 키에 동료 이름을 적으면 그 이름이 나올 때마다 AI가 시트를 읽는다.">
+        <Section
+          title="동료를 채팅에 넣기"
+          hint={settings.mode === "chat"
+            ? "채팅 연동 모드라서 최근 대화에 이 이름이 나오면 시트가 자동으로 AI에게 간다. 로어북에 따로 넣지 않아도 된다."
+            : "작성기 모드에서는 리스 로어북에 넣는다. '로어북용 글 보기'에서 영어 글을 복사해 새 로어북 항목에 붙이고, 활성화 키에 동료 이름을 적는다. 설정에서 채팅 연동을 켜면 자동으로 넣어 준다."}
+        >
+          {settings.mode === "chat" ? (
+            <Toggle
+              checked={sheet.meta.chatAuto !== false}
+              onChange={(v) => update((s) => ({ ...s, meta: { ...s.meta, chatAuto: v } }))}
+              label="이름이 나오면 자동으로 넣기"
+            />
+          ) : null}
+          <label class="field">
+            <span class="field-label">다른 이름</span>
+            <input
+              class="input"
+              value={(sheet.meta.aliases ?? []).join(", ")}
+              placeholder="영어 이름, 별명을 쉼표로 나눠 적는다"
+              onChange={(e) => {
+                const aliases = e.currentTarget.value.split(/[,，]/).map((v) => v.trim()).filter(Boolean);
+                update((s) => ({ ...s, meta: { ...s.meta, aliases } }));
+              }}
+            />
+            <span class="field-hint">채팅에 이 이름들 중 하나가 나와도 동료 시트를 넣는다.</span>
+          </label>
           <div class="actions">
-            <button type="button" class="btn is-primary" onClick={() => setShowCopy(true)}>로어북용 글 보기</button>
+            <button type="button" class={settings.mode === "chat" ? "btn" : "btn is-primary"} onClick={() => setShowCopy(true)}>로어북용 글 보기</button>
           </div>
         </Section>
       ) : null}

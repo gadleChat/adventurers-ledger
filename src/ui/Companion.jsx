@@ -39,11 +39,12 @@ export function CompanionDialog({ settings, onCreate, onClose }) {
   const start = async () => {
     const trimmed = name.trim();
     if (!trimmed) return;
+    const names = searchNames(trimmed, aliases);
+    const withAliases = (sheet) => ({ ...sheet, meta: { ...sheet.meta, aliases: names.slice(1) } });
     if (method === "manual") {
-      onCreate(blankCompanion(trimmed), []);
+      onCreate(withAliases(blankCompanion(trimmed)), []);
       return;
     }
-    const names = searchNames(trimmed, aliases);
     setBusy(true);
     try {
       setStatus({ kind: "info", text: "채팅을 읽는 중…" });
@@ -58,7 +59,7 @@ export function CompanionDialog({ settings, onCreate, onClose }) {
       const { sheet, warnings } = applyCompanion(trimmed, text, method);
       if (context.lore.length < selectedLore.length) warnings.unshift(`로어북이 길어서 ${selectedLore.length}개 중 앞의 ${context.lore.length}개만 보냈다.`);
       if (context.mentions === 0 && !context.lore.length) warnings.unshift(`채팅에 '${trimmed}'이(가) 한 번도 안 나왔다. 최근 대화만 보고 만들었다.`);
-      onCreate(sheet, warnings);
+      onCreate(withAliases(sheet), warnings);
     } catch (e) {
       setStatus({ kind: "error", text: `만들지 못했다: ${e.message}` });
     } finally {
@@ -72,7 +73,7 @@ export function CompanionDialog({ settings, onCreate, onClose }) {
       <Field label="동료 이름">
         <input class="input" value={name} placeholder="채팅에 나온 그대로" onInput={(e) => setName(e.currentTarget.value)} />
       </Field>
-      {method !== "manual" ? (
+      {true ? (
         <Field label="다른 이름 (선택)" hint="영어 이름, 별명처럼 채팅이나 로어북에서 부르는 이름이 따로 있으면 쉼표로 나눠 적는다.">
           <input class="input" value={aliases} placeholder="예: Eileen, 숲의 그림자" onInput={(e) => setAliases(e.currentTarget.value)} />
         </Field>

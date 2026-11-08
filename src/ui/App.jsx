@@ -11,8 +11,12 @@ import { Ledger } from "./Ledger.jsx";
 import { RaceStep, ClassStep, BackgroundStep, AbilitiesStep, GrowthStep, SpellStep, ProfileStep } from "./steps.jsx";
 import { FinishStep } from "./FinishStep.jsx";
 import { CompanionDialog } from "./Companion.jsx";
+import { DicePanel } from "./Dice.jsx";
+import { live } from "../live.js";
+import { applyChatMode } from "../chatRuntime.js";
+import { CHAT_DEFAULTS } from "../rules/chatLink.js";
 
-const DEFAULT_SETTINGS = { mode: "writer", translateModel: "otherAx", companionModel: "model", editModel: "model" };
+const DEFAULT_SETTINGS = { mode: "writer", translateModel: "otherAx", companionModel: "model", editModel: "model", ...CHAT_DEFAULTS };
 
 const STEPS = [
   { id: "race", label: "종족", en: "Race" },
@@ -32,18 +36,24 @@ export function App() {
   const [showSettings, setShowSettings] = useState(false);
   const [showCompanion, setShowCompanion] = useState(false);
   const [notices, setNotices] = useState([]);
+  const [view, setView] = useState(live.get().view);
   const saveTimer = useRef(null);
 
   useEffect(() => {
     (async () => {
       const stored = await storageGet("sheets");
       const storedSettings = await storageGet("settings");
-      setSheets(Array.isArray(stored) ? stored : []);
-      if (storedSettings) setSettings({ ...DEFAULT_SETTINGS, ...storedSettings });
+      const loaded = Array.isArray(stored) ? stored : [];
+      const merged = { ...DEFAULT_SETTINGS, ...(storedSettings ?? {}) };
+      setSheets(loaded);
+      setSettings(merged);
+      live.set({ sheets: loaded, settings: merged });
     })();
+    return live.subscribe((st) => setView(st.view));
   }, []);
 
   const persist = (next) => {
+    live.set({ sheets: next });
     clearTimeout(saveTimer.current);
     saveTimer.current = setTimeout(() => storageSet("sheets", next), 300);
   };
@@ -60,9 +70,19 @@ export function App() {
     const next = { ...settings, ...patch };
     setSettings(next);
     storageSet("settings", next);
+    live.set({ settings: next });
+    applyChatMode(next, live.get().openDice);
   };
 
   if (!sheets) return <div class="app is-loading">명부를 펼치는 중…</div>;
+
+  if (view?.name === "dice") {
+    const close = () => {
+      live.set({ view: null });
+      if (view.fromChat) hide();
+    };
+    return <DicePanel sheets={sheets} settings={settings} onClose={close} />;
+  }
 
   const current = sheets.find((s) => s.meta.id === editingId);
   if (current) {
@@ -122,6 +142,9 @@ export function App() {
           <div class="actions">
             <button type="button" class="btn is-primary is-large" onClick={create}><Icon slot="ui:new" />새 모험가 등록</button>
             <button type="button" class="btn is-large" onClick={() => setShowCompanion(true)}><Icon slot="ui:companion" />동료 데려오기</button>
+            {settings.mode === "chat" ? (
+              <button type="button" class="btn is-large" onClick={() => live.set({ view: { name: "dice", fromChat: false } })}><Icon slot="step:abilities" />판정 굴리기</button>
+            ) : null}
           </div>
         </section>
         {sheets.length ? (
@@ -134,7 +157,7 @@ export function App() {
           <p class="empty">아직 명부에 이름이 없다. 첫 모험가를 등록해 보자.</p>
         )}
       </main>
-      {showSettings ? <SettingsModal settings={settings} save={saveSettings} onClose={() => setShowSettings(false)} /> : null}
+      {showSettings ? <SettingsModal settings={settings} sheets={sheets} save={saveSettings} onClose={() => setShowSettings(false)} /> : null}
       {showCompanion ? <CompanionDialog settings={settings} onCreate={addCompanion} onClose={() => setShowCompanion(false)} /> : null}
     </div>
   );
@@ -171,17 +194,42 @@ function RosterEntry({ sheet, onOpen, onDuplicate, onRemove }) {
   );
 }
 
-function SettingsModal({ settings, save, onClose }) {
+function SettingsModal({ settings, sheets, save, onClose }) {
+  const chat = settings.mode === "chat";
+  const players = sheets.filter((s) => s.meta.kind !== "companion");
   return (
     <Modal title="설정" onClose={onClose}>
       <h4 class="sub-title">사용 방식</h4>
       <div class="segmented" role="radiogroup">
-        <button type="button" role="radio" aria-checked={settings.mode === "writer"} class={settings.mode === "writer" ? "is-on" : ""} onClick={() => save({ mode: "writer" })}>
+        <button type="button" role="radio" aria-checked={!chat} class={!chat ? "is-on" : ""} onClick={() => save({ mode: "writer" })}>
           페르소나 작성기
         </button>
-        <button type="button" role="radio" aria-checked={false} disabled>채팅 연동 (준비 중)</button>
+        <button type="button" role="radio" aria-checked={chat} class={chat ? "is-on" : ""} onClick={() => save({ mode: "chat" })}>
+          채팅 연동
+        </button>
       </div>
-      <p class="section-hint">작성기 모드는 페르소나를 만들어 저장하는 것까지만 한다. 채팅에는 끼어들지 않아서 응답 속도에 영향이 없다.</p>
+      {chat ? (
+        <>
+          <p class="section-hint">
+            채팅할 때 AI에게 보내는 글에 필요한 것만 짧게 덧붙인다. 붙일 게 없으면 아무것도 안 하고, 문제가 생기면 원래대로 보낸다.
+            처음 켜면 리스가 권한을 물어본다.
+          </p>
+          <div class="toggle-list">
+            <Toggle checked={settings.chatCompanions} onChange={(v) => save({ chatCompanions: v })} label="동료 시트 자동으로 넣기" hint="최근 대화에 동료 이름이 나오면 그 동료 시트를 붙인다. 로어북에 따로 넣지 않아도 된다." />
+            <Toggle checked={settings.chatSpells} onChange={(v) => save({ chatSpells: v })} label="주문 설명 넣기" hint="내 캐릭터나 동료가 아는 주문 이름이 최근 대화에 나오면 그 주문 규칙을 붙인다." />
+            <Toggle checked={settings.chatDice} onChange={(v) => save({ chatDice: v })} label="채팅창에 주사위 버튼" hint="버튼을 누르면 판정을 골라 코드가 직접 주사위를 굴린다." />
+          </div>
+          <h4 class="sub-title">채팅에서 쓸 내 캐릭터</h4>
+          <select class="input" value={settings.chatSheetId} onChange={(e) => save({ chatSheetId: e.currentTarget.value })}>
+            <option value="auto">자동: 지금 고른 페르소나와 연결된 명부</option>
+            {players.map((s) => <option value={s.meta.id}>{s.profile.name || "이름 없는 모험가"}</option>)}
+            <option value="none">없음</option>
+          </select>
+          <p class="section-hint">내 캐릭터 설명은 지금처럼 페르소나 글이 맡는다. 여기서 고른 캐릭터는 주문 설명과 주사위에만 쓴다. 레벨을 올렸다면 명부 완성에서 페르소나를 다시 저장해라.</p>
+        </>
+      ) : (
+        <p class="section-hint">작성기 모드는 페르소나를 만들어 저장하는 것까지만 한다. 채팅에는 끼어들지 않아서 응답 속도에 영향이 없다.</p>
+      )}
       <h4 class="sub-title">번역에 쓸 모델</h4>
       <div class="segmented" role="radiogroup">
         <button type="button" role="radio" aria-checked={settings.translateModel === "otherAx"} class={settings.translateModel === "otherAx" ? "is-on" : ""} onClick={() => save({ translateModel: "otherAx" })}>보조 모델</button>

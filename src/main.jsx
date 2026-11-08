@@ -1,7 +1,9 @@
 // Plugin entry point. Runs inside the plugin's sandboxed iframe.
 import { render } from "preact";
 import { App } from "./ui/App.jsx";
-import { inRisu, registerEntryPoints, show } from "./risu.js";
+import { inRisu, registerEntryPoints, show, storageGet } from "./risu.js";
+import { live } from "./live.js";
+import { applyChatMode } from "./chatRuntime.js";
 import styles from "./styles.css";
 
 function mount() {
@@ -24,15 +26,31 @@ function mount() {
 }
 
 async function open() {
+  live.set({ view: null });
   mount();
   await show();
+}
+
+/** Opened from the dice button next to the chat input. */
+async function openDice() {
+  live.set({ view: { name: "dice", fromChat: true } });
+  mount();
+  await show();
+}
+
+async function loadLiveState() {
+  const [sheets, settings] = await Promise.all([storageGet("sheets"), storageGet("settings")]);
+  live.set({ sheets: Array.isArray(sheets) ? sheets : [], settings: settings ?? {}, openDice });
+  await applyChatMode(live.get().settings, openDice);
 }
 
 (async () => {
   try {
     if (inRisu) {
       await registerEntryPoints(open);
+      await loadLiveState();
     } else {
+      live.set({ openDice });
       mount();
     }
   } catch (error) {
