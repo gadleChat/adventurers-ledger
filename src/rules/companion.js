@@ -7,7 +7,7 @@ import {
 } from "./data.js";
 import { newSheet, setRace, setCustomRace, setClass, setLevel, setBackground, setChoice, getChoice, getClass } from "./sheet.js";
 import { allChoices, isComplete, creationChoices } from "./choices.js";
-import { spellBudget, spellChoicePool, abilityScores } from "./calc.js";
+import { spellBudget, spellChoicePool, abilityScores, schoolAllowance } from "./calc.js";
 
 export const METHODS = {
   ai_full: {
@@ -131,12 +131,22 @@ function fillSpells(sheet, wanted) {
   const byName = new Map(Object.values(spellById).map((s) => [t(s.name, "en").toLowerCase(), s.id]));
   for (const s of Object.values(spellById)) if (s.name.bg3En) byName.set(s.name.bg3En.toLowerCase(), s.id);
   const wantedIds = new Set((wanted ?? []).map((n) => byName.get(String(n).toLowerCase())).filter(Boolean));
-  const pick = (list, count) => {
+  const allowance = schoolAllowance({ ...sheet, spells: { ...sheet.spells, known: [] } });
+  const pick = (list, count, limited) => {
     const first = list.filter((s) => wantedIds.has(s.id));
     const rest = list.filter((s) => !wantedIds.has(s.id) && s.bg3);
-    return [...first, ...rest].slice(0, count).map((s) => s.id);
+    const out = [];
+    let outside = 0;
+    for (const s of [...first, ...rest]) {
+      if (out.length >= count) break;
+      const offSchool = limited && allowance && !allowance.schools.includes(s.school);
+      if (offSchool && outside >= allowance.free) continue;
+      if (offSchool) outside += 1;
+      out.push(s.id);
+    }
+    return out;
   };
-  return { ...sheet, spells: { ...sheet.spells, cantrips: pick(pool.cantrips, budget.cantrips), known: pick(pool.spells, budget.spells) } };
+  return { ...sheet, spells: { ...sheet.spells, cantrips: pick(pool.cantrips, budget.cantrips, false), known: pick(pool.spells, budget.spells, true) } };
 }
 
 /** Apply the model's answer to a fresh companion sheet. Returns { sheet, warnings }. */

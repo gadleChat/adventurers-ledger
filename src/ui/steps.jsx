@@ -10,7 +10,7 @@ import {
   setClass, setLevel, setBackground, level as levelOf, defaultBonusChips,
 } from "../rules/sheet.js";
 import { creationChoices, levelChoices } from "../rules/choices.js";
-import { derive, mod, signed, abilityWord, spellBudget, spellChoicePool, classFeatures } from "../rules/calc.js";
+import { derive, mod, signed, abilityWord, spellBudget, spellChoicePool, classFeatures, schoolAllowance, schoolAllows } from "../rules/calc.js";
 import { Option, Section, Chips, Field, Toggle } from "./parts.jsx";
 import { ChoicePicker } from "./ChoicePicker.jsx";
 import { AiEditPanel } from "./AiEdit.jsx";
@@ -341,6 +341,19 @@ const commonLabel = (id) => COMMON_LABELS[id] ?? id;
 
 /* ---------- Spells ---------- */
 
+/** Full spell text for the detail panel, with the higher-level note appended. */
+function spellDetail(spell) {
+  const join = (lang, label) => {
+    const body = spell.desc?.[lang];
+    if (!body) return null;
+    const higher = spell.higherLevel?.[lang];
+    return higher ? `${body}\n\n${label} ${higher}` : body;
+  };
+  const en = join("en", "At higher levels:");
+  if (!en) return null;
+  return { ko: join("ko", "더 높은 슬롯:"), en };
+}
+
 export function SpellStep({ sheet, update }) {
   const budget = spellBudget(sheet);
   const d = derive(sheet);
@@ -362,8 +375,11 @@ export function SpellStep({ sheet, update }) {
   let list = tab === "cantrips" ? pool.cantrips : pool.spells;
   if (bg3Only) list = list.filter((s) => s.bg3 || chosen.includes(s.id));
   const grantedIds = new Set(granted.map((g) => g.spell.id));
+  const allowance = schoolAllowance(sheet);
+  const schoolBlocked = (spell) => tab === "spells" && !chosen.includes(spell.id) && !schoolAllows(allowance, spell);
   const toggle = (id) => update((s) => {
     const cur = s.spells[listKey];
+    if (!cur.includes(id) && listKey === "known" && !schoolAllows(schoolAllowance(s), spellById[id])) return s;
     const next = cur.includes(id) ? cur.filter((x) => x !== id) : cur.length < limit ? [...cur, id] : cur;
     return { ...s, spells: { ...s.spells, [listKey]: next } };
   });
@@ -385,8 +401,12 @@ export function SpellStep({ sheet, update }) {
             {budget.type === "prepared" ? "준비 주문" : "주문"} {sheet.spells.known.length}/{budget.spells}
           </button>
         </div>
-        {budget.schoolRestriction ? (
-          <p class="note">대부분 {budget.schoolRestriction.schools.map((s) => schoolName(s)).join("·")} 학파에서 골라야 한다. 일부 레벨에서만 다른 학파를 하나씩 고를 수 있다.</p>
+        {allowance ? (
+          <p class={`note${allowance.used > allowance.free ? " is-warn" : ""}`}>
+            {allowance.schools.map((x) => schoolName(x)).join("·")} 학파 주문만 배울 수 있다. 3·8·14·20레벨에 하나씩 다른 학파 주문을 고를 수 있다
+            (지금 {allowance.used}/{allowance.free}).
+            {allowance.used > allowance.free ? " 다른 학파 주문이 너무 많다. 몇 개 빼야 한다." : ""}
+          </p>
         ) : null}
         {[...groups.entries()].sort((a, b) => a[0] - b[0]).map(([lv, spellsAtLevel]) => (
           <div class="spell-group">
@@ -397,10 +417,11 @@ export function SpellStep({ sheet, update }) {
                   compact
                   name={s.name}
                   summary={s.summary}
-                  desc={s.desc?.ko ? s.desc : s.desc?.en ? { ko: s.desc.en, en: s.desc.en } : null}
+                  desc={spellDetail(s)}
                   badge={grantedIds.has(s.id) ? "자동" : s.bg3 ? null : "발더게3 밖"}
                   selected={chosen.includes(s.id)}
-                  disabled={(!chosen.includes(s.id) && chosen.length >= limit) || grantedIds.has(s.id)}
+                  note={schoolBlocked(s) ? { ko: "다른 학파 칸을 다 썼다", en: "" } : null}
+                  disabled={(!chosen.includes(s.id) && chosen.length >= limit) || grantedIds.has(s.id) || schoolBlocked(s)}
                   onSelect={() => toggle(s.id)}
                 />
               ))}

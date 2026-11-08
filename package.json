@@ -1,6 +1,6 @@
 {
   "name": "adventurers-ledger",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "description": "RisuAI plugin for building D&D 5e personas with a Baldur's Gate 3 style character creator.",

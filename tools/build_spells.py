@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BG3_LIST = ROOT / "tools" / "bg3_spells.json"
 EXTRA_TEXT = ROOT / "tools" / "extra_spell_text.json"
 SUMMARIES = ROOT / "tools" / "spell_summaries.json"
+KOREAN = ROOT / "tools" / "spell_ko.json"
 OUT = ROOT / "data" / "spells" / "spells.json"
 
 
@@ -115,6 +116,30 @@ def main():
         for field in ("desc", "higherLevel"):
             if field in text:
                 spell[field] = {"ko": text[field]["ko"], "en": text[field]["en"]}
+
+    # Merge Korean names (spells outside BG3) and Korean translations of SRD text.
+    korean = json.loads(KOREAN.read_text(encoding="utf-8"))
+    for sid, ko in korean["names"].items():
+        spell = spells.get(sid)
+        if spell is None:
+            errors.append(f"Korean name for unknown spell: {sid}")
+        elif spell["name"]["ko"]:
+            errors.append(f"Korean name already set from the BG3 list: {sid}")
+        else:
+            spell["name"]["ko"] = ko
+    for sid, text in korean["desc"].items():
+        spell = spells.get(sid)
+        if spell is None:
+            errors.append(f"Korean text for unknown spell: {sid}")
+            continue
+        if spell["desc"]["ko"]:
+            errors.append(f"Korean description already authored: {sid}")
+            continue
+        spell["desc"]["ko"] = text["desc"]
+        if text.get("higherLevel"):
+            if not spell["higherLevel"]["en"]:
+                errors.append(f"Korean higher-level text without English: {sid}")
+            spell["higherLevel"]["ko"] = text["higherLevel"]
 
     # Merge one-line summaries.
     summaries = json.loads(SUMMARIES.read_text(encoding="utf-8"))["summaries"]

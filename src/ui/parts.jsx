@@ -30,11 +30,29 @@ export function Option({ name, summary, desc, selected, disabled, note, onSelect
           {open ? "접기" : "자세히"}
         </button>
       ) : null}
-      {detail && open ? (
-        <div class="option-detail">
-          <p>{t(detail)}</p>
-          <p class="option-detail-en">{t(detail, "en")}</p>
-        </div>
+      {detail && open ? <OptionDetail detail={detail} /> : null}
+    </div>
+  );
+}
+
+/** Korean text first; the English original follows, folded away when it is long. */
+function OptionDetail({ detail }) {
+  const ko = typeof detail === "string" ? detail : detail.ko;
+  const en = typeof detail === "string" ? null : detail.en;
+  const enOnly = !ko && en;
+  return (
+    <div class="option-detail">
+      {enOnly ? <p class="option-detail-note">아직 한국어 설명이 없어 영어 원문을 보여 준다.</p> : null}
+      <p class="option-detail-text">{ko || en}</p>
+      {ko && en && ko !== en ? (
+        en.length > 240 ? (
+          <details class="option-detail-en">
+            <summary>영어 원문</summary>
+            <p class="option-detail-text">{en}</p>
+          </details>
+        ) : (
+          <p class="option-detail-en option-detail-text">{en}</p>
+        )
       ) : null}
     </div>
   );

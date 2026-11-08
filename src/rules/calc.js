@@ -197,6 +197,28 @@ export function spellBudget(sheet) {
   };
 }
 
+/**
+ * School limits for Eldritch Knight / Arcane Trickster style casters.
+ * Returns null when there is no limit, otherwise
+ * { schools, free, used }: spells known from other schools are capped at `free`.
+ */
+export function schoolAllowance(sheet) {
+  const limit = casterInfo(sheet)?.schoolRestriction;
+  if (!limit) return null;
+  const lvl = levelOf(sheet);
+  const free = Object.entries(limit.freePicks ?? {})
+    .filter(([at]) => Number(at) <= lvl)
+    .reduce((sum, [, count]) => sum + count, 0);
+  const used = sheet.spells.known.filter((id) => spellById[id] && !limit.schools.includes(spellById[id].school)).length;
+  return { schools: limit.schools, free, used };
+}
+
+/** True when `spell` can be added to the known spells without breaking the school limit. */
+export function schoolAllows(allowance, spell) {
+  if (!allowance || allowance.schools.includes(spell.school)) return true;
+  return allowance.used < allowance.free;
+}
+
 /** Spells granted automatically (domain, oath, circle, patron-free, racial). */
 export function grantedSpells(sheet) {
   const lvl = levelOf(sheet);

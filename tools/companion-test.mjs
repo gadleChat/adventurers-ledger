@@ -8,7 +8,9 @@ const rules = await loadRules(`
 export { applyCompanion, companionMessages, blankCompanion } from "./src/rules/companion.js";
 export { editMessages, parseEdit, applyEdits, undoEdit } from "./src/rules/aiEdit.js";
 export { allChoices, isComplete } from "./src/rules/choices.js";
-export { derive, spellBudget } from "./src/rules/calc.js";
+export { derive, spellBudget, schoolAllowance, schoolAllows } from "./src/rules/calc.js";
+export { newSheet, setClass, setLevel } from "./src/rules/sheet.js";
+export { spellById } from "./src/rules/data.js";
 export { buildPersonaText } from "./src/rules/export.js";
 export { findLore, searchNames, readChatContext } from "./src/risu.js";
 `);
@@ -110,6 +112,35 @@ check("lore lookup", () => {
   const msgs = rules.companionMessages("아일린", ctx, "ai_full", names.slice(1));
   assert.ok(msgs[1].content.includes("Also called: Eileen, 숲의 그림자"));
   assert.ok(msgs[1].content.includes("[Lorebook entry: 아일린]"));
+});
+
+// 7. Eldritch Knight school limit: one free pick at 3, two at 8.
+check("eldritch knight school limit", () => {
+  let s = rules.setLevel(rules.setClass(rules.newSheet(), "fighter"), 3);
+  s = { ...s, class: { ...s.class, subclassId: "eldritch_knight" } };
+  let a = rules.schoolAllowance(s);
+  assert.deepEqual([a.free, a.used], [1, 0]);
+  const sleep = rules.spellById["sleep"];      // enchantment: off-school
+  const shield = rules.spellById["shield"];    // abjuration: allowed
+  assert.ok(rules.schoolAllows(a, sleep));
+  s.spells.known = ["sleep"];
+  a = rules.schoolAllowance(s);
+  assert.equal(a.used, 1);
+  assert.ok(!rules.schoolAllows(a, rules.spellById["charm-person"]), "second off-school pick blocked at 3");
+  assert.ok(rules.schoolAllows(a, shield));
+  assert.equal(rules.schoolAllowance(rules.setLevel(s, 8)).free, 2);
+  assert.equal(rules.schoolAllowance(rules.setLevel(rules.setClass(rules.newSheet(), "wizard"), 5)), null);
+});
+
+// 8. Companion auto-fill respects the limit.
+check("companion fill respects school limit", () => {
+  const text = JSON.stringify({ level: 7, raceId: "human", subraceId: "standard_human", classId: "fighter", subclassId: "eldritch_knight",
+    backgroundId: "soldier", abilities: { str: 16, dex: 12, con: 14, int: 14, wis: 10, cha: 8 }, skills: [],
+    spells: ["Sleep", "Charm Person", "Tasha's Hideous Laughter", "Shield"], basis: "guessed" });
+  const { sheet } = rules.applyCompanion("Test", text, "ai_full");
+  const a = rules.schoolAllowance(sheet);
+  assert.ok(a.used <= a.free, `off-school ${a.used} > ${a.free}`);
+  assert.ok(sheet.spells.known.includes("shield"));
 });
 
 console.log(results.join("\n"));
