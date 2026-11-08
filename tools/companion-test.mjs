@@ -10,6 +10,7 @@ export { editMessages, parseEdit, applyEdits, undoEdit } from "./src/rules/aiEdi
 export { allChoices, isComplete } from "./src/rules/choices.js";
 export { derive, spellBudget } from "./src/rules/calc.js";
 export { buildPersonaText } from "./src/rules/export.js";
+export { findLore, searchNames, readChatContext } from "./src/risu.js";
 `);
 
 const results = [];
@@ -92,6 +93,23 @@ check("ai edit", () => {
   const undone = rules.undoEdit(edited);
   assert.equal(undone.profile.personality.traits, "밝다.");
   assert.equal(undone.history.length, 0);
+});
+
+// 6. Lorebook lookup: name matches rank first, text-only mentions are not pre-selected.
+const names = rules.searchNames("아일린", "Eileen, 숲의 그림자 ,");
+const lore = await rules.findLore(names);
+const ctx = await rules.readChatContext(names, lore.filter((l) => l.direct));
+check("lore lookup", () => {
+  assert.deepEqual(names, ["아일린", "Eileen", "숲의 그림자"]);
+  assert.equal(lore[0].title, "아일린");
+  assert.equal(lore[0].direct, true);
+  const forest = lore.find((l) => l.title === "은빛숲");
+  assert.ok(forest && !forest.direct, "text-only mention found but not direct");
+  assert.ok(!lore.some((l) => l.title === "깨진 술잔 주점"), "unrelated entry skipped");
+  assert.equal(ctx.lore.length, 1);
+  const msgs = rules.companionMessages("아일린", ctx, "ai_full", names.slice(1));
+  assert.ok(msgs[1].content.includes("Also called: Eileen, 숲의 그림자"));
+  assert.ok(msgs[1].content.includes("[Lorebook entry: 아일린]"));
 });
 
 console.log(results.join("\n"));

@@ -661,3 +661,18 @@ select.input { appearance: auto; }
   .step-num .gi { width: 14px; height: 14px; }
 }
 .credits { margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: 12px; color: var(--faded); }
+
+/* ---------- Companion lorebook picker ---------- */
+
+.field-hint { display: block; margin-top: 4px; font-size: 12px; color: var(--faded); }
+.lore-list { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 8px; max-height: 320px; overflow-y: auto; }
+.lore-item { border: 1px solid var(--rule); border-radius: var(--radius); padding: 10px 12px; background: var(--leather); }
+.lore-item.is-on { border-color: var(--gilt-dim); }
+.lore-pick { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.lore-pick input { accent-color: var(--gilt); width: 16px; height: 16px; flex: none; }
+.lore-title { font-family: var(--serif); font-weight: 700; }
+.lore-item.is-on .lore-title { color: var(--gilt); }
+.lore-tag { font-size: 11px; color: var(--faded); border: 1px solid var(--rule); border-radius: 999px; padding: 1px 8px; }
+.lore-keys { display: block; margin: 4px 0 0 24px; font-size: 12px; color: var(--faded); }
+.lore-text { margin: 4px 0 0 24px; font-size: 13px; color: var(--vellum-text); white-space: pre-wrap; word-break: break-word; }
+.lore-item .link-btn { margin-left: 24px; font-size: 12px; }

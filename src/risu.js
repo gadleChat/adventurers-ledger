@@ -77,17 +77,84 @@ const MENTION_LIMIT = 40;
 const RECENT_LIMIT = 30;
 const MESSAGE_CHARS = 1500;
 const CHAT_BUDGET = 24000;
+const LORE_CHARS = 6000;
+const LORE_BUDGET = 16000;
+
+const PREVIEW_LORE = [
+  { key: "아일린, Eileen", secondkey: "", comment: "아일린", content: "아일린은 은빛숲 순찰대 출신의 우드 엘프 궁수다. 고향 숲이 불탄 뒤 홀로 떠돌았다.", mode: "normal" },
+  { key: "은빛숲", secondkey: "", comment: "은빛숲", content: "엘프 순찰대가 지키던 숲. 아일린의 고향이며 지금은 잿더미다.", mode: "normal" },
+  { key: "주점", secondkey: "", comment: "깨진 술잔 주점", content: "모험가들이 모이는 주점.", mode: "normal" },
+];
+
+/** Splits "Astarion, 아스타리온" style input into distinct search names. */
+export function searchNames(name, aliases = "") {
+  return [...new Set([name, ...aliases.split(/[,，\n]/)].map((v) => v.trim()).filter(Boolean))];
+}
+
+function loreScore(entry, needles) {
+  const keys = [entry.key, entry.secondkey].join(",").split(",").map((k) => k.trim().toLowerCase()).filter(Boolean);
+  const comment = (entry.comment ?? "").trim().toLowerCase();
+  const content = (entry.content ?? "").toLowerCase();
+  let best = 0;
+  for (const raw of needles) {
+    const n = raw.toLowerCase();
+    let score = 0;
+    if (comment === n || keys.includes(n)) score = 100;
+    else if (keys.some((k) => k.includes(n))) score = 80;
+    else if (comment.includes(n)) score = 70;
+    else if (content.includes(n)) score = 10 + Math.min(20, content.split(n).length - 1);
+    best = Math.max(best, score);
+  }
+  return best;
+}
 
 /**
- * Collect what the current chat knows about `name`: the character card,
- * lorebook entries that mention the name, messages that mention it, and the most recent messages.
+ * Lorebook entries (character, chat, and active modules) that mention any of `names`,
+ * best matches first. Entries whose keys or title are the name come before ones
+ * that only mention it in their text.
  */
-export async function readChatContext(name) {
+export async function findLore(names) {
+  let entries = PREVIEW_LORE;
+  if (api) {
+    try {
+      entries = (await api.getCurrentLorebookEntries()) ?? [];
+    } catch {
+      entries = [];
+    }
+  }
+  return entries
+    .map((e, index) => ({ e, index, score: e.mode === "folder" || !e.content ? 0 : loreScore(e, names) }))
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .slice(0, 12)
+    .map(({ e, index, score }) => ({
+      id: `${index}`,
+      title: e.comment || (e.key ?? "").split(",")[0].trim() || "이름 없는 항목",
+      keys: [e.key, e.secondkey].filter(Boolean).join(", "),
+      content: e.content,
+      direct: score >= 70,
+    }));
+}
+
+/**
+ * Collect what the current chat knows about the companion: the character card,
+ * the chosen lorebook entries, messages that mention any of `names`, and the most recent messages.
+ */
+export async function readChatContext(names, lore = []) {
+  const picked = [];
+  let loreUsed = 0;
+  for (const l of lore) {
+    const content = l.content.slice(0, LORE_CHARS);
+    if (loreUsed + content.length > LORE_BUDGET) break;
+    loreUsed += content.length;
+    picked.push({ title: l.title, content });
+  }
   if (!api) {
+    const name = names[0];
     return {
       charName: "미리보기",
       charDesc: "",
-      lore: [],
+      lore: picked,
       lines: [`[User] ${name}와 함께 숲을 걸었다.`, `[Narrator] ${name}는 낡은 활을 등에 멘 채 말없이 앞장섰다.`],
       mentions: 1,
       total: 2,
@@ -98,17 +165,20 @@ export async function readChatContext(name) {
   const chatIndex = await api.getCurrentChatIndex();
   const chat = await api.getChatFromIndex(charIndex, chatIndex);
   const messages = chat?.message ?? [];
-  const needle = name.trim().toLowerCase();
+  const needles = names.map((n) => n.toLowerCase());
   const charName = char.name ?? "Narrator";
 
   const mentionIdx = [];
-  messages.forEach((m, i) => { if ((m.data ?? "").toLowerCase().includes(needle)) mentionIdx.push(i); });
+  messages.forEach((m, i) => {
+    const text = (m.data ?? "").toLowerCase();
+    if (needles.some((n) => text.includes(n))) mentionIdx.push(i);
+  });
   const recentIdx = messages.map((_, i) => i).slice(-RECENT_LIMIT);
-  const picked = [...new Set([...mentionIdx.slice(-MENTION_LIMIT), ...recentIdx])].sort((a, b) => a - b);
+  const chosen = [...new Set([...mentionIdx.slice(-MENTION_LIMIT), ...recentIdx])].sort((a, b) => a - b);
 
   const lines = [];
   let used = 0;
-  for (const i of picked.reverse()) {
+  for (const i of chosen.reverse()) {
     const m = messages[i];
     const speaker = m.role === "user" ? "User" : m.name || charName;
     const text = (m.data ?? "").replace(/\{\{inlayed?::[^}]*\}\}/g, "").slice(0, MESSAGE_CHARS);
@@ -117,21 +187,10 @@ export async function readChatContext(name) {
     lines.unshift(`[${speaker}] ${text}`);
   }
 
-  let lore = [];
-  try {
-    const entries = (await api.getCurrentLorebookEntries()) ?? [];
-    lore = entries
-      .filter((e) => [e.key, e.secondkey, e.comment, e.content].some((v) => (v ?? "").toLowerCase().includes(needle)))
-      .slice(0, 4)
-      .map((e) => ({ title: e.comment || e.key, content: (e.content ?? "").slice(0, 3000) }));
-  } catch {
-    lore = [];
-  }
-
   return {
     charName,
     charDesc: (char.desc ?? "").slice(0, 3000),
-    lore,
+    lore: picked,
     lines,
     mentions: mentionIdx.length,
     total: messages.length,

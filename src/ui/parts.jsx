@@ -63,7 +63,7 @@ export function Chips({ items, onPick }) {
   );
 }
 
-export function Field({ label, children, en }) {
+export function Field({ label, children, en, hint }) {
   return (
     <label class="field">
       <span class="field-label">
@@ -71,6 +71,7 @@ export function Field({ label, children, en }) {
         {en ? <span class="field-en">{en}</span> : null}
       </span>
       {children}
+      {hint ? <span class="field-hint">{hint}</span> : null}
     </label>
   );
 }

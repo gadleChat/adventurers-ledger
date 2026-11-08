@@ -41,7 +41,7 @@ function catalog() {
 
 const APPEARANCE_KEYS = [...appearanceFields.map((f) => f.id), "extra"];
 
-export function companionMessages(name, context, method) {
+export function companionMessages(name, context, method, aliases = []) {
   const full = method === "ai_full";
   const schema = {
     name: "string",
@@ -68,7 +68,8 @@ export function companionMessages(name, context, method) {
     "You read a roleplay chat and build a D&D 5e (2014 rules) character sheet for one of its characters, who is joining the user's party as a companion.",
     "Use ONLY ids from the catalog for race, subrace, class, subclass, background, and skills. If nothing fits the race or background, use the custom fields instead.",
     "If this is a well-known character (for example from Baldur's Gate 3 or the Forgotten Realms), follow the original for race, class, and subclass, but when the chat contradicts the original, the chat wins.",
-    "Base everything on the chat. Where the chat says nothing, make modest, consistent guesses.",
+    "Lorebook entries are the setting's own notes about this character and their world: treat them as canon and use their details (appearance, history, relationships) faithfully. When the chat shows later developments, the chat wins.",
+    "Base everything on the lorebook and the chat. Where neither says anything, make modest, consistent guesses.",
     "Write all descriptive text (appearance, personality, backstory, notes, custom names) in Korean.",
     "Reply with a single JSON object and nothing else.",
     "",
@@ -79,8 +80,9 @@ export function companionMessages(name, context, method) {
   ].join("\n");
 
   const parts = [`Character to build: ${name}`];
+  if (aliases.length) parts.push(`Also called: ${aliases.join(", ")}`);
   if (context.charDesc) parts.push(`\n[Character card / setting: ${context.charName}]\n${context.charDesc}`);
-  for (const l of context.lore) parts.push(`\n[Lorebook: ${l.title}]\n${l.content}`);
+  for (const l of context.lore) parts.push(`\n[Lorebook entry: ${l.title}]\n${l.content}`);
   parts.push(`\n[Chat excerpts, oldest first]\n${context.lines.join("\n")}`);
   return [
     { role: "system", content: system },
