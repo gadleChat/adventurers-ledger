@@ -53,7 +53,7 @@ const dataPlugin = {
 
 const header = [
   "//@name gadlechat_adventurers_ledger",
-  "//@display-name 모험가 명부",
+  `//@display-name Adventurer's Ledger v${pkg.version}`,
   "//@api 3.0",
   `//@version ${pkg.version}`,
   "//@update-url https://raw.githubusercontent.com/gadleChat/adventurers-ledger/main/dist/adventurers-ledger.js",
